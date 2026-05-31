@@ -1,7 +1,20 @@
-{%- assign pkg1_product = all_products[section.settings.pkg1_product] -%}
-{%- assign pkg1_variant = pkg1_product.first_available_variant -%}
-{%- assign pkg2_product = all_products[section.settings.pkg2_product] -%}
-{%- assign pkg2_variant = pkg2_product.first_available_variant -%}
+{%- assign pkg1_product = nil -%}
+{%- assign pkg1_variant = nil -%}
+{%- if section.settings.pkg1_product != blank -%}
+  {%- assign pkg1_product = all_products[section.settings.pkg1_product] -%}
+  {%- if pkg1_product != blank -%}
+    {%- assign pkg1_variant = pkg1_product.first_available_variant -%}
+  {%- endif -%}
+{%- endif -%}
+
+{%- assign pkg2_product = nil -%}
+{%- assign pkg2_variant = nil -%}
+{%- if section.settings.pkg2_product != blank -%}
+  {%- assign pkg2_product = all_products[section.settings.pkg2_product] -%}
+  {%- if pkg2_product != blank -%}
+    {%- assign pkg2_variant = pkg2_product.first_available_variant -%}
+  {%- endif -%}
+{%- endif -%}
 
 <!-- Coaching Page Section -->
 <section id="coaching-section-{{ section.id }}" class="coaching-page-wrapper">
@@ -514,7 +527,7 @@
           </ul>
           
           {%- if pkg1_variant -%}
-            <a href="/cart/{{ pkg1_variant.id }}:1" class="coaching-card-light__btn">{{ section.settings.pkg_button_text }}</a>
+            <a href="/cart/add?id={{ pkg1_variant.id }}&quantity=1&return_to=/checkout" class="coaching-card-light__btn">{{ section.settings.pkg_button_text }}</a>
           {%- else -%}
             <a href="#booking" class="coaching-card-light__btn">{{ section.settings.pkg_button_text }}</a>
           {%- endif -%}
@@ -571,7 +584,7 @@
           </ul>
           
           {%- if pkg2_variant -%}
-            <a href="/cart/{{ pkg2_variant.id }}:1" class="coaching-card-dark__btn">{{ section.settings.pkg_button_text }}</a>
+            <a href="/cart/add?id={{ pkg2_variant.id }}&quantity=1&return_to=/checkout" class="coaching-card-dark__btn">{{ section.settings.pkg_button_text }}</a>
           {%- else -%}
             <a href="#booking" class="coaching-card-dark__btn">{{ section.settings.pkg_button_text }}</a>
           {%- endif -%}
