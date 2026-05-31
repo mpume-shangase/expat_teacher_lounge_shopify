@@ -6,7 +6,7 @@
   <div class="container flex items-center justify-between">
     
     <!-- Logo or Shop Title -->
-    <a href="{{ routes.root_url }}" class="site-header__logo-link flex items-center">
+    <a href="{{ routes.root_url }}" class="site-header__logo-link flex items-center animate-fade-in">
       {%- if section.settings.logo != blank -%}
         <img src="{{ section.settings.logo | image_url: width: 360 }}"
              alt="{{ shop.name | escape }}"
@@ -14,21 +14,25 @@
              class="object-contain"
              loading="lazy">
       {%- else -%}
-        <span class="font-display font-bold text-xl text-white">{{ shop.name }}</span>
+        <img src="{{ 'expat_teachers_lounge_logo.png' | asset_url }}"
+             alt="{{ shop.name | escape }}"
+             style="max-width: {{ section.settings.logo_max_width | default: 180 }}px; height: auto;"
+             class="object-contain"
+             loading="lazy">
       {%- endif -%}
     </a>
 
     <!-- Desktop Navigation Menu -->
     <nav class="site-header__nav" role="navigation">
       {%- for link in main_menu.links -%}
-        <a href="{{ link.url }}" class="site-header__link {% if link.active %}site-header__link--active{% endif %}" style="color: rgba(255, 255, 255, 0.9);">
+        <a href="{{ link.url }}" class="site-header__link {% if link.active %}site-header__link--active{% endif %}">
           {{ link.title }}
         </a>
       {%- endfor -%}
     </nav>
 
     <!-- Mobile Navigation Trigger -->
-    <button type="button" class="mobile-nav-toggle" aria-label="Toggle menu" style="color: #ffffff;">
+    <button type="button" class="mobile-nav-toggle" aria-label="Toggle menu">
       <span></span>
       <span></span>
       <span></span>
