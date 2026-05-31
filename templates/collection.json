@@ -11,6 +11,28 @@
   "sections": {
     "main": {
       "type": "main-collection",
+      "blocks": {
+        "free_resource_bEaFmL": {
+          "type": "free_resource",
+          "settings": {
+            "title": "Qatar Document Attestation Checklist",
+            "link": "shopify://products/qatar-document-checklist",
+            "thumbnail": "shopify://shop_images/Thumbnail-_Documentation_Checklist_for_UK_and_Qatar.png"
+          }
+        },
+        "free_resource_nh7kEQ": {
+          "type": "free_resource",
+          "settings": {
+            "title": "Qatar Immigration Checklist",
+            "link": "shopify://products/qatar-immigration-checklist",
+            "thumbnail": "shopify://shop_images/Thumbnail_-_Qatar_Teacher_Immigration_Residence_Permit_Checklist.png"
+          }
+        }
+      },
+      "block_order": [
+        "free_resource_bEaFmL",
+        "free_resource_nh7kEQ"
+      ],
       "settings": {
         "hero_title_prefix": "Empower your",
         "hero_title_italic": "transition.",
