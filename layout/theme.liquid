@@ -49,7 +49,7 @@
     {{ content_for_header }}
   </head>
 
-  <body class="font-body antialiased bg-light text-light transition-colors duration-300 template-{{ template.name | handle }}">
+  <body class="font-body antialiased bg-light text-light transition-colors duration-300 template-{{ template.name | handle }}{% if template.suffix %} template-{{ template.name | handle }}-{{ template.suffix | handle }}{% endif %}">
     <a class="skip-to-content-link button sr-only" href="#MainContent">
       Skip to content
     </a>

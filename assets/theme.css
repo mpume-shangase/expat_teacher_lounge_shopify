@@ -278,7 +278,7 @@ button, input, select, textarea {
 /* Light background templates: links should be dark before scroll */
 .template-product .site-header:not(.site-header--scrolled),
 .template-cart .site-header:not(.site-header--scrolled),
-.template-page .site-header:not(.site-header--scrolled),
+.template-page:not(.template-page-about) .site-header:not(.site-header--scrolled),
 .template-article .site-header:not(.site-header--scrolled),
 .template-search .site-header:not(.site-header--scrolled),
 .template-404 .site-header:not(.site-header--scrolled) {
@@ -287,13 +287,13 @@ button, input, select, textarea {
 
 .template-product .site-header:not(.site-header--scrolled) a,
 .template-cart .site-header:not(.site-header--scrolled) a,
-.template-page .site-header:not(.site-header--scrolled) a,
+.template-page:not(.template-page-about) .site-header:not(.site-header--scrolled) a,
 .template-article .site-header:not(.site-header--scrolled) a,
 .template-search .site-header:not(.site-header--scrolled) a,
 .template-404 .site-header:not(.site-header--scrolled) a,
 .template-product .site-header:not(.site-header--scrolled) .mobile-nav-toggle,
 .template-cart .site-header:not(.site-header--scrolled) .mobile-nav-toggle,
-.template-page .site-header:not(.site-header--scrolled) .mobile-nav-toggle,
+.template-page:not(.template-page-about) .site-header:not(.site-header--scrolled) .mobile-nav-toggle,
 .template-article .site-header:not(.site-header--scrolled) .mobile-nav-toggle,
 .template-search .site-header:not(.site-header--scrolled) .mobile-nav-toggle,
 .template-404 .site-header:not(.site-header--scrolled) .mobile-nav-toggle {
@@ -302,7 +302,7 @@ button, input, select, textarea {
 
 .template-product .site-header:not(.site-header--scrolled) .site-header__link::after,
 .template-cart .site-header:not(.site-header--scrolled) .site-header__link::after,
-.template-page .site-header:not(.site-header--scrolled) .site-header__link::after,
+.template-page:not(.template-page-about) .site-header:not(.site-header--scrolled) .site-header__link::after,
 .template-article .site-header:not(.site-header--scrolled) .site-header__link::after,
 .template-search .site-header:not(.site-header--scrolled) .site-header__link::after,
 .template-404 .site-header:not(.site-header--scrolled) .site-header__link::after {
@@ -311,7 +311,7 @@ button, input, select, textarea {
 
 .template-product .site-header:not(.site-header--scrolled) .site-header__link--active,
 .template-cart .site-header:not(.site-header--scrolled) .site-header__link--active,
-.template-page .site-header:not(.site-header--scrolled) .site-header__link--active,
+.template-page:not(.template-page-about) .site-header:not(.site-header--scrolled) .site-header__link--active,
 .template-article .site-header:not(.site-header--scrolled) .site-header__link--active,
 .template-search .site-header:not(.site-header--scrolled) .site-header__link--active,
 .template-404 .site-header:not(.site-header--scrolled) .site-header__link--active {
