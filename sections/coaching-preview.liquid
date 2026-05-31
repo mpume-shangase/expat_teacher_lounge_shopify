@@ -8,7 +8,7 @@
       
       <!-- Left Column: Copy Content (50%) -->
       <div class="coaching-content" style="flex: 1 1 500px; padding-right: 16px;">
-        <h2 class="font-display font-black text-white" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 24px;">
+        <h2 class="font-display font-black text-white" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 24px; color: #ffffff !important;">
           {{ section.settings.title_prefix }} <span class="italic" style="color: var(--color-blue); font-style: italic;">{{ section.settings.title_italic }}</span>
         </h2>
         {%- if section.settings.description != blank -%}
@@ -22,7 +22,7 @@
           {%- for block in section.blocks -%}
             <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--border-radius-md); padding: 24px; backdrop-filter: blur(10px);">
               <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                <h3 class="font-display font-bold text-white" style="font-size: 1.25rem; margin: 0;">
+                <h3 class="font-display font-bold text-white" style="font-size: 1.25rem; margin: 0; color: #ffffff !important;">
                   {{ block.settings.title | escape }}
                 </h3>
                 <span class="font-display font-bold" style="color: var(--color-brand-gold, #FCCB52); font-size: 1.25rem;">
