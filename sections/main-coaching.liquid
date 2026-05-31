@@ -1,3 +1,8 @@
+{%- assign pkg1_product = all_products[section.settings.pkg1_product] -%}
+{%- assign pkg1_variant = pkg1_product.first_available_variant -%}
+{%- assign pkg2_product = all_products[section.settings.pkg2_product] -%}
+{%- assign pkg2_variant = pkg2_product.first_available_variant -%}
+
 <!-- Coaching Page Section -->
 <section id="coaching-section-{{ section.id }}" class="coaching-page-wrapper">
   
@@ -508,7 +513,11 @@
             {%- endif -%}
           </ul>
           
-          <a href="#booking" class="coaching-card-light__btn">{{ section.settings.pkg_button_text }}</a>
+          {%- if pkg1_variant -%}
+            <a href="/cart/{{ pkg1_variant.id }}:1" class="coaching-card-light__btn">{{ section.settings.pkg_button_text }}</a>
+          {%- else -%}
+            <a href="#booking" class="coaching-card-light__btn">{{ section.settings.pkg_button_text }}</a>
+          {%- endif -%}
         </div>
         
         <!-- Package 2: Contract Review -->
@@ -561,7 +570,11 @@
             {%- endif -%}
           </ul>
           
-          <a href="#booking" class="coaching-card-dark__btn">{{ section.settings.pkg_button_text }}</a>
+          {%- if pkg2_variant -%}
+            <a href="/cart/{{ pkg2_variant.id }}:1" class="coaching-card-dark__btn">{{ section.settings.pkg_button_text }}</a>
+          {%- else -%}
+            <a href="#booking" class="coaching-card-dark__btn">{{ section.settings.pkg_button_text }}</a>
+          {%- endif -%}
         </div>
         
       </div>
@@ -739,6 +752,16 @@
       "id": "pkg_button_text",
       "label": "Packages Button Text",
       "default": "Select Package"
+    },
+    {
+      "type": "product",
+      "id": "pkg1_product",
+      "label": "Package 1 Shopify Product"
+    },
+    {
+      "type": "product",
+      "id": "pkg2_product",
+      "label": "Package 2 Shopify Product"
     },
     {
       "type": "text",
