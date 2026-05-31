@@ -1,11 +1,61 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "name": "Coaching Page",
   "sections": {
     "main": {
-      "type": "main-coaching"
+      "type": "main-coaching",
+      "settings": {
+        "hero_image": "shopify://shop_images/ChatGPT_Image_May_31_2026_12_33_13_PM.png",
+        "hero_title_prefix": "1-on-1",
+        "hero_title_accent": "Strategy.",
+        "hero_description": "Clear the noise. Get direct, personalized guidance on your relocation.",
+        "hero_button_text": "View Packages",
+        "pkg_button_text": "Select Package",
+        "pkg1_title": "Relocation Strategy Session",
+        "pkg1_meta": "60 MINUTES • GOOGLE MEET",
+        "pkg1_price": "$97",
+        "pkg1_feat1": "Deep dive into your personal and professional priorities",
+        "pkg1_feat2": "Targeted country selection strategy",
+        "pkg1_feat3": "C.V. and cover letter review & optimization",
+        "pkg1_feat4": "Interview technique preparation",
+        "pkg1_feat5": "Written action plan delivered within 24 hours",
+        "pkg2_title": "Contract Review Session",
+        "pkg2_meta": "45 MINUTES • GOOGLE MEET",
+        "pkg2_price": "$77",
+        "pkg2_feat1": "Line-by-line contract analysis before you sign",
+        "pkg2_feat2": "Hidden red flags and missing clauses identified",
+        "pkg2_feat3": "Salary benchmarking against true market rate",
+        "pkg2_feat4": "Negotiation coaching and exact phrasing to use",
+        "pkg2_feat5": "Benefit evaluation (housing, insurance, flights)",
+        "booking_title_prefix": "Book your",
+        "booking_title_accent": "Session.",
+        "booking_subtitle": "Select an available time below. Payment is processed securely via Stripe.",
+        "calendly_embed_code": "",
+        "faq_title_prefix": "Frequently Asked",
+        "faq_title_accent": "Questions.",
+        "faq1_q": "Is my payment secure?",
+        "faq1_a": "Yes. All payments are processed securely through Stripe. We do not store any of your credit card information locally.",
+        "faq2_q": "Can I reschedule my session?",
+        "faq2_a": "Yes, you can reschedule up to 24 hours before our scheduled time using the link in your confirmation email.",
+        "faq3_q": "What if I don't have my contract yet?",
+        "faq3_a": "The Contract Review session is best booked once you have an offer in hand. If you're still early in the process, the Relocation Strategy Session is the best place to start.",
+        "faq4_q": "Do you guarantee job placement?",
+        "faq4_a": "No. I am not a recruiter and do not guarantee placements. I provide independent, objective strategy and negotiation support to ensure you secure the best possible role on your own terms."
+      }
     },
     "newsletter": {
-      "type": "email-capture"
+      "type": "email-capture",
+      "settings": {
+        "title": "Relocation intel, straight to your inbox.",
+        "description": "Visa updates, salary benchmarks, and destination guides for teachers serious about their next move."
+      }
     }
   },
   "order": [
