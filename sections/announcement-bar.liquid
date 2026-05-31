@@ -1,0 +1,21 @@
+{% if section.settings.announcement_text != blank %}
+<div class="announcement-bar">
+  <div class="container">
+    {{ section.settings.announcement_text }}
+    {% if section.settings.announcement_link != blank %}
+      <a href="{{ section.settings.announcement_link }}" style="color:inherit;text-decoration:underline;margin-left:0.5rem;">{{ section.settings.link_text }}</a>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    { "type": "text", "id": "announcement_text", "label": "Text", "default": "18 yrs • 4 countries • built by a teacher, for teachers" },
+    { "type": "url", "id": "announcement_link", "label": "Link URL" },
+    { "type": "text", "id": "link_text", "label": "Link Text", "default": "Learn More" }
+  ]
+}
+{% endschema %}
