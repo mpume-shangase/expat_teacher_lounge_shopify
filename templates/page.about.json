@@ -1,0 +1,15 @@
+{
+  "name": "About Page",
+  "sections": {
+    "main": {
+      "type": "main-about"
+    },
+    "newsletter": {
+      "type": "email-capture"
+    }
+  },
+  "order": [
+    "main",
+    "newsletter"
+  ]
+}

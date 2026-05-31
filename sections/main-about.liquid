@@ -1,0 +1,1172 @@
+<!-- About Page Section -->
+<section id="about-section-{{ section.id }}" class="about-page-wrapper">
+  
+  <style>
+    .about-page-wrapper {
+      width: 100%;
+      background-color: var(--bg-light, #ffffff);
+      color: var(--text-light, #0a0a14);
+      font-family: var(--font-body), sans-serif;
+    }
+    
+    /* --- COMMON STYLES --- */
+    .about-section-padding {
+      padding: 80px 24px;
+    }
+    @media (min-width: 992px) {
+      .about-section-padding {
+        padding: 120px 24px;
+      }
+    }
+    
+    .about-container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    
+    .about-badge {
+      display: inline-block;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 20px;
+    }
+    
+    /* --- SECTION 1: HERO --- */
+    .about-hero {
+      position: relative;
+      height: 85vh;
+      min-height: 550px;
+      display: flex;
+      align-items: center;
+      background-color: #0a0b14;
+      overflow: hidden;
+    }
+    
+    .about-hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+    .about-hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.25;
+    }
+    .about-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(10, 11, 20, 0.95), rgba(55, 57, 219, 0.3));
+      z-index: 2;
+    }
+    
+    .about-hero__content {
+      position: relative;
+      z-index: 3;
+      color: #ffffff;
+      width: 100%;
+    }
+    
+    .about-hero__badge {
+      color: var(--color-brand-gold, #FCCB52);
+    }
+    
+    .about-hero__title {
+      font-family: var(--font-display), serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      line-height: 1.15;
+      margin-bottom: 24px;
+      max-width: 900px;
+    }
+    
+    .about-hero__description {
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 750px;
+      line-height: 1.6;
+    }
+    
+    /* --- SECTION 2: STORY --- */
+    .about-story {
+      background-color: var(--bg-light, #ffffff);
+    }
+    .about-story__grid {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+    @media (min-width: 992px) {
+      .about-story__grid {
+        flex-direction: row;
+        align-items: center;
+        gap: 80px;
+      }
+    }
+    
+    .about-story__left {
+      flex: 1;
+      position: relative;
+    }
+    
+    .about-story__img-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: var(--border-radius-lg, 24px);
+      overflow: visible;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+    
+    .about-story__main-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      border-radius: var(--border-radius-lg, 24px);
+    }
+    
+    .about-story__inset-badge {
+      position: absolute;
+      bottom: -30px;
+      right: -10px;
+      width: 150px;
+      height: 150px;
+      border-radius: var(--border-radius-md, 12px);
+      border: 4px solid var(--bg-light, #ffffff);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      z-index: 10;
+      overflow: hidden;
+    }
+    @media (min-width: 576px) {
+      .about-story__inset-badge {
+        width: 180px;
+        height: 180px;
+        right: -30px;
+      }
+    }
+    .about-story__inset-badge img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .about-story__gold-bar {
+      position: absolute;
+      left: -16px;
+      top: 60px;
+      width: 4px;
+      height: 120px;
+      background-color: var(--color-brand-gold, #FCCB52);
+      border-radius: 2px;
+      z-index: 10;
+    }
+    
+    .about-story__right {
+      flex: 1.2;
+    }
+    
+    .about-story__badge {
+      color: var(--color-blue, #1C91D7);
+    }
+    
+    .about-story__title {
+      font-family: var(--font-display), serif;
+      font-weight: 800;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      line-height: 1.2;
+      color: var(--text-light, #0a0a14);
+      margin-bottom: 24px;
+    }
+    
+    .about-story__paragraphs {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #555566;
+      margin-bottom: 32px;
+    }
+    .about-story__paragraphs p {
+      margin-bottom: 16px;
+    }
+    
+    .about-story__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+    
+    .about-story__tag {
+      padding: 8px 16px;
+      background-color: rgba(28, 145, 215, 0.08);
+      border: 1px solid rgba(28, 145, 215, 0.15);
+      border-radius: 9999px;
+      color: var(--color-blue, #1C91D7);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    
+    .about-story__btn {
+      display: inline-block;
+      background-color: var(--color-blue, #1C91D7);
+      color: #ffffff !important;
+      padding: 16px 36px;
+      font-weight: 700;
+      border-radius: 9999px;
+      box-shadow: 0 10px 20px rgba(28, 145, 215, 0.2);
+      transition: var(--transition-smooth, all 0.3s ease);
+    }
+    .about-story__btn:hover {
+      background-color: var(--color-deep, #143D8A);
+      transform: translateY(-2px);
+      box-shadow: 0 15px 25px rgba(28, 145, 215, 0.3);
+    }
+    
+    /* --- SECTION 3: VALUES --- */
+    .about-values {
+      background-color: #f8fafc;
+      border-top: 1px solid rgba(0,0,0,0.03);
+      border-bottom: 1px solid rgba(0,0,0,0.03);
+    }
+    
+    .about-values__header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    @media (min-width: 768px) {
+      .about-values__header {
+        text-align: left;
+        margin-bottom: 60px;
+      }
+    }
+    
+    .about-values__badge {
+      color: #777788;
+    }
+    
+    .about-values__title {
+      font-family: var(--font-display), serif;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: var(--text-light, #0a0a14);
+      margin-bottom: 20px;
+    }
+    
+    .about-values__subtitle {
+      font-size: 1.1rem;
+      color: #555566;
+      max-width: 650px;
+      line-height: 1.6;
+    }
+    
+    .about-values__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 768px) {
+      .about-values__grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    .about-values__card {
+      background-color: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 16px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .about-values__card:hover {
+      transform: translateY(-6px);
+      border-color: var(--color-blue, #1C91D7);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    }
+    
+    .about-values__icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    
+    .about-values__card-title {
+      font-family: var(--font-display), serif;
+      font-weight: 700;
+      font-size: 1.35rem;
+      margin-bottom: 15px;
+      color: var(--text-light, #0a0a14);
+    }
+    
+    .about-values__card-body {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #666677;
+    }
+    
+    /* --- SECTION 4: AUDIENCE --- */
+    .about-audience {
+      background-color: var(--bg-light, #ffffff);
+    }
+    .about-audience__grid {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+    @media (min-width: 992px) {
+      .about-audience__grid {
+        flex-direction: row;
+        gap: 80px;
+      }
+    }
+    
+    .about-audience__left {
+      flex: 1;
+    }
+    
+    .about-audience__badge {
+      color: #777788;
+    }
+    
+    .about-audience__title {
+      font-family: var(--font-display), serif;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: var(--text-light, #0a0a14);
+      margin-bottom: 40px;
+    }
+    
+    .about-audience__list {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .about-audience__item {
+      position: relative;
+      padding-left: 28px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      padding-bottom: 30px;
+    }
+    .about-audience__item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    
+    .about-audience__dot {
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--color-brand-gold, #FCCB52);
+    }
+    
+    .about-audience__item-title {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text-light, #0a0a14);
+      margin-bottom: 8px;
+    }
+    
+    .about-audience__item-text {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #666677;
+    }
+    
+    .about-audience__right {
+      flex: 1;
+    }
+    
+    .about-audience__img-container {
+      width: 100%;
+      height: 560px;
+      border-radius: var(--border-radius-lg, 24px);
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    }
+    .about-audience__img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .about-audience__img-container:hover img {
+      transform: scale(1.03);
+    }
+    
+    /* --- SECTION 5: BIO (DEEP BLUE BLOCK) --- */
+    .about-bio {
+      background-color: #3739DB;
+      color: #ffffff;
+      overflow: hidden;
+    }
+    .about-bio__grid {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (min-width: 992px) {
+      .about-bio__grid {
+        flex-direction: row;
+        gap: 80px;
+      }
+    }
+    
+    .about-bio__left {
+      flex: 1;
+      width: 100%;
+      position: relative;
+    }
+    
+    .about-bio__img-container {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      border-radius: var(--border-radius-lg, 24px);
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+    }
+    .about-bio__img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+    
+    .about-bio__experience-badge {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      background-color: rgba(10, 11, 20, 0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 14px 18px;
+      max-width: 200px;
+      z-index: 10;
+    }
+    
+    .about-bio__experience-years {
+      font-family: var(--font-display), serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--color-brand-gold, #FCCB52);
+      line-height: 1;
+    }
+    
+    .about-bio__experience-text {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+    
+    .about-bio__right {
+      flex: 1.2;
+      width: 100%;
+    }
+    
+    .about-bio__badge {
+      color: var(--color-brand-gold, #FCCB52);
+    }
+    
+    .about-bio__title {
+      font-family: var(--font-display), serif;
+      font-weight: 800;
+      font-size: clamp(1.8rem, 4vw, 2.3rem);
+      line-height: 1.25;
+      margin-bottom: 24px;
+    }
+    
+    .about-bio__paragraphs {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 36px;
+    }
+    .about-bio__paragraphs p {
+      margin-bottom: 16px;
+    }
+    
+    .about-bio__btn {
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--color-brand-gold, #FCCB52);
+      color: #143D8A !important;
+      padding: 16px 36px;
+      font-weight: 700;
+      border-radius: 9999px;
+      box-shadow: 0 10px 20px rgba(252, 203, 82, 0.15);
+      transition: all 0.3s ease;
+    }
+    .about-bio__btn:hover {
+      background-color: #f7bd31;
+      transform: translateY(-2px);
+      box-shadow: 0 15px 25px rgba(252, 203, 82, 0.25);
+    }
+    
+    /* --- SECTION 6: MISSION --- */
+    .about-mission {
+      background-color: #f8fafc;
+      text-align: center;
+    }
+    
+    .about-mission__container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .about-mission__title {
+      font-family: var(--font-display), serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--text-light, #0a0a14);
+      margin-bottom: 40px;
+    }
+    
+    .about-mission__paragraphs {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #555566;
+      text-align: left;
+      margin-bottom: 48px;
+    }
+    @media (min-width: 768px) {
+      .about-mission__paragraphs {
+        text-align: center;
+      }
+    }
+    .about-mission__paragraphs p {
+      margin-bottom: 20px;
+    }
+    
+    .about-mission__highlight {
+      font-family: var(--font-display), serif;
+      font-size: clamp(1.3rem, 3vw, 1.6rem);
+      font-style: italic;
+      font-weight: 700;
+      color: var(--color-blue, #1C91D7);
+      margin-top: 32px;
+      display: block;
+    }
+    
+    .about-mission__buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+    
+    .about-mission__btn {
+      padding: 14px 28px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+    
+    .about-mission__btn--primary {
+      background-color: var(--color-blue, #1C91D7);
+      color: #ffffff !important;
+    }
+    .about-mission__btn--primary:hover {
+      background-color: var(--color-deep, #143D8A);
+      transform: translateY(-2px);
+    }
+    
+    .about-mission__btn--secondary {
+      background-color: transparent;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      color: #444455;
+    }
+    .about-mission__btn--secondary:hover {
+      background-color: rgba(0, 0, 0, 0.03);
+      transform: translateY(-2px);
+    }
+    
+    .about-mission__btn--gold {
+      background-color: var(--color-brand-gold, #FCCB52);
+      color: #143D8A !important;
+    }
+    .about-mission__btn--gold:hover {
+      background-color: #f7bd31;
+      transform: translateY(-2px);
+    }
+  </style>
+
+  <!-- SECTION 1 — HERO -->
+  <div class="about-hero">
+    <div class="about-hero__bg">
+      {%- if section.settings.hero_image != blank -%}
+        <img src="{{ section.settings.hero_image | image_url: width: 1600 }}" alt="{{ section.settings.hero_title | escape }}">
+      {%- else -%}
+        <img src="{{ 'Edwina_reading_a_book.png' | asset_url }}" alt="Edwina Reading a Book Background">
+      {%- endif -%}
+    </div>
+    <div class="about-hero__overlay"></div>
+    <div class="about-container about-hero__content">
+      <span class="about-badge about-hero__badge">{{ section.settings.hero_badge }}</span>
+      <h1 class="about-hero__title">{{ section.settings.hero_title }}</h1>
+      <p class="about-hero__description">{{ section.settings.hero_description }}</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2 — FOUNDING STORY -->
+  <div class="about-section-padding about-story">
+    <div class="about-container about-story__grid">
+      
+      <!-- Left side: image box -->
+      <div class="about-story__left">
+        <div class="about-story__img-container">
+          {%- if section.settings.story_image != blank -%}
+            <img class="about-story__main-img" src="{{ section.settings.story_image | image_url: width: 800 }}" alt="Edwina on Couch">
+          {%- else -%}
+            <img class="about-story__main-img" src="{{ 'Edwina_picture_on_the_coach.png' | asset_url }}" alt="Edwina on Couch">
+          {%- endif -%}
+          
+          <div class="about-story__inset-badge">
+            {%- if section.settings.story_avatar != blank -%}
+              <img src="{{ section.settings.story_avatar | image_url: width: 300 }}" alt="Edwina Headshot">
+            {%- else -%}
+              <img src="{{ 'Edwina_headshot.png' | asset_url }}" alt="Edwina Headshot">
+            {%- endif -%}
+          </div>
+          
+          <div class="about-story__gold-bar"></div>
+        </div>
+      </div>
+      
+      <!-- Right side: narrative -->
+      <div class="about-story__right">
+        <span class="about-badge about-story__badge">{{ section.settings.story_badge }}</span>
+        <h2 class="about-story__title">{{ section.settings.story_title }}</h2>
+        
+        <div class="about-story__paragraphs">
+          <p>{{ section.settings.story_p1 }}</p>
+          <p>{{ section.settings.story_p2 }}</p>
+          <p>{{ section.settings.story_p3 }}</p>
+          <p>{{ section.settings.story_p4 }}</p>
+        </div>
+        
+        <div class="about-story__tags">
+          {%- if section.settings.tag1 != blank -%}<div class="about-story__tag">{{ section.settings.tag1 }}</div>{%- endif -%}
+          {%- if section.settings.tag2 != blank -%}<div class="about-story__tag">{{ section.settings.tag2 }}</div>{%- endif -%}
+          {%- if section.settings.tag3 != blank -%}<div class="about-story__tag">{{ section.settings.tag3 }}</div>{%- endif -%}
+          {%- if section.settings.tag4 != blank -%}<div class="about-story__tag">{{ section.settings.tag4 }}</div>{%- endif -%}
+          {%- if section.settings.tag5 != blank -%}<div class="about-story__tag">{{ section.settings.tag5 }}</div>{%- endif -%}
+          {%- if section.settings.tag6 != blank -%}<div class="about-story__tag">{{ section.settings.tag6 }}</div>{%- endif -%}
+        </div>
+        
+        <a href="/collections/all" class="about-story__btn">{{ section.settings.story_button_text }}</a>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- SECTION 3 — CORE VALUES -->
+  <div class="about-section-padding about-values">
+    <div class="about-container">
+      
+      <div class="about-values__header">
+        <span class="about-badge about-values__badge">{{ section.settings.values_badge }}</span>
+        <h2 class="about-values__title">{{ section.settings.values_title }}</h2>
+        <p class="about-values__subtitle">{{ section.settings.values_description }}</p>
+      </div>
+      
+      <div class="about-values__grid">
+        <!-- Value 1 -->
+        <div class="about-values__card">
+          <div class="about-values__icon">🎯</div>
+          <h3 class="about-values__card-title">{{ section.settings.value1_title }}</h3>
+          <p class="about-values__card-body">{{ section.settings.value1_text }}</p>
+        </div>
+        
+        <!-- Value 2 -->
+        <div class="about-values__card">
+          <div class="about-values__icon">⚡</div>
+          <h3 class="about-values__card-title">{{ section.settings.value2_title }}</h3>
+          <p class="about-values__card-body">{{ section.settings.value2_text }}</p>
+        </div>
+        
+        <!-- Value 3 -->
+        <div class="about-values__card">
+          <div class="about-values__icon">🌍</div>
+          <h3 class="about-values__card-title">{{ section.settings.value3_title }}</h3>
+          <p class="about-values__card-body">{{ section.settings.value3_text }}</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- SECTION 4 — WHO THIS IS FOR -->
+  <div class="about-section-padding about-audience">
+    <div class="about-container about-audience__grid">
+      
+      <!-- Left side: checklist -->
+      <div class="about-audience__left">
+        <span class="about-badge about-audience__badge">{{ section.settings.audience_badge }}</span>
+        <h2 class="about-audience__title">{{ section.settings.audience_title }}</h2>
+        
+        <div class="about-audience__list">
+          <!-- Item 1 -->
+          <div class="about-audience__item">
+            <div class="about-audience__dot"></div>
+            <h3 class="about-audience__item-title">{{ section.settings.aud1_title }}</h3>
+            <p class="about-audience__item-text">{{ section.settings.aud1_text }}</p>
+          </div>
+          
+          <!-- Item 2 -->
+          <div class="about-audience__item">
+            <div class="about-audience__dot"></div>
+            <h3 class="about-audience__item-title">{{ section.settings.aud2_title }}</h3>
+            <p class="about-audience__item-text">{{ section.settings.aud2_text }}</p>
+          </div>
+          
+          <!-- Item 3 -->
+          <div class="about-audience__item">
+            <div class="about-audience__dot"></div>
+            <h3 class="about-audience__item-title">{{ section.settings.aud3_title }}</h3>
+            <p class="about-audience__item-text">{{ section.settings.aud3_text }}</p>
+          </div>
+          
+          <!-- Item 4 -->
+          <div class="about-audience__item">
+            <div class="about-audience__dot"></div>
+            <h3 class="about-audience__item-title">{{ section.settings.aud4_title }}</h3>
+            <p class="about-audience__item-text">{{ section.settings.aud4_text }}</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right side: vertical image -->
+      <div class="about-audience__right">
+        <div class="about-audience__img-container">
+          {%- if section.settings.audience_image != blank -%}
+            <img src="{{ section.settings.audience_image | image_url: width: 800 }}" alt="Edwina Teaching in Classroom">
+          {%- else -%}
+            <img src="{{ 'Edwina_Teaching.png' | asset_url }}" alt="Edwina Teaching in Classroom">
+          {%- endif -%}
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- SECTION 5 — DETAILED BIO (DEEP BLUE BLOCK) -->
+  <div class="about-section-padding about-bio">
+    <div class="about-container about-bio__grid">
+      
+      <!-- Left side: image box -->
+      <div class="about-bio__left">
+        <div class="about-bio__img-container">
+          {%- if section.settings.bio_image != blank -%}
+            <img src="{{ section.settings.bio_image | image_url: width: 800 }}" alt="Edwina Presenting">
+          {%- else -%}
+            <img src="{{ 'Edwina_delivering_a_presentation.png' | asset_url }}" alt="Edwina Presenting">
+          {%- endif -%}
+          
+          <!-- Experience Badge overlay -->
+          <div class="about-bio__experience-badge">
+            <div class="about-bio__experience-years">{{ section.settings.bio_exp_years }}</div>
+            <div class="about-bio__experience-text">{{ section.settings.bio_exp_text }}</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right side: bio content -->
+      <div class="about-bio__right">
+        <span class="about-badge about-bio__badge">{{ section.settings.bio_badge }}</span>
+        <h2 class="about-bio__title">{{ section.settings.bio_title }}</h2>
+        
+        <div class="about-bio__paragraphs">
+          <p>{{ section.settings.bio_p1 }}</p>
+          <p>{{ section.settings.bio_p2 }}</p>
+          <p>{{ section.settings.bio_p3 }}</p>
+        </div>
+        
+        <a href="/pages/coaching" class="about-bio__btn">{{ section.settings.bio_button_text }}</a>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- SECTION 6 — MISSION -->
+  <div class="about-section-padding about-mission">
+    <div class="about-container about-mission__container">
+      <h2 class="about-mission__title">{{ section.settings.mission_title }}</h2>
+      
+      <div class="about-mission__paragraphs">
+        <p>{{ section.settings.mission_p1 }}</p>
+        <p>{{ section.settings.mission_p2 }}</p>
+        <p>{{ section.settings.mission_p3 }}</p>
+        
+        <span class="about-mission__highlight">{{ section.settings.mission_highlight }}</span>
+      </div>
+      
+      <div class="about-mission__buttons">
+        <a href="/collections/all" class="about-mission__btn about-mission__btn--primary">Explore free resources</a>
+        <a href="/collections/all" class="about-mission__btn about-mission__btn--secondary">Browse paid guides</a>
+        <a href="/pages/coaching" class="about-mission__btn about-mission__btn--gold">Book a coaching session</a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "About Page Content",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section 1: Hero Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Background Image"
+    },
+    {
+      "type": "text",
+      "id": "hero_badge",
+      "label": "Hero Subtitle Badge",
+      "default": "Our story"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "Built by a teacher who has lived it — every single move."
+    },
+    {
+      "type": "textarea",
+      "id": "hero_description",
+      "label": "Hero Description",
+      "default": "South Africa to the UK. The UK to Qatar. Qatar to Canada. Each move taught me something different. Each one confirmed that international teachers deserve far better resources than what exists."
+    },
+    {
+      "type": "header",
+      "content": "Section 2: Narrative Story"
+    },
+    {
+      "type": "image_picker",
+      "id": "story_image",
+      "label": "Story Main Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "story_avatar",
+      "label": "Story Inset Avatar"
+    },
+    {
+      "type": "text",
+      "id": "story_badge",
+      "label": "Story Subtitle Badge",
+      "default": "About Edwina"
+    },
+    {
+      "type": "text",
+      "id": "story_title",
+      "label": "Story Title",
+      "default": "The honest truth about why I built this"
+    },
+    {
+      "type": "textarea",
+      "id": "story_p1",
+      "label": "Story Paragraph 1",
+      "default": "When I made my first international move, I did what most teachers do. I joined Facebook groups. I Googled everything. I asked colleagues who'd been there longer. I pieced together information from ten different places, half of which was outdated, a quarter of which was wrong, and all of which took more time than I had."
+    },
+    {
+      "type": "textarea",
+      "id": "story_p2",
+      "label": "Story Paragraph 2",
+      "default": "When I moved again, the process was the same. And again after that."
+    },
+    {
+      "type": "textarea",
+      "id": "story_p3",
+      "label": "Story Paragraph 3",
+      "default": "After 18 years of international teaching across four countries, I had accumulated something valuable — not just experience, but a complete, tested, real-world understanding of what it actually takes to move your life across borders as a teacher. The contracts. The immigration processes. The financial planning. The moments nobody warns you about. The things you only learn after you've already made the mistake."
+    },
+    {
+      "type": "textarea",
+      "id": "story_p4",
+      "label": "Story Paragraph 4",
+      "default": "I built Expat Teacher's Lounge because that knowledge shouldn't live in my head. It should be available to every teacher who is standing where I once stood — excited, overwhelmed, and wishing someone would just tell them the truth."
+    },
+    {
+      "type": "text",
+      "id": "tag1",
+      "label": "Tag 1",
+      "default": "🇿🇦 South Africa"
+    },
+    {
+      "type": "text",
+      "id": "tag2",
+      "label": "Tag 2",
+      "default": "🇬🇧 United Kingdom"
+    },
+    {
+      "type": "text",
+      "id": "tag3",
+      "label": "Tag 3",
+      "default": "🇶🇦 Qatar"
+    },
+    {
+      "type": "text",
+      "id": "tag4",
+      "label": "Tag 4",
+      "default": "🇨🇦 Canada"
+    },
+    {
+      "type": "text",
+      "id": "tag5",
+      "label": "Tag 5",
+      "default": "18 years teaching"
+    },
+    {
+      "type": "text",
+      "id": "tag6",
+      "label": "Tag 6",
+      "default": "PMP certified"
+    },
+    {
+      "type": "text",
+      "id": "story_button_text",
+      "label": "Story Button Text",
+      "default": "Explore the resources →"
+    },
+    {
+      "type": "header",
+      "content": "Section 3: Core Values"
+    },
+    {
+      "type": "text",
+      "id": "values_badge",
+      "label": "Values Subtitle Badge",
+      "default": "What this place is"
+    },
+    {
+      "type": "text",
+      "id": "values_title",
+      "label": "Values Title",
+      "default": "A one-stop platform for teachers who want more"
+    },
+    {
+      "type": "textarea",
+      "id": "values_description",
+      "label": "Values Description",
+      "default": "Expat Teacher's Lounge is not a job board. It is not a recruitment agency. It is a platform built for teachers who want to expand their horizons — whether that means moving internationally for the first time, transitioning to a higher-paying market, or building multiple income streams alongside their career."
+    },
+    {
+      "type": "text",
+      "id": "value1_title",
+      "label": "Value 1 Title",
+      "default": "Honesty"
+    },
+    {
+      "type": "textarea",
+      "id": "value1_text",
+      "label": "Value 1 Text",
+      "default": "We tell you what schools don't. Every resource is built on lived experience, not curated optimism."
+    },
+    {
+      "type": "text",
+      "id": "value2_title",
+      "label": "Value 2 Title",
+      "default": "Practicality"
+    },
+    {
+      "type": "textarea",
+      "id": "value2_text",
+      "label": "Value 2 Text",
+      "default": "Every resource is actionable, not theoretical. No fluff. No filler. Just the information you actually need."
+    },
+    {
+      "type": "text",
+      "id": "value3_title",
+      "label": "Value 3 Title",
+      "default": "Experience"
+    },
+    {
+      "type": "textarea",
+      "id": "value3_text",
+      "label": "Value 3 Text",
+      "default": "18 years across 4 countries. Everything here comes from doing this — not from researching it from a desk."
+    },
+    {
+      "type": "header",
+      "content": "Section 4: Who This Is For"
+    },
+    {
+      "type": "text",
+      "id": "audience_badge",
+      "label": "Audience Subtitle Badge",
+      "default": "Who this is for"
+    },
+    {
+      "type": "text",
+      "id": "audience_title",
+      "label": "Audience Section Title",
+      "default": "Built for all of you"
+    },
+    {
+      "type": "image_picker",
+      "id": "audience_image",
+      "label": "Audience Right Side Image"
+    },
+    {
+      "type": "text",
+      "id": "aud1_title",
+      "label": "Audience 1 Title",
+      "default": "First-time international teachers"
+    },
+    {
+      "type": "textarea",
+      "id": "aud1_text",
+      "label": "Audience 1 Text",
+      "default": "For the teacher who has never taught internationally and doesn't know where to start — the one who has been thinking about it for years and finally decided this is the year."
+    },
+    {
+      "type": "text",
+      "id": "aud2_title",
+      "label": "Audience 2 Title",
+      "default": "Experienced expat teachers"
+    },
+    {
+      "type": "textarea",
+      "id": "aud2_text",
+      "label": "Audience 2 Text",
+      "default": "For the experienced expat teacher moving to a new country and discovering that everything they knew about the process doesn't apply here."
+    },
+    {
+      "type": "text",
+      "id": "aud3_title",
+      "label": "Audience 3 Title",
+      "default": "Teachers relocating with families"
+    },
+    {
+      "type": "textarea",
+      "id": "aud3_text",
+      "label": "Audience 3 Text",
+      "default": "For the teacher relocating with a family — navigating not just their own career move but everything that comes with uprooting a household, finding schools, managing logistics, and keeping everyone together through the uncertainty."
+    },
+    {
+      "type": "text",
+      "id": "aud4_title",
+      "label": "Audience 4 Title",
+      "default": "Teachers building financial freedom"
+    },
+    {
+      "type": "textarea",
+      "id": "aud4_text",
+      "label": "Audience 4 Text",
+      "default": "For the teacher who knows that a great salary is only part of the picture — who wants to build financial security, explore multiple income streams, and stop trading time for money as their only strategy."
+    },
+    {
+      "type": "header",
+      "content": "Section 5: Biography"
+    },
+    {
+      "type": "image_picker",
+      "id": "bio_image",
+      "label": "Biography Image"
+    },
+    {
+      "type": "text",
+      "id": "bio_exp_years",
+      "label": "Bio Experience Years Label",
+      "default": "18 years"
+    },
+    {
+      "type": "text",
+      "id": "bio_exp_text",
+      "label": "Bio Experience Description Label",
+      "default": "International teaching experience"
+    },
+    {
+      "type": "text",
+      "id": "bio_badge",
+      "label": "Bio Subtitle Badge",
+      "default": "A little more about me"
+    },
+    {
+      "type": "text",
+      "id": "bio_title",
+      "label": "Bio Title",
+      "default": "The teaching never stopped being the point"
+    },
+    {
+      "type": "textarea",
+      "id": "bio_p1",
+      "label": "Bio Paragraph 1",
+      "default": "I have 18 years of international teaching experience. I hold a PMP certification and I am actively building skills in technology and digital systems — because I believe that teachers who understand both the classroom and the digital world are the ones who will thrive in the next decade."
+    },
+    {
+      "type": "textarea",
+      "id": "bio_p2",
+      "label": "Bio Paragraph 2",
+      "default": "I am also an entrepreneur. I have built businesses alongside my teaching career because I understood early that financial freedom requires more than one income stream. Expat Teacher's Lounge is part of that — a platform that serves teachers and builds a sustainable business at the same time."
+    },
+    {
+      "type": "textarea",
+      "id": "bio_p3",
+      "label": "Bio Paragraph 3",
+      "default": "I move with my family. Every relocation has been a family decision, not just a career one — and that shapes everything about how I approach the advice and resources I offer here. I understand the full picture because I have lived the full picture."
+    },
+    {
+      "type": "text",
+      "id": "bio_button_text",
+      "label": "Bio Button Text",
+      "default": "Work with me →"
+    },
+    {
+      "type": "header",
+      "content": "Section 6: Mission Statements"
+    },
+    {
+      "type": "text",
+      "id": "mission_title",
+      "label": "Mission Section Title",
+      "default": "What I want for you"
+    },
+    {
+      "type": "textarea",
+      "id": "mission_p1",
+      "label": "Mission Paragraph 1",
+      "default": "I want you to make your international teaching move with your eyes open — with real information, a clear plan, and the confidence that comes from knowing you've prepared properly."
+    },
+    {
+      "type": "textarea",
+      "id": "mission_p2",
+      "label": "Mission Paragraph 2",
+      "default": "I want you to find community here. People who understand what it means to build a life in a country that isn't yours. People who have navigated the same paperwork, the same culture shock, the same moments of doubt — and come out the other side."
+    },
+    {
+      "type": "textarea",
+      "id": "mission_p3",
+      "label": "Mission Paragraph 3",
+      "default": "And I want you to think bigger than just the next posting. I want you to see your teaching career for what it can be — a platform for financial freedom, professional growth, and a life lived on your own terms."
+    },
+    {
+      "type": "textarea",
+      "id": "mission_highlight",
+      "label": "Mission Highlight Quote",
+      "default": "That is what Expat Teacher's Lounge was built for."
+    }
+  ]
+}
+{% endschema %}
