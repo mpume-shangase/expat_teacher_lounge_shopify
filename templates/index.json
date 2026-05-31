@@ -27,10 +27,77 @@
     },
     "proof_bar": {
       "type": "proof-bar",
+      "blocks": {
+        "stat_item_3PBMXe": {
+          "type": "stat_item",
+          "settings": {
+            "stat_value": "200+",
+            "stat_label": "Teachers helped"
+          }
+        },
+        "stat_item_8VGAgz": {
+          "type": "stat_item",
+          "settings": {
+            "stat_value": "16",
+            "stat_label": "Countries covered"
+          }
+        },
+        "stat_item_XyyzyM": {
+          "type": "stat_item",
+          "settings": {
+            "stat_value": "18 yrs",
+            "stat_label": "Teaching experience"
+          }
+        },
+        "stat_item_db6tVX": {
+          "type": "stat_item",
+          "settings": {
+            "stat_value": "4.9",
+            "stat_label": "Average rating"
+          }
+        }
+      },
+      "block_order": [
+        "stat_item_3PBMXe",
+        "stat_item_8VGAgz",
+        "stat_item_XyyzyM",
+        "stat_item_db6tVX"
+      ],
       "settings": {}
     },
     "how_it_works": {
       "type": "how-it-works",
+      "blocks": {
+        "step_hPTkYK": {
+          "type": "step",
+          "settings": {
+            "step_number": "01",
+            "title": "Information Gathering",
+            "description": "We provide you with clear, accurate data on international teaching markets, eliminating the noise of Facebook forums."
+          }
+        },
+        "step_eKQKkY": {
+          "type": "step",
+          "settings": {
+            "step_number": "02",
+            "title": "Strategic Positioning",
+            "description": "Optimize your CV and interview strategy to stand out to premium tier 1 and tier 2 international schools."
+          }
+        },
+        "step_9bpbnV": {
+          "type": "step",
+          "settings": {
+            "step_number": "03",
+            "title": "Contract Negotiation",
+            "description": "Never sign blind. We help you review your offer and negotiate the true market rate for your experience."
+          }
+        }
+      },
+      "block_order": [
+        "step_hPTkYK",
+        "step_eKQKkY",
+        "step_9bpbnV"
+      ],
       "settings": {
         "title_prefix": "A proven framework for",
         "title_italic": "success.",
