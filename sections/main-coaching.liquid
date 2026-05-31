@@ -1,18 +1,26 @@
 {%- assign pkg1_product = nil -%}
 {%- assign pkg1_variant = nil -%}
 {%- if section.settings.pkg1_product != blank -%}
-  {%- assign pkg1_product = all_products[section.settings.pkg1_product] -%}
+  {%- if section.settings.pkg1_product.title != blank -%}
+    {%- assign pkg1_product = section.settings.pkg1_product -%}
+  {%- else -%}
+    {%- assign pkg1_product = all_products[section.settings.pkg1_product] -%}
+  {%- endif -%}
   {%- if pkg1_product != blank -%}
-    {%- assign pkg1_variant = pkg1_product.first_available_variant -%}
+    {%- assign pkg1_variant = pkg1_product.first_available_variant | default: pkg1_product.variants.first -%}
   {%- endif -%}
 {%- endif -%}
 
 {%- assign pkg2_product = nil -%}
 {%- assign pkg2_variant = nil -%}
 {%- if section.settings.pkg2_product != blank -%}
-  {%- assign pkg2_product = all_products[section.settings.pkg2_product] -%}
+  {%- if section.settings.pkg2_product.title != blank -%}
+    {%- assign pkg2_product = section.settings.pkg2_product -%}
+  {%- else -%}
+    {%- assign pkg2_product = all_products[section.settings.pkg2_product] -%}
+  {%- endif -%}
   {%- if pkg2_product != blank -%}
-    {%- assign pkg2_variant = pkg2_product.first_available_variant -%}
+    {%- assign pkg2_variant = pkg2_product.first_available_variant | default: pkg2_product.variants.first -%}
   {%- endif -%}
 {%- endif -%}
 
