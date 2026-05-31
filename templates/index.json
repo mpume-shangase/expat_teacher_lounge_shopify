@@ -190,6 +190,28 @@
     },
     "coaching_preview": {
       "type": "coaching-preview",
+      "blocks": {
+        "package_t9Ywtq": {
+          "type": "package",
+          "settings": {
+            "title": "Relocation Strategy",
+            "price": "$97",
+            "description": "60 minute structured sprint via Google Meet."
+          }
+        },
+        "package_AJ3BAm": {
+          "type": "package",
+          "settings": {
+            "title": "Contract Review",
+            "price": "$77",
+            "description": "45 minute contract review before you sign."
+          }
+        }
+      },
+      "block_order": [
+        "package_t9Ywtq",
+        "package_AJ3BAm"
+      ],
       "settings": {
         "title_prefix": "Need a",
         "title_italic": "Strategic Partner?",
