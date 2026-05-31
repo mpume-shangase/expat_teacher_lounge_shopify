@@ -25,7 +25,7 @@
     </div>
   {%- else -%}
     <!-- Small File Icon Fallback (matches Next.js w-16 h-16 circular icon) -->
-    <div class="product-toolkit-fallback-icon" style="width: 64px; height: 64px; background-color: {% if is_coaching %}rgba(252, 203, 82, 0.08){% else %}rgba(28, 145, 215, 0.08){% endif %}; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: {% if is_coaching %}var(--color-brand-gold, #FCCB52){% else %}var(--color-blue){% endif %}; margin-bottom: 32px; flex-shrink: 0; transition: var(--transition-smooth);">
+    <div class="product-toolkit-fallback-icon" style="width: 64px; height: 64px; background-color: rgba(28, 145, 215, 0.08); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--color-blue); margin-bottom: 32px; flex-shrink: 0; transition: var(--transition-smooth);">
       <svg style="width: 32px; height: 32px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         {%- if is_coaching -%}
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
@@ -46,7 +46,7 @@
     <span style="font-size: 1.5rem; font-weight: 700; color: var(--text-light);">
       {{ product.price | money }}
     </span>
-    <span class="product-toolkit-btn" style="background-color: {% if is_coaching %}var(--color-brand-gold, #FCCB52){% else %}var(--color-blue){% endif %}; color: {% if is_coaching %}var(--color-brand-deep, #143D8A){% else %}#ffffff{% endif %}; padding: 12px 24px; border-radius: var(--border-radius-full); font-weight: 700; transition: var(--transition-smooth);">
+    <span class="product-toolkit-btn" style="background-color: var(--color-blue, #1C91D7); color: #ffffff; padding: 12px 24px; border-radius: var(--border-radius-full); font-weight: 700; transition: var(--transition-smooth);">
       {% if is_coaching %}Book Session{% else %}Purchase Now{% endif %}
     </span>
   </div>
