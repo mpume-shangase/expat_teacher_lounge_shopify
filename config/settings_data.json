@@ -1,6 +1,14 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
-    "sections": {},
     "settings": {
       "color_brand_blue": "#1C91D7",
       "color_brand_deep": "#143D8A",
@@ -11,7 +19,30 @@
       "color_text_dark": "#f0f0f0",
       "font_display": "'Fraunces', serif",
       "font_body": "'DM Sans', sans-serif"
-    }
+    },
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo": "shopify://shop_images/expat_teachers_lounge_logo.png",
+          "logo_max_width": 180,
+          "menu": "main-menu"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "logo_max_width": 140,
+          "description": "Relocation strategy and contract review for teachers serious about moving internationally. Built by a teacher, for teachers.",
+          "menu_title_1": "Navigation",
+          "menu_1": "main-menu",
+          "menu_title_2": "Legal",
+          "menu_2": "footer",
+          "disclaimer": "Disclaimer: Some links on this website are affiliate links. This means I may earn a small commission at no additional cost to you if you purchase through these links. This helps support the free resources provided."
+        }
+      }
+    },
+    "content_for_index": []
   },
   "presets": {
     "Default": {

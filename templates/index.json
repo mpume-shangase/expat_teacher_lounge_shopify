@@ -1,38 +1,108 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "name": "Index",
   "sections": {
     "hero": {
-      "type": "hero"
+      "type": "hero",
+      "settings": {
+        "badge_text": "18 years • 4 countries • built by a teacher, for teachers",
+        "title_prefix": "Your international teaching move,",
+        "title_highlight": "done",
+        "title_italic": "right.",
+        "description": "Skip the Facebook group confusion and the sketchy recruiter agencies. Get the exact roadmap, contract intel, and market-ready strategy you need to secure a premium international teaching role.",
+        "cta_1_text": "Explore Products",
+        "cta_1_url": "shopify://collections/all",
+        "cta_2_text": "Book Coaching",
+        "cta_2_url": "",
+        "trust_text": "Trusted by many teachers",
+        "hero_image": "shopify://shop_images/Edwina_working_with_a_student.png"
+      }
     },
     "proof_bar": {
-      "type": "proof-bar"
+      "type": "proof-bar",
+      "settings": {}
     },
     "how_it_works": {
-      "type": "how-it-works"
+      "type": "how-it-works",
+      "settings": {
+        "title_prefix": "A proven framework for",
+        "title_italic": "success.",
+        "subtitle": "Stop guessing. Follow the exact step-by-step roadmap that has successfully placed hundreds of teachers into life-changing international roles."
+      }
     },
     "destinations": {
-      "type": "destinations"
+      "type": "destinations",
+      "settings": {
+        "title_prefix": "Where will you",
+        "title_italic": "teach next?"
+      }
     },
     "featured_products": {
-      "type": "featured-products"
+      "type": "featured-products",
+      "settings": {
+        "title_prefix": "Start your",
+        "title_italic": "journey.",
+        "description": "Premium guides and tools built specifically for educators moving abroad.",
+        "collection": "",
+        "product_limit": 4,
+        "view_all_text": "VIEW ALL PRODUCTS"
+      }
     },
     "free_resources": {
-      "type": "free-resources"
+      "type": "free-resources",
+      "settings": {
+        "title_prefix": "Free",
+        "title_italic": "Resources.",
+        "description": "Kickstart your relocation journey with checklists and guides we use every day."
+      }
     },
     "coaching_preview": {
-      "type": "coaching-preview"
+      "type": "coaching-preview",
+      "settings": {
+        "title_prefix": "Need a",
+        "title_italic": "Strategic Partner?",
+        "description": "Stop guessing what a 'good' package looks like. Book a 1-on-1 strategy session to review your contract, optimize your CV, and negotiate exactly what you're worth.",
+        "cta_text": "View Coaching Packages",
+        "cta_url": ""
+      }
     },
     "authority": {
-      "type": "authority"
+      "type": "authority",
+      "settings": {
+        "title": "I've been in your shoes.",
+        "description": "For the last 18 years, I've navigated curriculums in South Africa, the UK, Qatar, and Canada. I've seen teachers accept lowball offers, struggle with attestation, and land in bad accommodations—all because they didn't know the playbook.",
+        "quote": "I built Expat Teacher's Lounge so you don't have to make the same mistakes."
+      }
     },
     "testimonials": {
-      "type": "testimonials"
+      "type": "testimonials",
+      "settings": {
+        "title_prefix": "Don't just take",
+        "title_italic": "my word for it."
+      }
     },
     "blog_preview": {
-      "type": "blog-preview"
+      "type": "blog-preview",
+      "settings": {
+        "title_prefix": "Latest from the",
+        "title_italic": "Lounge.",
+        "blog": "",
+        "view_all_text": "VIEW ALL POSTS"
+      }
     },
     "email_capture": {
-      "type": "email-capture"
+      "type": "email-capture",
+      "settings": {
+        "title": "Relocation intel, straight to your inbox.",
+        "description": "Visa updates, salary benchmarks, and destination guides for teachers serious about their next move."
+      }
     }
   },
   "order": [
