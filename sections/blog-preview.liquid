@@ -1,0 +1,172 @@
+{%- liquid
+  assign blog = blogs[section.settings.blog]
+  assign article = blog.articles.first
+-%}
+
+<section class="section-padding bg-light text-light" style="background-color: #f9fafb; position: relative;">
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; gap: 24px;">
+      <div>
+        <h2 class="font-display font-black" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin: 0;">
+          {{ section.settings.title_prefix }} <span class="italic" style="color: var(--color-brand-gold, #FCCB52); font-style: italic;">{{ section.settings.title_italic }}</span>
+        </h2>
+      </div>
+      
+      {%- if blog != blank -%}
+        <a href="{{ blog.url }}" class="hidden-md-down font-bold text-sm tracking-wider" style="color: var(--color-blue); text-transform: uppercase; display: flex; align-items: center; gap: 8px;">
+          {{ section.settings.view_all_text | escape }} &rarr;
+        </a>
+      {%- endif -%}
+    </div>
+
+    <!-- Featured Article Card -->
+    {%- if blog != blank and article != blank -%}
+      <a href="{{ article.url }}" class="group" style="display: block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); overflow: hidden; transition: var(--transition-smooth); box-shadow: var(--shadow-sm);">
+        <div class="grid grid-cols-1 grid-cols-2" style="align-items: stretch; gap: 0;">
+          
+          <!-- Left: Image -->
+          <div style="position: relative; min-height: 300px; overflow: hidden;">
+            {%- if article.image != blank -%}
+              <img src="{{ article.image | image_url: width: 1000 }}" 
+                   alt="{{ article.title | escape }}" 
+                   class="featured-article-zoom-img"
+                   style="width: 100%; height: 100%; object-fit: cover; transition: all 0.7s ease-in-out;"
+                   loading="lazy">
+            {%- else -%}
+              <div style="width: 100%; height: 100%; background: #f3f4f6;"></div>
+            {%- endif -%}
+          </div>
+
+          <!-- Right: Text Content -->
+          <div style="padding: 40px; display: flex; flex-direction: column; justify-content: center;">
+            <div class="font-bold text-xs" style="color: var(--color-blue); background-color: rgba(28, 145, 215, 0.08); padding: 4px 12px; border-radius: var(--border-radius-full); width: fit-content; text-transform: uppercase; margin-bottom: 16px; letter-spacing: 0.05em;">
+              {{ blog.title }}
+            </div>
+            
+            <h3 class="font-display font-bold featured-article-title" style="font-size: clamp(1.5rem, 3vw, 2.25rem); color: var(--text-light); transition: var(--transition-smooth); line-height: 1.2; margin-bottom: 16px; margin-top: 0;">
+              {{ article.title }}
+            </h3>
+
+            <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+              {%- if article.excerpt.size > 0 -%}
+                {{ article.excerpt | strip_html | truncatewords: 30 }}
+              {%- else -%}
+                {{ article.content | strip_html | truncatewords: 30 }}
+              {%- endif -%}
+            </p>
+
+            <div style="display: flex; align-items: center; font-size: 0.85rem; color: #64748b; font-weight: 500; margin-top: auto;">
+              <span>{{ article.author }}</span>
+              <span style="margin: 0 8px;">&bull;</span>
+              <span>{{ article.published_at | date: '%b %d, %Y' }}</span>
+            </div>
+          </div>
+
+        </div>
+      </a>
+    {%- else -%}
+      <!-- Placeholder Featured Card for Customizer -->
+      <div class="group" style="display: block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);">
+        <div class="grid grid-cols-1 grid-cols-2" style="align-items: stretch; gap: 0;">
+          <div style="position: relative; min-height: 300px; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); display: flex; align-items: center; justify-content: center; color: #475569;">
+            [ Upload Blog Post Image ]
+          </div>
+          <div style="padding: 40px; display: flex; flex-direction: column; justify-content: center;">
+            <div style="color: var(--color-blue); background-color: rgba(28, 145, 215, 0.08); padding: 4px 12px; border-radius: var(--border-radius-full); width: fit-content; text-transform: uppercase; font-size: 0.75rem; font-weight: 700; margin-bottom: 16px;">
+              Qatar
+            </div>
+            <h3 class="font-display font-bold" style="font-size: clamp(1.5rem, 3vw, 2.25rem); color: var(--text-light); line-height: 1.2; margin-bottom: 16px; margin-top: 0;">
+              My First Year in Qatar: What I Wish I Knew Before Moving
+            </h3>
+            <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+              The immigration process is a marathon, housing is rarely what the contract describes, and the heat is definitely not a metaphor. Here is the unfiltered truth about relocating to Doha.
+            </p>
+            <div style="display: flex; align-items: center; font-size: 0.85rem; color: #64748b; font-weight: 500; margin-top: auto;">
+              <span>Edwina Shangase</span>
+              <span style="margin: 0 8px;">&bull;</span>
+              <span>9 min read</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+
+    <!-- View All Link (Mobile-only) -->
+    {%- if blog != blank -%}
+      <div class="hidden-md-up" style="margin-top: 32px; text-align: center;">
+        <a href="{{ blog.url }}" class="font-bold text-sm tracking-wider" style="color: var(--color-blue); text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px;">
+          {{ section.settings.view_all_text | escape }} &rarr;
+        </a>
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+<!-- Custom CSS for Blog Preview Hover -->
+<style>
+  .group:hover {
+    box-shadow: var(--shadow-xl) !important;
+  }
+  .group:hover .featured-article-zoom-img {
+    transform: scale(1.03);
+  }
+  .group:hover .featured-article-title {
+    color: var(--color-blue) !important;
+  }
+  @media (max-width: 768px) {
+    .hidden-md-down {
+      display: none;
+    }
+    .hidden-md-up {
+      display: block;
+    }
+  }
+  @media (min-width: 769px) {
+    .hidden-md-down {
+      display: inline-flex;
+    }
+    .hidden-md-up {
+      display: none;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Blog Preview Featured",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title_prefix",
+      "label": "Heading Text",
+      "default": "Latest from the"
+    },
+    {
+      "type": "text",
+      "id": "title_italic",
+      "label": "Italicized Heading Word",
+      "default": "Lounge."
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Select Blog"
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View All Link Text",
+      "default": "VIEW ALL POSTS"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog Preview Featured",
+      "category": "Blog"
+    }
+  ]
+}
+{% endschema %}

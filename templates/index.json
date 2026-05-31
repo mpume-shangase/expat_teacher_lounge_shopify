@@ -10,11 +10,26 @@
     "how_it_works": {
       "type": "how-it-works"
     },
+    "destinations": {
+      "type": "destinations"
+    },
     "featured_products": {
       "type": "featured-products"
     },
+    "free_resources": {
+      "type": "free-resources"
+    },
+    "coaching_preview": {
+      "type": "coaching-preview"
+    },
+    "authority": {
+      "type": "authority"
+    },
     "testimonials": {
       "type": "testimonials"
+    },
+    "blog_preview": {
+      "type": "blog-preview"
     },
     "email_capture": {
       "type": "email-capture"
@@ -24,8 +39,13 @@
     "hero",
     "proof_bar",
     "how_it_works",
+    "destinations",
     "featured_products",
+    "free_resources",
+    "coaching_preview",
+    "authority",
     "testimonials",
+    "blog_preview",
     "email_capture"
   ]
 }

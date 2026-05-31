@@ -1,0 +1,179 @@
+<section class="section-padding bg-dark text-dark" style="background-color: var(--color-bg-dark, #0a0b14); color: #ffffff; position: relative; overflow: hidden;">
+  
+  <!-- Abstract Glowing Background -->
+  <div class="absolute" style="top: 0; right: 0; width: 50%; height: 100%; background: rgba(20, 61, 138, 0.1); filter: blur(100px); border-radius: 50%; transform: translate(25%, -50%); pointer-events: none;"></div>
+
+  <div class="container relative z-10">
+    <div class="hero-container" style="display: flex; flex-wrap: wrap; align-items: center; gap: 48px;">
+      
+      <!-- Left Column: Copy Content (50%) -->
+      <div class="coaching-content" style="flex: 1 1 500px; padding-right: 16px;">
+        <h2 class="font-display font-black text-white" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 24px;">
+          {{ section.settings.title_prefix }} <span class="italic" style="color: var(--color-blue); font-style: italic;">{{ section.settings.title_italic }}</span>
+        </h2>
+        {%- if section.settings.description != blank -%}
+          <p style="color: #94a3b8; font-size: 1.1rem; line-height: 1.7; margin-bottom: 32px;">
+            {{ section.settings.description }}
+          </p>
+        {%- endif -%}
+
+        <!-- Packages Stack -->
+        <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px;">
+          {%- for block in section.blocks -%}
+            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--border-radius-md); padding: 24px; backdrop-filter: blur(10px);">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                <h3 class="font-display font-bold text-white" style="font-size: 1.25rem; margin: 0;">
+                  {{ block.settings.title | escape }}
+                </h3>
+                <span class="font-display font-bold" style="color: var(--color-brand-gold, #FCCB52); font-size: 1.25rem;">
+                  {{ block.settings.price | escape }}
+                </span>
+              </div>
+              <p style="color: #94a3b8; font-size: 0.875rem; margin: 0; line-height: 1.5;">
+                {{ block.settings.description | escape }}
+              </p>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        {%- if section.settings.cta_text != blank -%}
+          <a href="{{ section.settings.cta_url | default: '#' }}" class="btn btn-primary">
+            {{ section.settings.cta_text }}
+          </a>
+        {%- endif -%}
+      </div>
+
+      <!-- Right Column: Grayscale Image (50%) -->
+      <div class="coaching-image-wrapper" style="flex: 1 1 400px; position: relative; height: 550px; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-xl);">
+        {%- if section.settings.coaching_image != blank -%}
+          <img src="{{ section.settings.coaching_image | image_url: width: 1000 }}" 
+               alt="Coaching Presentation" 
+               class="grayscale-hover-img"
+               style="width: 100%; height: 100%; object-fit: cover; transition: all 1s ease-in-out;"
+               loading="lazy">
+        {%- else -%}
+          <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); display: flex; align-items: center; justify-content: center; color: #475569;">
+            [ Upload Image ]
+          </div>
+        {%- endif -%}
+        
+        <!-- Bottom Blend Gradient Overlay (Mobile only) -->
+        <div class="absolute inset-0 block-lg-hidden" style="background: linear-gradient(to top, #0a0b14 0%, transparent 40%); pointer-events: none;"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Custom CSS for Image Grayscale Transition -->
+<style>
+  .grayscale-hover-img {
+    filter: grayscale(100%);
+  }
+  .coaching-image-wrapper:hover .grayscale-hover-img {
+    filter: grayscale(0%);
+  }
+  @media (max-width: 991px) {
+    .block-lg-hidden {
+      display: block;
+    }
+  }
+  @media (min-width: 992px) {
+    .block-lg-hidden {
+      display: none;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Coaching Preview",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title_prefix",
+      "label": "Heading Text",
+      "default": "Need a"
+    },
+    {
+      "type": "text",
+      "id": "title_italic",
+      "label": "Italicized Heading Word",
+      "default": "Strategic Partner?"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Section Subtitle",
+      "default": "Stop guessing what a 'good' package looks like. Book a 1-on-1 strategy session to review your contract, optimize your CV, and negotiate exactly what you're worth."
+    },
+    {
+      "type": "image_picker",
+      "id": "coaching_image",
+      "label": "Coaching Image"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "View Coaching Packages"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "package",
+      "name": "Package Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Package Title",
+          "default": "Relocation Strategy"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price Value (e.g. $97)",
+          "default": "$97"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Package Description",
+          "default": "60 minute structured sprint via Google Meet."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Coaching Preview",
+      "category": "Image with text",
+      "blocks": [
+        {
+          "type": "package",
+          "settings": {
+            "title": "Relocation Strategy",
+            "price": "$97",
+            "description": "60 minute structured sprint via Google Meet."
+          }
+        },
+        {
+          "type": "package",
+          "settings": {
+            "title": "Contract Review",
+            "price": "$77",
+            "description": "45 minute review session before you sign."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

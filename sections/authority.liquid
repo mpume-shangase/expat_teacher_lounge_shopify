@@ -1,0 +1,64 @@
+<section class="section-padding bg-brand-blue text-white" style="background-color: var(--color-blue, #1C91D7); color: #ffffff; position: relative; overflow: hidden;">
+  
+  <!-- Decorative background elements -->
+  <div class="absolute" style="top: 0; right: 0; width: 250px; height: 250px; background-color: #ffffff; opacity: 0.05; filter: blur(50px); border-radius: 50%; pointer-events: none;"></div>
+  <div class="absolute" style="bottom: 0; left: 0; width: 400px; height: 400px; background-color: var(--color-brand-deep, #143D8A); opacity: 0.4; filter: blur(80px); border-radius: 50%; pointer-events: none;"></div>
+
+  <div class="container relative z-10" style="max-width: 896px; text-align: center; margin-left: auto; margin-right: auto;">
+    
+    <!-- Title -->
+    <h2 class="font-display font-black text-white" style="font-size: clamp(2.25rem, 5vw, 3.5rem); line-height: 1.2; margin-bottom: 32px;">
+      {{ section.settings.title | escape }}
+    </h2>
+
+    <!-- Main Paragraph -->
+    {%- if section.settings.description != blank -%}
+      <p style="font-size: clamp(1.1rem, 2vw, 1.3rem); line-height: 1.7; color: rgba(255,255,255,0.95); margin-bottom: 48px;">
+        {{ section.settings.description | escape }}
+      </p>
+    {%- endif -%}
+
+    <!-- Gold Accent Divider Line -->
+    <div style="width: 96px; height: 4px; background-color: var(--color-brand-gold, #FCCB52); margin-left: auto; margin-right: auto; margin-top: 48px; margin-bottom: 48px; border-radius: 2px;"></div>
+
+    <!-- Final Quote -->
+    {%- if section.settings.quote != blank -%}
+      <p class="font-display italic" style="font-size: clamp(1.35rem, 3vw, 1.85rem); font-weight: 700; font-style: italic; line-height: 1.4; color: #ffffff;">
+        {{ section.settings.quote | escape }}
+      </p>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Authority Text Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading Title",
+      "default": "I've been in your shoes."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description Text",
+      "default": "For the last 18 years, I've navigated curriculums in South Africa, the UK, Qatar, and Canada. I've seen teachers accept lowball offers, struggle with attestation, and land in bad accommodations—all because they didn't know the playbook."
+    },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Highlight Quote",
+      "default": "I built Expat Teacher's Lounge so you don't have to make the same mistakes."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Authority Text Banner",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

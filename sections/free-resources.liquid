@@ -1,0 +1,153 @@
+<section class="section-padding bg-light text-light" style="background-color: #f9fafb; position: relative;">
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div style="text-align: center; max-width: 600px; margin-left: auto; margin-right: auto; margin-bottom: 64px;">
+      <h2 class="font-display font-black" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 24px;">
+        {{ section.settings.title_prefix }} <span class="italic" style="color: var(--color-blue); font-style: italic;">{{ section.settings.title_italic }}</span>
+      </h2>
+      {%- if section.settings.description != blank -%}
+        <p style="color: #64748b; font-size: 1.1rem; line-height: 1.6;">
+          {{ section.settings.description }}
+        </p>
+      {%- endif -%}
+    </div>
+
+    <!-- Resources Card Grid -->
+    <div class="grid grid-cols-1 grid-cols-2" style="max-width: 896px; margin-left: auto; margin-right: auto; gap: 24px;">
+      {%- for block in section.blocks -%}
+        <a href="{{ block.settings.download_url | default: '#' }}" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="resource-link-card group" 
+           style="display: flex; align-items: center; padding: 24px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: var(--border-radius-md); transition: var(--transition-smooth); height: 100%;">
+          
+          <!-- Image Cover or Icon -->
+          {%- if block.settings.cover_image != blank -%}
+            <div class="resource-cover-wrapper" style="position: relative; width: 80px; height: 96px; border-radius: var(--border-radius-sm); overflow: hidden; margin-right: 24px; border: 1px solid #e5e7eb; background-color: #fafafc; flex-shrink: 0; transition: var(--transition-smooth);">
+              <img src="{{ block.settings.cover_image | image_url: width: 240 }}" 
+                   alt="{{ block.settings.title | escape }}" 
+                   style="width: 100%; height: 100%; object-fit: contain; padding: 8px;"
+                   loading="lazy">
+            </div>
+          {%- else -%}
+            <div class="resource-icon-wrapper" style="width: 64px; height: 64px; background-color: rgba(28, 145, 215, 0.08); display: flex; align-items: center; justify-content: center; border-radius: var(--border-radius-sm); margin-right: 24px; color: var(--color-blue); flex-shrink: 0; transition: var(--transition-smooth);">
+              <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+              </svg>
+            </div>
+          {%- endif -%}
+
+          <!-- Title -->
+          <h3 class="font-display font-bold resource-card-title" style="font-size: 1.15rem; color: var(--text-light); transition: var(--transition-smooth); flex-grow: 1; padding-right: 16px; margin: 0; line-height: 1.3;">
+            {{ block.settings.title | escape }}
+          </h3>
+
+        </a>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+<!-- Custom CSS for Resources Grid Hover -->
+<style>
+  .resource-link-card:hover {
+    border-color: var(--color-blue);
+    box-shadow: var(--shadow-lg);
+  }
+  .resource-link-card:hover .resource-cover-wrapper {
+    transform: scale(1.05);
+  }
+  .resource-link-card:hover .resource-icon-wrapper {
+    background-color: var(--color-blue);
+    color: #ffffff;
+    transform: scale(1.05);
+  }
+  .resource-link-card:hover .resource-card-title {
+    color: var(--color-blue) !important;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Free Resources Section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title_prefix",
+      "label": "Heading Text",
+      "default": "Free"
+    },
+    {
+      "type": "text",
+      "id": "title_italic",
+      "label": "Italicized Heading Word",
+      "default": "Resources."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description Text",
+      "default": "Kickstart your relocation journey with checklists and guides we use every day."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "resource",
+      "name": "Resource Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Resource Title",
+          "default": "Qatar Document Attestation Checklist"
+        },
+        {
+          "type": "image_picker",
+          "id": "cover_image",
+          "label": "Cover Image"
+        },
+        {
+          "type": "url",
+          "id": "download_url",
+          "label": "Download Link (e.g. Google Drive)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Free Resources Grid",
+      "category": "Text",
+      "blocks": [
+        {
+          "type": "resource",
+          "settings": {
+            "title": "Qatar Document Attestation Checklist"
+          }
+        },
+        {
+          "type": "resource",
+          "settings": {
+            "title": "Qatar Teacher Immigration Checklist"
+          }
+        },
+        {
+          "type": "resource",
+          "settings": {
+            "title": "Guide to Reputable British & American Schools in Qatar"
+          }
+        },
+        {
+          "type": "resource",
+          "settings": {
+            "title": "International Teaching Resource & Navigation Guide"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

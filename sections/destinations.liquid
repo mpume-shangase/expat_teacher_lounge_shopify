@@ -1,0 +1,125 @@
+<section class="section-padding bg-light text-light" style="background-color: #f9fafb; border-bottom: 1px solid #f0f0f5; position: relative; overflow: hidden;">
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div style="margin-bottom: 48px;">
+      <h2 class="font-display font-black" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2;">
+        {{ section.settings.title_prefix }} <span class="italic" style="color: var(--color-brand-gold, #FCCB52); font-style: italic;">{{ section.settings.title_italic }}</span>
+      </h2>
+    </div>
+
+    <!-- Destinations Grid -->
+    <div class="grid grid-cols-1 grid-cols-2" style="gap: 24px;">
+      {%- for block in section.blocks -%}
+        <div class="destination-card group" style="position: relative; background: #ffffff; border: 1px solid #e5e7eb; padding: 32px; border-radius: var(--border-radius-md); transition: var(--transition-smooth); overflow: hidden; height: 100%;">
+          
+          <!-- Animated Accent Left Border -->
+          <div class="destination-accent" style="position: absolute; left: 0; top: 0; bottom: 0; width: 0; background-color: var(--color-blue); transition: var(--transition-smooth);"></div>
+          
+          <div class="destination-content" style="transition: var(--transition-smooth);">
+            <h3 class="font-display font-bold" style="font-size: 1.5rem; margin-bottom: 12px; color: var(--text-light);">
+              {{ block.settings.title | escape }}
+            </h3>
+            <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin: 0;">
+              {{ block.settings.description | escape }}
+            </p>
+          </div>
+
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+<!-- Custom CSS for Destination Hover Slide -->
+<style>
+  .destination-card:hover {
+    transform: translateX(16px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(28, 145, 215, 0.15);
+  }
+  .destination-card:hover .destination-accent {
+    width: 8px !important;
+  }
+  .destination-card:hover .destination-content {
+    transform: translateX(8px);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Destinations Grid",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title_prefix",
+      "label": "Heading Text",
+      "default": "Where will you"
+    },
+    {
+      "type": "text",
+      "id": "title_italic",
+      "label": "Italicized Heading Word",
+      "default": "teach next?"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "destination",
+      "name": "Destination Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Destination Title",
+          "default": "Qatar"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "High savings potential, modern infrastructure, and excellent flight connections to explore the globe."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Destinations Grid",
+      "category": "Text",
+      "blocks": [
+        {
+          "type": "destination",
+          "settings": {
+            "title": "Qatar",
+            "description": "High savings potential, modern infrastructure, and excellent flight connections to explore the globe."
+          }
+        },
+        {
+          "type": "destination",
+          "settings": {
+            "title": "UAE",
+            "description": "Tax-free salaries, vibrant expat communities, and world-class premium amenities."
+          }
+        },
+        {
+          "type": "destination",
+          "settings": {
+            "title": "China",
+            "description": "Unmatched saving potential and rapid professional development."
+          }
+        },
+        {
+          "type": "destination",
+          "settings": {
+            "title": "Saudi Arabia",
+            "description": "The fastest growing education market globally with premium salary packages."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
