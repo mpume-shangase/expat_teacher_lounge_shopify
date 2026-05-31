@@ -1,0 +1,932 @@
+<!-- Coaching Page Section -->
+<section id="coaching-section-{{ section.id }}" class="coaching-page-wrapper">
+  
+  <style>
+    .coaching-page-wrapper {
+      width: 100%;
+      background-color: var(--bg-light, #ffffff);
+      color: var(--text-light, #0a0a14);
+      font-family: var(--font-body), sans-serif;
+    }
+    
+    /* --- COMMON STYLES --- */
+    .coaching-section-padding {
+      padding: 80px 24px;
+    }
+    @media (min-width: 992px) {
+      .coaching-section-padding {
+        padding: 120px 24px;
+      }
+    }
+    
+    .coaching-container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    
+    /* --- SECTION 1: HERO --- */
+    .coaching-hero {
+      position: relative;
+      height: 70vh;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #0a0b14;
+      text-align: center;
+      overflow: hidden;
+    }
+    
+    .coaching-hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+    .coaching-hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      opacity: 0.25;
+    }
+    .coaching-hero__overlay-dark {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(10, 11, 20, 0.75);
+      z-index: 2;
+    }
+    .coaching-hero__overlay-fade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, var(--bg-light, #ffffff) 0%, rgba(10, 11, 20, 0) 100%);
+      z-index: 3;
+    }
+    
+    .coaching-hero__content {
+      position: relative;
+      z-index: 10;
+      color: #ffffff;
+      margin-top: 80px;
+      padding: 0 24px;
+    }
+    
+    .coaching-hero__title {
+      font-family: var(--font-display), serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      color: #ffffff !important;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    }
+    
+    .coaching-hero__title span {
+      color: var(--color-brand-gold, #FCCB52);
+      font-style: italic;
+    }
+    
+    .coaching-hero__description {
+      font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+      color: rgba(255, 255, 255, 0.85) !important;
+      max-width: 650px;
+      margin: 0 auto 40px auto;
+      line-height: 1.5;
+      text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    }
+    
+    .coaching-hero__btn {
+      display: inline-block;
+      background-color: var(--color-blue, #1C91D7);
+      color: #ffffff !important;
+      padding: 16px 36px;
+      font-weight: 700;
+      border-radius: 9999px;
+      box-shadow: 0 10px 20px rgba(28, 145, 215, 0.25);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .coaching-hero__btn:hover {
+      background-color: var(--color-deep, #143D8A);
+      transform: translateY(-2px);
+      box-shadow: 0 15px 25px rgba(28, 145, 215, 0.35);
+    }
+    
+    /* --- SECTION 2: PACKAGES --- */
+    .coaching-packages {
+      background-color: var(--bg-light, #ffffff);
+    }
+    
+    .coaching-packages__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    @media (min-width: 768px) {
+      .coaching-packages__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    /* Package 1: Light Card */
+    .coaching-card-light {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .coaching-card-light:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    }
+    .coaching-card-light__glow {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 128px;
+      height: 128px;
+      background-color: rgba(28, 145, 215, 0.08);
+      border-radius: 50%;
+      filter: blur(30px);
+      pointer-events: none;
+    }
+    
+    .coaching-card__title {
+      font-family: var(--font-display), serif;
+      font-weight: 900;
+      font-size: clamp(1.5rem, 3vw, 1.85rem);
+      line-height: 1.2;
+      margin-bottom: 8px;
+      color: var(--text-light, #0a0a14);
+    }
+    
+    .coaching-card__meta {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: #64748b;
+      margin-bottom: 24px;
+    }
+    
+    .coaching-card__price {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--color-blue, #1C91D7);
+      margin-bottom: 32px;
+      line-height: 1;
+    }
+    
+    .coaching-card__list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 40px 0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .coaching-card__item {
+      display: flex;
+      align-items: start;
+      line-height: 1.5;
+      color: #334155;
+      font-size: 0.95rem;
+    }
+    
+    .coaching-card__item-icon {
+      width: 22px;
+      height: 22px;
+      color: var(--color-brand-gold, #FCCB52);
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+    
+    .coaching-card-light__btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background-color: #0f172a;
+      color: #ffffff !important;
+      padding: 16px 24px;
+      border-radius: 9999px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(15, 23, 42, 0.15);
+    }
+    .coaching-card-light__btn:hover {
+      background-color: var(--color-blue, #1C91D7);
+      transform: scale(1.02);
+      box-shadow: 0 10px 20px rgba(28, 145, 215, 0.25);
+    }
+    
+    /* Package 2: Dark Blue Card */
+    .coaching-card-dark {
+      background-color: var(--color-brand-deep, #143D8A);
+      border: 1px solid var(--color-brand-deep, #143D8A);
+      border-radius: 24px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      color: #ffffff;
+      box-shadow: 0 10px 25px rgba(20, 61, 138, 0.25);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .coaching-card-dark:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 50px rgba(20, 61, 138, 0.35);
+    }
+    .coaching-card-dark__glow {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 128px;
+      height: 128px;
+      background-color: rgba(252, 203, 82, 0.18);
+      border-radius: 50%;
+      filter: blur(35px);
+      pointer-events: none;
+    }
+    
+    .coaching-card-dark .coaching-card__title {
+      color: #ffffff;
+    }
+    
+    .coaching-card-dark .coaching-card__meta {
+      color: #93c5fd;
+    }
+    
+    .coaching-card-dark .coaching-card__price {
+      color: var(--color-brand-gold, #FCCB52);
+    }
+    
+    .coaching-card-dark .coaching-card__item {
+      color: #f1f5f9;
+    }
+    
+    .coaching-card-dark__btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background-color: var(--color-brand-gold, #FCCB52);
+      color: var(--color-brand-deep, #143D8A) !important;
+      padding: 16px 24px;
+      border-radius: 9999px;
+      font-weight: 800;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(252, 203, 82, 0.15);
+    }
+    .coaching-card-dark__btn:hover {
+      background-color: #f7bd31;
+      transform: scale(1.02);
+      box-shadow: 0 10px 20px rgba(252, 203, 82, 0.3);
+    }
+    
+    /* --- SECTION 3: BOOKING --- */
+    .coaching-booking {
+      background-color: #f8fafc;
+      border-top: 1px solid rgba(0,0,0,0.03);
+      border-bottom: 1px solid rgba(0,0,0,0.03);
+      text-align: center;
+    }
+    
+    .coaching-booking__title {
+      font-family: var(--font-display), serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      margin-bottom: 16px;
+      color: var(--text-light, #0a0a14);
+    }
+    .coaching-booking__title span {
+      color: var(--color-blue, #1C91D7);
+      font-style: italic;
+    }
+    
+    .coaching-booking__subtitle {
+      font-size: 1.1rem;
+      color: #64748b;
+      margin-bottom: 48px;
+    }
+    
+    .coaching-booking__widget {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      overflow: hidden;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .coaching-booking__placeholder {
+      padding: 40px;
+      color: #94a3b8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .coaching-booking__placeholder-icon {
+      width: 64px;
+      height: 64px;
+      color: #cbd5e1;
+      margin-bottom: 16px;
+    }
+    .coaching-booking__placeholder-title {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+    .coaching-booking__placeholder-text {
+      font-size: 0.95rem;
+    }
+    
+    /* --- SECTION 4: FAQs --- */
+    .coaching-faq {
+      background-color: var(--bg-light, #ffffff);
+    }
+    
+    .coaching-faq__title {
+      font-family: var(--font-display), serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      margin-bottom: 48px;
+      text-align: center;
+      color: var(--text-light, #0a0a14);
+    }
+    .coaching-faq__title span {
+      color: var(--color-brand-gold, #FCCB52);
+      font-style: italic;
+    }
+    
+    .coaching-faq__container {
+      max-width: 768px;
+      margin: 0 auto;
+      border-top: 1px solid #e2e8f0;
+    }
+    
+    .coaching-faq__item {
+      border-bottom: 1px solid #e2e8f0;
+      padding: 24px 0;
+    }
+    
+    .coaching-faq__button {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      font-family: var(--font-display), serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text-light, #0a0a14);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    
+    .coaching-faq__icon {
+      color: var(--color-blue, #1C91D7);
+      transition: transform 0.3s ease;
+      font-size: 0.8rem;
+    }
+    
+    .coaching-faq__answer {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+      padding-top: 0;
+    }
+    .coaching-faq__answer p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #475569;
+    }
+    
+    /* Opened states */
+    .coaching-faq__item--open .coaching-faq__icon {
+      transform: rotate(180deg);
+    }
+    .coaching-faq__item--open .coaching-faq__answer {
+      max-height: 200px;
+      opacity: 1;
+      padding-top: 16px;
+    }
+  </style>
+
+  <!-- SECTION 1 — HERO -->
+  <div class="coaching-hero">
+    <div class="coaching-hero__bg">
+      {%- if section.settings.hero_image != blank -%}
+        <img src="{{ section.settings.hero_image | image_url: width: 1600 }}" alt="Edwina Presentation Background">
+      {%- else -%}
+        <img src="{{ 'Edwina_delivering_a_presentation.png' | asset_url }}" alt="Edwina Presentation Background">
+      {%- endif -%}
+    </div>
+    <div class="coaching-hero__overlay-dark"></div>
+    <div class="coaching-hero__overlay-fade"></div>
+    <div class="coaching-hero__content">
+      <h1 class="coaching-hero__title">
+        {{ section.settings.hero_title_prefix }} <span>{{ section.settings.hero_title_accent }}</span>
+      </h1>
+      <p class="coaching-hero__description">
+        {{ section.settings.hero_description }}
+      </p>
+      <a href="#sessions" class="coaching-hero__btn">{{ section.settings.hero_button_text }}</a>
+    </div>
+  </div>
+
+  <!-- SECTION 2 — PACKAGES -->
+  <div id="sessions" class="coaching-section-padding coaching-packages">
+    <div class="coaching-container">
+      <div class="coaching-packages__grid">
+        
+        <!-- Package 1: Strategy -->
+        <div class="coaching-card-light">
+          <div class="coaching-card-light__glow"></div>
+          <h3 class="coaching-card__title">{{ section.settings.pkg1_title }}</h3>
+          <p class="coaching-card__meta">{{ section.settings.pkg1_meta }}</p>
+          <div class="coaching-card__price">{{ section.settings.pkg1_price }}</div>
+          
+          <ul class="coaching-card__list">
+            {%- if section.settings.pkg1_feat1 != blank -%}
+              <li class="coaching-card__item">
+                <svg class="coaching-card__item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>{{ section.settings.pkg1_feat1 }}</span>
+              </li>
+            {%- endif -%}
+            {%- if section.settings.pkg1_feat2 != blank -%}
+              <li class="coaching-card__item">
+                <svg class="coaching-card__item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>{{ section.settings.pkg1_feat2 }}</span>
+              </li>
+            {%- endif -%}
+            {%- if section.settings.pkg1_feat3 != blank -%}
+              <li class="coaching-card__item">
+                <svg class="coaching-card__item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>{{ section.settings.pkg1_feat3 }}</span>
+              </li>
+            {%- endif -%}
+            {%- if section.settings.pkg1_feat4 != blank -%}
+              <li class="coaching-card__item">
+                <svg class="coaching-card__item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>{{ section.settings.pkg1_feat4 }}</span>
+              </li>
+            {%- endif -%}
+            {%- if section.settings.pkg1_feat5 != blank -%}
+              <li class="coaching-card__item">
+                <svg class="coaching-card__item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>{{ section.settings.pkg1_feat5 }}</span>
+              </li>
+            {%- endif -%}
+          </ul>
+          
+          <a href="#booking" class="coaching-card-light__btn">{{ section.settings.pkg_button_text }}</a>
+        </div>
+        
+        <!-- Package 2: Contract Review -->
+        <div class="coaching-card-dark">
+          <div class="coaching-card-dark__glow"></div>
+          <h3 class="coaching-card__title">{{ section.settings.pkg2_title }}</h3>
+          <p class="coaching-card__meta">{{ section.settings.pkg2_meta }}</p>
+          <div class="coaching-card__price">{{ section.settings.pkg2_price }}</div>
+          
+          <ul class="coaching-card__list">
+            {%- if section.settings.pkg2_feat1 != blank -%}
+              <li class="coaching-card__item">
+                <svg class="coaching-card__item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>{{ section.settings.pkg2_feat1 }}</span>
+              </li>
+            {%- endif -%}
+            {%- if section.settings.pkg2_feat2 != blank -%}
+              <li class="coaching-card__item">
+                <svg class="coaching-card__item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>{{ section.settings.pkg2_feat2 }}</span>
+              </li>
+            {%- endif -%}
+            {%- if section.settings.pkg2_feat3 != blank -%}
+              <li class="coaching-card__item">
+                <svg class="coaching-card__item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>{{ section.settings.pkg2_feat3 }}</span>
+              </li>
+            {%- endif -%}
+            {%- if section.settings.pkg2_feat4 != blank -%}
+              <li class="coaching-card__item">
+                <svg class="coaching-card__item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>{{ section.settings.pkg2_feat4 }}</span>
+              </li>
+            {%- endif -%}
+            {%- if section.settings.pkg2_feat5 != blank -%}
+              <li class="coaching-card__item">
+                <svg class="coaching-card__item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>{{ section.settings.pkg2_feat5 }}</span>
+              </li>
+            {%- endif -%}
+          </ul>
+          
+          <a href="#booking" class="coaching-card-dark__btn">{{ section.settings.pkg_button_text }}</a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3 — BOOKING CALENDLY -->
+  <div id="booking" class="coaching-section-padding coaching-booking">
+    <div class="coaching-container">
+      <h2 class="coaching-booking__title">
+        {{ section.settings.booking_title_prefix }} <span>{{ section.settings.booking_title_accent }}</span>
+      </h2>
+      <p class="coaching-booking__subtitle">
+        {{ section.settings.booking_subtitle }}
+      </p>
+      
+      <div class="coaching-booking__widget">
+        {%- if section.settings.calendly_embed_code != blank -%}
+          <div style="width: 100%; height: 100%; min-height: 600px;">
+            {{ section.settings.calendly_embed_code }}
+          </div>
+        {%- else -%}
+          <!-- Default Mock Booking/Placeholder Box -->
+          <div class="coaching-booking__placeholder">
+            <svg class="coaching-booking__placeholder-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            <p class="coaching-booking__placeholder-title">Calendly Scheduling Widget</p>
+            <p class="coaching-booking__placeholder-text">Please customize this section in the Theme Editor to paste your Calendly inline embed code.</p>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4 — FAQ ACCORDION -->
+  <div class="coaching-section-padding coaching-faq">
+    <div class="coaching-container">
+      <h2 class="coaching-faq__title">
+        {{ section.settings.faq_title_prefix }} <span>{{ section.settings.faq_title_accent }}</span>
+      </h2>
+      
+      <div class="coaching-faq__container">
+        
+        <!-- FAQ 1 -->
+        <div class="coaching-faq__item">
+          <button class="coaching-faq__button" onclick="toggleFaq(this)">
+            <span>{{ section.settings.faq1_q }}</span>
+            <span class="coaching-faq__icon">▼</span>
+          </button>
+          <div class="coaching-faq__answer">
+            <p>{{ section.settings.faq1_a }}</p>
+          </div>
+        </div>
+        
+        <!-- FAQ 2 -->
+        <div class="coaching-faq__item">
+          <button class="coaching-faq__button" onclick="toggleFaq(this)">
+            <span>{{ section.settings.faq2_q }}</span>
+            <span class="coaching-faq__icon">▼</span>
+          </button>
+          <div class="coaching-faq__answer">
+            <p>{{ section.settings.faq2_a }}</p>
+          </div>
+        </div>
+        
+        <!-- FAQ 3 -->
+        <div class="coaching-faq__item">
+          <button class="coaching-faq__button" onclick="toggleFaq(this)">
+            <span>{{ section.settings.faq3_q }}</span>
+            <span class="coaching-faq__icon">▼</span>
+          </button>
+          <div class="coaching-faq__answer">
+            <p>{{ section.settings.faq3_a }}</p>
+          </div>
+        </div>
+        
+        <!-- FAQ 4 -->
+        <div class="coaching-faq__item">
+          <button class="coaching-faq__button" onclick="toggleFaq(this)">
+            <span>{{ section.settings.faq4_q }}</span>
+            <span class="coaching-faq__icon">▼</span>
+          </button>
+          <div class="coaching-faq__answer">
+            <p>{{ section.settings.faq4_a }}</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<script>
+  function toggleFaq(button) {
+    var item = button.parentElement;
+    var isOpen = item.classList.contains('coaching-faq__item--open');
+    
+    // Close any other open FAQ items first for standard accordion feel
+    var openItems = document.querySelectorAll('.coaching-faq__item--open');
+    openItems.forEach(function(el) {
+      el.classList.remove('coaching-faq__item--open');
+    });
+    
+    // Toggle current item
+    if (!isOpen) {
+      item.classList.add('coaching-faq__item--open');
+    }
+  }
+  
+  // Smooth scroll helper for anchors
+  document.querySelectorAll('.coaching-page-wrapper a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      var targetId = this.getAttribute('href');
+      var targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        var headerOffset = 80;
+        var elementPosition = targetElement.getBoundingClientRect().top;
+        var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Coaching Page Content",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section 1: Hero"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image Backdrop"
+    },
+    {
+      "type": "text",
+      "id": "hero_title_prefix",
+      "label": "Hero Title Prefix",
+      "default": "1-on-1"
+    },
+    {
+      "type": "text",
+      "id": "hero_title_accent",
+      "label": "Hero Title Accent (Gold)",
+      "default": "Strategy."
+    },
+    {
+      "type": "textarea",
+      "id": "hero_description",
+      "label": "Hero Description",
+      "default": "Clear the noise. Get direct, personalized guidance on your relocation."
+    },
+    {
+      "type": "text",
+      "id": "hero_button_text",
+      "label": "Hero Button Text",
+      "default": "View Packages"
+    },
+    {
+      "type": "header",
+      "content": "Section 2: Packages"
+    },
+    {
+      "type": "text",
+      "id": "pkg_button_text",
+      "label": "Packages Button Text",
+      "default": "Select Package"
+    },
+    {
+      "type": "text",
+      "id": "pkg1_title",
+      "label": "Package 1: Title",
+      "default": "Relocation Strategy Session"
+    },
+    {
+      "type": "text",
+      "id": "pkg1_meta",
+      "label": "Package 1: Meta Tagline",
+      "default": "60 MINUTES • GOOGLE MEET"
+    },
+    {
+      "type": "text",
+      "id": "pkg1_price",
+      "label": "Package 1: Price",
+      "default": "$97"
+    },
+    {
+      "type": "text",
+      "id": "pkg1_feat1",
+      "label": "Package 1: Feature 1",
+      "default": "Deep dive into your personal and professional priorities"
+    },
+    {
+      "type": "text",
+      "id": "pkg1_feat2",
+      "label": "Package 1: Feature 2",
+      "default": "Targeted country selection strategy"
+    },
+    {
+      "type": "text",
+      "id": "pkg1_feat3",
+      "label": "Package 1: Feature 3",
+      "default": "C.V. and cover letter review & optimization"
+    },
+    {
+      "type": "text",
+      "id": "pkg1_feat4",
+      "label": "Package 1: Feature 4",
+      "default": "Interview technique preparation"
+    },
+    {
+      "type": "text",
+      "id": "pkg1_feat5",
+      "label": "Package 1: Feature 5",
+      "default": "Written action plan delivered within 24 hours"
+    },
+    {
+      "type": "text",
+      "id": "pkg2_title",
+      "label": "Package 2: Title",
+      "default": "Contract Review Session"
+    },
+    {
+      "type": "text",
+      "id": "pkg2_meta",
+      "label": "Package 2: Meta Tagline",
+      "default": "45 MINUTES • GOOGLE MEET"
+    },
+    {
+      "type": "text",
+      "id": "pkg2_price",
+      "label": "Package 2: Price",
+      "default": "$77"
+    },
+    {
+      "type": "text",
+      "id": "pkg2_feat1",
+      "label": "Package 2: Feature 1",
+      "default": "Line-by-line contract analysis before you sign"
+    },
+    {
+      "type": "text",
+      "id": "pkg2_feat2",
+      "label": "Package 2: Feature 2",
+      "default": "Hidden red flags and missing clauses identified"
+    },
+    {
+      "type": "text",
+      "id": "pkg2_feat3",
+      "label": "Package 2: Feature 3",
+      "default": "Salary benchmarking against true market rate"
+    },
+    {
+      "type": "text",
+      "id": "pkg2_feat4",
+      "label": "Package 2: Feature 4",
+      "default": "Negotiation coaching and exact phrasing to use"
+    },
+    {
+      "type": "text",
+      "id": "pkg2_feat5",
+      "label": "Package 2: Feature 5",
+      "default": "Benefit evaluation (housing, insurance, flights)"
+    },
+    {
+      "type": "header",
+      "content": "Section 3: Booking (Calendly)"
+    },
+    {
+      "type": "text",
+      "id": "booking_title_prefix",
+      "label": "Booking Section Title Prefix",
+      "default": "Book your"
+    },
+    {
+      "type": "text",
+      "id": "booking_title_accent",
+      "label": "Booking Section Title Accent (Blue)",
+      "default": "Session."
+    },
+    {
+      "type": "text",
+      "id": "booking_subtitle",
+      "label": "Booking Section Subtitle",
+      "default": "Select an available time below. Payment is processed securely via Stripe."
+    },
+    {
+      "type": "textarea",
+      "id": "calendly_embed_code",
+      "label": "Calendly Inline Embed HTML Code"
+    },
+    {
+      "type": "header",
+      "content": "Section 4: FAQs"
+    },
+    {
+      "type": "text",
+      "id": "faq_title_prefix",
+      "label": "FAQ Title Prefix",
+      "default": "Frequently Asked"
+    },
+    {
+      "type": "text",
+      "id": "faq_title_accent",
+      "label": "FAQ Title Accent (Gold)",
+      "default": "Questions."
+    },
+    {
+      "type": "text",
+      "id": "faq1_q",
+      "label": "FAQ 1: Question",
+      "default": "Is my payment secure?"
+    },
+    {
+      "type": "textarea",
+      "id": "faq1_a",
+      "label": "FAQ 1: Answer",
+      "default": "Yes. All payments are processed securely through Stripe. We do not store any of your credit card information locally."
+    },
+    {
+      "type": "text",
+      "id": "faq2_q",
+      "label": "FAQ 2: Question",
+      "default": "Can I reschedule my session?"
+    },
+    {
+      "type": "textarea",
+      "id": "faq2_a",
+      "label": "FAQ 2: Answer",
+      "default": "Yes, you can reschedule up to 24 hours before our scheduled time using the link in your confirmation email."
+    },
+    {
+      "type": "text",
+      "id": "faq3_q",
+      "label": "FAQ 3: Question",
+      "default": "What if I don't have my contract yet?"
+    },
+    {
+      "type": "textarea",
+      "id": "faq3_a",
+      "label": "FAQ 3: Answer",
+      "default": "The Contract Review session is best booked once you have an offer in hand. If you're still early in the process, the Relocation Strategy Session is the best place to start."
+    },
+    {
+      "type": "text",
+      "id": "faq4_q",
+      "label": "FAQ 4: Question",
+      "default": "Do you guarantee job placement?"
+    },
+    {
+      "type": "textarea",
+      "id": "faq4_a",
+      "label": "FAQ 4: Answer",
+      "default": "No. I am not a recruiter and do not guarantee placements. I provide independent, objective strategy and negotiation support to ensure you secure the best possible role on your own terms."
+    }
+  ]
+}
+{% endschema %}

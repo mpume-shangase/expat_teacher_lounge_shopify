@@ -49,7 +49,12 @@
     {{ content_for_header }}
   </head>
 
-  <body class="font-body antialiased bg-light text-light transition-colors duration-300 template-{{ template.name | handle }}{% if template.suffix %} template-{{ template.name | handle }}-{{ template.suffix | handle }}{% endif %}">
+  {%- assign has_dark_hero = false -%}
+  {%- if template.name == 'index' or template.name == 'collection' or template.name == 'blog' or template.suffix == 'about' or template.suffix == 'coaching' -%}
+    {%- assign has_dark_hero = true -%}
+  {%- endif -%}
+
+  <body class="font-body antialiased bg-light text-light transition-colors duration-300 template-{{ template.name | handle }}{% if template.suffix %} template-{{ template.name | handle }}-{{ template.suffix | handle }}{% endif %}{% if has_dark_hero %} has-dark-hero{% endif %}">
     <a class="skip-to-content-link button sr-only" href="#MainContent">
       Skip to content
     </a>

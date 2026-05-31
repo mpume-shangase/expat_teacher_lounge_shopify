@@ -1,0 +1,15 @@
+{
+  "name": "Coaching Page",
+  "sections": {
+    "main": {
+      "type": "main-coaching"
+    },
+    "newsletter": {
+      "type": "email-capture"
+    }
+  },
+  "order": [
+    "main",
+    "newsletter"
+  ]
+}
