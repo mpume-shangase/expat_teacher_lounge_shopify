@@ -1,8 +1,17 @@
 {%- paginate collection.products by 12 -%}
 
 <!-- Products Page Hero -->
-<section class="relative flex items-center justify-center overflow-hidden" style="height: 60vh; min-height: 480px; background-color: #0a0b14; color: #ffffff;">
+<section class="relative flex items-center justify-center overflow-hidden" id="collection-hero-{{ section.id }}" style="height: 60vh; min-height: 480px; background-color: #0a0b14; color: #ffffff;">
   
+  <style>
+    #collection-hero-{{ section.id }} h1 {
+      color: #ffffff !important;
+    }
+    #collection-hero-{{ section.id }} p {
+      color: rgba(255, 255, 255, 0.85) !important;
+    }
+  </style>
+
   <!-- Background Image -->
   <div class="absolute inset-0 z-0">
     {%- if section.settings.hero_image != blank -%}
@@ -24,8 +33,8 @@
     {%- endif -%}
     
     <!-- Dark overlay & bottom fade-out gradient -->
-    <div class="absolute inset-0" style="background-color: rgba(10, 11, 20, 0.75); z-index: 1;"></div>
-    <div class="absolute inset-0" style="background: linear-gradient(to top, var(--bg-light, #ffffff) 0%, rgba(255, 255, 255, 0) 50%); z-index: 2;"></div>
+    <div class="absolute inset-0" style="background-color: rgba(10, 11, 20, 0.8); z-index: 1;"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(to top, var(--bg-light, #ffffff) 0%, rgba(255, 255, 255, 0) 40%); z-index: 2;"></div>
   </div>
 
   <!-- Hero Content -->
