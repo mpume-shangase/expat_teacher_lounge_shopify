@@ -20,7 +20,7 @@
         "cta_1_text": "Explore Products",
         "cta_1_url": "shopify://collections/all",
         "cta_2_text": "Book Coaching",
-        "cta_2_url": "",
+        "cta_2_url": "shopify://pages/coaching",
         "trust_text": "Trusted by many teachers",
         "hero_image": "shopify://shop_images/Edwina_working_with_a_student.png"
       }
