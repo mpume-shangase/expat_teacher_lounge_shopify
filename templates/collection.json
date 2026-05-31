@@ -1,8 +1,41 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "name": "Collection",
   "sections": {
     "main": {
-      "type": "main-collection"
+      "type": "main-collection",
+      "settings": {
+        "hero_title_prefix": "Empower your",
+        "hero_title_italic": "transition.",
+        "hero_description": "Premium intelligence, datasets, and decision tools.",
+        "guides_title": "Guides",
+        "guides_desc": "Premium handbooks and reports compiled from 18 years of global education market experience.",
+        "guides_products": [
+          "international-teaching-research-guide"
+        ],
+        "tools_title": "Interactive Tools",
+        "tools_desc": "Custom spreadsheets, comparison matrices, and goal-setting planners built specifically for educators.",
+        "tools_products": [
+          "country-selection-matrix",
+          "country-comparison-tool-16-countries",
+          "personal-goals-assessment"
+        ],
+        "coaching_title": "1-on-1 Coaching",
+        "coaching_desc": "Direct, personalized strategy sessions to review contracts, optimize CVs, and negotiate exactly what you're worth.",
+        "coaching_products": [
+          "relocation-strategy-session",
+          "contract-review-session"
+        ],
+        "free_title": "Free Resources",
+        "free_desc": "Checklists and guides to navigate attestation, immigration requirements, and school selections."
+      }
     }
   },
   "order": [
