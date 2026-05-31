@@ -106,6 +106,42 @@
     },
     "destinations": {
       "type": "destinations",
+      "blocks": {
+        "destination_gftYWz": {
+          "type": "destination",
+          "settings": {
+            "title": "Qatar",
+            "description": "High savings potential, modern infrastructure, and excellent flight connections to explore the globe."
+          }
+        },
+        "destination_zpi9kW": {
+          "type": "destination",
+          "settings": {
+            "title": "UAE",
+            "description": "Tax-free salaries, vibrant expat communities, and world-class premium amenities."
+          }
+        },
+        "destination_nwnkLL": {
+          "type": "destination",
+          "settings": {
+            "title": "China",
+            "description": "Unmatched saving potential and rapid professional development."
+          }
+        },
+        "destination_wpMBqa": {
+          "type": "destination",
+          "settings": {
+            "title": "Saudi Arabia",
+            "description": "The fastest growing education market globally with premium salary packages."
+          }
+        }
+      },
+      "block_order": [
+        "destination_gftYWz",
+        "destination_zpi9kW",
+        "destination_nwnkLL",
+        "destination_wpMBqa"
+      ],
       "settings": {
         "title_prefix": "Where will you",
         "title_italic": "teach next?"
@@ -117,7 +153,7 @@
         "title_prefix": "Start your",
         "title_italic": "journey.",
         "description": "Premium guides and tools built specifically for educators moving abroad.",
-        "collection": "",
+        "collection": "guides",
         "product_limit": 4,
         "view_all_text": "VIEW ALL PRODUCTS"
       }
