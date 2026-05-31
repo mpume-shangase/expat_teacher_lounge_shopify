@@ -4,11 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="theme-color" content="{{ settings.color_background }}">
+    <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
@@ -27,23 +24,49 @@
 
     {% render 'meta-tags' %}
 
-    {{ content_for_header }}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
+
+    <!-- CSS Variables and Theme Config -->
+    <style>
+      :root {
+        --color-brand-blue: {{ settings.color_brand_blue | default: '#1C91D7' }};
+        --color-brand-deep: {{ settings.color_brand_deep | default: '#143D8A' }};
+        --color-brand-gold: {{ settings.color_brand_gold | default: '#FCCB52' }};
+        --color-bg-light: {{ settings.color_bg_light | default: '#ffffff' }};
+        --color-text-light: {{ settings.color_text_light | default: '#0a0a14' }};
+        --color-bg-dark: {{ settings.color_bg_dark | default: '#0a0b14' }};
+        --color-text-dark: {{ settings.color_text_dark | default: '#f0f0f0' }};
+        
+        --font-display: {{ settings.font_display | default: "'Fraunces', serif" }};
+        --font-body: {{ settings.font_body | default: "'DM Sans', sans-serif" }};
+      }
+    </style>
 
     {{ 'theme.css' | asset_url | stylesheet_tag }}
+
+    {{ content_for_header }}
   </head>
 
-  <body class="etl-theme{% if settings.enable_dark_mode %} dark{% endif %}">
-    <a class="skip-link" href="#main-content">Skip to content</a>
+  <body class="font-body antialiased bg-light text-light transition-colors duration-300">
+    <a class="skip-to-content-link button sr-only" href="#MainContent">
+      Skip to content
+    </a>
 
-    {% section 'announcement-bar' %}
     {% section 'header' %}
 
-    <main id="main-content" role="main" tabindex="-1">
+    <main id="MainContent" class="focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
     {% section 'footer' %}
 
-    {{ 'theme.js' | asset_url | script_tag }}
+    <ul hidden>
+      <li id="a11y-refresh-page-message">Choosing a selection results in a full page refresh.</li>
+      <li id="a11y-new-window-message">Opens in a new window.</li>
+    </ul>
+
+    <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>

@@ -1,0 +1,79 @@
+<section class="section-padding bg-light text-light" style="position: relative;">
+  <div class="container">
+    
+    <!-- Newsletter Container with Deep Background -->
+    <div class="email-capture-box" style="position: relative; max-width: 960px; margin-left: auto; margin-right: auto; background: var(--color-brand-deep, #143D8A); padding: 60px 24px; border-radius: var(--border-radius-lg); overflow: hidden; text-align: center; color: #ffffff;">
+      
+      <!-- Glowing background highlights -->
+      <div class="absolute" style="top: 0; right: 0; width: 250px; height: 250px; background-color: var(--color-blue); filter: blur(80px); border-radius: 50%; opacity: 0.4; transform: translate(30%, -30%); pointer-events: none;"></div>
+      <div class="absolute" style="bottom: 0; left: 0; width: 250px; height: 250px; background-color: var(--color-brand-gold); filter: blur(80px); border-radius: 50%; opacity: 0.15; transform: translate(-30%, 30%); pointer-events: none;"></div>
+
+      <div class="relative z-10">
+        <h2 class="font-display font-black text-white" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 20px;">
+          {{ section.settings.title | escape | replace: ",", ",<br>" }}
+        </h2>
+        
+        {%- if section.settings.description != blank -%}
+          <p style="color: #bfdbfe; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto; margin-bottom: 40px; line-height: 1.6;">
+            {{ section.settings.description }}
+          </p>
+        {%- endif -%}
+
+        <!-- Shopify Customer Newsletter Form -->
+        {%- form 'customer', class: 'email-capture-form' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          
+          {%- if form.posted_successfully? -%}
+            <p style="color: var(--color-brand-gold); font-weight: 600;">Thanks for subscribing!</p>
+          {%- else -%}
+            <input type="email"
+                   name="contact[email]"
+                   value="{{ form.email }}"
+                   placeholder="Enter your email address"
+                   class="email-capture-input"
+                   required
+                   style="flex-grow: 1; padding: 14px 24px; border-radius: var(--border-radius-full); background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 0.95rem;">
+            
+            <button type="submit" class="btn btn-gold" style="padding: 14px 32px; font-weight: 700; border-radius: var(--border-radius-full); display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+              <svg style="width: 18px; height: 18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+              </svg>
+              Subscribe
+            </button>
+          {%- endif -%}
+
+          {%- if form.errors -%}
+            <p style="color: #f87171; margin-top: 16px;">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>
+          {%- endif -%}
+        {%- endform -%}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Email Capture Newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Relocation intel, straight to your inbox."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description Text",
+      "default": "Visa updates, salary benchmarks, and destination guides for teachers serious about their next move."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Email Capture Newsletter",
+      "category": "Promotional"
+    }
+  ]
+}
+{% endschema %}

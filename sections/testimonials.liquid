@@ -1,0 +1,120 @@
+<section class="section-padding bg-light text-light" style="position: relative;">
+  <div class="container">
+    
+    <!-- Section Title -->
+    <div style="text-align: center; margin-bottom: 64px;">
+      <h2 class="font-display font-black" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2;">
+        {{ section.settings.title_prefix }} <span class="italic" style="color: var(--color-blue); font-style: italic;">{{ section.settings.title_italic }}</span>
+      </h2>
+    </div>
+
+    <!-- Testimonials Card Grid -->
+    <div class="grid grid-cols-1 grid-cols-2" style="max-width: 960px; margin-left: auto; margin-right: auto; gap: 32px;">
+      {%- for block in section.blocks -%}
+        <div class="testimonial-card" style="background-color: #fafafc; border: 1px solid #e2e8f0; padding: 40px; border-radius: var(--border-radius-md); display: flex; flex-direction: column; height: 100%;">
+          
+          <!-- Star Ratings -->
+          <div style="color: var(--color-brand-gold, #FCCB52); font-size: 1.25rem; margin-bottom: 24px; line-height: 1;">
+            ★★★★★
+          </div>
+
+          <!-- Review Quote -->
+          <p style="font-style: italic; color: #334155; font-size: 1.05rem; line-height: 1.7; margin-bottom: 32px; flex-grow: 1;">
+            &ldquo;{{ block.settings.quote_text | escape }}&rdquo;
+          </p>
+
+          <!-- Review Author -->
+          <div>
+            <h4 class="font-display font-bold" style="font-size: 1.1rem; margin-bottom: 4px; color: var(--text-light);">
+              {{ block.settings.author_name | escape }}
+            </h4>
+            <p style="font-size: 0.85rem; color: #64748b;">
+              {{ block.settings.author_role | escape }} &bull; {{ block.settings.author_location | escape }}
+            </p>
+          </div>
+
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials Slider",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title_prefix",
+      "label": "Heading Text",
+      "default": "Don't just take"
+    },
+    {
+      "type": "text",
+      "id": "title_italic",
+      "label": "Italicized Heading Word",
+      "default": "my word for it."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial Card",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote_text",
+          "label": "Quote Text",
+          "default": "I had been thinking about teaching internationally for three years but kept putting it off because I didn't know where to start. The Country Comparison Tool gave me exactly what I needed."
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author Name",
+          "default": "Sarah Mitchell"
+        },
+        {
+          "type": "text",
+          "id": "author_role",
+          "label": "Author Role",
+          "default": "Primary Teacher"
+        },
+        {
+          "type": "text",
+          "id": "author_location",
+          "label": "Author Location/Dest",
+          "default": "Now teaching in Doha, Qatar"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials Grid",
+      "category": "Text",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote_text": "I had been thinking about teaching internationally for three years but kept putting it off because I didn't know where to start. The Country Comparison Tool gave me exactly what I needed — a clear, side-by-side picture of what each destination actually looked like. Within two weeks I had narrowed my search to two countries. I accepted an offer in Qatar four months later.",
+            "author_name": "Sarah Mitchell",
+            "author_role": "Primary Teacher",
+            "author_location": "Now teaching in Doha, Qatar"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote_text": "The International Teaching Market Overview gave me data I couldn't find anywhere else in one place — salary benchmarks, hiring timelines, subject demand by region. As someone moving to the Middle East for the first time with a family, I needed more than opinions from Facebook groups. This gave me real numbers and the confidence to negotiate a significantly better package.",
+            "author_name": "David Okonkwo",
+            "author_role": "Secondary Maths Teacher",
+            "author_location": "Now teaching in Dubai, UAE"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

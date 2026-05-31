@@ -1,0 +1,141 @@
+{%- liquid
+  assign collection = collections[section.settings.collection]
+  assign limit = section.settings.product_limit | default: 4
+-%}
+
+<section class="section-padding bg-light text-light" style="position: relative;">
+  <div class="container">
+    
+    <!-- Section Title & Navigation -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; gap: 24px;">
+      <div>
+        <h2 class="font-display font-black" style="font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 12px; line-height: 1.2;">
+          {{ section.settings.title_prefix }} <span class="italic" style="color: var(--color-blue); font-style: italic;">{{ section.settings.title_italic }}</span>
+        </h2>
+        {%- if section.settings.description != blank -%}
+          <p style="color: #64748b; font-size: 1.125rem; max-width: 550px; line-height: 1.6;">
+            {{ section.settings.description }}
+          </p>
+        {%- endif -%}
+      </div>
+      
+      {%- if collection != blank -%}
+        <a href="{{ collection.url }}" class="font-bold text-sm tracking-wider" style="color: var(--color-blue); text-transform: uppercase; display: flex; align-items: center; gap: 8px;">
+          {{ section.settings.view_all_text | escape }} &rarr;
+        </a>
+      {%- endif -%}
+    </div>
+
+    <!-- Products Card Grid -->
+    <div class="grid grid-cols-1 grid-cols-2 grid-cols-4" style="gap: 32px;">
+      {%- if collection != blank and collection.products.size > 0 -%}
+        {%- for product in collection.products limit: limit -%}
+          <a href="{{ product.url }}" class="product-card">
+            
+            <!-- Image Thumbnail -->
+            <div class="product-card__image">
+              {%- if product.featured_image != blank -%}
+                <img src="{{ product.featured_image | image_url: width: 600 }}"
+                     alt="{{ product.title | escape }}"
+                     loading="lazy">
+              {%- else -%}
+                <!-- File Icon Placeholder -->
+                <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background-color: #f3f4f6; color: var(--color-blue);">
+                  <svg style="width: 48px; height: 48px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                  </svg>
+                </div>
+              {%- endif -%}
+
+              {%- if product.compare_at_price > product.price -%}
+                <span class="product-card__badge" style="background-color: var(--color-brand-gold); color: #000;">Sale</span>
+              {%- endif -%}
+            </div>
+
+            <!-- Card Content -->
+            <div class="product-card__content">
+              <span class="product-card__vendor">{{ product.vendor }}</span>
+              <h3 class="product-card__title">{{ product.title }}</h3>
+              
+              <div class="product-card__price flex items-center justify-between" style="border-top: 1px solid #f1f5f9; pt: 16px; margin-top: auto; padding-top: 16px;">
+                <span>{{ product.price | money }}</span>
+                <span style="font-size: 0.9rem; color: var(--color-blue); font-weight: 600;">Buy now &rarr;</span>
+              </div>
+            </div>
+
+          </a>
+        {%- endfor -%}
+      {%- else -%}
+        <!-- Placeholder Empty Cards for customizer preview -->
+        {%- for i in (1..4) -%}
+          <div class="product-card" style="min-height: 380px;">
+            <div class="product-card__image" style="background-color: #f3f4f6; display: flex; align-items: center; justify-content: center; color: #9ca3af;">
+              [ Product Image ]
+            </div>
+            <div class="product-card__content">
+              <span class="product-card__vendor">Vendor name</span>
+              <h3 class="product-card__title">Placeholder Product Title {{ i }}</h3>
+              <div class="product-card__price flex items-center justify-between" style="border-top: 1px solid #f1f5f9; padding-top: 16px; margin-top: auto;">
+                <span>$9.99</span>
+                <span style="font-size: 0.9rem; color: var(--color-blue); font-weight: 600;">Buy now &rarr;</span>
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title_prefix",
+      "label": "Heading Prefix",
+      "default": "Start your"
+    },
+    {
+      "type": "text",
+      "id": "title_italic",
+      "label": "Heading Italic",
+      "default": "journey."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Premium guides and tools built specifically for educators moving abroad."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Select Collection"
+    },
+    {
+      "type": "range",
+      "id": "product_limit",
+      "label": "Product Limit",
+      "min": 4,
+      "max": 12,
+      "step": 4,
+      "default": 4
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View All Link Text",
+      "default": "VIEW ALL PRODUCTS"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Products Collection",
+      "category": "Collection"
+    }
+  ]
+}
+{% endschema %}

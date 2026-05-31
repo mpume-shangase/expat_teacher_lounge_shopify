@@ -1,0 +1,78 @@
+{%- liquid
+  assign main_menu = linklists[section.settings.menu]
+-%}
+
+<header class="site-header" role="banner">
+  <div class="container flex items-center justify-between">
+    
+    <!-- Logo or Shop Title -->
+    <a href="{{ routes.root_url }}" class="site-header__logo-link flex items-center">
+      {%- if section.settings.logo != blank -%}
+        <img src="{{ section.settings.logo | image_url: width: 360 }}"
+             alt="{{ shop.name | escape }}"
+             style="max-width: {{ section.settings.logo_max_width }}px; height: auto;"
+             class="object-contain"
+             loading="lazy">
+      {%- else -%}
+        <span class="font-display font-bold text-xl text-white">{{ shop.name }}</span>
+      {%- endif -%}
+    </a>
+
+    <!-- Desktop Navigation Menu -->
+    <nav class="site-header__nav" role="navigation">
+      {%- for link in main_menu.links -%}
+        <a href="{{ link.url }}" class="site-header__link {% if link.active %}site-header__link--active{% endif %}" style="color: rgba(255, 255, 255, 0.9);">
+          {{ link.title }}
+        </a>
+      {%- endfor -%}
+    </nav>
+
+    <!-- Mobile Navigation Trigger -->
+    <button type="button" class="mobile-nav-toggle" aria-label="Toggle menu" style="color: #ffffff;">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</header>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-menu-drawer">
+  <nav class="flex flex-col gap-4">
+    {%- for link in main_menu.links -%}
+      <a href="{{ link.url }}" class="mobile-menu-drawer__link">
+        {{ link.title }}
+      </a>
+    {%- endfor -%}
+  </nav>
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image"
+    },
+    {
+      "type": "range",
+      "id": "logo_max_width",
+      "min": 50,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Custom Logo Width",
+      "default": 180
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}

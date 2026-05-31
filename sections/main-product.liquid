@@ -1,0 +1,101 @@
+<section class="section-padding bg-light text-light" style="padding-top: 140px;">
+  <div class="container">
+    <div class="grid grid-cols-1 grid-cols-2" style="gap: 64px; align-items: start;">
+      
+      <!-- Left Column: Product Media -->
+      <div class="product-single__media-wrapper" style="position: sticky; top: 120px;">
+        {%- if product.featured_image != blank -%}
+          <img src="{{ product.featured_image | image_url: width: 1000 }}"
+               alt="{{ product.title | escape }}"
+               style="width: 100%; border-radius: var(--border-radius-md);"
+               loading="eager">
+        {%- else -%}
+          <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background-color: #f3f4f6; color: var(--color-blue); border-radius: var(--border-radius-md);">
+            <svg style="width: 64px; height: 64px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <!-- Right Column: Product Info & Purchase Form -->
+      <div class="product-single__info">
+        
+        <!-- Vendor name -->
+        <span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888899; display: block; margin-bottom: 8px;">
+          {{ product.vendor }}
+        </span>
+
+        <!-- Title -->
+        <h1 class="font-display font-black product-single__title" style="margin-bottom: 16px;">
+          {{ product.title }}
+        </h1>
+
+        <!-- Price -->
+        <div class="product-single__price" style="margin-bottom: 24px;">
+          {{ product.selected_or_first_available_variant.price | money }}
+        </div>
+
+        <!-- Purchase form -->
+        {%- form 'product', product, class: 'shopify-product-form' -%}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+          <!-- Variant Selector (shown if multiple options exist) -->
+          {%- unless product.has_only_default_variant -%}
+            <div style="margin-bottom: 24px;">
+              <label for="ProductSelect-{{ section.id }}" style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; color: #475569;">
+                Choose Variant
+              </label>
+              <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variant-selector">
+                {%- for variant in product.variants -%}
+                  <option value="{{ variant.id }}"
+                    {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}
+                    {% unless variant.available %}disabled="disabled"{% endunless %}
+                    data-price="{{ variant.price | money }}"
+                    data-available="{{ variant.available }}">
+                    {{ variant.title }} - {% if variant.available %}{{ variant.price | money }}{% else %}Sold out{% endif %}
+                  </option>
+                {%- endfor -%}
+              </select>
+            </div>
+          {%- endunless -%}
+
+          <!-- Quantity Selector -->
+          <div style="margin-bottom: 32px;">
+            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; color: #475569;">
+              Quantity
+            </label>
+            <div class="quantity-selector" style="display: inline-flex; align-items: center; border: 1px solid #cbd5e1; border-radius: var(--border-radius-full); overflow: hidden; background: #fff;">
+              <button type="button" class="quantity-btn--minus" style="padding: 10px 18px; font-weight: bold; cursor: pointer; color: #475569;">-</button>
+              <input type="number" name="quantity" class="quantity-input" value="1" min="1" style="width: 50px; text-align: center; border: none; font-weight: 600;" readonly>
+              <button type="button" class="quantity-btn--plus" style="padding: 10px 18px; font-weight: bold; cursor: pointer; color: #475569;">+</button>
+            </div>
+          </div>
+
+          <!-- Add to Cart / Checkout Action Button -->
+          <button type="submit" name="add" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 1.05rem;"
+            {% unless product.selected_or_first_available_variant.available %}disabled="disabled"{% endunless %}>
+            {%- if product.selected_or_first_available_variant.available -%}
+              Add to cart
+            {%- else -%}
+              Sold out
+            {%- endif -%}
+          </button>
+        {%- endform -%}
+
+        <!-- Description -->
+        <div class="product-single__description rte" style="margin-top: 48px; border-top: 1px solid #e2e8f0; padding-top: 32px;">
+          {{ product.description }}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Details",
+  "settings": []
+}
+{% endschema %}

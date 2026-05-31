@@ -1,0 +1,21 @@
+<section class="section-padding bg-light text-light" style="padding-top: 180px; text-align: center; min-height: 70vh; display: flex; align-items: center; justify-content: center;">
+  <div class="container">
+    <span style="font-size: 0.85rem; color: var(--color-blue); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; display: block; margin-bottom: 16px;">
+      Error 404
+    </span>
+    <h1 class="font-display font-black" style="font-size: clamp(2rem, 6vw, 4rem); margin-bottom: 24px;">Page not found</h1>
+    <p style="color: #64748b; font-size: 1.15rem; max-width: 500px; margin-left: auto; margin-right: auto; margin-bottom: 40px; line-height: 1.6;">
+      The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+    </p>
+    <a href="{{ routes.root_url }}" class="btn btn-primary">
+      Go back home
+    </a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "404 Content",
+  "settings": []
+}
+{% endschema %}

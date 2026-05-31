@@ -1,0 +1,82 @@
+<section class="proof-bar-section" style="background-color: var(--color-brand-deep, #143D8A); color: #ffffff; padding: 48px 0; position: relative; z-index: 20;">
+  <div class="container">
+    <div class="grid grid-cols-2 grid-cols-4" style="text-align: center; gap: 32px;">
+      
+      {%- for block in section.blocks -%}
+        <div class="proof-stat" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <div class="proof-stat__value font-display" style="font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; color: var(--color-brand-gold, #FCCB52); margin-bottom: 8px; line-height: 1;">
+            {{ block.settings.stat_value | escape }}
+          </div>
+          <p class="proof-stat__label" style="font-size: 0.95rem; font-weight: 500; opacity: 0.9;">
+            {{ block.settings.stat_label | escape }}
+          </p>
+        </div>
+      {%- endfor -%}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Proof Bar Stats",
+  "max_blocks": 4,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "stat_item",
+      "name": "Statistic Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "stat_value",
+          "label": "Value (e.g. 2000+)",
+          "default": "2000+"
+        },
+        {
+          "type": "text",
+          "id": "stat_label",
+          "label": "Label",
+          "default": "Teachers helped"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Proof Bar Stats",
+      "category": "Text",
+      "blocks": [
+        {
+          "type": "stat_item",
+          "settings": {
+            "stat_value": "2000+",
+            "stat_label": "Teachers helped"
+          }
+        },
+        {
+          "type": "stat_item",
+          "settings": {
+            "stat_value": "16",
+            "stat_label": "Countries covered"
+          }
+        },
+        {
+          "type": "stat_item",
+          "settings": {
+            "stat_value": "18 yrs",
+            "stat_label": "Teaching experience"
+          }
+        },
+        {
+          "type": "stat_item",
+          "settings": {
+            "stat_value": "4.9",
+            "stat_label": "Average rating"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

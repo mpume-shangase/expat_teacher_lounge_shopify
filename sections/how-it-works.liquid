@@ -1,0 +1,127 @@
+<section class="section-padding bg-light text-light" style="position: relative; border-bottom: 1px solid #f0f0f5;">
+  <div class="container">
+    
+    <!-- Section Title & Description -->
+    <div style="margin-bottom: 64px;">
+      <h2 class="font-display font-black" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 24px;">
+        {{ section.settings.title_prefix }} <br>
+        <span class="italic" style="color: var(--color-blue); font-style: italic;">{{ section.settings.title_italic }}</span>
+      </h2>
+      {%- if section.settings.subtitle != blank -%}
+        <p style="color: #64748b; font-size: 1.125rem; max-width: 650px; line-height: 1.6;">
+          {{ section.settings.subtitle }}
+        </p>
+      {%- endif -%}
+    </div>
+
+    <!-- Steps Grid -->
+    <div class="grid grid-cols-1 grid-cols-3" style="gap: 48px;">
+      {%- for block in section.blocks -%}
+        <div class="hiw-step-col" style="border-top: 2px solid var(--color-blue); padding-top: 32px; position: relative; transition: var(--transition-smooth); height: 100%;">
+          
+          <!-- Large Accent Step Number -->
+          <div class="font-display font-black" style="font-size: 4.5rem; color: rgba(252, 203, 82, 0.25); line-height: 1; margin-bottom: 16px;">
+            {{ block.settings.step_number | escape }}
+          </div>
+
+          <!-- Step Title -->
+          <h3 class="font-display font-bold" style="font-size: 1.5rem; margin-bottom: 16px; transition: var(--transition-smooth);">
+            {{ block.settings.title | escape }}
+          </h3>
+
+          <!-- Step Description -->
+          <p style="color: #475569; font-size: 0.95rem; line-height: 1.6;">
+            {{ block.settings.description | escape }}
+          </p>
+
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "How It Works Steps",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title_prefix",
+      "label": "Heading Text",
+      "default": "A proven framework for"
+    },
+    {
+      "type": "text",
+      "id": "title_italic",
+      "label": "Italicized Heading Word",
+      "default": "success."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Section Subtitle",
+      "default": "Stop guessing. Follow the exact step-by-step roadmap that has successfully placed hundreds of teachers into life-changing international roles."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "step_number",
+          "label": "Step Number (e.g. 01)",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Step Title",
+          "default": "Information Gathering"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Step Description",
+          "default": "We provide you with clear, accurate data on international teaching markets, eliminating the noise of Facebook forums."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How It Works Steps",
+      "category": "Text",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "01",
+            "title": "Information Gathering",
+            "description": "We provide you with clear, accurate data on international teaching markets, eliminating the noise of Facebook forums."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "02",
+            "title": "Strategic Positioning",
+            "description": "Optimize your CV and interview strategy to stand out to premium tier 1 and tier 2 international schools."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "03",
+            "title": "Contract Negotiation",
+            "description": "Never sign blind. We help you review your offer and negotiate the true market rate for your experience."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

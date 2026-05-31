@@ -1,0 +1,74 @@
+{%- paginate collection.products by 12 -%}
+<section class="section-padding bg-light text-light" style="padding-top: 140px;">
+  <div class="container">
+    
+    <!-- Collection Title and Header info -->
+    <div style="margin-bottom: 64px; text-align: center;">
+      <h1 class="font-display font-black" style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 16px;">
+        {{ collection.title }}
+      </h1>
+      {%- if collection.description != blank -%}
+        <p style="color: #64748b; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+          {{ collection.description }}
+        </p>
+      {%- endif -%}
+    </div>
+
+    <!-- Product Card Grid -->
+    <div class="grid grid-cols-1 grid-cols-2 grid-cols-3" style="gap: 32px; margin-bottom: 48px;">
+      {%- for product in collection.products -%}
+        <a href="{{ product.url }}" class="product-card">
+          <div class="product-card__image">
+            {%- if product.featured_image != blank -%}
+              <img src="{{ product.featured_image | image_url: width: 600 }}"
+                   alt="{{ product.title | escape }}"
+                   loading="lazy">
+            {%- else -%}
+              <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background-color: #f3f4f6; color: var(--color-blue);">
+                <svg style="width: 48px; height: 48px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+              </div>
+            {%- endif -%}
+          </div>
+          <div class="product-card__content">
+            <span class="product-card__vendor">{{ product.vendor }}</span>
+            <h3 class="product-card__title">{{ product.title }}</h3>
+            <div class="product-card__price flex items-center justify-between" style="border-top: 1px solid #f1f5f9; padding-top: 16px; margin-top: auto;">
+              <span>{{ product.price | money }}</span>
+              <span style="font-size: 0.9rem; color: var(--color-blue); font-weight: 600;">Buy now &rarr;</span>
+            </div>
+          </div>
+        </a>
+      {%- else -%}
+        <div style="grid-column: span 3; text-align: center; padding: 48px; color: #888899;">
+          No products found in this collection.
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <!-- Pagination links -->
+    {%- if paginate.pages > 1 -%}
+      <div style="display: flex; justify-content: center; gap: 16px; align-items: center; border-top: 1px solid #e2e8f0; padding-top: 32px; font-size: 0.95rem;">
+        {%- if paginate.previous -%}
+          <a href="{{ paginate.previous.url }}" style="color: var(--color-blue); font-weight: 700;">&larr; Previous</a>
+        {%- endif -%}
+        
+        <span style="color: #64748b;">Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+
+        {%- if paginate.next -%}
+          <a href="{{ paginate.next.url }}" style="color: var(--color-blue); font-weight: 700;">Next &rarr;</a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+{%- endpaginate -%}
+
+{% schema %}
+{
+  "name": "Collection Grid",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,107 @@
+<section class="section-padding bg-light text-light" style="padding-top: 140px;">
+  <div class="container">
+    
+    <div style="margin-bottom: 48px; text-align: center;">
+      <h1 class="font-display font-black" style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 24px;">Search Results</h1>
+      
+      <form action="{{ routes.search_url }}" method="get" role="search" style="max-width: 500px; margin: 0 auto; display: flex; gap: 8px;">
+        <input type="search"
+               name="q"
+               value="{{ search.terms | escape }}"
+               placeholder="Search..."
+               style="flex-grow: 1; padding: 12px 20px; border: 1px solid #cbd5e1; border-radius: var(--border-radius-full); font-size: 0.95rem;">
+        <button type="submit" class="btn btn-primary" style="padding: 12px 24px;">Search</button>
+      </form>
+    </div>
+
+    {%- if search.performed -%}
+      {%- if search.results_count > 0 -%}
+        <p style="margin-bottom: 32px; color: #64748b; font-weight: 500;">
+          {{ search.results_count }} results found for &ldquo;{{ search.terms }}&rdquo;
+        </p>
+
+        <div class="grid grid-cols-1 grid-cols-2 grid-cols-3" style="gap: 32px;">
+          {%- for item in search.results -%}
+            {%- if item.object_type == 'product' -%}
+              <!-- Product Card -->
+              <a href="{{ item.url }}" class="product-card">
+                <div class="product-card__image">
+                  {%- if item.featured_image != blank -%}
+                    <img src="{{ item.featured_image | image_url: width: 600 }}" alt="{{ item.title | escape }}" loading="lazy">
+                  {%- else -%}
+                    <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background-color: #f3f4f6; color: var(--color-blue);">
+                      <svg style="width: 48px; height: 48px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                      </svg>
+                    </div>
+                  {%- endif -%}
+                </div>
+                <div class="product-card__content">
+                  <span class="product-card__vendor">{{ item.vendor }}</span>
+                  <h3 class="product-card__title">{{ item.title }}</h3>
+                  <div class="product-card__price flex items-center justify-between" style="border-top: 1px solid #f1f5f9; padding-top: 16px; margin-top: auto;">
+                    <span>{{ item.price | money }}</span>
+                    <span style="font-size: 0.9rem; color: var(--color-blue); font-weight: 600;">Buy now &rarr;</span>
+                  </div>
+                </div>
+              </a>
+            {%- elsif item.object_type == 'article' -%}
+              <!-- Blog Post Card -->
+              <article class="blog-post-card">
+                <div class="blog-post-card__image">
+                  {%- if item.image != blank -%}
+                    <a href="{{ item.url }}">
+                      <img src="{{ item.image | image_url: width: 600 }}" alt="{{ item.title | escape }}" loading="lazy">
+                    </a>
+                  {%- else -%}
+                    <div style="width: 100%; aspect-ratio: 16/10; background-color: #f3f4f6;"></div>
+                  {%- endif -%}
+                </div>
+                <div class="blog-post-card__content">
+                  <span class="blog-post-card__meta">
+                    {{ item.published_at | date: '%b %d, %Y' }} &bull; {{ item.author }}
+                  </span>
+                  <h3 class="blog-post-card__title font-display font-bold">
+                    <a href="{{ item.url }}">{{ item.title }}</a>
+                  </h3>
+                  <p class="blog-post-card__excerpt">
+                    {{ item.content | strip_html | truncatewords: 24 }}
+                  </p>
+                  <a href="{{ item.url }}" class="blog-post-card__readmore">
+                    Read article &rarr;
+                  </a>
+                </div>
+              </article>
+            {%- else -%}
+              <!-- Page Results -->
+              <div style="background-color: #fafafc; border: 1px solid #e2e8f0; border-radius: var(--border-radius-md); padding: 32px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                  <span style="font-size: 0.8rem; color: #64748b; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 8px;">Page</span>
+                  <h3 class="font-display font-bold" style="font-size: 1.25rem; margin-bottom: 12px;">
+                    <a href="{{ item.url }}">{{ item.title }}</a>
+                  </h3>
+                  <p style="color: #475569; font-size: 0.95rem; line-height: 1.5; margin-bottom: 16px;">
+                    {{ item.content | strip_html | truncatewords: 28 }}
+                  </p>
+                </div>
+                <a href="{{ item.url }}" style="color: var(--color-blue); font-weight: 700; font-size: 0.9rem;">View page &rarr;</a>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <div style="text-align: center; padding: 48px; color: #64748b;">
+          No results found for &ldquo;{{ search.terms }}&rdquo;. Try searching for something else.
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Search Results Grid",
+  "settings": []
+}
+{% endschema %}

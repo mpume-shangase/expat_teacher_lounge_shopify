@@ -1,0 +1,54 @@
+<article class="article-section bg-light text-light" style="padding-top: 140px; padding-bottom: 80px;">
+  
+  <!-- Header -->
+  <header class="article-header">
+    <div class="container">
+      <div style="margin-bottom: 16px;">
+        <a href="{{ blog.url }}" style="color: var(--color-blue); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em;">
+          {{ blog.title }}
+        </a>
+      </div>
+      
+      <h1 class="font-display font-black article-title">
+        {{ article.title }}
+      </h1>
+      
+      <div class="article-meta">
+        <span>Published on {{ article.published_at | date: '%B %d, %Y' }}</span>
+        <span style="margin: 0 8px;">&bull;</span>
+        <span>Written by {{ article.author }}</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Featured Image -->
+  {%- if article.image != blank -%}
+    <div class="container" style="max-width: 1000px; margin-bottom: 56px;">
+      <div style="aspect-ratio: 16/9; overflow: hidden; border-radius: var(--border-radius-md);">
+        <img src="{{ article.image | image_url: width: 1400 }}" alt="{{ article.title | escape }}" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+    </div>
+  {%- endif -%}
+
+  <!-- Content Body -->
+  <div class="container">
+    <div class="article-content rte font-body">
+      {{ article.content }}
+    </div>
+  </div>
+
+  <!-- Back Link -->
+  <div class="container" style="max-width: 740px; margin-top: 64px; padding-top: 32px; border-top: 1px solid #e2e8f0; text-align: center;">
+    <a href="{{ blog.url }}" style="color: var(--color-blue); font-weight: 700; font-size: 0.95rem;">
+      &larr; Back to {{ blog.title }}
+    </a>
+  </div>
+
+</article>
+
+{% schema %}
+{
+  "name": "Article Details",
+  "settings": []
+}
+{% endschema %}

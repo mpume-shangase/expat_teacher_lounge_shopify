@@ -1,0 +1,31 @@
+{
+  "name": "Index",
+  "sections": {
+    "hero": {
+      "type": "hero"
+    },
+    "proof_bar": {
+      "type": "proof-bar"
+    },
+    "how_it_works": {
+      "type": "how-it-works"
+    },
+    "featured_products": {
+      "type": "featured-products"
+    },
+    "testimonials": {
+      "type": "testimonials"
+    },
+    "email_capture": {
+      "type": "email-capture"
+    }
+  },
+  "order": [
+    "hero",
+    "proof_bar",
+    "how_it_works",
+    "featured_products",
+    "testimonials",
+    "email_capture"
+  ]
+}

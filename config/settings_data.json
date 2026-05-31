@@ -1,0 +1,29 @@
+{
+  "current": {
+    "sections": {},
+    "settings": {
+      "color_brand_blue": "#1C91D7",
+      "color_brand_deep": "#143D8A",
+      "color_brand_gold": "#FCCB52",
+      "color_bg_light": "#ffffff",
+      "color_text_light": "#0a0a14",
+      "color_bg_dark": "#0a0b14",
+      "color_text_dark": "#f0f0f0",
+      "font_display": "'Fraunces', serif",
+      "font_body": "'DM Sans', sans-serif"
+    }
+  },
+  "presets": {
+    "Default": {
+      "color_brand_blue": "#1C91D7",
+      "color_brand_deep": "#143D8A",
+      "color_brand_gold": "#FCCB52",
+      "color_bg_light": "#ffffff",
+      "color_text_light": "#0a0a14",
+      "color_bg_dark": "#0a0b14",
+      "color_text_dark": "#f0f0f0",
+      "font_display": "'Fraunces', serif",
+      "font_body": "'DM Sans', sans-serif"
+    }
+  }
+}

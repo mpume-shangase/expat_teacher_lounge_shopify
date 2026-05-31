@@ -1,0 +1,111 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Expat Teacher Lounge Theme",
+    "theme_version": "1.0.0",
+    "theme_author": "Antigravity",
+    "theme_documentation_url": "https://expatteacherslounge.com",
+    "theme_support_url": "https://expatteacherslounge.com"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Brand Palette"
+      },
+      {
+        "type": "color",
+        "id": "color_brand_blue",
+        "label": "Accent Blue",
+        "default": "#1C91D7"
+      },
+      {
+        "type": "color",
+        "id": "color_brand_deep",
+        "label": "Brand Deep Blue",
+        "default": "#143D8A"
+      },
+      {
+        "type": "color",
+        "id": "color_brand_gold",
+        "label": "Brand Gold",
+        "default": "#FCCB52"
+      },
+      {
+        "type": "header",
+        "content": "Theme Mode Colors"
+      },
+      {
+        "type": "color",
+        "id": "color_bg_light",
+        "label": "Light Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_text_light",
+        "label": "Light Text",
+        "default": "#0a0a14"
+      },
+      {
+        "type": "color",
+        "id": "color_bg_dark",
+        "label": "Dark Background",
+        "default": "#0a0b14"
+      },
+      {
+        "type": "color",
+        "id": "color_text_dark",
+        "label": "Dark Text",
+        "default": "#f0f0f0"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Fonts"
+      },
+      {
+        "type": "text",
+        "id": "font_display",
+        "label": "Display Font (CSS font-family)",
+        "default": "'Fraunces', serif"
+      },
+      {
+        "type": "text",
+        "id": "font_body",
+        "label": "Body Font (CSS font-family)",
+        "default": "'DM Sans', sans-serif"
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "Twitter"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram"
+      },
+      {
+        "type": "text",
+        "id": "social_linkedin_link",
+        "label": "LinkedIn"
+      }
+    ]
+  }
+]

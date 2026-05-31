@@ -1,0 +1,179 @@
+<section class="hero-section relative overflow-hidden flex items-center">
+  
+  <!-- Floating Glowing Orbs -->
+  <div class="glowing-orb glowing-orb-blue absolute"></div>
+  <div class="glowing-orb glowing-orb-gold absolute"></div>
+
+  <div class="container relative z-10">
+    <div class="hero-container">
+      
+      <!-- Left Content Column -->
+      <div class="hero-content">
+        {%- if section.settings.badge_text != blank -%}
+          <div class="hero-pill">
+            {{ section.settings.badge_text }}
+          </div>
+        {%- endif -%}
+
+        <h1 class="font-display font-black hero-title">
+          <span>{{ section.settings.title_prefix }}</span>
+          <div class="flex flex-wrap items-baseline" style="display: flex; gap: 12px; margin-top: 8px;">
+            {%- if section.settings.title_highlight != blank -%}
+              <span class="relative" style="position: relative; display: inline-block; z-index: 2;">
+                {{ section.settings.title_highlight }}
+                <span class="absolute" style="position: absolute; bottom: 4px; left: 0; width: 100%; height: 10px; bg: var(--color-brand-gold); background-color: var(--color-brand-gold); z-index: -1; border-radius: 2px;"></span>
+              </span>
+            {%- endif -%}
+            {%- if section.settings.title_italic != blank -%}
+              <span class="italic" style="color: var(--color-blue); font-style: italic;">
+                {{ section.settings.title_italic }}
+              </span>
+            {%- endif -%}
+          </div>
+        </h1>
+
+        {%- if section.settings.description != blank -%}
+          <p class="hero-desc">
+            {{ section.settings.description }}
+          </p>
+        {%- endif -%}
+
+        <div class="hero-button-group">
+          {%- if section.settings.cta_1_text != blank -%}
+            <a href="{{ section.settings.cta_1_url | default: '#' }}" class="btn btn-primary">
+              {{ section.settings.cta_1_text }}
+            </a>
+          {%- endif -%}
+          {%- if section.settings.cta_2_text != blank -%}
+            <a href="{{ section.settings.cta_2_url | default: '#' }}" class="btn btn-secondary">
+              {{ section.settings.cta_2_text }}
+            </a>
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.trust_text != blank -%}
+          <div class="hero-trust-box">
+            <div class="hero-stars">
+              ★★★★★
+            </div>
+            <div style="font-size: 0.85rem; color: #d1d5db;">
+              {{ section.settings.trust_text }}
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <!-- Right Image Column -->
+      <div class="hero-image-wrapper">
+        {%- if section.settings.hero_image != blank -%}
+          <img src="{{ section.settings.hero_image | image_url: width: 1000 }}"
+               alt="Expat Teacher's Lounge"
+               loading="eager">
+        {%- else -%}
+          <!-- Fallback placeholder styling -->
+          <div style="width:100%; height:100%; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); display:flex; align-items:center; justify-content:center; color:#475569;">
+            [ Upload Image in Customizer ]
+          </div>
+        {%- endif -%}
+        
+        <!-- Ambient Left and Bottom Blending Gradients -->
+        <div class="absolute inset-0" style="background: linear-gradient(to right, #0a0b14 0%, transparent 25%); width: 100%; pointer-events: none;"></div>
+        <div class="absolute inset-0" style="background: linear-gradient(to top, #0a0b14 0%, transparent 20%); width: 100%; pointer-events: none;"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Pill Text",
+      "default": "18 years • 4 countries • built by a teacher, for teachers"
+    },
+    {
+      "type": "header",
+      "content": "Headline Segments"
+    },
+    {
+      "type": "text",
+      "id": "title_prefix",
+      "label": "Heading Prefix",
+      "default": "Your international teaching move,"
+    },
+    {
+      "type": "text",
+      "id": "title_highlight",
+      "label": "Highlighted/Underlined Word",
+      "default": "done"
+    },
+    {
+      "type": "text",
+      "id": "title_italic",
+      "label": "Italic Word",
+      "default": "right."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Subheading Description",
+      "default": "Skip the Facebook group confusion and the sketchy recruiter agencies. Get the exact roadmap, contract intel, and market-ready strategy you need to secure a premium international teaching role."
+    },
+    {
+      "type": "header",
+      "content": "Action Buttons"
+    },
+    {
+      "type": "text",
+      "id": "cta_1_text",
+      "label": "Primary Button Text",
+      "default": "Explore Products"
+    },
+    {
+      "type": "url",
+      "id": "cta_1_url",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "cta_2_text",
+      "label": "Secondary Button Text",
+      "default": "Book Coaching"
+    },
+    {
+      "type": "url",
+      "id": "cta_2_url",
+      "label": "Secondary Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Trust Proof"
+    },
+    {
+      "type": "text",
+      "id": "trust_text",
+      "label": "Social Proof Text",
+      "default": "Trusted by 2000+ teachers"
+    },
+    {
+      "type": "header",
+      "content": "Image Media"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Section",
+      "category": "Image with text"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,128 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="grid grid-cols-1 grid-cols-4">
+      
+      <!-- Left Column: Branding -->
+      <div style="grid-column: span 2;">
+        <a href="{{ routes.root_url }}" class="inline-block mb-6" style="display: inline-block; margin-bottom: 24px;">
+          {%- if section.settings.logo != blank -%}
+            <img src="{{ section.settings.logo | image_url: width: 280 }}"
+                 alt="{{ shop.name | escape }}"
+                 style="max-width: {{ section.settings.logo_max_width }}px; height: auto;"
+                 loading="lazy">
+          {%- else -%}
+            <span class="font-display font-bold text-lg text-light">{{ shop.name }}</span>
+          {%- endif -%}
+        </a>
+        {%- if section.settings.description != blank -%}
+          <p style="color: #64748b; max-width: 380px; font-size: 0.95rem; line-height: 1.6;">
+            {{ section.settings.description }}
+          </p>
+        {%- endif -%}
+      </div>
+
+      <!-- Center Column: Navigation -->
+      <div>
+        <h4 class="site-footer__title">{{ section.settings.menu_title_1 | escape }}</h4>
+        <ul class="site-footer__links">
+          {%- for link in linklists[section.settings.menu_1].links -%}
+            <li>
+              <a href="{{ link.url }}" class="site-footer__link">{{ link.title }}</a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      <!-- Right Column: Legal Links -->
+      <div>
+        <h4 class="site-footer__title">{{ section.settings.menu_title_2 | escape }}</h4>
+        <ul class="site-footer__links">
+          {%- for link in linklists[section.settings.menu_2].links -%}
+            <li>
+              <a href="{{ link.url }}" class="site-footer__link">{{ link.title }}</a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright and Affiliate Disclaimer -->
+    <div class="site-footer__bottom">
+      <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+      {%- if section.settings.disclaimer != blank -%}
+        <div class="site-footer__disclaimer text-xs">
+          {{ section.settings.disclaimer }}
+        </div>
+      {%- endif -%}
+    </div>
+
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image"
+    },
+    {
+      "type": "range",
+      "id": "logo_max_width",
+      "min": 50,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Custom Logo Width",
+      "default": 140
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Branding Description",
+      "default": "Relocation strategy and contract review for teachers serious about moving internationally. Built by a teacher, for teachers."
+    },
+    {
+      "type": "header",
+      "content": "Navigation Columns"
+    },
+    {
+      "type": "text",
+      "id": "menu_title_1",
+      "label": "Column 1 Title",
+      "default": "Navigation"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_1",
+      "label": "Column 1 Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "text",
+      "id": "menu_title_2",
+      "label": "Column 2 Title",
+      "default": "Legal"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_2",
+      "label": "Column 2 Menu",
+      "default": "footer"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Bar"
+    },
+    {
+      "type": "textarea",
+      "id": "disclaimer",
+      "label": "Affiliate Disclaimer",
+      "default": "Disclaimer: Some links on this website are affiliate links. This means I may earn a small commission at no additional cost to you if you purchase through these links. This helps support the free resources provided."
+    }
+  ]
+}
+{% endschema %}

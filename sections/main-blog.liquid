@@ -1,0 +1,79 @@
+{%- paginate blog.articles by 6 -%}
+<section class="section-padding bg-light text-light" style="padding-top: 140px;">
+  <div class="container">
+    
+    <!-- Blog Title -->
+    <div style="margin-bottom: 64px; text-align: center;">
+      <h1 class="font-display font-black" style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 16px;">
+        {{ blog.title }}
+      </h1>
+      <p style="color: #64748b; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        Relocation journals, country comparisons, and expert guides for global educators.
+      </p>
+    </div>
+
+    <!-- Blog Posts Grid -->
+    <div class="grid grid-cols-1 grid-cols-2 grid-cols-3" style="gap: 32px; margin-bottom: 48px;">
+      {%- for article in blog.articles -%}
+        <article class="blog-post-card">
+          
+          <!-- Image -->
+          <div class="blog-post-card__image">
+            {%- if article.image != blank -%}
+              <a href="{{ article.url }}">
+                <img src="{{ article.image | image_url: width: 600 }}" alt="{{ article.title | escape }}" loading="lazy">
+              </a>
+            {%- else -%}
+              <div style="width: 100%; aspect-ratio: 16/10; background-color: #f3f4f6;"></div>
+            {%- endif -%}
+          </div>
+
+          <!-- Content -->
+          <div class="blog-post-card__content">
+            <span class="blog-post-card__meta">
+              {{ article.published_at | date: '%b %d, %Y' }} &bull; {{ article.author }}
+            </span>
+            <h3 class="blog-post-card__title font-display font-bold">
+              <a href="{{ article.url }}">{{ article.title }}</a>
+            </h3>
+            <p class="blog-post-card__excerpt">
+              {%- if article.excerpt.size > 0 -%}
+                {{ article.excerpt | strip_html | truncatewords: 24 }}
+              {%- else -%}
+                {{ article.content | strip_html | truncatewords: 24 }}
+              {%- endif -%}
+            </p>
+            <a href="{{ article.url }}" class="blog-post-card__readmore">
+              Read article &rarr;
+            </a>
+          </div>
+
+        </article>
+      {%- endfor -%}
+    </div>
+
+    <!-- Pagination links -->
+    {%- if paginate.pages > 1 -%}
+      <div style="display: flex; justify-content: center; gap: 16px; align-items: center; border-top: 1px solid #e2e8f0; padding-top: 32px; font-size: 0.95rem;">
+        {%- if paginate.previous -%}
+          <a href="{{ paginate.previous.url }}" style="color: var(--color-blue); font-weight: 700;">&larr; Previous</a>
+        {%- endif -%}
+        
+        <span style="color: #64748b;">Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+
+        {%- if paginate.next -%}
+          <a href="{{ paginate.next.url }}" style="color: var(--color-blue); font-weight: 700;">Next &rarr;</a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+{%- endpaginate -%}
+
+{% schema %}
+{
+  "name": "Blog Grid",
+  "settings": []
+}
+{% endschema %}
