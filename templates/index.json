@@ -218,7 +218,7 @@
         "description": "Stop guessing what a 'good' package looks like. Book a 1-on-1 strategy session to review your contract, optimize your CV, and negotiate exactly what you're worth.",
         "coaching_image": "shopify://shop_images/Edwina_delivering_a_presentation.png",
         "cta_text": "View Coaching Packages",
-        "cta_url": ""
+        "cta_url": "shopify://pages/coaching"
       }
     },
     "authority": {
