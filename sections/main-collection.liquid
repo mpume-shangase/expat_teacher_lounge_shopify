@@ -52,60 +52,78 @@
 <section class="section-padding bg-light text-light" style="padding-top: 80px; padding-bottom: 120px; background-color: var(--bg-light);">
   <div class="container" style="max-width: 1000px;">
     
-    {%- assign guide_handles = "" -%}
-    {%- assign tool_handles = "" -%}
-    {%- assign coaching_handles = "" -%}
+    {%- assign use_settings = false -%}
+    {%- if section.settings.guides_products != blank or section.settings.tools_products != blank or section.settings.coaching_products != blank -%}
+      {%- assign use_settings = true -%}
+    {%- endif -%}
 
-    {%- for product in collection.products -%}
-      {%- assign title_dc = product.title | downcase -%}
-      {%- assign type_dc = product.type | downcase -%}
-      {%- assign handle_dc = product.handle | downcase -%}
-      
-      {%- if type_dc contains 'coaching' or title_dc contains 'coaching' or title_dc contains 'session' or handle_dc contains 'session' -%}
-        {%- assign coaching_handles = coaching_handles | append: product.handle | append: "," -%}
-      {%- elsif type_dc contains 'guide' or title_dc contains 'guide' or title_dc contains 'overview' or handle_dc contains 'overview' -%}
-        {%- assign guide_handles = guide_handles | append: product.handle | append: "," -%}
-      {%- else -%}
-        {%- assign tool_handles = tool_handles | append: product.handle | append: "," -%}
+    {%- if use_settings -%}
+      {%- assign guides = section.settings.guides_products -%}
+      {%- assign tools = section.settings.tools_products -%}
+      {%- assign coaching = section.settings.coaching_products -%}
+    {%- else -%}
+      <!-- Fallback: Categorize dynamically from collection products -->
+      {%- assign guide_handles = "" -%}
+      {%- assign tool_handles = "" -%}
+      {%- assign coaching_handles = "" -%}
+
+      {%- for product in collection.products -%}
+        {%- assign title_dc = product.title | downcase -%}
+        {%- assign type_dc = product.type | downcase -%}
+        {%- assign handle_dc = product.handle | downcase -%}
+        
+        {%- if type_dc contains 'coaching' or title_dc contains 'coaching' or title_dc contains 'session' or handle_dc contains 'session' -%}
+          {%- assign coaching_handles = coaching_handles | append: product.handle | append: "," -%}
+        {%- elsif type_dc contains 'guide' or title_dc contains 'guide' or title_dc contains 'overview' or handle_dc contains 'overview' -%}
+          {%- assign guide_handles = guide_handles | append: product.handle | append: "," -%}
+        {%- else -%}
+          {%- assign tool_handles = tool_handles | append: product.handle | append: "," -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      <!-- Fallback if coaching products aren't in this collection list directly -->
+      {%- assign coaching_handles_arr = coaching_handles | split: "," -%}
+      {%- if coaching_handles_arr.size == 0 or coaching_handles == "" -%}
+        {%- assign rs_product = all_products['relocation-strategy-session'] -%}
+        {%- if rs_product != blank -%}
+          {%- assign coaching_handles = coaching_handles | append: rs_product.handle | append: "," -%}
+        {%- endif -%}
+        {%- assign cr_product = all_products['contract-review-session'] -%}
+        {%- if cr_product != blank -%}
+          {%- assign coaching_handles = coaching_handles | append: cr_product.handle | append: "," -%}
+        {%- endif -%}
+      {%- endif -%}
+
+      {%- assign guides = guide_handles | split: "," -%}
+      {%- assign tools = tool_handles | split: "," -%}
+      {%- assign coaching = coaching_handles | split: "," -%}
+    {%- endif -%}
+
+    <!-- 1. GUIDES CATEGORY -->
+    {%- assign guides_count = 0 -%}
+    {%- for item in guides -%}
+      {%- assign prod = all_products[item.handle] | default: all_products[item] | default: item -%}
+      {%- if prod != blank and prod.title != blank -%}
+        {%- assign guides_count = guides_count | plus: 1 -%}
       {%- endif -%}
     {%- endfor -%}
 
-    <!-- Fallback if coaching products aren't in this collection list directly -->
-    {%- assign coaching_handles_arr = coaching_handles | split: "," -%}
-    {%- if coaching_handles_arr.size == 0 or coaching_handles == "" -%}
-      {%- assign rs_product = all_products['relocation-strategy-session'] -%}
-      {%- if rs_product != blank -%}
-        {%- assign coaching_handles = coaching_handles | append: rs_product.handle | append: "," -%}
-      {%- endif -%}
-      {%- assign cr_product = all_products['contract-review-session'] -%}
-      {%- if cr_product != blank -%}
-        {%- assign coaching_handles = coaching_handles | append: cr_product.handle | append: "," -%}
-      {%- endif -%}
-      {%- assign coaching_handles_arr = coaching_handles | split: "," -%}
-    {%- endif -%}
-
-    {%- assign guide_handles_arr = guide_handles | split: "," -%}
-    {%- assign tool_handles_arr = tool_handles | split: "," -%}
-
-    <!-- 1. GUIDES CATEGORY -->
-    {%- if guide_handles_arr.size > 0 and guide_handles != "" -%}
+    {%- if guides_count > 0 -%}
       <div style="margin-bottom: 80px;">
         <div style="margin-bottom: 32px; border-bottom: 2px solid #e5e7eb; padding-bottom: 16px;">
           <h2 class="font-display font-black" style="font-size: 2.25rem; margin: 0; color: var(--text-light);">
-            Guides
+            {{ section.settings.guides_title }}
           </h2>
           <p style="color: #64748b; margin: 8px 0 0 0; font-size: 1rem;">
-            Premium handbooks and reports compiled from 18 years of global education market experience.
+            {{ section.settings.guides_desc }}
           </p>
         </div>
 
         <div class="grid grid-cols-1 grid-cols-2" style="gap: 40px;">
-          {%- for handle in guide_handles_arr -%}
-            {%- if handle != blank -%}
-              {%- assign product = all_products[handle] -%}
-              {%- if product != blank -%}
-                {%- render 'product-card-item', product: product -%}
-              {%- endif -%}
+          {%- for item in guides -%}
+            {%- assign prod = all_products[item.handle] | default: all_products[item] | default: item -%}
+            {%- if prod != blank and prod.title != blank -%}
+              {%- render 'product-card-item', product: prod -%}
             {%- endif -%}
           {%- endfor -%}
         </div>
@@ -113,24 +131,30 @@
     {%- endif -%}
 
     <!-- 2. INTERACTIVE TOOLS CATEGORY -->
-    {%- if tool_handles_arr.size > 0 and tool_handles != "" -%}
+    {%- assign tools_count = 0 -%}
+    {%- for item in tools -%}
+      {%- assign prod = all_products[item.handle] | default: all_products[item] | default: item -%}
+      {%- if prod != blank and prod.title != blank -%}
+        {%- assign tools_count = tools_count | plus: 1 -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if tools_count > 0 -%}
       <div style="margin-bottom: 80px;">
         <div style="margin-bottom: 32px; border-bottom: 2px solid #e5e7eb; padding-bottom: 16px;">
           <h2 class="font-display font-black" style="font-size: 2.25rem; margin: 0; color: var(--text-light);">
-            Interactive Tools
+            {{ section.settings.tools_title }}
           </h2>
           <p style="color: #64748b; margin: 8px 0 0 0; font-size: 1rem;">
-            Custom spreadsheets, comparison matrices, and goal-setting planners built specifically for educators.
+            {{ section.settings.tools_desc }}
           </p>
         </div>
 
         <div class="grid grid-cols-1 grid-cols-2" style="gap: 40px;">
-          {%- for handle in tool_handles_arr -%}
-            {%- if handle != blank -%}
-              {%- assign product = all_products[handle] -%}
-              {%- if product != blank -%}
-                {%- render 'product-card-item', product: product -%}
-              {%- endif -%}
+          {%- for item in tools -%}
+            {%- assign prod = all_products[item.handle] | default: all_products[item] | default: item -%}
+            {%- if prod != blank and prod.title != blank -%}
+              {%- render 'product-card-item', product: prod -%}
             {%- endif -%}
           {%- endfor -%}
         </div>
@@ -138,24 +162,30 @@
     {%- endif -%}
 
     <!-- 3. COACHING CATEGORY -->
-    {%- if coaching_handles_arr.size > 0 and coaching_handles != "" -%}
+    {%- assign coaching_count = 0 -%}
+    {%- for item in coaching -%}
+      {%- assign prod = all_products[item.handle] | default: all_products[item] | default: item -%}
+      {%- if prod != blank and prod.title != blank -%}
+        {%- assign coaching_count = coaching_count | plus: 1 -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if coaching_count > 0 -%}
       <div style="margin-bottom: 80px;">
         <div style="margin-bottom: 32px; border-bottom: 2px solid #e5e7eb; padding-bottom: 16px;">
           <h2 class="font-display font-black" style="font-size: 2.25rem; margin: 0; color: var(--text-light);">
-            1-on-1 Coaching
+            {{ section.settings.coaching_title }}
           </h2>
           <p style="color: #64748b; margin: 8px 0 0 0; font-size: 1rem;">
-            Direct, personalized strategy sessions to review contracts, optimize CVs, and negotiate exactly what you're worth.
+            {{ section.settings.coaching_desc }}
           </p>
         </div>
 
         <div class="grid grid-cols-1 grid-cols-2" style="gap: 40px;">
-          {%- for handle in coaching_handles_arr -%}
-            {%- if handle != blank -%}
-              {%- assign product = all_products[handle] -%}
-              {%- if product != blank -%}
-                {%- render 'product-card-item', product: product, is_coaching: true -%}
-              {%- endif -%}
+          {%- for item in coaching -%}
+            {%- assign prod = all_products[item.handle] | default: all_products[item] | default: item -%}
+            {%- if prod != blank and prod.title != blank -%}
+              {%- render 'product-card-item', product: prod, is_coaching: true -%}
             {%- endif -%}
           {%- endfor -%}
         </div>
@@ -166,95 +196,115 @@
     <div style="margin-bottom: 40px;">
       <div style="margin-bottom: 32px; border-bottom: 2px solid #e5e7eb; padding-bottom: 16px;">
         <h2 class="font-display font-black" style="font-size: 2.25rem; margin: 0; color: var(--text-light);">
-          Free Resources
+          {{ section.settings.free_title }}
         </h2>
         <p style="color: #64748b; margin: 8px 0 0 0; font-size: 1rem;">
-          Checklists and guides to navigate attestation, immigration requirements, and school selections.
+          {{ section.settings.free_desc }}
         </p>
       </div>
 
       <div class="grid grid-cols-1 grid-cols-2" style="gap: 40px;">
-        
-        <!-- Qatar Document Attestation Checklist -->
-        <a href="https://drive.google.com/file/d/1ugj0TeUoQ7Z6zT8QaW6QcQdu5Y4l99xJ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="product-toolkit-card group" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
-          <div class="product-toolkit-fallback-icon" style="width: 64px; height: 64px; background-color: rgba(147, 51, 234, 0.08); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: #9333ea; margin-bottom: 32px; flex-shrink: 0; transition: var(--transition-smooth);">
-            <svg style="width: 32px; height: 32px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-            </svg>
-          </div>
-          <h3 class="font-display font-bold product-toolkit-title" style="font-size: 1.875rem; line-height: 1.3; color: var(--text-light); margin-top: 0; margin-bottom: 24px; transition: var(--transition-smooth); flex-grow: 1;">
-            Qatar Document Attestation Checklist
-          </h3>
-          <div class="flex items-center justify-between" style="border-top: 1px solid #e5e7eb; padding-top: 32px; margin-top: auto; width: 100%;">
-            <span style="font-size: 1.5rem; font-weight: 700; color: #9333ea;">
-              Free
-            </span>
-            <span class="product-toolkit-btn" style="background-color: #9333ea; color: #ffffff; padding: 12px 24px; border-radius: var(--border-radius-full); font-weight: 600; transition: var(--transition-smooth);">
-              Download
-            </span>
-          </div>
-        </a>
+        {%- if section.blocks.size > 0 -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'free_resource' -%}
+              <a href="{{ block.settings.link | default: '#' }}" target="_blank" rel="noopener noreferrer" class="product-toolkit-card group" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;" {{ block.shopify_attributes }}>
+                <div class="product-toolkit-fallback-icon" style="width: 64px; height: 64px; background-color: rgba(147, 51, 234, 0.08); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: #9333ea; margin-bottom: 32px; flex-shrink: 0; transition: var(--transition-smooth);">
+                  <svg style="width: 32px; height: 32px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                  </svg>
+                </div>
+                <h3 class="font-display font-bold product-toolkit-title" style="font-size: 1.875rem; line-height: 1.3; color: var(--text-light); margin-top: 0; margin-bottom: 24px; transition: var(--transition-smooth); flex-grow: 1;">
+                  {{ block.settings.title }}
+                </h3>
+                <div class="flex items-center justify-between" style="border-top: 1px solid #e5e7eb; padding-top: 32px; margin-top: auto; width: 100%;">
+                  <span style="font-size: 1.5rem; font-weight: 700; color: #9333ea;">
+                    Free
+                  </span>
+                  <span class="product-toolkit-btn" style="background-color: #9333ea; color: #ffffff; padding: 12px 24px; border-radius: var(--border-radius-full); font-weight: 600; transition: var(--transition-smooth);">
+                    Download
+                  </span>
+                </div>
+              </a>
+            {%- endif -%}
+          {%- endfor -%}
+        {%- else -%}
+          <!-- Default static fallbacks -->
+          <a href="https://drive.google.com/file/d/1ugj0TeUoQ7Z6zT8QaW6QcQdu5Y4l99xJ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="product-toolkit-card group" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
+            <div class="product-toolkit-fallback-icon" style="width: 64px; height: 64px; background-color: rgba(147, 51, 234, 0.08); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: #9333ea; margin-bottom: 32px; flex-shrink: 0; transition: var(--transition-smooth);">
+              <svg style="width: 32px; height: 32px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </div>
+            <h3 class="font-display font-bold product-toolkit-title" style="font-size: 1.875rem; line-height: 1.3; color: var(--text-light); margin-top: 0; margin-bottom: 24px; transition: var(--transition-smooth); flex-grow: 1;">
+              Qatar Document Attestation Checklist
+            </h3>
+            <div class="flex items-center justify-between" style="border-top: 1px solid #e5e7eb; padding-top: 32px; margin-top: auto; width: 100%;">
+              <span style="font-size: 1.5rem; font-weight: 700; color: #9333ea;">
+                Free
+              </span>
+              <span class="product-toolkit-btn" style="background-color: #9333ea; color: #ffffff; padding: 12px 24px; border-radius: var(--border-radius-full); font-weight: 600; transition: var(--transition-smooth);">
+                Download
+              </span>
+            </div>
+          </a>
 
-        <!-- Qatar Teacher Immigration Checklist -->
-        <a href="https://drive.google.com/file/d/1UMgNsJjvVQzCXEMbJAYksE3BGLnTU_z8/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="product-toolkit-card group" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
-          <div class="product-toolkit-fallback-icon" style="width: 64px; height: 64px; background-color: rgba(147, 51, 234, 0.08); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: #9333ea; margin-bottom: 32px; flex-shrink: 0; transition: var(--transition-smooth);">
-            <svg style="width: 32px; height: 32px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-            </svg>
-          </div>
-          <h3 class="font-display font-bold product-toolkit-title" style="font-size: 1.875rem; line-height: 1.3; color: var(--text-light); margin-top: 0; margin-bottom: 24px; transition: var(--transition-smooth); flex-grow: 1;">
-            Qatar Teacher Immigration Checklist
-          </h3>
-          <div class="flex items-center justify-between" style="border-top: 1px solid #e5e7eb; padding-top: 32px; margin-top: auto; width: 100%;">
-            <span style="font-size: 1.5rem; font-weight: 700; color: #9333ea;">
-              Free
-            </span>
-            <span class="product-toolkit-btn" style="background-color: #9333ea; color: #ffffff; padding: 12px 24px; border-radius: var(--border-radius-full); font-weight: 600; transition: var(--transition-smooth);">
-              Download
-            </span>
-          </div>
-        </a>
+          <a href="https://drive.google.com/file/d/1UMgNsJjvVQzCXEMbJAYksE3BGLnTU_z8/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="product-toolkit-card group" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
+            <div class="product-toolkit-fallback-icon" style="width: 64px; height: 64px; background-color: rgba(147, 51, 234, 0.08); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: #9333ea; margin-bottom: 32px; flex-shrink: 0; transition: var(--transition-smooth);">
+              <svg style="width: 32px; height: 32px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </div>
+            <h3 class="font-display font-bold product-toolkit-title" style="font-size: 1.875rem; line-height: 1.3; color: var(--text-light); margin-top: 0; margin-bottom: 24px; transition: var(--transition-smooth); flex-grow: 1;">
+              Qatar Teacher Immigration Checklist
+            </h3>
+            <div class="flex items-center justify-between" style="border-top: 1px solid #e5e7eb; padding-top: 32px; margin-top: auto; width: 100%;">
+              <span style="font-size: 1.5rem; font-weight: 700; color: #9333ea;">
+                Free
+              </span>
+              <span class="product-toolkit-btn" style="background-color: #9333ea; color: #ffffff; padding: 12px 24px; border-radius: var(--border-radius-full); font-weight: 600; transition: var(--transition-smooth);">
+                Download
+              </span>
+            </div>
+          </a>
 
-        <!-- Guide to Reputable British & American Schools in Qatar -->
-        <a href="https://drive.google.com/file/d/1q-gX_7FJ61zy3QC5Loc1vRQQdqavwRnE/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="product-toolkit-card group" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
-          <div class="product-toolkit-fallback-icon" style="width: 64px; height: 64px; background-color: rgba(147, 51, 234, 0.08); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: #9333ea; margin-bottom: 32px; flex-shrink: 0; transition: var(--transition-smooth);">
-            <svg style="width: 32px; height: 32px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-            </svg>
-          </div>
-          <h3 class="font-display font-bold product-toolkit-title" style="font-size: 1.875rem; line-height: 1.3; color: var(--text-light); margin-top: 0; margin-bottom: 24px; transition: var(--transition-smooth); flex-grow: 1;">
-            Guide to Reputable British & American Schools in Qatar
-          </h3>
-          <div class="flex items-center justify-between" style="border-top: 1px solid #e5e7eb; padding-top: 32px; margin-top: auto; width: 100%;">
-            <span style="font-size: 1.5rem; font-weight: 700; color: #9333ea;">
-              Free
-            </span>
-            <span class="product-toolkit-btn" style="background-color: #9333ea; color: #ffffff; padding: 12px 24px; border-radius: var(--border-radius-full); font-weight: 600; transition: var(--transition-smooth);">
-              Download
-            </span>
-          </div>
-        </a>
+          <a href="https://drive.google.com/file/d/1q-gX_7FJ61zy3QC5Loc1vRQQdqavwRnE/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="product-toolkit-card group" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
+            <div class="product-toolkit-fallback-icon" style="width: 64px; height: 64px; background-color: rgba(147, 51, 234, 0.08); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: #9333ea; margin-bottom: 32px; flex-shrink: 0; transition: var(--transition-smooth);">
+              <svg style="width: 32px; height: 32px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </div>
+            <h3 class="font-display font-bold product-toolkit-title" style="font-size: 1.875rem; line-height: 1.3; color: var(--text-light); margin-top: 0; margin-bottom: 24px; transition: var(--transition-smooth); flex-grow: 1;">
+              Guide to Reputable British & American Schools in Qatar
+            </h3>
+            <div class="flex items-center justify-between" style="border-top: 1px solid #e5e7eb; padding-top: 32px; margin-top: auto; width: 100%;">
+              <span style="font-size: 1.5rem; font-weight: 700; color: #9333ea;">
+                Free
+              </span>
+              <span class="product-toolkit-btn" style="background-color: #9333ea; color: #ffffff; padding: 12px 24px; border-radius: var(--border-radius-full); font-weight: 600; transition: var(--transition-smooth);">
+                Download
+              </span>
+            </div>
+          </a>
 
-        <!-- International Teaching Resource & Navigation Guide -->
-        <a href="https://drive.google.com/file/d/16wDe6ei6MkTz-KbNmbf9DeemGCiOjHOU/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="product-toolkit-card group" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
-          <div class="product-toolkit-fallback-icon" style="width: 64px; height: 64px; background-color: rgba(147, 51, 234, 0.08); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: #9333ea; margin-bottom: 32px; flex-shrink: 0; transition: var(--transition-smooth);">
-            <svg style="width: 32px; height: 32px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-            </svg>
-          </div>
-          <h3 class="font-display font-bold product-toolkit-title" style="font-size: 1.875rem; line-height: 1.3; color: var(--text-light); margin-top: 0; margin-bottom: 24px; transition: var(--transition-smooth); flex-grow: 1;">
-            International Teaching Resource & Navigation Guide
-          </h3>
-          <div class="flex items-center justify-between" style="border-top: 1px solid #e5e7eb; padding-top: 32px; margin-top: auto; width: 100%;">
-            <span style="font-size: 1.5rem; font-weight: 700; color: #9333ea;">
-              Free
-            </span>
-            <span class="product-toolkit-btn" style="background-color: #9333ea; color: #ffffff; padding: 12px 24px; border-radius: var(--border-radius-full); font-weight: 600; transition: var(--transition-smooth);">
-              Download
-            </span>
-          </div>
-        </a>
-
+          <a href="https://drive.google.com/file/d/16wDe6ei6MkTz-KbNmbf9DeemGCiOjHOU/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="product-toolkit-card group" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
+            <div class="product-toolkit-fallback-icon" style="width: 64px; height: 64px; background-color: rgba(147, 51, 234, 0.08); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: #9333ea; margin-bottom: 32px; flex-shrink: 0; transition: var(--transition-smooth);">
+              <svg style="width: 32px; height: 32px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </div>
+            <h3 class="font-display font-bold product-toolkit-title" style="font-size: 1.875rem; line-height: 1.3; color: var(--text-light); margin-top: 0; margin-bottom: 24px; transition: var(--transition-smooth); flex-grow: 1;">
+              International Teaching Resource & Navigation Guide
+            </h3>
+            <div class="flex items-center justify-between" style="border-top: 1px solid #e5e7eb; padding-top: 32px; margin-top: auto; width: 100%;">
+              <span style="font-size: 1.5rem; font-weight: 700; color: #9333ea;">
+                Free
+              </span>
+              <span class="product-toolkit-btn" style="background-color: #9333ea; color: #ffffff; padding: 12px 24px; border-radius: var(--border-radius-full); font-weight: 600; transition: var(--transition-smooth);">
+                Download
+              </span>
+            </div>
+          </a>
+        {%- endif -%}
       </div>
     </div>
 
@@ -313,10 +363,105 @@
       "default": "Premium intelligence, datasets, and decision tools."
     },
     {
+      "type": "header",
+      "content": "Guides Section"
+    },
+    {
       "type": "text",
-      "id": "title",
-      "label": "Listing Header",
-      "default": "Premium Toolkits"
+      "id": "guides_title",
+      "label": "Guides Section Title",
+      "default": "Guides"
+    },
+    {
+      "type": "text",
+      "id": "guides_desc",
+      "label": "Guides Description",
+      "default": "Premium handbooks and reports compiled from 18 years of global education market experience."
+    },
+    {
+      "type": "product_list",
+      "id": "guides_products",
+      "label": "Select Guides",
+      "limit": 12
+    },
+    {
+      "type": "header",
+      "content": "Interactive Tools Section"
+    },
+    {
+      "type": "text",
+      "id": "tools_title",
+      "label": "Tools Section Title",
+      "default": "Interactive Tools"
+    },
+    {
+      "type": "text",
+      "id": "tools_desc",
+      "label": "Tools Description",
+      "default": "Custom spreadsheets, comparison matrices, and goal-setting planners built specifically for educators."
+    },
+    {
+      "type": "product_list",
+      "id": "tools_products",
+      "label": "Select Tools",
+      "limit": 12
+    },
+    {
+      "type": "header",
+      "content": "Coaching Section"
+    },
+    {
+      "type": "text",
+      "id": "coaching_title",
+      "label": "Coaching Section Title",
+      "default": "1-on-1 Coaching"
+    },
+    {
+      "type": "text",
+      "id": "coaching_desc",
+      "label": "Coaching Description",
+      "default": "Direct, personalized strategy sessions to review contracts, optimize CVs, and negotiate exactly what you're worth."
+    },
+    {
+      "type": "product_list",
+      "id": "coaching_products",
+      "label": "Select Coaching Products",
+      "limit": 12
+    },
+    {
+      "type": "header",
+      "content": "Free Resources Section"
+    },
+    {
+      "type": "text",
+      "id": "free_title",
+      "label": "Free Resources Section Title",
+      "default": "Free Resources"
+    },
+    {
+      "type": "text",
+      "id": "free_desc",
+      "label": "Free Resources Description",
+      "default": "Checklists and guides to navigate attestation, immigration requirements, and school selections."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "free_resource",
+      "name": "Free Resource Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Resource Title",
+          "default": "Qatar Document Attestation Checklist"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Download Link"
+        }
+      ]
     }
   ]
 }
