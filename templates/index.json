@@ -216,6 +216,7 @@
         "title_prefix": "Need a",
         "title_italic": "Strategic Partner?",
         "description": "Stop guessing what a 'good' package looks like. Book a 1-on-1 strategy session to review your contract, optimize your CV, and negotiate exactly what you're worth.",
+        "coaching_image": "shopify://shop_images/Edwina_delivering_a_presentation.png",
         "cta_text": "View Coaching Packages",
         "cta_url": ""
       }
@@ -230,6 +231,30 @@
     },
     "testimonials": {
       "type": "testimonials",
+      "blocks": {
+        "testimonial_qgeDm4": {
+          "type": "testimonial",
+          "settings": {
+            "quote_text": "I had been thinking about teaching internationally for three years but kept putting it off because I didn't know where to start. The Country Comparison Tool gave me exactly what I needed.",
+            "author_name": "Sarah Mitchell",
+            "author_role": "Primary Teacher",
+            "author_location": "Now teaching in Doha, Qatar"
+          }
+        },
+        "testimonial_RGQJRc": {
+          "type": "testimonial",
+          "settings": {
+            "quote_text": "The International Teaching Market Overview gave me data I couldn't find anywhere else in one place — salary benchmarks, hiring timelines, subject demand by region. As someone moving to the Middle East for the first time with a family, I needed more than opinions from Facebook groups. This gave me real numbers and the confidence to negotiate a significantly better package.",
+            "author_name": "David Okonkwo",
+            "author_role": "Secondary Maths Teacher",
+            "author_location": "Now teaching in Dubai, UAE"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_qgeDm4",
+        "testimonial_RGQJRc"
+      ],
       "settings": {
         "title_prefix": "Don't just take",
         "title_italic": "my word for it."
