@@ -7,10 +7,7 @@
 
 {%- assign is_coaching = is_coaching | default: false -%}
 {%- assign card_link = product.url -%}
-{%- if is_coaching -%}
-  {%- assign variant_id = product.first_available_variant.id | default: product.variants.first.id -%}
-  {%- assign card_link = '/cart/add?id=' | append: variant_id | append: '&quantity=1&return_to=/checkout' -%}
-{%- endif -%}
+
 
 <a href="{{ card_link }}" class="product-toolkit-card group" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
   
