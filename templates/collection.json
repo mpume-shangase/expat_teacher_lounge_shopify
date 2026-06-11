@@ -50,7 +50,8 @@
         "guides_desc": "Premium handbooks and reports compiled from 18 years of global education market experience.",
         "guides_products": [
           "international-teaching-research-guide",
-          "the-canada-teaching-certification-roadmap"
+          "the-canada-teaching-certification-roadmap",
+          "the-canada-teaching-certification-roadmap-province-by-province-guide"
         ],
         "tools_title": "Interactive Tools",
         "tools_desc": "Custom spreadsheets, comparison matrices, and goal-setting planners built specifically for educators.",
@@ -62,8 +63,7 @@
           "the-canada-province-picker-find-your-best-fit-province",
           "the-canada-teaching-certification-guide-interactive",
           "canada-province-picker-find-your-best-fit-province",
-          "canada-teaching-certification-guide-province-by-province",
-          "the-canada-teaching-certification-roadmap-province-by-province-guide"
+          "canada-teaching-certification-guide-province-by-province"
         ],
         "coaching_title": "1-on-1 Coaching",
         "coaching_desc": "Direct, personalized strategy sessions to review contracts, optimize CVs, and negotiate exactly what you're worth.",
