@@ -1,8 +1,25 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-collection",
       "blocks": {
+        "free_resource_RiP4ha": {
+          "type": "free_resource",
+          "settings": {
+            "title": "Teach in Canada Province Shortlist",
+            "link": "shopify://products/teach-in-canada-the-province-shortlist",
+            "thumbnail": "shopify://shop_images/Screenshot2026-06-12at12.31.48AM.png"
+          }
+        },
         "free_resource_bEaFmL": {
           "type": "free_resource",
           "settings": {
@@ -18,20 +35,12 @@
             "link": "shopify://products/qatar-immigration-checklist",
             "thumbnail": "shopify://shop_images/Thumbnail_-_Qatar_Teacher_Immigration_Residence_Permit_Checklist.png"
           }
-        },
-        "free_resource_canada_shortlist": {
-          "type": "free_resource",
-          "settings": {
-            "title": "Teach in Canada: The Province Shortlist",
-            "link": "https://cdn.shopify.com/s/files/1/0823/4391/9830/files/Teach_in_Canada_The_Province_Shortlist.pdf?v=1781204553",
-            "thumbnail": ""
-          }
         }
       },
       "block_order": [
+        "free_resource_RiP4ha",
         "free_resource_bEaFmL",
-        "free_resource_nh7kEQ",
-        "free_resource_canada_shortlist"
+        "free_resource_nh7kEQ"
       ],
       "settings": {
         "hero_title_prefix": "Empower your",
