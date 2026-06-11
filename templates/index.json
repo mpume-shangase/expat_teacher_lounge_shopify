@@ -176,11 +176,20 @@
             "cover_image": "shopify://shop_images/Thumbnail_-_Qatar_Teacher_Immigration_Residence_Permit_Checklist.png",
             "download_url": "shopify://products/qatar-immigration-checklist"
           }
+        },
+        "resource_canada_shortlist": {
+          "type": "resource",
+          "settings": {
+            "title": "Teach in Canada: The Province Shortlist",
+            "cover_image": "",
+            "download_url": "https://cdn.shopify.com/s/files/1/0823/4391/9830/files/Teach_in_Canada_The_Province_Shortlist.pdf?v=1781204553"
+          }
         }
       },
       "block_order": [
         "resource_UwwGP9",
-        "resource_ghU69j"
+        "resource_ghU69j",
+        "resource_canada_shortlist"
       ],
       "settings": {
         "title_prefix": "Free",

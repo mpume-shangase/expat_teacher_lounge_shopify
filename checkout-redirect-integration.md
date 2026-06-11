@@ -16,21 +16,41 @@ This script will automatically intercept customers on the Shopify "Thank You" (O
 
 ### Copy-Paste Code:
 ```html
-{%- assign has_coaching = false -%}
-{%- assign calendly_url = '' -%}
+{%- assign has_redirect = false -%}
+{%- assign redirect_url = '' -%}
+{%- assign redirect_message = '' -%}
+{%- assign redirect_button_text = 'Click here if you are not redirected' -%}
 
 {%- for line in order.line_items -%}
   {%- assign product_title = line.product.title | downcase -%}
   {%- if product_title contains 'relocation strategy' -%}
-    {%- assign has_coaching = true -%}
-    {%- assign calendly_url = 'https://calendly.com/expatteacherslounge-info/relocation-strategy-session' -%}
+    {%- assign has_redirect = true -%}
+    {%- assign redirect_url = 'https://calendly.com/expatteacherslounge-info/relocation-strategy-session' -%}
+    {%- assign redirect_message = 'Redirecting you to book your relocation strategy session...' -%}
   {%- elsif product_title contains 'contract review' -%}
-    {%- assign has_coaching = true -%}
-    {%- assign calendly_url = 'https://calendly.com/expatteacherslounge-info/relocation-strategy-session-clone' -%}
+    {%- assign has_redirect = true -%}
+    {%- assign redirect_url = 'https://calendly.com/expatteacherslounge-info/relocation-strategy-session-clone' -%}
+    {%- assign redirect_message = 'Redirecting you to book your contract review session...' -%}
+  {%- elsif product_title contains 'pathways' or product_title contains 'application kit' -%}
+    {%- assign has_redirect = true -%}
+    {%- assign redirect_url = 'https://golden-cocada-4a4070.netlify.app' -%}
+    {%- assign redirect_message = 'Redirecting you to access your Pathways Application Kit...' -%}
+  {%- elsif product_title contains 'province picker' -%}
+    {%- assign has_redirect = true -%}
+    {%- assign redirect_url = 'https://glistening-pixie-6b1c76.netlify.app' -%}
+    {%- assign redirect_message = 'Redirecting you to access your Canada Province Picker...' -%}
+  {%- elsif product_title contains 'certification guide' or product_title contains 'interactive' and product_title contains 'certification' -%}
+    {%- assign has_redirect = true -%}
+    {%- assign redirect_url = 'https://cosmic-biscochitos-3b4cc1.netlify.app' -%}
+    {%- assign redirect_message = 'Redirecting you to access your Interactive Certification Guide...' -%}
+  {%- elsif product_title contains 'roadmap' or product_title contains 'certification roadmap' -%}
+    {%- assign has_redirect = true -%}
+    {%- assign redirect_url = 'https://stirring-beijinho-d6d251.netlify.app' -%}
+    {%- assign redirect_message = 'Redirecting you to access your Certification Roadmap...' -%}
   {%- endif -%}
 {%- endfor -%}
 
-{%- if has_coaching and calendly_url != '' -%}
+{%- if has_redirect and redirect_url != '' -%}
   <!-- Premium Redirect Overlay -->
   <div id="coaching-redirect-overlay" style="position: fixed; inset: 0; background: #0a0b14; z-index: 999999; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; text-align: center; padding: 20px;">
     <!-- Circular Spinner -->
@@ -38,11 +58,17 @@ This script will automatically intercept customers on the Shopify "Thank You" (O
     
     <h2 style="font-size: 2rem; font-weight: 800; margin: 0 0 16px 0; color: #ffffff;">Payment Successful!</h2>
     <p style="font-size: 1.125rem; color: rgba(255, 255, 255, 0.7); max-width: 480px; margin: 0 0 32px 0; line-height: 1.5;">
-      Redirecting you now to select your appointment date and time...
+      {{ redirect_message }}
     </p>
     
-    <a href="{{ calendly_url }}?name={{ order.customer.name | url_encode }}&email={{ order.customer.email | url_encode }}" style="background: #1C91D7; color: #ffffff; text-decoration: none; padding: 16px 36px; border-radius: 9999px; font-weight: 700; font-size: 1rem; box-shadow: 0 10px 20px rgba(28, 145, 215, 0.25); transition: all 0.3s ease;">
-      Click here if you are not redirected
+    {%- if redirect_url contains 'calendly.com' -%}
+      {%- assign final_url = redirect_url | append: '?name=' | append: (order.customer.name | url_encode) | append: '&email=' | append: (order.customer.email | url_encode) -%}
+    {%- else -%}
+      {%- assign final_url = redirect_url -%}
+    {%- endif -%}
+    
+    <a href="{{ final_url }}" style="background: #1C91D7; color: #ffffff; text-decoration: none; padding: 16px 36px; border-radius: 9999px; font-weight: 700; font-size: 1rem; box-shadow: 0 10px 20px rgba(28, 145, 215, 0.25); transition: all 0.3s ease;">
+      {{ redirect_button_text }}
     </a>
   </div>
 
@@ -54,9 +80,7 @@ This script will automatically intercept customers on the Shopify "Thank You" (O
 
   <script>
     setTimeout(function() {
-      var nameParam = encodeURIComponent("{{ order.customer.name }}");
-      var emailParam = encodeURIComponent("{{ order.customer.email }}");
-      var redirectUrl = "{{ calendly_url }}?name=" + nameParam + "&email=" + emailParam;
+      var redirectUrl = "{{ final_url }}";
       window.location.href = redirectUrl;
     }, 2000);
   </script>
