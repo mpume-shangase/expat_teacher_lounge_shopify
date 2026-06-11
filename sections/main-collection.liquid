@@ -102,11 +102,14 @@
     <!-- 1. GUIDES CATEGORY -->
     {%- assign guides_count = 0 -%}
     {%- for item in guides -%}
-      {%- assign handle_str = item.handle | default: item -%}
-      {%- assign prod = all_products[handle_str] -%}
+      {%- assign prod = item -%}
       {%- if prod == blank or prod.title == blank -%}
-        {%- if handle_str contains 'roadmap' -%}
-          {%- assign prod = all_products['canada-teaching-certification-roadmap'] | default: all_products['the-canada-teaching-certification-roadmap'] -%}
+        {%- assign handle_str = item.handle | default: item -%}
+        {%- assign prod = all_products[handle_str] -%}
+        {%- if prod == blank or prod.title == blank -%}
+          {%- if handle_str contains 'roadmap' -%}
+            {%- assign prod = all_products['canada-teaching-certification-roadmap'] | default: all_products['the-canada-teaching-certification-roadmap'] -%}
+          {%- endif -%}
         {%- endif -%}
       {%- endif -%}
       {%- if prod != blank and prod.title != blank -%}
@@ -127,11 +130,14 @@
 
         <div class="grid grid-cols-1 grid-cols-2" style="gap: 40px;">
           {%- for item in guides -%}
-            {%- assign handle_str = item.handle | default: item -%}
-            {%- assign prod = all_products[handle_str] -%}
+            {%- assign prod = item -%}
             {%- if prod == blank or prod.title == blank -%}
-              {%- if handle_str contains 'roadmap' -%}
-                {%- assign prod = all_products['canada-teaching-certification-roadmap'] | default: all_products['the-canada-teaching-certification-roadmap'] -%}
+              {%- assign handle_str = item.handle | default: item -%}
+              {%- assign prod = all_products[handle_str] -%}
+              {%- if prod == blank or prod.title == blank -%}
+                {%- if handle_str contains 'roadmap' -%}
+                  {%- assign prod = all_products['canada-teaching-certification-roadmap'] | default: all_products['the-canada-teaching-certification-roadmap'] -%}
+                {%- endif -%}
               {%- endif -%}
             {%- endif -%}
             {%- if prod != blank and prod.title != blank -%}
@@ -145,15 +151,18 @@
     <!-- 2. INTERACTIVE TOOLS CATEGORY -->
     {%- assign tools_count = 0 -%}
     {%- for item in tools -%}
-      {%- assign handle_str = item.handle | default: item -%}
-      {%- assign prod = all_products[handle_str] -%}
+      {%- assign prod = item -%}
       {%- if prod == blank or prod.title == blank -%}
-        {%- if handle_str contains 'pathways' or handle_str contains 'application-kit' -%}
-          {%- assign prod = all_products['pathways-to-teach-canada-application-kit'] | default: all_products['the-pathways-to-teach-canada-application-kit'] | default: all_products['pathways-to-teach-canada'] -%}
-        {%- elsif handle_str contains 'province-picker' -%}
-          {%- assign prod = all_products['canada-province-picker'] | default: all_products['the-canada-province-picker'] | default: all_products['canada-province-picker-find-your-best-fit-province'] | default: all_products['the-canada-province-picker-find-your-best-fit-province'] -%}
-        {%- elsif handle_str contains 'certification-guide' -%}
-          {%- assign prod = all_products['canada-teaching-certification-guide'] | default: all_products['the-canada-teaching-certification-guide'] | default: all_products['canada-teaching-certification-guide-interactive'] | default: all_products['the-canada-teaching-certification-guide-interactive'] -%}
+        {%- assign handle_str = item.handle | default: item -%}
+        {%- assign prod = all_products[handle_str] -%}
+        {%- if prod == blank or prod.title == blank -%}
+          {%- if handle_str contains 'pathways' or handle_str contains 'application-kit' -%}
+            {%- assign prod = all_products['pathways-to-teach-canada-application-kit'] | default: all_products['the-pathways-to-teach-canada-application-kit'] | default: all_products['pathways-to-teach-canada'] -%}
+          {%- elsif handle_str contains 'province-picker' -%}
+            {%- assign prod = all_products['canada-province-picker'] | default: all_products['the-canada-province-picker'] | default: all_products['canada-province-picker-find-your-best-fit-province'] | default: all_products['the-canada-province-picker-find-your-best-fit-province'] -%}
+          {%- elsif handle_str contains 'certification-guide' -%}
+            {%- assign prod = all_products['canada-teaching-certification-guide'] | default: all_products['the-canada-teaching-certification-guide'] | default: all_products['canada-teaching-certification-guide-interactive'] | default: all_products['the-canada-teaching-certification-guide-interactive'] -%}
+          {%- endif -%}
         {%- endif -%}
       {%- endif -%}
       {%- if prod != blank and prod.title != blank -%}
@@ -174,15 +183,18 @@
 
         <div class="grid grid-cols-1 grid-cols-2" style="gap: 40px;">
           {%- for item in tools -%}
-            {%- assign handle_str = item.handle | default: item -%}
-            {%- assign prod = all_products[handle_str] -%}
+            {%- assign prod = item -%}
             {%- if prod == blank or prod.title == blank -%}
-              {%- if handle_str contains 'pathways' or handle_str contains 'application-kit' -%}
-                {%- assign prod = all_products['pathways-to-teach-canada-application-kit'] | default: all_products['the-pathways-to-teach-canada-application-kit'] | default: all_products['pathways-to-teach-canada'] -%}
-              {%- elsif handle_str contains 'province-picker' -%}
-                {%- assign prod = all_products['canada-province-picker'] | default: all_products['the-canada-province-picker'] | default: all_products['canada-province-picker-find-your-best-fit-province'] | default: all_products['the-canada-province-picker-find-your-best-fit-province'] -%}
-              {%- elsif handle_str contains 'certification-guide' -%}
-                {%- assign prod = all_products['canada-teaching-certification-guide'] | default: all_products['the-canada-teaching-certification-guide'] | default: all_products['canada-teaching-certification-guide-interactive'] | default: all_products['the-canada-teaching-certification-guide-interactive'] -%}
+              {%- assign handle_str = item.handle | default: item -%}
+              {%- assign prod = all_products[handle_str] -%}
+              {%- if prod == blank or prod.title == blank -%}
+                {%- if handle_str contains 'pathways' or handle_str contains 'application-kit' -%}
+                  {%- assign prod = all_products['pathways-to-teach-canada-application-kit'] | default: all_products['the-pathways-to-teach-canada-application-kit'] | default: all_products['pathways-to-teach-canada'] -%}
+                {%- elsif handle_str contains 'province-picker' -%}
+                  {%- assign prod = all_products['canada-province-picker'] | default: all_products['the-canada-province-picker'] | default: all_products['canada-province-picker-find-your-best-fit-province'] | default: all_products['the-canada-province-picker-find-your-best-fit-province'] -%}
+                {%- elsif handle_str contains 'certification-guide' -%}
+                  {%- assign prod = all_products['canada-teaching-certification-guide'] | default: all_products['the-canada-teaching-certification-guide'] | default: all_products['canada-teaching-certification-guide-interactive'] | default: all_products['the-canada-teaching-certification-guide-interactive'] -%}
+                {%- endif -%}
               {%- endif -%}
             {%- endif -%}
             {%- if prod != blank and prod.title != blank -%}
@@ -196,7 +208,11 @@
     <!-- 3. COACHING CATEGORY -->
     {%- assign coaching_count = 0 -%}
     {%- for item in coaching -%}
-      {%- assign prod = all_products[item.handle] | default: all_products[item] | default: item -%}
+      {%- assign prod = item -%}
+      {%- if prod == blank or prod.title == blank -%}
+        {%- assign handle_str = item.handle | default: item -%}
+        {%- assign prod = all_products[handle_str] -%}
+      {%- endif -%}
       {%- if prod != blank and prod.title != blank -%}
         {%- assign coaching_count = coaching_count | plus: 1 -%}
       {%- endif -%}
@@ -215,7 +231,11 @@
 
         <div class="grid grid-cols-1 grid-cols-2" style="gap: 40px;">
           {%- for item in coaching -%}
-            {%- assign prod = all_products[item.handle] | default: all_products[item] | default: item -%}
+            {%- assign prod = item -%}
+            {%- if prod == blank or prod.title == blank -%}
+              {%- assign handle_str = item.handle | default: item -%}
+              {%- assign prod = all_products[handle_str] -%}
+            {%- endif -%}
             {%- if prod != blank and prod.title != blank -%}
               {%- render 'product-card-item', product: prod, is_coaching: true -%}
             {%- endif -%}
