@@ -7,12 +7,12 @@
         {%- if product.featured_image != blank -%}
           <img src="{{ product.featured_image | image_url: width: 1000 }}"
                alt="{{ product.title | escape }}"
-               style="width: 100%; border-radius: var(--border-radius-md);"
+               style="width: 100%; border-radius: var(--border-radius-md); border: 1px solid #e2e8f0; background: #ffffff; padding: 24px; object-fit: contain; aspect-ratio: 4/3;"
                loading="eager">
         {%- else -%}
-          <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background-color: #f3f4f6; color: var(--color-blue); border-radius: var(--border-radius-md);">
+          <div style="aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; background-color: #f3f4f6; color: var(--color-blue); border-radius: var(--border-radius-md); border: 1px solid #e2e8f0;">
             <svg style="width: 64px; height: 64px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
             </svg>
           </div>
         {%- endif -%}
@@ -20,76 +20,341 @@
 
       <!-- Right Column: Product Info & Purchase Form -->
       <div class="product-single__info">
-        
-        <!-- Vendor name -->
-        <span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888899; display: block; margin-bottom: 8px;">
-          {{ product.vendor }}
-        </span>
+        {%- if section.blocks.size > 0 -%}
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when '@app' -%}
+                {%- render block -%}
+              
+              {%- when 'title' -%}
+                <span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888899; display: block; margin-bottom: 8px;">
+                  {{ product.vendor }}
+                </span>
+                <h1 class="font-display font-black product-single__title" style="margin-bottom: 16px; color: var(--text-light);" {{ block.shopify_attributes }}>
+                  {{ product.title }}
+                </h1>
+              
+              {%- when 'price' -%}
+                <div class="product-single__price" style="margin-bottom: 24px; font-size: 1.75rem; font-weight: 800; color: var(--color-blue);" {{ block.shopify_attributes }}>
+                  {{ product.selected_or_first_available_variant.price | money }}
+                </div>
+              
+              {%- when 'buy_buttons' -%}
+                {%- form 'product', product, class: 'shopify-product-form', id: 'product-form-installment' -%}
+                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                  <input type="hidden" name="return_to" value="/checkout">
+                  <input type="hidden" name="quantity" value="1">
 
-        <!-- Title -->
-        <h1 class="font-display font-black product-single__title" style="margin-bottom: 16px;">
-          {{ product.title }}
-        </h1>
+                  {%- unless product.has_only_default_variant -%}
+                    <div style="margin-bottom: 24px;">
+                      <label for="ProductSelect-{{ section.id }}" style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; color: #475569;">
+                        Choose Option
+                      </label>
+                      <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variant-selector" style="width: 100%; padding: 14px 20px; border-radius: 9999px; border: 1px solid #cbd5e1; outline: none;">
+                        {%- for variant in product.variants -%}
+                          <option value="{{ variant.id }}"
+                            {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}
+                            {% unless variant.available %}disabled="disabled"{% endunless %}>
+                            {{ variant.title }} - {% if variant.available %}{{ variant.price | money }}{% else %}Sold out{% endif %}
+                          </option>
+                        {%- endfor -%}
+                      </select>
+                    </div>
+                  {%- endunless -%}
 
-        <!-- Price -->
-        <div class="product-single__price" style="margin-bottom: 24px;">
-          {{ product.selected_or_first_available_variant.price | money }}
-        </div>
+                  <button type="submit" name="add" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 1.05rem;"
+                    {% unless product.selected_or_first_available_variant.available %}disabled="disabled"{% endunless %} {{ block.shopify_attributes }}>
+                    {%- if product.selected_or_first_available_variant.available -%}
+                      Purchase Now
+                    {%- else -%}
+                      Sold out
+                    {%- endif -%}
+                  </button>
+                {%- endform -%}
+              
+              {%- when 'description' -%}
+                <div class="product-single__description rte" style="margin-top: 24px; color: #475569; font-size: 0.95rem; line-height: 1.7;" {{ block.shopify_attributes }}>
+                  {{ product.description }}
+                </div>
+              
+              {%- when 'trust_badges' -%}
+                <div class="product-trust-badges" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 24px 0; padding: 20px 12px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: var(--border-radius-md); text-align: center;" {{ block.shopify_attributes }}>
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                    <svg style="width: 24px; height: 24px; color: var(--color-blue);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                    <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.02em;">Secure Checkout</span>
+                  </div>
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                    <svg style="width: 24px; height: 24px; color: var(--color-blue);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 19v-8.93a2 2 0 01.89-1.664l8-5.333a2 2 0 012.22 0l8 5.333A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-2.25-1.5a2 2 0 00-2.22 0l-2.25 1.5M12 14v6"></path>
+                    </svg>
+                    <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.02em;">Instant Access</span>
+                  </div>
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                    <svg style="width: 24px; height: 24px; color: var(--color-blue);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.213 6H16"></path>
+                    </svg>
+                    <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.02em;">Lifetime Updates</span>
+                  </div>
+                </div>
+              
+              {%- when 'collapsible_tabs' -%}
+                <div class="product-tabs-wrapper" style="margin-top: 32px; border-top: 1px solid #e2e8f0;" {{ block.shopify_attributes }}>
+                  
+                  {%- if block.settings.tab_included_content != blank -%}
+                    <div class="product-tab-item" style="border-bottom: 1px solid #e2e8f0;">
+                      <button type="button" class="product-tab-btn" onclick="toggleProductTab(this)" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px 0; font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--text-light); text-align: left; cursor: pointer;">
+                        <span>What's Included</span>
+                        <span class="tab-icon" style="font-size: 0.75rem; color: var(--color-blue); transition: transform 0.2s;">▼</span>
+                      </button>
+                      <div class="product-tab-content" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
+                        <div style="padding: 0 0 24px 0; color: #475569; font-size: 0.95rem; line-height: 1.7;">
+                          {{ block.settings.tab_included_content }}
+                        </div>
+                      </div>
+                    </div>
+                  {%- endif -%}
 
-        <!-- Purchase form -->
-        {%- form 'product', product, class: 'shopify-product-form' -%}
-          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-          
-          <!-- Direct Checkout Bypass -->
-          <input type="hidden" name="return_to" value="/checkout">
+                  {%- if block.settings.tab_delivery_content != blank -%}
+                    <div class="product-tab-item" style="border-bottom: 1px solid #e2e8f0;">
+                      <button type="button" class="product-tab-btn" onclick="toggleProductTab(this)" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px 0; font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--text-light); text-align: left; cursor: pointer;">
+                        <span>Instant Access & Delivery</span>
+                        <span class="tab-icon" style="font-size: 0.75rem; color: var(--color-blue); transition: transform 0.2s;">▼</span>
+                      </button>
+                      <div class="product-tab-content" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
+                        <div style="padding: 0 0 24px 0; color: #475569; font-size: 0.95rem; line-height: 1.7;">
+                          {{ block.settings.tab_delivery_content }}
+                        </div>
+                      </div>
+                    </div>
+                  {%- endif -%}
 
-          <!-- Variant Selector (shown if multiple options exist) -->
-          {%- unless product.has_only_default_variant -%}
-            <div style="margin-bottom: 24px;">
-              <label for="ProductSelect-{{ section.id }}" style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; color: #475569;">
-                Choose Variant
-              </label>
-              <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variant-selector">
-                {%- for variant in product.variants -%}
-                  <option value="{{ variant.id }}"
-                    {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}
-                    {% unless variant.available %}disabled="disabled"{% endunless %}
-                    data-price="{{ variant.price | money }}"
-                    data-available="{{ variant.available }}">
-                    {{ variant.title }} - {% if variant.available %}{{ variant.price | money }}{% else %}Sold out{% endif %}
-                  </option>
-                {%- endfor -%}
-              </select>
-            </div>
-          {%- endunless -%}
+                </div>
+            {%- endcase -%}
+          {%- endfor -%}
+        {%- else -%}
+          <!-- DEFAULT FALLBACK LAYOUT (If no blocks configured in Theme Editor yet) -->
+          <span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888899; display: block; margin-bottom: 8px;">
+            {{ product.vendor }}
+          </span>
+          <h1 class="font-display font-black product-single__title" style="margin-bottom: 16px; color: var(--text-light);">
+            {{ product.title }}
+          </h1>
+          <div class="product-single__price" style="margin-bottom: 24px; font-size: 1.75rem; font-weight: 800; color: var(--color-blue);">
+            {{ product.selected_or_first_available_variant.price | money }}
+          </div>
 
-          <!-- Hidden default quantity -->
-          <input type="hidden" name="quantity" value="1">
-
-          <!-- Add to Cart / Checkout Action Button -->
-          <button type="submit" name="add" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 1.05rem;"
-            {% unless product.selected_or_first_available_variant.available %}disabled="disabled"{% endunless %}>
-            {%- if product.selected_or_first_available_variant.available -%}
+          {%- form 'product', product, class: 'shopify-product-form', id: 'product-form-fallback' -%}
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            <input type="hidden" name="return_to" value="/checkout">
+            <input type="hidden" name="quantity" value="1">
+            <button type="submit" name="add" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 1.05rem;"
+              {% unless product.selected_or_first_available_variant.available %}disabled="disabled"{% endunless %}>
               Purchase Now
-            {%- else -%}
-              Sold out
-            {%- endif -%}
-          </button>
-        {%- endform -%}
+            </button>
+          {%- endform -%}
 
-        <!-- Description -->
-        <div class="product-single__description rte" style="margin-top: 48px; border-top: 1px solid #e2e8f0; padding-top: 32px;">
-          {{ product.description }}
-        </div>
-
+          <div class="product-single__description rte" style="margin-top: 32px; color: #475569; font-size: 0.95rem; line-height: 1.7;">
+            {{ product.description }}
+          </div>
+        {%- endif -%}
       </div>
+
     </div>
+
+    <!-- BUNDLE UPSELL SECTION -->
+    {%- if section.settings.bundle_product != blank -%}
+      {%- assign bundle_prod = section.settings.bundle_product -%}
+      {%- if bundle_prod.title != blank -%}
+        {%- assign b_variant = bundle_prod.first_available_variant | default: bundle_prod.variants.first -%}
+        {%- assign p_variant = product.selected_or_first_available_variant -%}
+        {%- if b_variant != blank and p_variant != blank -%}
+          <div class="product-bundle-container" style="margin-top: 80px; padding-top: 80px; border-top: 1px solid #e2e8f0;">
+            <div style="max-width: 800px; margin: 0 auto; background: #f8fafc; border: 1px solid #e2e8f0; padding: 40px; border-radius: var(--border-radius-lg); position: relative; overflow: hidden; box-shadow: var(--shadow-sm);">
+              
+              <!-- Subtle glow background -->
+              <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background-color: rgba(252, 203, 82, 0.08); border-radius: 50%; filter: blur(30px); pointer-events: none;"></div>
+              
+              <h3 class="font-display font-bold" style="font-size: 1.75rem; margin-bottom: 12px; text-align: center; color: var(--text-light);">
+                {{ section.settings.bundle_title | default: "Frequently Bought Together" }}
+              </h3>
+              <p style="color: #64748b; font-size: 0.95rem; text-align: center; margin-bottom: 32px;">
+                {{ section.settings.bundle_subtitle | default: "Complete your toolkit and save on relocation essentials." }}
+              </p>
+
+              <div style="display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; margin-bottom: 32px;">
+                
+                <!-- Product 1 (Current Product) -->
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 160px;">
+                  <div style="width: 100px; height: 100px; background: #fff; border: 1px solid #e2e8f0; border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 12px; padding: 8px;">
+                    {%- if product.featured_image != blank -%}
+                      <img src="{{ product.featured_image | image_url: width: 200 }}" alt="{{ product.title | escape }}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                    {%- else -%}
+                      <svg style="width: 36px; height: 36px; color: #cbd5e1;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    {%- endif -%}
+                  </div>
+                  <span style="font-size: 0.9rem; font-weight: 700; color: var(--text-light); line-height: 1.3;">{{ product.title }}</span>
+                  <span style="font-size: 0.85rem; color: #64748b; margin-top: 4px;">{{ p_variant.price | money }}</span>
+                </div>
+
+                <!-- Plus Sign -->
+                <div style="font-size: 2rem; font-weight: bold; color: #cbd5e1;">+</div>
+
+                <!-- Product 2 (Bundle Product) -->
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 160px;">
+                  <div style="width: 100px; height: 100px; background: #fff; border: 1px solid #e2e8f0; border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 12px; padding: 8px;">
+                    {%- if bundle_prod.featured_image != blank -%}
+                      <img src="{{ bundle_prod.featured_image | image_url: width: 200 }}" alt="{{ bundle_prod.title | escape }}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                    {%- else -%}
+                      <svg style="width: 36px; height: 36px; color: #cbd5e1;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    {%- endif -%}
+                  </div>
+                  <span style="font-size: 0.9rem; font-weight: 700; color: var(--text-light); line-height: 1.3;">{{ bundle_prod.title }}</span>
+                  <span style="font-size: 0.85rem; color: #64748b; margin-top: 4px;">{{ b_variant.price | money }}</span>
+                </div>
+
+              </div>
+
+              <!-- Combined pricing & Buy Button -->
+              <div style="border-top: 1px solid #e2e8f0; padding-top: 24px; text-align: center;">
+                {%- assign total_price = p_variant.price | plus: b_variant.price -%}
+                <div style="margin-bottom: 20px;">
+                  <span style="font-size: 1rem; color: #64748b; margin-right: 8px;">Bundle Price:</span>
+                  <span style="font-size: 1.75rem; font-weight: 900; color: var(--color-blue);">
+                    {{ total_price | money }}
+                  </span>
+                </div>
+                <a href="/cart/{{ p_variant.id }}:1,{{ b_variant.id }}:1" class="btn btn-gold" style="padding: 16px 40px; font-weight: 800; box-shadow: 0 10px 24px rgba(252, 203, 82, 0.35);">
+                  Buy Bundle & Save
+                </a>
+              </div>
+
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endif -%}
+
   </div>
 </section>
+
+<script>
+  function toggleProductTab(button) {
+    var item = button.parentElement;
+    var content = item.querySelector('.product-tab-content');
+    var icon = item.querySelector('.tab-icon');
+    var isOpen = item.classList.contains('product-tab--open');
+    
+    // Close other tabs in this wrapper
+    var otherTabs = item.parentElement.querySelectorAll('.product-tab-item');
+    otherTabs.forEach(function(el) {
+      if (el !== item) {
+        el.classList.remove('product-tab--open');
+        var otherContent = el.querySelector('.product-tab-content');
+        if (otherContent) {
+          otherContent.style.maxHeight = '0';
+          otherContent.style.opacity = '0';
+        }
+        var otherIcon = el.querySelector('.tab-icon');
+        if (otherIcon) {
+          otherIcon.textContent = '▼';
+        }
+      }
+    });
+
+    if (!isOpen) {
+      item.classList.add('product-tab--open');
+      content.style.maxHeight = content.scrollHeight + 'px';
+      content.style.opacity = '1';
+      icon.textContent = '▲';
+    } else {
+      item.classList.remove('product-tab--open');
+      content.style.maxHeight = '0';
+      content.style.opacity = '0';
+      icon.textContent = '▼';
+    }
+  }
+</script>
 
 {% schema %}
 {
   "name": "Product Details",
-  "settings": []
+  "settings": [
+    {
+      "type": "header",
+      "content": "Bundle Settings"
+    },
+    {
+      "type": "text",
+      "id": "bundle_title",
+      "label": "Bundle Title",
+      "default": "Frequently Bought Together"
+    },
+    {
+      "type": "text",
+      "id": "bundle_subtitle",
+      "label": "Bundle Subtitle",
+      "default": "Complete your toolkit and save on relocation essentials."
+    },
+    {
+      "type": "product",
+      "id": "bundle_product",
+      "label": "Upsell Bundle Product"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "title",
+      "name": "Product Title",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "price",
+      "name": "Product Price",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "buy_buttons",
+      "name": "Buy Button",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "description",
+      "name": "Description",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "trust_badges",
+      "name": "Trust Badges",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "collapsible_tabs",
+      "name": "Collapsible Tabs",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "tab_included_content",
+          "label": "What's Included Content"
+        },
+        {
+          "type": "richtext",
+          "id": "tab_delivery_content",
+          "label": "Delivery Content",
+          "default": "<p>Your files will be available for download instantly once payment is completed. An email containing your persistent access dashboard links will also be sent immediately.</p>"
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}
