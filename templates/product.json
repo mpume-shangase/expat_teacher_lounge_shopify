@@ -2,7 +2,48 @@
   "name": "Product",
   "sections": {
     "main": {
-      "type": "main-product"
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {}
+        },
+        "trust_badges": {
+          "type": "trust_badges",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "collapsible_tabs": {
+          "type": "collapsible_tabs",
+          "settings": {
+            "tab_included_content": "<p>Detailed checklists, step-by-step instructions, and resource sheets to guide your international teaching transition.</p>",
+            "tab_delivery_content": "<p>Your files will be available for download instantly once payment is completed. An email containing your persistent access dashboard links will also be sent immediately.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "buy_buttons",
+        "trust_badges",
+        "description",
+        "collapsible_tabs"
+      ],
+      "settings": {
+        "bundle_title": "Frequently Bought Together",
+        "bundle_subtitle": "Complete your toolkit and save on relocation essentials."
+      }
     }
   },
   "order": [
