@@ -199,12 +199,12 @@ button, input, select, textarea {
 .btn-primary {
   background-color: var(--color-blue);
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(28, 145, 215, 0.3);
+  box-shadow: 0 4px 14px rgba(28, 145, 215, 0.25);
 }
 .btn-primary:hover {
   background-color: var(--color-deep);
-  box-shadow: 0 6px 20px rgba(28, 145, 215, 0.5);
-  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(28, 145, 215, 0.45);
+  transform: translateY(-2px) scale(1.02);
 }
 
 .btn-secondary {
@@ -215,18 +215,18 @@ button, input, select, textarea {
 .btn-secondary:hover {
   background-color: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.4);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.02);
 }
 
 .btn-gold {
   background-color: var(--color-gold);
   color: #000000;
-  box-shadow: 0 4px 14px rgba(252, 203, 82, 0.3);
+  box-shadow: 0 4px 14px rgba(252, 203, 82, 0.25);
 }
 .btn-gold:hover {
   background-color: #e5b33d;
-  box-shadow: 0 6px 20px rgba(252, 203, 82, 0.5);
-  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(252, 203, 82, 0.45);
+  transform: translateY(-2px) scale(1.02);
 }
 
 /* --- HEADER / NAVIGATION --- */
@@ -293,32 +293,36 @@ body:not(.has-dark-hero) .site-header:not(.site-header--scrolled) .site-header__
   color: var(--color-blue) !important;
 }
 
-/* Scrolled state for all headers: frosted glass with dark text */
+/* Scrolled state for all headers: frosted dark glass with white/gold text */
 .site-header--scrolled {
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 12px 0;
+  background-color: rgba(10, 11, 20, 0.85) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 12px 0 !important;
 }
 
 .site-header--scrolled,
 .site-header--scrolled a,
 .site-header--scrolled .mobile-nav-toggle {
-  color: var(--text-light) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.site-header--scrolled a:hover {
+  color: var(--color-brand-gold, #FCCB52) !important;
 }
 
 .site-header--scrolled .site-header__link::after {
-  background-color: var(--color-blue);
+  background-color: var(--color-brand-gold, #FCCB52) !important;
 }
 
 .site-header--scrolled .site-header__link--active {
-  color: var(--color-blue) !important;
+  color: var(--color-brand-gold, #FCCB52) !important;
 }
 .site-header--scrolled .site-header__link--active::after {
   width: 100% !important;
-  background-color: var(--color-blue) !important;
+  background-color: var(--color-brand-gold, #FCCB52) !important;
 }
 
 .site-header__nav {
@@ -618,8 +622,10 @@ body:not(.has-dark-hero) .site-header:not(.site-header--scrolled) .site-header__
 
 /* --- CARDS & GRID LAYOUTS --- */
 .product-card {
-  background-color: #fafafc;
-  border: 1px solid #e5e7eb;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: var(--border-radius-lg);
   padding: 32px;
   display: flex;
@@ -629,8 +635,8 @@ body:not(.has-dark-hero) .site-header:not(.site-header--scrolled) .site-header__
 }
 
 .product-card:hover {
-  transform: translateY(-8px) rotate(0.5deg);
-  box-shadow: var(--shadow-xl), 0 20px 40px rgba(28, 145, 215, 0.08);
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: var(--shadow-xl), 0 20px 40px rgba(28, 145, 215, 0.12);
   border-color: var(--color-blue);
 }
 

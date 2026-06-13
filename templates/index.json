@@ -107,6 +107,13 @@
     "destinations": {
       "type": "destinations",
       "blocks": {
+        "destination_canada": {
+          "type": "destination",
+          "settings": {
+            "title": "Canada",
+            "description": "Premium public school boards, beautiful natural landscapes, and direct immigration pathways to permanent residency."
+          }
+        },
         "destination_gftYWz": {
           "type": "destination",
           "settings": {
@@ -137,6 +144,7 @@
         }
       },
       "block_order": [
+        "destination_canada",
         "destination_gftYWz",
         "destination_zpi9kW",
         "destination_nwnkLL",
