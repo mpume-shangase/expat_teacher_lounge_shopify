@@ -36,7 +36,7 @@
         "pkg2_feat3": "Salary benchmarking against true market rate",
         "pkg2_feat4": "Negotiation coaching and exact phrasing to use",
         "pkg2_feat5": "Benefit evaluation (housing, insurance, flights)",
-        "booking_title_prefix": "Book your",
+        "booking_title_prefix": "How to Book your",
         "booking_title_accent": "Session.",
         "booking_subtitle": "Select an available time below. Payment is processed securely via Stripe.",
         "calendly_embed_code": "",
