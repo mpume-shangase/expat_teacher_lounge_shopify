@@ -349,7 +349,6 @@
       background-color: #ffffff;
       border: 1px solid #e2e8f0;
       border-radius: 24px;
-      min-height: 600px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -357,6 +356,15 @@
       overflow: hidden;
       max-width: 900px;
       margin: 0 auto;
+      position: relative;
+      width: 100%;
+    }
+    
+    .coaching-booking__video-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background-color: #000000;
     }
     
     .coaching-booking__placeholder {
@@ -602,7 +610,7 @@
     </div>
   </div>
 
-  <!-- SECTION 3 — BOOKING CALENDLY -->
+  <!-- SECTION 3 — BOOKING & DELIVERY VIDEO -->
   <div id="booking" class="coaching-section-padding coaching-booking">
     <div class="coaching-container">
       <h2 class="coaching-booking__title">
@@ -613,18 +621,31 @@
       </p>
       
       <div class="coaching-booking__widget">
-        {%- if section.settings.calendly_embed_code != blank -%}
-          <div style="width: 100%; height: 100%; min-height: 600px;">
-            {{ section.settings.calendly_embed_code }}
+        {%- if section.settings.video != blank -%}
+          <div class="coaching-booking__video-container">
+            {{ section.settings.video | video_tag: autoplay: false, loop: false, muted: false, controls: true, style: 'width: 100%; height: 100%; object-fit: cover; display: block;' }}
+          </div>
+        {%- elsif section.settings.video_url != blank -%}
+          <div class="coaching-booking__video-container">
+            {%- if section.settings.video_url.type == 'youtube' -%}
+              <iframe src="https://www.youtube.com/embed/{{ section.settings.video_url.id }}?autoplay=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {%- elsif section.settings.video_url.type == 'vimeo' -%}
+              <iframe src="https://player.vimeo.com/video/{{ section.settings.video_url.id }}?autoplay=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            {%- endif -%}
+          </div>
+        {%- elsif section.settings.video_custom_embed != blank -%}
+          <div class="coaching-booking__video-container">
+            {{ section.settings.video_custom_embed }}
           </div>
         {%- else -%}
-          <!-- Default Mock Booking/Placeholder Box -->
-          <div class="coaching-booking__placeholder">
-            <svg class="coaching-booking__placeholder-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          <!-- Default Video Placeholder Box -->
+          <div class="coaching-booking__placeholder" style="padding: 80px 40px; min-height: 450px; justify-content: center;">
+            <svg class="coaching-booking__placeholder-icon" style="width: 64px; height: 64px; color: #cbd5e1; margin-bottom: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
-            <p class="coaching-booking__placeholder-title">Calendly Scheduling Widget</p>
-            <p class="coaching-booking__placeholder-text">Please customize this section in the Theme Editor to paste your Calendly inline embed code.</p>
+            <p class="coaching-booking__placeholder-title">Instructional Video</p>
+            <p class="coaching-booking__placeholder-text">Please upload a video or insert a YouTube/Vimeo URL in the Theme Editor settings to show how clients will receive their PDF and book their session.</p>
           </div>
         {%- endif -%}
       </div>
@@ -882,30 +903,41 @@
     },
     {
       "type": "header",
-      "content": "Section 3: Booking (Calendly)"
+      "content": "Section 3: Booking & Delivery Video"
     },
     {
       "type": "text",
       "id": "booking_title_prefix",
-      "label": "Booking Section Title Prefix",
-      "default": "Book your"
+      "label": "Section Title Prefix",
+      "default": "How It"
     },
     {
       "type": "text",
       "id": "booking_title_accent",
-      "label": "Booking Section Title Accent (Blue)",
-      "default": "Session."
+      "label": "Section Title Accent (Blue)",
+      "default": "Works."
     },
     {
       "type": "text",
       "id": "booking_subtitle",
-      "label": "Booking Section Subtitle",
-      "default": "Select an available time below. Payment is processed securely via Stripe."
+      "label": "Section Subtitle",
+      "default": "Watch the video below to see how you will receive your digital guides and book your 1-on-1 strategy session."
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Shopify Hosted Video"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "Or YouTube/Vimeo Video URL",
+      "accept": ["youtube", "vimeo"]
     },
     {
       "type": "textarea",
-      "id": "calendly_embed_code",
-      "label": "Calendly Inline Embed HTML Code"
+      "id": "video_custom_embed",
+      "label": "Or Custom Video Embed/HTML Code"
     },
     {
       "type": "header",
