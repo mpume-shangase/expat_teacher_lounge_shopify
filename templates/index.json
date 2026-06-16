@@ -189,7 +189,7 @@
           "type": "resource",
           "settings": {
             "title": "Teach in Canada: The Province Shortlist",
-            "cover_image": "",
+            "cover_image": "shopify://shop_images/provinceshortlist.png",
             "download_url": "https://cdn.shopify.com/s/files/1/0823/4391/9830/files/Teach_in_Canada_The_Province_Shortlist.pdf?v=1781204553"
           }
         }
