@@ -169,13 +169,22 @@
     "free_resources": {
       "type": "free-resources",
       "blocks": {
+        "resource_XCeabn": {
+          "type": "resource",
+          "settings": {
+            "title": "USA J1 Cultural Exchange Teaching Program",
+            "cover_image": "shopify://shop_images/J1Visa.png",
+            "lead_magnet_tag": "lead magnet: USA J1 Cultural Exchange Teaching Program",
+            "download_url": "shopify://products/usa-j1-cultural-exchange-teaching-program"
+          }
+        },
         "resource_UwwGP9": {
           "type": "resource",
           "settings": {
             "title": "Qatar Document Attestation Checklist",
             "cover_image": "shopify://shop_images/Documentation_Checklist_for_UK_and_Qatar_1.png",
-            "download_url": "shopify://products/qatar-document-checklist",
-            "lead_magnet_tag": "lead Magnet: Qatar Document checklist"
+            "lead_magnet_tag": "lead Magnet: Qatar Document checklist",
+            "download_url": "shopify://products/qatar-document-checklist"
           }
         },
         "resource_ghU69j": {
@@ -183,8 +192,8 @@
           "settings": {
             "title": "Qatar Immigration Checklist",
             "cover_image": "shopify://shop_images/Thumbnail_-_Qatar_Teacher_Immigration_Residence_Permit_Checklist.png",
-            "download_url": "shopify://products/qatar-immigration-checklist",
-            "lead_magnet_tag": "Lead magnet: Qatar Immigration Checklist"
+            "lead_magnet_tag": "Lead magnet: Qatar Immigration Checklist",
+            "download_url": "shopify://products/qatar-immigration-checklist"
           }
         },
         "resource_canada_shortlist": {
@@ -192,12 +201,13 @@
           "settings": {
             "title": "Teach in Canada: The Province Shortlist",
             "cover_image": "shopify://shop_images/provinceshortlist.png",
-            "download_url": "shopify://products/teach-in-canada-the-province-shortlist",
-            "lead_magnet_tag": "Lead magnet: Canada Teacher Province shortlist"
+            "lead_magnet_tag": "Lead magnet: Canada Teacher Province shortlist",
+            "download_url": "shopify://products/teach-in-canada-the-province-shortlist"
           }
         }
       },
       "block_order": [
+        "resource_XCeabn",
         "resource_UwwGP9",
         "resource_ghU69j",
         "resource_canada_shortlist"
@@ -293,7 +303,8 @@
       "type": "email-capture",
       "settings": {
         "title": "Relocation intel, straight to your inbox.",
-        "description": "Visa updates, salary benchmarks, and destination guides for teachers serious about their next move."
+        "description": "Visa updates, salary benchmarks, and destination guides for teachers serious about their next move.",
+        "tags": "newsletter"
       }
     }
   },
