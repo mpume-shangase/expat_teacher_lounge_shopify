@@ -461,6 +461,7 @@
 
     <!-- Subscription Form -->
     {%- form 'customer', id: 'resource-subscription-form' -%}
+      <input type="hidden" name="contact[accepts_marketing]" value="true">
       <input type="hidden" name="contact[tags]" id="resource-tags-input" value="newsletter, free-resource">
       
       <div style="margin-bottom: 16px; text-align: left;">
