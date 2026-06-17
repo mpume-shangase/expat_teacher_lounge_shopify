@@ -259,7 +259,7 @@
         {%- if section.blocks.size > 0 -%}
           {%- for block in section.blocks -%}
             {%- if block.type == 'free_resource' -%}
-              <a href="#" class="product-toolkit-card js-resource-card group" data-resource-title="{{ block.settings.title | escape }}" data-resource-tag="{{ block.settings.tag | default: 'lead-magnet' }}" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;" {{ block.shopify_attributes }}>
+              <a href="{{ block.settings.link | default: '#' }}" class="product-toolkit-card group" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;" {{ block.shopify_attributes }}>
                 
                 {%- if block.settings.thumbnail != blank -%}
                   <!-- Thumbnail Image Container with Contain and Padding (Matches paid cards) -->
@@ -296,7 +296,7 @@
           {%- endfor -%}
         {%- else -%}
           <!-- Default static fallbacks -->
-          <a href="#" class="product-toolkit-card js-resource-card group" data-resource-title="Qatar Document Attestation Checklist" data-resource-tag="lead Magnet: Qatar Document checklist" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
+          <a href="/products/qatar-document-checklist" class="product-toolkit-card group" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
             <div class="product-toolkit-fallback-icon" style="width: 64px; height: 64px; background-color: rgba(28, 145, 215, 0.08); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--color-blue); margin-bottom: 32px; flex-shrink: 0; transition: var(--transition-smooth);">
               <svg style="width: 32px; height: 32px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
@@ -315,7 +315,7 @@
             </div>
           </a>
 
-          <a href="#" class="product-toolkit-card js-resource-card group" data-resource-title="Qatar Teacher Immigration Checklist" data-resource-tag="Lead magnet: Qatar Immigration Checklist" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
+          <a href="/products/qatar-immigration-checklist" class="product-toolkit-card group" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
             <div class="product-toolkit-fallback-icon" style="width: 64px; height: 64px; background-color: rgba(28, 145, 215, 0.08); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--color-blue); margin-bottom: 32px; flex-shrink: 0; transition: var(--transition-smooth);">
               <svg style="width: 32px; height: 32px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
@@ -334,7 +334,7 @@
             </div>
           </a>
 
-          <a href="#" class="product-toolkit-card js-resource-card group" data-resource-title="Guide to Reputable British & American Schools in Qatar" data-resource-tag="lead magnet qatar schools" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
+          <a href="/products/guide-to-reputable-british-american-schools-in-qatar" class="product-toolkit-card group" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
             <div class="product-toolkit-fallback-icon" style="width: 64px; height: 64px; background-color: rgba(28, 145, 215, 0.08); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--color-blue); margin-bottom: 32px; flex-shrink: 0; transition: var(--transition-smooth);">
               <svg style="width: 32px; height: 32px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
@@ -353,7 +353,7 @@
             </div>
           </a>
 
-          <a href="#" class="product-toolkit-card js-resource-card group" data-resource-title="Canada Teacher Province Shortlist" data-resource-tag="Lead magnet: Canada Teacher Province shortlist" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
+          <a href="/products/teach-in-canada-the-province-shortlist" class="product-toolkit-card group" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
             <div class="product-toolkit-fallback-icon" style="width: 64px; height: 64px; background-color: rgba(28, 145, 215, 0.08); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--color-blue); margin-bottom: 32px; flex-shrink: 0; transition: var(--transition-smooth);">
               <svg style="width: 32px; height: 32px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
@@ -439,153 +439,7 @@
   }
 </style>
 
-<!-- Free Resource Modal -->
-<div id="resource-modal" class="resource-modal-overlay">
-  <div class="resource-modal-content">
-    
-    <!-- Close Button -->
-    <button type="button" class="resource-modal-close" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 24px; cursor: pointer; color: #94a3b8; transition: color 0.2s;" onclick="closeResourceModal()">×</button>
-    
-    <!-- Icon in Modal -->
-    <div style="width: 56px; height: 56px; background-color: rgba(28, 145, 215, 0.08); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--color-blue, #1C91D7); margin: 0 auto 24px auto;">
-      <svg style="width: 28px; height: 28px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-      </svg>
-    </div>
 
-    <!-- Modal Headings -->
-    <h3 class="font-display font-black" id="resource-modal-title" style="font-size: 1.75rem; line-height: 1.2; margin: 0 0 12px 0; color: #0a0b14;">Download Free Resource</h3>
-    <p style="font-size: 0.95rem; color: #64748b; margin: 0 0 32px 0; line-height: 1.5;">
-      Enter your email address below to receive your free download straight to your inbox.
-    </p>
-
-    <!-- Subscription Form -->
-    {%- form 'customer', id: 'resource-subscription-form' -%}
-      <input type="hidden" name="contact[accepts_marketing]" value="true">
-      <input type="hidden" name="contact[tags]" id="resource-tags-input" value="newsletter, free-resource">
-      
-      <div style="margin-bottom: 16px; text-align: left;">
-        <label for="resource-name-input" style="display: block; font-size: 0.85rem; font-weight: 700; color: #475569; margin-bottom: 8px;">First Name</label>
-        <input type="text" name="contact[first_name]" id="resource-name-input" placeholder="Your name" required style="width: 100%; padding: 14px 20px; border-radius: 9999px; border: 1px solid #cbd5e1; font-size: 1rem; color: #0a0b14; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--color-blue)'" onblur="this.style.borderColor='#cbd5e1'">
-      </div>
-
-      <div style="margin-bottom: 24px; text-align: left;">
-        <label for="resource-email-input" style="display: block; font-size: 0.85rem; font-weight: 700; color: #475569; margin-bottom: 8px;">Email Address</label>
-        <input type="email" name="contact[email]" id="resource-email-input" placeholder="you@example.com" required style="width: 100%; padding: 14px 20px; border-radius: 9999px; border: 1px solid #cbd5e1; font-size: 1rem; color: #0a0b14; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--color-blue)'" onblur="this.style.borderColor='#cbd5e1'">
-      </div>
-
-      <button type="submit" id="resource-submit-btn" style="width: 100%; background-color: var(--color-blue, #1C91D7); color: #ffffff; border: none; padding: 16px 32px; border-radius: 9999px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 12px rgba(28, 145, 215, 0.2);">
-        Get Free Access
-      </button>
-    {%- endform -%}
-
-    <!-- Success Message Container (Hidden by default) -->
-    <div id="resource-success-message" style="display: none; text-align: center; padding: 20px 0;">
-      <div style="width: 56px; height: 56px; background-color: rgba(34, 197, 94, 0.08); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: #22c55e; margin: 0 auto 24px auto;">
-        <svg style="width: 28px; height: 28px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-        </svg>
-      </div>
-      <h3 class="font-display font-black" style="font-size: 1.75rem; line-height: 1.2; margin: 0 0 12px 0; color: #0a0b14;">Sent Successfully!</h3>
-      <p style="font-size: 0.95rem; color: #64748b; line-height: 1.5; margin: 0;">
-        We have emailed the download link to <strong id="resource-success-email" style="color: #0a0b14;"></strong>. Please check your inbox (and spam folder) in a few minutes.
-      </p>
-    </div>
-
-  </div>
-</div>
-
-<script>
-  function openResourceModal(resourceTitle, resourceTag) {
-    var modal = document.getElementById('resource-modal');
-    var titleEl = document.getElementById('resource-modal-title');
-    var tagsInput = document.getElementById('resource-tags-input');
-    var form = document.getElementById('resource-subscription-form');
-    var successMsg = document.getElementById('resource-success-message');
-    
-    // Reset view
-    form.style.display = 'block';
-    successMsg.style.display = 'none';
-    
-    // Set dynamic content
-    titleEl.textContent = resourceTitle;
-    tagsInput.value = "newsletter, " + resourceTag;
-    
-    // Show modal
-    modal.style.display = 'flex';
-    setTimeout(function() {
-      modal.style.opacity = '1';
-      modal.querySelector('.resource-modal-content').style.transform = 'scale(1)';
-    }, 10);
-  }
-
-  function closeResourceModal() {
-    var modal = document.getElementById('resource-modal');
-    modal.style.opacity = '0';
-    modal.querySelector('.resource-modal-content').style.transform = 'scale(0.95)';
-    setTimeout(function() {
-      modal.style.display = 'none';
-    }, 300);
-  }
-
-  // Close when clicking outside content
-  window.addEventListener('click', function(event) {
-    var modal = document.getElementById('resource-modal');
-    if (event.target === modal) {
-      closeResourceModal();
-    }
-  });
-
-  // AJAX submission handler
-  document.addEventListener('DOMContentLoaded', function() {
-    var cards = document.querySelectorAll('.js-resource-card');
-    cards.forEach(function(card) {
-      card.addEventListener('click', function(e) {
-        e.preventDefault();
-        var title = this.getAttribute('data-resource-title');
-        var tag = this.getAttribute('data-resource-tag') || 'newsletter';
-        openResourceModal(title, tag);
-      });
-    });
-
-    var form = document.getElementById('resource-subscription-form');
-    if (form) {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var submitBtn = document.getElementById('resource-submit-btn');
-        var nameInput = document.getElementById('resource-name-input');
-        var emailInput = document.getElementById('resource-email-input');
-        var emailValue = emailInput.value;
-        
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Processing...';
-        
-        var formData = new FormData(form);
-        
-        fetch('/contact', {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'Accept': 'text/html'
-          }
-        })
-        .then(function(response) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Get Free Access';
-          form.style.display = 'none';
-          document.getElementById('resource-success-email').textContent = emailValue;
-          document.getElementById('resource-success-message').style.display = 'block';
-        })
-        .catch(function(error) {
-          console.error('Error submitting form:', error);
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Get Free Access';
-          form.submit();
-        });
-      });
-    }
-  });
-</script>
 
 
 {% schema %}

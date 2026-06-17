@@ -16,9 +16,9 @@
     <!-- Resources Card Grid -->
     <div class="grid grid-cols-1 grid-cols-2" style="max-width: 896px; margin-left: auto; margin-right: auto; gap: 24px;">
       {%- for block in section.blocks -%}
-        <div onclick="openResourceModal('{{ block.id }}')" 
-             class="resource-link-card group" 
-             style="display: flex; align-items: center; padding: 24px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: var(--border-radius-md); transition: var(--transition-smooth); height: 100%; cursor: pointer;">
+        <a href="{{ block.settings.download_url | default: '#' }}" 
+           class="resource-link-card group" 
+           style="display: flex; align-items: center; padding: 24px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: var(--border-radius-md); transition: var(--transition-smooth); height: 100%; cursor: pointer; text-decoration: none;">
           
           <!-- Image Cover or Icon -->
           {%- if block.settings.cover_image != blank -%}
@@ -41,58 +41,7 @@
             {{ block.settings.title | escape }}
           </h3>
 
-        </div>
-
-        <!-- Pop-up Modal for Lead Magnet -->
-        <div id="Modal-{{ block.id }}" class="resource-modal-overlay" style="display: none; position: fixed; inset: 0; background-color: rgba(10, 11, 20, 0.6); z-index: 99999; align-items: center; justify-content: center; backdrop-filter: blur(4px); padding: 20px;">
-          <div class="resource-modal-content" style="background-color: #ffffff; width: 100%; max-width: 480px; padding: 40px; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); position: relative; text-align: center;">
-            
-            <!-- Close Button -->
-            <button onclick="closeResourceModal('{{ block.id }}')" style="position: absolute; top: 20px; right: 20px; border: 0; background: none; font-size: 1.8rem; color: #94a3b8; cursor: pointer; line-height: 1; transition: color 0.2s;" onmouseover="this.style.color='#475569'" onmouseout="this.style.color='#94a3b8'">&times;</button>
-            
-            {%- form 'customer', id: block.id -%}
-              <input type="hidden" name="contact[accepts_marketing]" value="true">
-              <input type="hidden" name="contact[tags]" value="{{ block.settings.lead_magnet_tag | default: 'lead-magnet' }}">
-              
-              {%- if form.posted_successfully? -%}
-                <div class="success-state">
-                  <div style="width: 56px; height: 56px; background-color: rgba(16, 185, 129, 0.1); color: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px auto;">
-                    <svg style="width: 28px; height: 28px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                  </div>
-                  <h3 class="font-display font-black" style="font-size: 1.5rem; color: #0f172a; margin-bottom: 12px; font-weight: 800;">Check Your Inbox!</h3>
-                  <p style="color: #64748b; font-size: 0.95rem; line-height: 1.6;">We have emailed the <strong>{{ block.settings.title }}</strong> to your address. Please check your email (including spam and promotions folders) in a couple of minutes.</p>
-                </div>
-                
-                <script>
-                  window.addEventListener('DOMContentLoaded', () => {
-                    openResourceModal('{{ block.id }}');
-                  });
-                </script>
-              {%- else -%}
-                <div class="form-state">
-                  <h3 class="font-display font-black" style="font-size: 1.5rem; color: #0f172a; margin-bottom: 8px; font-weight: 800;">Get Your Copy</h3>
-                  <p style="color: #64748b; font-size: 0.92rem; line-height: 1.5; margin-bottom: 28px;">Enter your details below to receive the <strong>{{ block.settings.title }}</strong> directly in your email.</p>
-                  
-                  <div style="display: flex; flex-direction: column; gap: 16px; text-align: left; margin-bottom: 28px;">
-                    <div>
-                      <label style="display: block; font-size: 0.75rem; font-weight: 700; color: #475569; text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.05em;">First Name</label>
-                      <input type="text" name="contact[first_name]" placeholder="Your name" required style="width: 100%; padding: 12px 16px; border: 1px solid #cbd5e1; border-radius: 12px; font-size: 0.95rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--color-blue)'" onblur="this.style.borderColor='#cbd5e1'">
-                    </div>
-                    <div>
-                      <label style="display: block; font-size: 0.75rem; font-weight: 700; color: #475569; text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.05em;">Email Address</label>
-                      <input type="email" name="contact[email]" placeholder="your.email@example.com" required style="width: 100%; padding: 12px 16px; border: 1px solid #cbd5e1; border-radius: 12px; font-size: 0.95rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--color-blue)'" onblur="this.style.borderColor='#cbd5e1'">
-                    </div>
-                  </div>
-
-                  <button type="submit" class="btn btn-blue" style="width: 100%; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; border: 0; background-color: var(--color-blue); color: #ffffff; cursor: pointer; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='var(--color-deep)'" onmouseout="this.style.backgroundColor='var(--color-blue)'">Send My Guide</button>
-                </div>
-              {%- endif -%}
-            {%- endform -%}
-
-          </div>
-        </div>
+        </a>
       {%- endfor -%}
     </div>
 
@@ -117,36 +66,6 @@
     color: var(--color-blue) !important;
   }
 </style>
-
-<script>
-  function openResourceModal(blockId) {
-    const modal = document.getElementById('Modal-' + blockId);
-    if (modal) {
-      modal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-  }
-
-  function closeResourceModal(blockId) {
-    const modal = document.getElementById('Modal-' + blockId);
-    if (modal) {
-      modal.style.display = 'none';
-      document.body.style.overflow = '';
-    }
-  }
-
-  // Close modal when clicking on the backdrop overlay
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.resource-modal-overlay').forEach(overlay => {
-      overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) {
-          overlay.style.display = 'none';
-          document.body.style.overflow = '';
-        }
-      });
-    });
-  });
-</script>
 
 {% schema %}
 {
