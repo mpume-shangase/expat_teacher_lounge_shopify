@@ -21,7 +21,7 @@
 
         <!-- Shopify Customer Newsletter Form -->
         {%- form 'customer', class: 'email-capture-form' -%}
-          <input type="hidden" name="contact[tags]" value="newsletter">
+          <input type="hidden" name="contact[tags]" value="{{ section.settings.tags | default: 'newsletter' }}">
           
           {%- if form.posted_successfully? -%}
             <p style="color: var(--color-brand-gold); font-weight: 600;">Thanks for subscribing!</p>
@@ -67,6 +67,12 @@
       "id": "description",
       "label": "Description Text",
       "default": "Visa updates, salary benchmarks, and destination guides for teachers serious about their next move."
+    },
+    {
+      "type": "text",
+      "id": "tags",
+      "label": "Form Submission Tags (comma separated)",
+      "default": "newsletter"
     }
   ],
   "presets": [
