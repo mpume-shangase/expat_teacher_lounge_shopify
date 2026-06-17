@@ -259,7 +259,7 @@
         {%- if section.blocks.size > 0 -%}
           {%- for block in section.blocks -%}
             {%- if block.type == 'free_resource' -%}
-              <a href="#" class="product-toolkit-card js-resource-card group" data-resource-title="{{ block.settings.title | escape }}" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;" {{ block.shopify_attributes }}>
+              <a href="#" class="product-toolkit-card js-resource-card group" data-resource-title="{{ block.settings.title | escape }}" data-resource-tag="{{ block.settings.tag | default: 'lead-magnet' }}" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;" {{ block.shopify_attributes }}>
                 
                 {%- if block.settings.thumbnail != blank -%}
                   <!-- Thumbnail Image Container with Contain and Padding (Matches paid cards) -->
@@ -296,7 +296,7 @@
           {%- endfor -%}
         {%- else -%}
           <!-- Default static fallbacks -->
-          <a href="#" class="product-toolkit-card js-resource-card group" data-resource-title="Qatar Document Attestation Checklist" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
+          <a href="#" class="product-toolkit-card js-resource-card group" data-resource-title="Qatar Document Attestation Checklist" data-resource-tag="lead-magnet-qatar-attestation" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
             <div class="product-toolkit-fallback-icon" style="width: 64px; height: 64px; background-color: rgba(28, 145, 215, 0.08); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--color-blue); margin-bottom: 32px; flex-shrink: 0; transition: var(--transition-smooth);">
               <svg style="width: 32px; height: 32px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
@@ -315,7 +315,7 @@
             </div>
           </a>
 
-          <a href="#" class="product-toolkit-card js-resource-card group" data-resource-title="Qatar Teacher Immigration Checklist" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
+          <a href="#" class="product-toolkit-card js-resource-card group" data-resource-title="Qatar Teacher Immigration Checklist" data-resource-tag="lead-magnet-qatar-immigration" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
             <div class="product-toolkit-fallback-icon" style="width: 64px; height: 64px; background-color: rgba(28, 145, 215, 0.08); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--color-blue); margin-bottom: 32px; flex-shrink: 0; transition: var(--transition-smooth);">
               <svg style="width: 32px; height: 32px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
@@ -334,7 +334,7 @@
             </div>
           </a>
 
-          <a href="#" class="product-toolkit-card js-resource-card group" data-resource-title="Guide to Reputable British & American Schools in Qatar" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
+          <a href="#" class="product-toolkit-card js-resource-card group" data-resource-title="Guide to Reputable British & American Schools in Qatar" data-resource-tag="lead-magnet-qatar-schools" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
             <div class="product-toolkit-fallback-icon" style="width: 64px; height: 64px; background-color: rgba(28, 145, 215, 0.08); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--color-blue); margin-bottom: 32px; flex-shrink: 0; transition: var(--transition-smooth);">
               <svg style="width: 32px; height: 32px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
@@ -353,7 +353,7 @@
             </div>
           </a>
 
-          <a href="#" class="product-toolkit-card js-resource-card group" data-resource-title="International Teaching Resource & Navigation Guide" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
+          <a href="#" class="product-toolkit-card js-resource-card group" data-resource-title="International Teaching Resource & Navigation Guide" data-resource-tag="lead-magnet-generic-guide" style="display: flex; flex-direction: column; background-color: #fafafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-lg); padding: 40px; transition: var(--transition-smooth); height: 100%;">
             <div class="product-toolkit-fallback-icon" style="width: 64px; height: 64px; background-color: rgba(28, 145, 215, 0.08); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--color-blue); margin-bottom: 32px; flex-shrink: 0; transition: var(--transition-smooth);">
               <svg style="width: 32px; height: 32px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
@@ -463,6 +463,11 @@
     {%- form 'customer', id: 'resource-subscription-form' -%}
       <input type="hidden" name="contact[tags]" id="resource-tags-input" value="newsletter, free-resource">
       
+      <div style="margin-bottom: 16px; text-align: left;">
+        <label for="resource-name-input" style="display: block; font-size: 0.85rem; font-weight: 700; color: #475569; margin-bottom: 8px;">First Name</label>
+        <input type="text" name="contact[first_name]" id="resource-name-input" placeholder="Your name" required style="width: 100%; padding: 14px 20px; border-radius: 9999px; border: 1px solid #cbd5e1; font-size: 1rem; color: #0a0b14; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--color-blue)'" onblur="this.style.borderColor='#cbd5e1'">
+      </div>
+
       <div style="margin-bottom: 24px; text-align: left;">
         <label for="resource-email-input" style="display: block; font-size: 0.85rem; font-weight: 700; color: #475569; margin-bottom: 8px;">Email Address</label>
         <input type="email" name="contact[email]" id="resource-email-input" placeholder="you@example.com" required style="width: 100%; padding: 14px 20px; border-radius: 9999px; border: 1px solid #cbd5e1; font-size: 1rem; color: #0a0b14; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--color-blue)'" onblur="this.style.borderColor='#cbd5e1'">
@@ -490,7 +495,7 @@
 </div>
 
 <script>
-  function openResourceModal(resourceTitle) {
+  function openResourceModal(resourceTitle, resourceTag) {
     var modal = document.getElementById('resource-modal');
     var titleEl = document.getElementById('resource-modal-title');
     var tagsInput = document.getElementById('resource-tags-input');
@@ -503,7 +508,7 @@
     
     // Set dynamic content
     titleEl.textContent = resourceTitle;
-    tagsInput.value = "newsletter, Lead-Magnet: " + resourceTitle;
+    tagsInput.value = "newsletter, " + resourceTag;
     
     // Show modal
     modal.style.display = 'flex';
@@ -537,7 +542,8 @@
       card.addEventListener('click', function(e) {
         e.preventDefault();
         var title = this.getAttribute('data-resource-title');
-        openResourceModal(title);
+        var tag = this.getAttribute('data-resource-tag') || 'newsletter';
+        openResourceModal(title, tag);
       });
     });
 
@@ -546,6 +552,7 @@
       form.addEventListener('submit', function(e) {
         e.preventDefault();
         var submitBtn = document.getElementById('resource-submit-btn');
+        var nameInput = document.getElementById('resource-name-input');
         var emailInput = document.getElementById('resource-email-input');
         var emailValue = emailInput.value;
         
@@ -710,6 +717,12 @@
           "type": "image_picker",
           "id": "thumbnail",
           "label": "Resource Thumbnail"
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Klaviyo/Shopify Tag",
+          "default": "lead-magnet-qatar-attestation"
         }
       ]
     }
