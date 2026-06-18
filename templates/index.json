@@ -169,15 +169,6 @@
     "free_resources": {
       "type": "free-resources",
       "blocks": {
-        "resource_XCeabn": {
-          "type": "resource",
-          "settings": {
-            "title": "USA J1 Cultural Exchange Teaching Program",
-            "cover_image": "shopify://shop_images/J1Visa.png",
-            "lead_magnet_tag": "lead magnet: USA J1 Cultural Exchange Teaching Program",
-            "download_url": "shopify://products/usa-j1-cultural-exchange-teaching-program"
-          }
-        },
         "resource_UwwGP9": {
           "type": "resource",
           "settings": {
@@ -195,22 +186,11 @@
             "lead_magnet_tag": "Lead magnet: Qatar Immigration Checklist",
             "download_url": "shopify://products/qatar-immigration-checklist"
           }
-        },
-        "resource_canada_shortlist": {
-          "type": "resource",
-          "settings": {
-            "title": "Teach in Canada: The Province Shortlist",
-            "cover_image": "shopify://shop_images/provinceshortlist.png",
-            "lead_magnet_tag": "Lead magnet: Canada Teacher Province shortlist",
-            "download_url": "shopify://products/teach-in-canada-the-province-shortlist"
-          }
         }
       },
       "block_order": [
-        "resource_XCeabn",
         "resource_UwwGP9",
-        "resource_ghU69j",
-        "resource_canada_shortlist"
+        "resource_ghU69j"
       ],
       "settings": {
         "title_prefix": "Free",
