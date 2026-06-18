@@ -190,16 +190,16 @@ function initArticleLayoutFix() {
   sidebars.forEach(el => el.remove());
   
   // Find all child elements inside article content
-  const divs = content.querySelectorAll('div');
-  divs.forEach(div => {
-    const style = div.getAttribute('style') || '';
+  const elements = content.querySelectorAll('*');
+  elements.forEach(el => {
+    const style = el.getAttribute('style') || '';
     
     // Check if display grid/flex is set inline
     if (style.includes('display: grid') || style.includes('display: flex') || 
         style.includes('display:flex') || style.includes('display:grid')) {
-      div.style.display = 'block';
-      div.style.gridTemplateColumns = 'none';
-      div.style.gap = '0';
+      el.style.display = 'block';
+      el.style.gridTemplateColumns = 'none';
+      el.style.gap = '0';
     }
     
     // Check for inline widths (including decimal percentages like 66.666%)
@@ -208,8 +208,8 @@ function initArticleLayoutFix() {
       if (widthMatch) {
         const widthVal = parseFloat(widthMatch[1]);
         if (widthVal > 40 && widthVal < 100) {
-          div.style.width = '100%';
-          div.style.maxWidth = '100%';
+          el.style.width = '100%';
+          el.style.maxWidth = '100%';
         }
       }
     }
@@ -220,14 +220,14 @@ function initArticleLayoutFix() {
       if (flexMatch) {
         const flexVal = parseFloat(flexMatch[1]);
         if (flexVal > 40 && flexVal < 100) {
-          div.style.flexBasis = '100%';
+          el.style.flexBasis = '100%';
         }
       }
     }
     
     // Remove floats
     if (style.includes('float:') || style.includes('float :')) {
-      div.style.float = 'none';
+      el.style.float = 'none';
     }
   });
 }
