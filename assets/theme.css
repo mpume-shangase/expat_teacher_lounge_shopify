@@ -1034,6 +1034,28 @@ body:not(.has-dark-hero) .site-header:not(.site-header--scrolled) .site-header__
   margin-bottom: 20px;
 }
 
+/* Reset any pasted multi-column layouts inside the article content to single-column */
+.article-content .blog-layout-grid,
+.article-content .grid-layout,
+.article-content [class*="layout-grid"] {
+  display: block !important;
+  grid-template-columns: 1fr !important;
+}
+
+.article-content .blog-articles-list,
+.article-content [class*="articles-list"] {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Hide the pasted sidebar on the individual article detail page to prevent squishing */
+.article-content .blog-sidebar,
+.article-content .sidebar,
+.article-content aside,
+.article-content [class*="sidebar"] {
+  display: none !important;
+}
+
 /* --- ACCESSIBILITY & WCAG 2.1 CONTRAST FOR HERO --- */
 .relative.flex.items-center.justify-center h1,
 .relative.flex.items-center.justify-center h1 span,
