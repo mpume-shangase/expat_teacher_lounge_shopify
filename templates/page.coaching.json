@@ -39,6 +39,8 @@
         "booking_title_prefix": "How to Book your",
         "booking_title_accent": "Session.",
         "booking_subtitle": "Watch the video below to see how to book your session",
+        "video_url": "https://youtu.be/IGbwE8e_SiI",
+        "video_custom_embed": "",
         "faq_title_prefix": "Frequently Asked",
         "faq_title_accent": "Questions.",
         "faq1_q": "Is my payment secure?",
@@ -55,7 +57,8 @@
       "type": "email-capture",
       "settings": {
         "title": "Relocation intel, straight to your inbox.",
-        "description": "Visa updates, salary benchmarks, and destination guides for teachers serious about their next move."
+        "description": "Visa updates, salary benchmarks, and destination guides for teachers serious about their next move.",
+        "tags": "newsletter"
       }
     }
   },
