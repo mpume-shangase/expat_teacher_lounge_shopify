@@ -12,15 +12,6 @@
     "main": {
       "type": "main-collection",
       "blocks": {
-        "free_resource_RiP4ha": {
-          "type": "free_resource",
-          "settings": {
-            "title": "Teach in Canada Province Shortlist",
-            "link": "shopify://products/teach-in-canada-the-province-shortlist",
-            "thumbnail": "shopify://shop_images/provinceshortlist.png",
-            "tag": "Lead magnet: Canada Teacher Province shortlist"
-          }
-        },
         "free_resource_bEaFmL": {
           "type": "free_resource",
           "settings": {
@@ -41,7 +32,6 @@
         }
       },
       "block_order": [
-        "free_resource_RiP4ha",
         "free_resource_bEaFmL",
         "free_resource_nh7kEQ"
       ],
@@ -62,11 +52,8 @@
           "country-selection-matrix",
           "country-comparison-tool-16-countries",
           "personal-goals-assessment",
-          "the-pathways-to-teach-canada-application-kit",
           "the-canada-province-picker-find-your-best-fit-province",
-          "the-canada-teaching-certification-guide-interactive",
-          "canada-province-picker-find-your-best-fit-province",
-          "canada-teaching-certification-guide-province-by-province"
+          "the-canada-teaching-certification-guide-interactive"
         ],
         "coaching_title": "1-on-1 Coaching",
         "coaching_desc": "Direct, personalized strategy sessions to review contracts, optimize CVs, and negotiate exactly what you're worth.",
