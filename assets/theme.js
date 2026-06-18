@@ -235,6 +235,30 @@ function initArticleLayoutFix() {
     if (style.includes('float:') || style.includes('float :')) {
       el.style.float = 'none';
     }
+
+    // Force 100% width on elements with class names containing layout/column styles
+    const className = el.className || '';
+    if (typeof className === 'string' && className !== '') {
+      if (
+        className.includes('w-1/2') || 
+        className.includes('w-2/3') || 
+        className.includes('w-1/3') || 
+        className.includes('w-3/4') ||
+        className.includes('w-[6') ||
+        className.includes('w-[3') ||
+        className.includes('md:w-') ||
+        className.includes('lg:w-') ||
+        className.includes('blog-articles-list') ||
+        className.includes('blog-layout-grid') ||
+        className.includes('articles-list')
+      ) {
+        el.style.setProperty('width', '100%', 'important');
+        el.style.setProperty('max-width', '100%', 'important');
+        el.style.setProperty('flex-basis', '100%', 'important');
+        el.style.setProperty('flex', '0 0 100%', 'important');
+        el.style.setProperty('display', 'block', 'important');
+      }
+    }
   });
 }
 

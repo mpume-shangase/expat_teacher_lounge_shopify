@@ -1037,17 +1037,36 @@ body:not(.has-dark-hero) .site-header:not(.site-header--scrolled) .site-header__
 /* Reset any pasted multi-column layouts inside the article content to single-column */
 .article-content .blog-layout-grid,
 .article-content .grid-layout,
-.article-content [class*="layout-grid"] {
+.article-content [class*="layout-grid"],
+.article-content [class*="flex-row"],
+.article-content [class*="grid-cols-"],
+.article-content [class*="md:flex-"],
+.article-content [class*="md:grid-"] {
   display: block !important;
   grid-template-columns: 1fr !important;
 }
 
-/* Ensure column child elements stretch to 100% width instead of keeping narrow percentages */
+/* Ensure column child elements and Tailwind width classes stretch to 100% width instead of keeping narrow percentages */
 .article-content .blog-layout-grid > *,
 .article-content .grid-layout > *,
 .article-content [class*="layout-grid"] > *,
 .article-content .blog-articles-list,
-.article-content [class*="articles-list"] {
+.article-content [class*="articles-list"],
+.article-content [class*="w-1/2"],
+.article-content [class*="w-1/3"],
+.article-content [class*="w-2/3"],
+.article-content [class*="w-1/4"],
+.article-content [class*="w-3/4"],
+.article-content [class*="w-2/5"],
+.article-content [class*="w-3/5"],
+.article-content [class*="w-4/5"],
+.article-content [class*="w-[6"],
+.article-content [class*="w-[3"],
+.article-content [class*="w-[7"],
+.article-content [class*="w-[5"],
+.article-content [class*="md:w-"],
+.article-content [class*="lg:w-"],
+.article-content [class*="flex-"] {
   width: 100% !important;
   max-width: 100% !important;
   flex: 0 0 100% !important;
