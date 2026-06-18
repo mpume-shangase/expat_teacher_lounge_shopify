@@ -3,14 +3,20 @@
  * Handles dynamic interactions (header state, mobile nav, interactions).
  */
 
-document.addEventListener('DOMContentLoaded', function() {
+function runInit() {
   initStickyHeader();
   initMobileMenu();
   initQuantitySelectors();
   initProductVariants();
   initProfilePictureFix();
   initArticleLayoutFix();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', runInit);
+} else {
+  runInit();
+}
 
 /**
  * Sticky Header handler
