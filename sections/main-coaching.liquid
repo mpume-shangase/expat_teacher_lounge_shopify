@@ -345,35 +345,90 @@
       margin-bottom: 48px;
     }
     
-    .coaching-booking__widget {
+    .coaching-booking__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      text-align: left;
+    }
+    @media (min-width: 992px) {
+      .coaching-booking__grid {
+        grid-template-columns: 5fr 7fr;
+        align-items: stretch;
+      }
+    }
+    
+    .coaching-booking__info-card {
       background-color: #ffffff;
       border: 1px solid #e2e8f0;
       border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    
+    .coaching-booking__info-title {
+      font-family: var(--font-display), serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      color: var(--text-light, #0a0a14);
       display: flex;
       align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      gap: 8px;
+    }
+    .coaching-booking__info-title span {
+      color: var(--color-blue, #1C91D7);
+    }
+    
+    .coaching-booking__info-text {
+      font-size: 0.95rem;
+      color: #64748b;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    
+    .coaching-booking__video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      border-radius: 16px;
       overflow: hidden;
-      max-width: 900px;
-      margin: 0 auto;
-      position: relative;
-      width: 100%;
-    }
-    
-    .coaching-booking__video-container {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16/9;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
       background-color: #000000;
+      border: 1px solid #e2e8f0;
+    }
+    .coaching-booking__video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
     
-    .coaching-booking__placeholder {
-      padding: 40px;
-      color: #94a3b8;
+    .coaching-booking__widget-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      padding: 40px;
+      min-height: 450px;
+      text-align: center;
+      height: 100%;
     }
+    
     .coaching-booking__placeholder-icon {
       width: 64px;
       height: 64px;
@@ -388,6 +443,7 @@
     }
     .coaching-booking__placeholder-text {
       font-size: 0.95rem;
+      color: #94a3b8;
     }
     
     /* --- SECTION 4: FAQs --- */
@@ -620,34 +676,44 @@
         {{ section.settings.booking_subtitle }}
       </p>
       
-      <div class="coaching-booking__widget">
-        {%- if section.settings.video != blank -%}
-          <div class="coaching-booking__video-container">
-            {{ section.settings.video | video_tag: autoplay: false, loop: false, muted: false, controls: true, style: 'width: 100%; height: 100%; object-fit: cover; display: block;' }}
+      <div class="coaching-booking__grid">
+        <!-- Video Column (How to Book) -->
+        <div class="coaching-booking__info-card">
+          <div>
+            <h3 class="coaching-booking__info-title">
+              <span>▶</span> How to Book
+            </h3>
+            <p class="coaching-booking__info-text">
+              Watch this quick video walkthrough to see how easily you can select a date, complete the intake form, and schedule your strategy session.
+            </p>
           </div>
-        {%- elsif section.settings.video_url != blank -%}
-          <div class="coaching-booking__video-container">
-            {%- if section.settings.video_url.type == 'youtube' -%}
-              <iframe src="https://www.youtube.com/embed/{{ section.settings.video_url.id }}?autoplay=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            {%- elsif section.settings.video_url.type == 'vimeo' -%}
-              <iframe src="https://player.vimeo.com/video/{{ section.settings.video_url.id }}?autoplay=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          
+          <div class="coaching-booking__video-wrapper">
+            {%- if section.settings.video != blank -%}
+              {{ section.settings.video | video_tag: autoplay: false, loop: false, muted: false, controls: true, style: 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;' }}
+            {%- elsif section.settings.video_url != blank -%}
+              {%- if section.settings.video_url.type == 'youtube' -%}
+                <iframe src="https://www.youtube.com/embed/{{ section.settings.video_url.id }}?autoplay=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              {%- elsif section.settings.video_url.type == 'vimeo' -%}
+                <iframe src="https://player.vimeo.com/video/{{ section.settings.video_url.id }}?autoplay=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+              {%- endif -%}
+            {%- elsif section.settings.video_custom_embed != blank -%}
+              {{ section.settings.video_custom_embed }}
+            {%- else -%}
+              <!-- Fallback to default user video walkthrough -->
+              <iframe src="https://www.youtube.com/embed/IGbwE8e_SiI?autoplay=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             {%- endif -%}
           </div>
-        {%- elsif section.settings.video_custom_embed != blank -%}
-          <div class="coaching-booking__video-container">
-            {{ section.settings.video_custom_embed }}
-          </div>
-        {%- else -%}
-          <!-- Default Video Placeholder Box -->
-          <div class="coaching-booking__placeholder" style="padding: 80px 40px; min-height: 450px; justify-content: center;">
-            <svg class="coaching-booking__placeholder-icon" style="width: 64px; height: 64px; color: #cbd5e1; margin-bottom: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <p class="coaching-booking__placeholder-title">Instructional Video</p>
-            <p class="coaching-booking__placeholder-text">Please upload a video or insert a YouTube/Vimeo URL in the Theme Editor settings to show how clients will receive their PDF and book their session.</p>
-          </div>
-        {%- endif -%}
+        </div>
+        
+        <!-- Booking Widget Column -->
+        <div class="coaching-booking__widget-card">
+          <svg class="coaching-booking__placeholder-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <p class="coaching-booking__placeholder-title">Calendly Widget Placeholder</p>
+          <p class="coaching-booking__placeholder-text" style="max-width: 320px; margin: 0 auto; line-height: 1.5;">The interactive booking calendar will display here once the live widget is configured.</p>
+        </div>
       </div>
     </div>
   </div>

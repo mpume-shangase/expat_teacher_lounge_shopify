@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initMobileMenu();
   initQuantitySelectors();
   initProductVariants();
+  initProfilePictureFix();
 });
 
 /**
@@ -126,4 +127,51 @@ function initProductVariants() {
       }
     }
   });
+}
+
+/**
+ * Client-side profile picture and image path fix helper.
+ * Redirects hardcoded Next.js paths to Shopify CDN URLs and handles broken images.
+ */
+function initProfilePictureFix() {
+  const headshotUrl = 'https://cdn.shopify.com/s/files/1/0823/4391/9830/files/Edwina_headshot.png?v=1780168908';
+  
+  const fixImage = (img) => {
+    const src = img.getAttribute('src') || '';
+    if (src.includes('Edwina_headshot') || img.alt.includes('Edwina')) {
+      if (img.src !== headshotUrl) {
+        img.src = headshotUrl;
+      }
+    }
+  };
+
+  // Run on all existing images
+  document.querySelectorAll('img').forEach(fixImage);
+
+  // Monitor DOM for dynamically added/changed images
+  const observer = new MutationObserver(mutations => {
+    mutations.forEach(mutation => {
+      mutation.addedNodes.forEach(node => {
+        if (node.tagName === 'IMG') {
+          fixImage(node);
+        } else if (node.querySelectorAll) {
+          node.querySelectorAll('img').forEach(fixImage);
+        }
+      });
+    });
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  // Handle any images that fail to load
+  window.addEventListener('error', function(e) {
+    if (e.target && e.target.tagName === 'IMG') {
+      const img = e.target;
+      if (img.src.includes('Edwina_headshot') || img.alt.includes('Edwina')) {
+        if (img.src !== headshotUrl) {
+          img.src = headshotUrl;
+        }
+      }
+    }
+  }, true);
 }
