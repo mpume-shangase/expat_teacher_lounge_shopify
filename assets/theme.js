@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initQuantitySelectors();
   initProductVariants();
   initProfilePictureFix();
+  initArticleLayoutFix();
 });
 
 /**
@@ -175,3 +176,59 @@ function initProfilePictureFix() {
     }
   }, true);
 }
+
+/**
+ * Clean up hardcoded grid structures and sidebars copy-pasted into article body content.
+ * Forces the text column to expand to full-width and removes float offsets.
+ */
+function initArticleLayoutFix() {
+  const content = document.querySelector('.article-content');
+  if (!content) return;
+  
+  // Find any sidebars and remove them from layout
+  const sidebars = content.querySelectorAll('.blog-sidebar, .sidebar, aside, [class*="sidebar"]');
+  sidebars.forEach(el => el.remove());
+  
+  // Find all child elements inside article content
+  const divs = content.querySelectorAll('div');
+  divs.forEach(div => {
+    const style = div.getAttribute('style') || '';
+    
+    // Check if display grid/flex is set inline
+    if (style.includes('display: grid') || style.includes('display: flex') || 
+        style.includes('display:flex') || style.includes('display:grid')) {
+      div.style.display = 'block';
+      div.style.gridTemplateColumns = 'none';
+      div.style.gap = '0';
+    }
+    
+    // Check for inline widths (including decimal percentages like 66.666%)
+    if (style.includes('width:') || style.includes('width :')) {
+      const widthMatch = style.match(/width\s*:\s*([\d\.]+)%/);
+      if (widthMatch) {
+        const widthVal = parseFloat(widthMatch[1]);
+        if (widthVal > 40 && widthVal < 100) {
+          div.style.width = '100%';
+          div.style.maxWidth = '100%';
+        }
+      }
+    }
+    
+    // Check for inline flex-basis (including decimal percentages)
+    if (style.includes('flex-basis:') || style.includes('flex-basis :')) {
+      const flexMatch = style.match(/flex-basis\s*:\s*([\d\.]+)%/);
+      if (flexMatch) {
+        const flexVal = parseFloat(flexMatch[1]);
+        if (flexVal > 40 && flexVal < 100) {
+          div.style.flexBasis = '100%';
+        }
+      }
+    }
+    
+    // Remove floats
+    if (style.includes('float:') || style.includes('float :')) {
+      div.style.float = 'none';
+    }
+  });
+}
+
