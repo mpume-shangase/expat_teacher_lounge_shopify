@@ -169,6 +169,15 @@
     "free_resources": {
       "type": "free-resources",
       "blocks": {
+        "resource_L4WPYV": {
+          "type": "resource",
+          "settings": {
+            "title": "USA J1 Cultural Exchange Teaching Program",
+            "cover_image": "shopify://shop_images/J1Visa.png",
+            "lead_magnet_tag": "lead magnet: USA J1 Cultural Exchange Teaching Program",
+            "download_url": "shopify://products/usa-j1-cultural-exchange-teaching-program"
+          }
+        },
         "resource_UwwGP9": {
           "type": "resource",
           "settings": {
@@ -189,6 +198,7 @@
         }
       },
       "block_order": [
+        "resource_L4WPYV",
         "resource_UwwGP9",
         "resource_ghU69j"
       ],
