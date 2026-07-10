@@ -169,6 +169,15 @@
     "free_resources": {
       "type": "free-resources",
       "blocks": {
+        "resource_ymGReT": {
+          "type": "resource",
+          "settings": {
+            "title": "Canada Teaching Province Shortli",
+            "cover_image": "shopify://shop_images/province_shortlist.png",
+            "lead_magnet_tag": "lead magnet: Canada Teaching Province Shortlist",
+            "download_url": "shopify://products/teach-in-canada-the-province-shortlist"
+          }
+        },
         "resource_UrBPfb": {
           "type": "resource",
           "settings": {
@@ -198,6 +207,7 @@
         }
       },
       "block_order": [
+        "resource_ymGReT",
         "resource_UrBPfb",
         "resource_UwwGP9",
         "resource_ghU69j"
