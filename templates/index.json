@@ -169,7 +169,7 @@
     "free_resources": {
       "type": "free-resources",
       "blocks": {
-        "resource_L4WPYV": {
+        "resource_UrBPfb": {
           "type": "resource",
           "settings": {
             "title": "USA J1 Cultural Exchange Teaching Program",
@@ -198,7 +198,7 @@
         }
       },
       "block_order": [
-        "resource_L4WPYV",
+        "resource_UrBPfb",
         "resource_UwwGP9",
         "resource_ghU69j"
       ],
