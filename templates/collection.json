@@ -12,6 +12,15 @@
     "main": {
       "type": "main-collection",
       "blocks": {
+        "free_resource_K3ggPK": {
+          "type": "free_resource",
+          "settings": {
+            "title": "Qatar Document Attestation Checklist",
+            "link": "shopify://products/teach-in-canada-the-province-shortlist",
+            "thumbnail": "shopify://shop_images/province_shortlist.png",
+            "tag": "lead Magnet: Qatar Document checklist"
+          }
+        },
         "free_resource_EDdNY7": {
           "type": "free_resource",
           "settings": {
@@ -41,6 +50,7 @@
         }
       },
       "block_order": [
+        "free_resource_K3ggPK",
         "free_resource_EDdNY7",
         "free_resource_bEaFmL",
         "free_resource_nh7kEQ"
