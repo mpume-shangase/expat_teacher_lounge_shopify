@@ -2,10 +2,9 @@
   "sections": {
     "main": {
       "type": "etl-intake",
-      "settings": {}
+      "settings": {
+      }
     }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["main"]
 }
