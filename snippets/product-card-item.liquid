@@ -41,10 +41,26 @@
   <!-- Card Bottom (Border top, price, buy button) -->
   <div class="flex items-center justify-between" style="border-top: 1px solid #e5e7eb; padding-top: 32px; margin-top: auto; width: 100%;">
     <span style="font-size: 1.5rem; font-weight: 700; color: var(--text-light);">
-      {{ product.price | money }}
+      {% if product.price == 0 %}Free{% else %}{{ product.price | money }}{% endif %}
     </span>
-    <span class="product-toolkit-btn" style="background-color: var(--color-blue, #1C91D7); color: #ffffff; padding: 12px 24px; border-radius: var(--border-radius-full); font-weight: 700; transition: var(--transition-smooth);">
-      {% if is_coaching %}Book Session{% else %}Purchase Now{% endif %}
+    {%- liquid
+      case product.handle
+        when 'relocation-strategy-session'
+          assign card_cta = 'Build My Relocation Strategy'
+        when 'contract-review-session'
+          assign card_cta = 'Review My Contract'
+        when 'canada-teacher-pathway-assessment'
+          assign card_cta = 'Start My Canada Pathway'
+        else
+          if product.price == 0
+            assign card_cta = 'Download Free'
+          else
+            assign card_cta = 'Purchase Now'
+          endif
+      endcase
+    -%}
+    <span class="product-toolkit-btn" style="background-color: var(--color-blue, #1C91D7); color: #ffffff; padding: 12px 24px; border-radius: var(--border-radius-full); font-weight: 700; transition: var(--transition-smooth); text-align: center;">
+      {{ card_cta }}
     </span>
   </div>
 

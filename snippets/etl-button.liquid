@@ -1,0 +1,18 @@
+{%- comment -%}
+  Button with a fixed destination, in the original theme's button styles.
+  Params: label, url, class (e.g. 'btn btn-primary'), extra (attributes string not allowed; use class)
+  External links (http/https to another site) open in a new tab with a small arrow.
+{%- endcomment -%}
+{%- liquid
+  assign is_external = false
+  if url contains 'http://' or url contains 'https://'
+    assign is_external = true
+    if url contains request.host
+      assign is_external = false
+    endif
+  endif
+  assign cls = class | default: 'btn btn-primary'
+-%}
+{%- if label != blank and url != blank -%}
+<a href="{{ url }}" class="{{ cls }}"{% if is_external %} target="_blank" rel="noopener"{% endif %}>{{ label }}{% if is_external %}<svg class="btn-ext" viewBox="0 0 14 14" aria-hidden="true" focusable="false"><path d="M5 3h6v6M11 3L3 11" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="etl-sr"> (opens in a new tab)</span>{% endif %}</a>
+{%- endif -%}

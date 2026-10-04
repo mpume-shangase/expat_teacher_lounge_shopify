@@ -1,0 +1,9 @@
+{%- comment -%} Default Teacher Moves navigation. Params: link_class, active_class {%- endcomment -%}
+{%- liquid
+  assign titles = 'Home|Community|Teach in Canada|Resources|Services|About' | split: '|'
+  assign urls = '/|/pages/community|/pages/teach-in-canada|/pages/resources|/pages/services|/pages/about' | split: '|'
+-%}
+{%- for t in titles -%}
+  {%- assign u = urls[forloop.index0] -%}
+  <a href="{{ u }}" class="{{ link_class }}{% if request.path == u and active_class != blank %} {{ active_class }}{% endif %}"{% if request.path == u %} aria-current="page"{% endif %}>{{ t }}</a>
+{%- endfor -%}
