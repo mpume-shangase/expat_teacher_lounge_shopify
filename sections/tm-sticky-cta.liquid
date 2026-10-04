@@ -1,0 +1,21 @@
+{%- if section.settings.buy_product != blank or section.settings.url != blank -%}
+<div class="tm-sticky-cta" data-tm-sticky>
+  {%- if section.settings.buy_product != blank -%}
+    {% render 'tm-buy-form', product: section.settings.buy_product, label: section.settings.label, style: 'primary', block: true, form_id: 'tm-sticky-buy' %}
+  {%- else -%}
+    {% render 'tm-button', label: section.settings.label, url: section.settings.url, style: 'primary', block: true %}
+  {%- endif -%}
+</div>
+{%- endif -%}
+{% schema %}
+{
+  "name": "TM mobile sticky button",
+  "settings": [
+    { "type": "paragraph", "content": "Shows on phones after the hero (enable 'Show the mobile sticky button after this section' on the hero)." },
+    { "type": "text", "id": "label", "label": "Label", "default": "Start My Canada Pathway: $197" },
+    { "type": "product", "id": "buy_product", "label": "Buy product (straight to checkout)" },
+    { "type": "text", "id": "url", "label": "Link (used if no product)" }
+  ],
+  "presets": [{ "name": "TM mobile sticky button" }]
+}
+{% endschema %}

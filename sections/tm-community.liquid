@@ -1,0 +1,54 @@
+{%- assign navy = false -%}{%- if section.settings.style == 'navy' -%}{%- assign navy = true -%}{%- endif -%}
+<section class="tm-section{% if navy %} tm-section--navy{% else %} tm-section--mist{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor }}"{% endif %}>
+  <div class="tm-container tm-stack tm-stack--xl">
+    <div class="tm-heading-block">
+      {%- if section.settings.eyebrow != blank -%}<p class="tm-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 class="tm-h2">{{ section.settings.heading }}</h2>
+      {%- if section.settings.text != blank -%}<p class="tm-lead">{{ section.settings.text }}</p>{%- endif -%}
+    </div>
+    <div class="tm-grid tm-grid--2" style="max-width:920px">
+      <div class="tm-plan tm-plan--free{% unless navy %} tm-card{% endunless %} tm-reveal">
+        <h3 class="tm-h3">{{ section.settings.free_title }}</h3>
+        <p class="tm-price">{{ section.settings.free_price }}</p>
+        <div class="tm-rte tm-card__grow">{{ section.settings.free_list }}</div>
+        {% render 'tm-button', label: section.settings.free_label, url: section.settings.free_url, style: 'primary', block: true %}
+      </div>
+      <div class="tm-plan {% if navy %}tm-plan--premium{% else %}tm-plan--light-premium{% endif %} tm-reveal">
+        <h3 class="tm-h3">{{ section.settings.premium_title }}</h3>
+        <p class="tm-price">{{ section.settings.premium_price }}</p>
+        {%- if section.settings.premium_note != blank -%}<p class="tm-plan__note" style="margin:0{% unless navy %};color:#6B4E00{% endunless %}">{{ section.settings.premium_note }}</p>{%- endif -%}
+        <div class="tm-rte tm-card__grow">{{ section.settings.premium_list }}</div>
+        {%- assign pstyle = 'secondary' -%}{%- if navy -%}{%- assign pstyle = 'light' -%}{%- endif -%}
+        {% render 'tm-button', label: section.settings.premium_label, url: section.settings.premium_url, style: pstyle, block: true %}
+      </div>
+    </div>
+    {%- if section.settings.footnote != blank -%}<p class="tm-small">{{ section.settings.footnote }}</p>{%- endif -%}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "TM community plans",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor ID", "default": "community" },
+    { "type": "select", "id": "style", "label": "Style", "default": "navy", "options": [{ "value": "navy", "label": "Navy band" }, { "value": "mist", "label": "Light" }] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Teacher Moves community" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "You don't have to figure out your next move alone." },
+    { "type": "textarea", "id": "text", "label": "Text" },
+    { "type": "header", "content": "Free" },
+    { "type": "text", "id": "free_title", "label": "Title", "default": "Free" },
+    { "type": "text", "id": "free_price", "label": "Price", "default": "Free" },
+    { "type": "richtext", "id": "free_list", "label": "Includes", "default": "<ul><li>Selected lessons and resources</li><li>Community discussions</li><li>Monthly community call</li></ul>" },
+    { "type": "text", "id": "free_label", "label": "Button label", "default": "Join Free" },
+    { "type": "text", "id": "free_url", "label": "Button link", "default": "https://www.skool.com/expat-teachers-lounge-9615/about" },
+    { "type": "header", "content": "Premium" },
+    { "type": "text", "id": "premium_title", "label": "Title", "default": "Premium · Founding member" },
+    { "type": "text", "id": "premium_price", "label": "Price", "default": "$19/month" },
+    { "type": "text", "id": "premium_note", "label": "Note", "default": "Founding pricing for the first 50 Premium members." },
+    { "type": "richtext", "id": "premium_list", "label": "Includes", "default": "<ul><li>Weekly group support</li><li>Monthly workshops</li><li>Premium resources and deeper training</li><li>Accountability and ongoing guidance</li></ul>" },
+    { "type": "text", "id": "premium_label", "label": "Button label", "default": "Become a Founding Member" },
+    { "type": "text", "id": "premium_url", "label": "Button link", "default": "https://www.skool.com/expat-teachers-lounge-9615/plans?src=join" },
+    { "type": "text", "id": "footnote", "label": "Footnote" }
+  ],
+  "presets": [{ "name": "TM community plans" }]
+}
+{% endschema %}

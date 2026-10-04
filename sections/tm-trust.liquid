@@ -1,0 +1,27 @@
+<section class="tm-section tm-section--tight tm-section--bordered" style="padding:32px 0">
+  <div class="tm-container">
+    <h2 class="tm-sr">{{ section.settings.sr_heading }}</h2>
+    <div class="tm-trust">
+      {%- for block in section.blocks -%}
+        <div {{ block.shopify_attributes }}>
+          <div class="tm-trust__value">{{ block.settings.value }}</div>
+          <div class="tm-trust__label">{{ block.settings.label }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "TM trust strip",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "text", "id": "sr_heading", "label": "Heading (screen readers only)", "default": "Why teachers trust Teacher Moves" },
+    { "type": "paragraph", "content": "Use verified facts only. Do not add unverified counts or ratings." }
+  ],
+  "blocks": [{ "type": "stat", "name": "Fact", "settings": [
+    { "type": "text", "id": "value", "label": "Value", "default": "18 years" },
+    { "type": "text", "id": "label", "label": "Label", "default": "teaching internationally" } ] }],
+  "presets": [{ "name": "TM trust strip", "blocks": [{ "type": "stat" }] }]
+}
+{% endschema %}

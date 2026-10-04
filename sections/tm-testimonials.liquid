@@ -1,0 +1,36 @@
+{%- comment -%} Renders only blocks marked as verified. With none verified, the section outputs nothing. {%- endcomment -%}
+{%- assign shown = 0 -%}
+{%- for block in section.blocks -%}{%- if block.settings.verified -%}{%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endfor -%}
+{%- if shown > 0 -%}
+<section class="tm-section">
+  <div class="tm-container tm-stack tm-stack--xl">
+    <div class="tm-heading-block"><h2 class="tm-h2">{{ section.settings.heading }}</h2></div>
+    <div class="tm-grid tm-grid--{{ shown | at_most: 3 | at_least: 2 }}">
+      {%- for block in section.blocks -%}
+        {%- if block.settings.verified -%}
+          <figure class="tm-card" style="margin:0" {{ block.shopify_attributes }}>
+            <blockquote style="margin:0;font-size:1.05rem;line-height:1.65">&ldquo;{{ block.settings.quote }}&rdquo;</blockquote>
+            <figcaption class="tm-small"><strong style="color:var(--tm-ink)">{{ block.settings.name }}</strong>{% if block.settings.role != blank %} · {{ block.settings.role }}{% endif %}</figcaption>
+          </figure>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{%- endif -%}
+{% schema %}
+{
+  "name": "TM testimonials",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "From teachers who've made the move" },
+    { "type": "paragraph", "content": "Only add real quotes you have permission to use. Tick 'Verified' to show a quote; the section stays hidden until at least one is verified." }
+  ],
+  "blocks": [{ "type": "quote", "name": "Testimonial", "settings": [
+    { "type": "textarea", "id": "quote", "label": "Quote" },
+    { "type": "text", "id": "name", "label": "Name" },
+    { "type": "text", "id": "role", "label": "Role / context" },
+    { "type": "checkbox", "id": "verified", "label": "Verified and permissioned", "default": false } ] }],
+  "presets": [{ "name": "TM testimonials" }]
+}
+{% endschema %}

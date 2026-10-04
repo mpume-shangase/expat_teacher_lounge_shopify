@@ -1,0 +1,21 @@
+<section class="tm-section tm-section--tight{% if section.settings.flush_top %} tm-section--flush-top{% endif %}">
+  <div class="tm-container tm-container--narrow tm-stack">
+    {%- for block in section.blocks -%}
+      <div class="tm-callout{% if block.settings.tone == 'gold' %} tm-callout--gold{% endif %}" {{ block.shopify_attributes }}>
+        {%- if block.settings.title != blank -%}<h2 class="tm-h4" style="margin-bottom:6px">{{ block.settings.title }}</h2>{%- endif -%}
+        <div class="tm-rte">{{ block.settings.text }}</div>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "TM notes",
+  "settings": [{ "type": "checkbox", "id": "flush_top", "label": "Remove top spacing", "default": true }],
+  "blocks": [{ "type": "note", "name": "Note", "settings": [
+    { "type": "text", "id": "title", "label": "Title" },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Note</p>" },
+    { "type": "select", "id": "tone", "label": "Tone", "default": "mist", "options": [{ "value": "mist", "label": "Neutral" }, { "value": "gold", "label": "Highlight" }] } ] }],
+  "presets": [{ "name": "TM notes", "blocks": [{ "type": "note" }] }]
+}
+{% endschema %}
