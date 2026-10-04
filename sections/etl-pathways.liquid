@@ -1,4 +1,19 @@
-{%- assign cols = section.blocks.size | at_most: 4 -%}
+{%- liquid
+  assign cols = section.blocks.size | at_most: 4
+  if cols == 4
+    assign cols = 2
+  endif
+  assign has_kicker = false
+  assign has_price = false
+  for b in section.blocks
+    if b.settings.kicker != blank
+      assign has_kicker = true
+    endif
+    if b.settings.price != blank
+      assign has_price = true
+    endif
+  endfor
+-%}
 <section class="section-padding bg-light text-light"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor }}"{% endif %} style="background-color: {% if section.settings.tint %}#f9fafb{% else %}#ffffff{% endif %}; border-bottom: 1px solid #f0f0f5;">
   <div class="container">
     <div style="margin-bottom: 48px;">
@@ -22,12 +37,15 @@
               {%- endcase -%}
             </span>
           {%- endif -%}
-          {%- if block.settings.kicker != blank -%}<span class="etl-card__kicker">{{ block.settings.kicker }}</span>{%- endif -%}
+          {%- if block.settings.featured and block.settings.badge != blank -%}<span class="etl-badge">{{ block.settings.badge }}</span>{%- endif -%}
+          {%- if block.settings.kicker != blank -%}<span class="etl-card__kicker">{{ block.settings.kicker }}</span>{%- elsif has_kicker -%}<span class="etl-card__kicker etl-card__kicker--placeholder" aria-hidden="true">&nbsp;</span>{%- endif -%}
           <h3 class="etl-card__title">{{ block.settings.title }}</h3>
-          {%- if block.settings.price != blank -%}<span class="etl-card__price">{{ block.settings.price }}</span>{%- endif -%}
+          {%- if block.settings.price != blank -%}<span class="etl-card__price">{{ block.settings.price }}</span>{%- elsif has_price -%}<span class="etl-card__price etl-card__price--placeholder" aria-hidden="true">&nbsp;</span>{%- endif -%}
           <div class="etl-card__text">{{ block.settings.text }}</div>
-          {%- assign bcls = 'btn btn-outline btn-sm' -%}{%- if block.settings.featured -%}{%- assign bcls = 'btn btn-primary btn-sm' -%}{%- endif -%}
-          {% render 'etl-button', label: block.settings.button_label, url: block.settings.button_url, class: bcls %}
+          {%- if block.settings.button_label != blank -%}
+            {%- assign bcls = 'btn btn-outline' -%}{%- if block.settings.featured -%}{%- assign bcls = 'btn btn-primary' -%}{%- endif -%}
+            {% render 'etl-button', label: block.settings.button_label, url: block.settings.button_url, class: bcls %}
+          {%- endif -%}
         </div>
       {%- endfor -%}
     </div>
@@ -60,7 +78,8 @@
     { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Short description.</p>" },
     { "type": "text", "id": "button_label", "label": "Button label" },
     { "type": "text", "id": "button_url", "label": "Button link" },
-    { "type": "checkbox", "id": "featured", "label": "Featured", "default": false } ] }],
+    { "type": "checkbox", "id": "featured", "label": "Featured", "default": false },
+    { "type": "text", "id": "badge", "label": "Corner badge (featured cards)", "default": "Flagship" } ] }],
   "presets": [{ "name": "Pathway cards", "blocks": [{ "type": "card" }, { "type": "card" }] }]
 }
 {% endschema %}

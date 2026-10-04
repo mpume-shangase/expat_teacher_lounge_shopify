@@ -1,0 +1,115 @@
+{%- comment -%}
+  Services pricing cards + how-to-book video.
+  Built from the original coaching page (light card, deep-blue card, video block).
+{%- endcomment -%}
+<section class="section-padding bg-light text-light"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor }}"{% endif %} style="background-color: #ffffff;">
+  <div class="container">
+    <div style="text-align: center; max-width: 760px; margin: 0 auto 56px;">
+      {%- if section.settings.eyebrow != blank -%}<span class="etl-eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h2 class="etl-heading">{{ section.settings.title_prefix }} <span class="etl-accent">{{ section.settings.title_italic }}</span></h2>
+      {%- if section.settings.subtitle != blank -%}<p class="etl-sub" style="margin: 0 auto;">{{ section.settings.subtitle }}</p>{%- endif -%}
+    </div>
+
+    <div class="etl-pricing__grid">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign card_cls = 'etl-price-card'
+          assign btn_cls = 'btn btn-ink'
+          if block.settings.style == 'dark'
+            assign card_cls = 'etl-price-card etl-price-card--dark'
+            assign btn_cls = 'btn btn-gold'
+          endif
+          assign features = block.settings.features | newline_to_br | split: '<br />'
+        -%}
+        <article class="{{ card_cls }}" {{ block.shopify_attributes }}>
+          <div class="etl-price-card__glow" aria-hidden="true"></div>
+          {%- if block.settings.badge != blank -%}<span class="etl-badge">{{ block.settings.badge }}</span>{%- endif -%}
+          <h3 class="etl-price-card__title">{{ block.settings.title }}</h3>
+          <p class="etl-price-card__meta">{{ block.settings.meta | default: '&nbsp;' }}</p>
+          <div class="etl-price-card__price">{{ block.settings.price }}</div>
+          <p class="etl-price-card__summary">{{ block.settings.summary }}</p>
+          <ul class="etl-price-card__list">
+            {%- for f in features -%}
+              {%- assign f_clean = f | strip -%}
+              {%- if f_clean != blank -%}
+                <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>{{ f_clean }}</span></li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+          <div class="etl-price-card__cta">
+            {% render 'etl-button', label: block.settings.button_label, url: block.settings.button_url, class: btn_cls %}
+            {%- if block.settings.note != blank -%}<p class="etl-price-card__note">{{ block.settings.note }}</p>{%- endif -%}
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- if section.settings.show_video -%}
+<section class="section-padding etl-video" id="how-to-book">
+  <div class="container">
+    <div style="text-align: center; max-width: 760px; margin: 0 auto 48px;">
+      <h2 class="etl-heading">{{ section.settings.video_title_prefix }} <span class="etl-accent">{{ section.settings.video_title_italic }}</span></h2>
+      {%- if section.settings.video_subtitle != blank -%}<p class="etl-sub" style="margin: 0 auto;">{{ section.settings.video_subtitle }}</p>{%- endif -%}
+    </div>
+    <div class="etl-video__card">
+      <h3 class="etl-video__label"><span aria-hidden="true">&#9654;</span> {{ section.settings.video_label }}</h3>
+      {%- if section.settings.video_text != blank -%}<p class="etl-video__text">{{ section.settings.video_text }}</p>{%- endif -%}
+      <div class="etl-video__frame">
+        {%- if section.settings.video != blank -%}
+          {{ section.settings.video | video_tag: autoplay: false, loop: false, muted: false, controls: true }}
+        {%- elsif section.settings.video_url != blank and section.settings.video_url.type == 'vimeo' -%}
+          <iframe src="https://player.vimeo.com/video/{{ section.settings.video_url.id }}?autoplay=0" title="{{ section.settings.video_label | escape }}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        {%- else -%}
+          {%- assign yt_id = 'IGbwE8e_SiI' -%}
+          {%- if section.settings.video_url != blank and section.settings.video_url.type == 'youtube' -%}{%- assign yt_id = section.settings.video_url.id -%}{%- endif -%}
+          <iframe src="https://www.youtube-nocookie.com/embed/{{ yt_id }}?rel=0" title="{{ section.settings.video_label | escape }}" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Services pricing",
+  "max_blocks": 3,
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor ID", "default": "services" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "title_prefix", "label": "Heading", "default": "Choose the support" },
+    { "type": "text", "id": "title_italic", "label": "Italic heading words", "default": "that fits." },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle" },
+    { "type": "header", "content": "How-to-book video" },
+    { "type": "checkbox", "id": "show_video", "label": "Show video", "default": true },
+    { "type": "text", "id": "video_title_prefix", "label": "Heading", "default": "How to book your" },
+    { "type": "text", "id": "video_title_italic", "label": "Italic heading words", "default": "session." },
+    { "type": "textarea", "id": "video_subtitle", "label": "Subtitle" },
+    { "type": "text", "id": "video_label", "label": "Video card title", "default": "How to Book" },
+    { "type": "textarea", "id": "video_text", "label": "Video card text" },
+    { "type": "video", "id": "video", "label": "Shopify-hosted video" },
+    { "type": "video_url", "id": "video_url", "label": "Or YouTube / Vimeo URL", "accept": ["youtube", "vimeo"] }
+  ],
+  "blocks": [
+    {
+      "type": "package",
+      "name": "Package",
+      "settings": [
+        { "type": "select", "id": "style", "label": "Card style", "default": "light", "options": [ { "value": "light", "label": "Light" }, { "value": "dark", "label": "Deep blue (featured)" } ] },
+        { "type": "text", "id": "badge", "label": "Corner badge" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Package" },
+        { "type": "text", "id": "meta", "label": "Small line under title" },
+        { "type": "text", "id": "price", "label": "Price", "default": "$0" },
+        { "type": "textarea", "id": "summary", "label": "Who it's for" },
+        { "type": "textarea", "id": "features", "label": "What's included (one per line)" },
+        { "type": "text", "id": "button_label", "label": "Button label" },
+        { "type": "text", "id": "button_url", "label": "Button link" },
+        { "type": "text", "id": "note", "label": "Small note under button" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "Services pricing", "blocks": [ { "type": "package" }, { "type": "package" }, { "type": "package" } ] } ]
+}
+{% endschema %}
