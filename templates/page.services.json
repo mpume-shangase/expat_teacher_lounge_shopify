@@ -15,55 +15,69 @@
       }
     },
     "services": {
-      "type": "etl-pathways",
+      "type": "etl-services",
       "settings": {
         "anchor": "services",
         "title_prefix": "Choose the support",
         "title_italic": "that fits.",
-        "subtitle": "Canada is our flagship pathway.",
-        "tint": true
+        "subtitle": "Three focused services. Each one ends with clear, written next steps.",
+        "show_video": true,
+        "video_title_prefix": "How to book your",
+        "video_title_italic": "session.",
+        "video_subtitle": "Watch this short walkthrough before you book.",
+        "video_label": "How to Book",
+        "video_text": "See how to pick a date, complete the intake form and schedule your Relocation Strategy or Contract Review session. For the Canada Teacher Pathway Assessment, your intake form link arrives straight after purchase.",
+        "video_url": "https://youtu.be/IGbwE8e_SiI"
       },
       "blocks": {
-        "c1": {
-          "type": "card",
+        "relocation": {
+          "type": "package",
           "settings": {
-            "icon": "canada",
-            "kicker": "Featured",
+            "style": "light",
+            "title": "Relocation Strategy Session",
+            "meta": "60 minutes · Zoom",
+            "price": "$97",
+            "summary": "For teachers choosing a country or preparing an international move.",
+            "features": "Deep dive into your personal and professional priorities\nTargeted country selection strategy\nC.V. and cover letter review and optimisation\nInterview technique preparation\nWritten action plan delivered within 24 hours",
+            "button_label": "Build My Relocation Strategy",
+            "button_url": "/products/relocation-strategy-session",
+            "note": "Your scheduling link arrives by email after purchase."
+          }
+        },
+        "canada": {
+          "type": "package",
+          "settings": {
+            "style": "dark",
+            "badge": "Flagship",
             "title": "Canada Teacher Pathway Assessment",
+            "meta": "Written report · 30-min debrief",
             "price": "$197",
-            "text": "<p><strong>For:</strong> teachers trained outside Canada who want to teach there.</p><p><strong>Solves:</strong> not knowing which province, documents or steps come first.</p><p><strong>You receive:</strong> profile summary, Canada Pathway Report, readiness score, document checklist, 90-day plan, 30-minute debrief and 30 days of limited follow-up.</p><p><strong>Next:</strong> complete your intake after purchase. Your report is normally ready within 5 business days of a complete intake.</p>",
+            "summary": "For teachers trained outside Canada who want a clear, personalised route into Canadian classrooms.",
+            "features": "Teacher profile summary and Canada Pathway Report\nReadiness score (a planning indicator)\nDocument checklist tailored to you\n90-day action roadmap\n30-minute debrief and 30 days of limited follow-up",
             "button_label": "Start My Canada Pathway",
             "button_url": "/pages/canada-teacher-pathway",
-            "featured": true
+            "note": "Report within 5 business days of a complete intake."
           }
         },
-        "c2": {
-          "type": "card",
+        "contract": {
+          "type": "package",
           "settings": {
-            "icon": "globe",
-            "title": "Relocation Strategy",
-            "price": "$97",
-            "text": "<p><strong>For:</strong> teachers choosing a country or preparing an international move.</p><p><strong>Solves:</strong> conflicting advice and too many unknowns.</p><p><strong>You receive:</strong> a focused strategy session on country fit, packages, documentation and timing, with written next steps.</p><p><strong>Next:</strong> your scheduling link arrives by email after purchase.</p>",
-            "button_label": "Build My Relocation Strategy",
-            "button_url": "/products/relocation-strategy-session"
-          }
-        },
-        "c3": {
-          "type": "card",
-          "settings": {
-            "icon": "contract",
-            "title": "Contract Review",
+            "style": "light",
+            "title": "Contract Review Session",
+            "meta": "45 minutes · Zoom",
             "price": "$77",
-            "text": "<p><strong>For:</strong> teachers holding an international teaching offer.</p><p><strong>Solves:</strong> signing without knowing what's normal or missing.</p><p><strong>You receive:</strong> a line-by-line review, red flags and missing clauses, salary and benefits benchmarking, and wording for your questions.</p><p><strong>Next:</strong> your scheduling link arrives by email. Have your offer ready to share.</p>",
+            "summary": "For teachers holding an international offer who want to know what's normal, and what's missing, before signing.",
+            "features": "Line-by-line contract analysis before you sign\nHidden red flags and missing clauses identified\nSalary benchmarking against the market rate\nNegotiation coaching and exact phrasing to use\nBenefit evaluation (housing, insurance, flights)",
             "button_label": "Review My Contract",
-            "button_url": "/products/contract-review-session"
+            "button_url": "/products/contract-review-session",
+            "note": "Have your offer ready to share."
           }
         }
       },
       "block_order": [
-        "c1",
-        "c2",
-        "c3"
+        "relocation",
+        "canada",
+        "contract"
       ]
     },
     "faq": {
@@ -93,10 +107,26 @@
             "question": "Is this immigration advice?",
             "answer": "<p>No. Teacher Moves doesn't give immigration advice. For immigration questions, use official IRCC information or a licensed RCIC or lawyer.</p>"
           }
+        },
+        "q4": {
+          "type": "qa",
+          "settings": {
+            "question": "Can I reschedule my session?",
+            "answer": "<p>Yes. You can reschedule up to 24 hours before your session using the link in your confirmation email.</p>"
+          }
+        },
+        "q5": {
+          "type": "qa",
+          "settings": {
+            "question": "Is my payment secure?",
+            "answer": "<p>Yes. Payments are processed securely through Shopify checkout. We never see or store your card details.</p>"
+          }
         }
       },
       "block_order": [
         "q1",
+        "q4",
+        "q5",
         "q2",
         "q3"
       ]
