@@ -32,7 +32,8 @@
             "text": "Canada guides, province information, the Province Picker and certification tools.",
             "button_label": "Explore Canada Resources",
             "button_url": "/pages/resources#canada",
-            "visual": "checklist"
+            "visual": "none",
+            "icon": "books"
           }
         },
         "c_2": {
@@ -45,7 +46,8 @@
             "button_label": "Start My Canada Pathway",
             "button_url": "/pages/canada-teacher-pathway",
             "featured": true,
-            "visual": "readiness"
+            "visual": "none",
+            "icon": "canada"
           }
         },
         "c_3": {
@@ -56,7 +58,8 @@
             "text": "More guided Teacher Moves Canada support is being developed. Join the community to hear first and get help now.",
             "button_label": "Join the Community",
             "button_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
-            "visual": "profile"
+            "visual": "none",
+            "icon": "community"
           }
         }
       },

@@ -73,7 +73,8 @@
             "button_label": "Explore My Canada Pathway",
             "button_url": "/pages/canada-teacher-pathway",
             "featured": true,
-            "visual": "readiness"
+            "visual": "none",
+            "icon": "canada"
           }
         },
         "card_2": {
@@ -83,7 +84,8 @@
             "text": "Already know where you're going? Build a clearer relocation strategy before you move.",
             "button_label": "Build My Relocation Strategy",
             "button_url": "/products/relocation-strategy-session",
-            "visual": "roadmap"
+            "visual": "none",
+            "icon": "move"
           }
         },
         "card_3": {
@@ -93,7 +95,8 @@
             "text": "Received an international teaching offer? Get help understanding the contract before you decide.",
             "button_label": "Review My Contract",
             "button_url": "/products/contract-review-session",
-            "visual": "checklist"
+            "visual": "none",
+            "icon": "contract"
           }
         },
         "card_4": {
@@ -103,7 +106,8 @@
             "text": "Join a community of teachers navigating international careers, certification, relocation and professional growth.",
             "button_label": "Join the Community",
             "button_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
-            "visual": "profile"
+            "visual": "none",
+            "icon": "community"
           }
         }
       },
