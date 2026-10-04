@@ -37,6 +37,8 @@
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
     items.forEach(function (el) { io.observe(el); });
+    // Safety net: never leave content hidden if the observer doesn't fire.
+    setTimeout(function () { items.forEach(function (el) { el.classList.add('is-in'); }); }, 1800);
   }
 
   function initSticky() {
