@@ -1,0 +1,77 @@
+{%- comment -%}
+  Teacher Moves prepared-document mockups (sample data, clearly labelled).
+  Param: type = 'profile' | 'readiness' | 'cover' | 'roadmap' | 'checklist' | 'path'
+{%- endcomment -%}
+{%- case type -%}
+  {%- when 'profile' -%}
+    <div class="tm-doc" role="img" aria-label="Sample Teacher Moves Profile showing qualification, experience, subjects, grades, current country and target destination">
+      <div class="tm-doc__head"><span class="tm-doc__title">Teacher Moves Profile</span><span class="tm-sample">Sample</span></div>
+      <div class="tm-doc__fields">
+        <div><div class="tm-doc__k">Qualification</div><div class="tm-doc__v">B.Ed (Senior Phase)</div></div>
+        <div><div class="tm-doc__k">Experience</div><div class="tm-doc__v">12 years</div></div>
+        <div><div class="tm-doc__k">Subjects</div><div class="tm-doc__v">Maths, Science</div></div>
+        <div><div class="tm-doc__k">Grades taught</div><div class="tm-doc__v">6–9</div></div>
+        <div><div class="tm-doc__k">Current country</div><div class="tm-doc__v">Qatar</div></div>
+        <div><div class="tm-doc__k">Target</div><div class="tm-doc__v">Canada</div></div>
+      </div>
+    </div>
+  {%- when 'readiness' -%}
+    <div class="tm-doc" role="img" aria-label="Sample Teacher Moves Readiness planning indicator of 64 out of 100 across five categories">
+      <div class="tm-doc__head"><span class="tm-doc__title">Teacher Moves Readiness</span><span class="tm-sample">Sample</span></div>
+      <div class="tm-score"><span class="tm-score__num">64</span><span class="tm-score__of">/ 100 planning indicator</span></div>
+      {%- if compact != true -%}
+      <div class="tm-meter-row"><div class="tm-meter-row__label"><span>Qualifications</span><b>Strong</b></div><div class="tm-meter"><span style="width:85%"></span></div></div>
+      <div class="tm-meter-row"><div class="tm-meter-row__label"><span>Documentation</span><b>Developing</b></div><div class="tm-meter"><span style="width:55%"></span></div></div>
+      <div class="tm-meter-row"><div class="tm-meter-row__label"><span>Certification preparation</span><b>Early</b></div><div class="tm-meter"><span class="is-gold" style="width:35%"></span></div></div>
+      <div class="tm-meter-row"><div class="tm-meter-row__label"><span>Employment readiness</span><b>Developing</b></div><div class="tm-meter"><span style="width:60%"></span></div></div>
+      <div class="tm-meter-row"><div class="tm-meter-row__label"><span>Relocation readiness</span><b>Developing</b></div><div class="tm-meter"><span style="width:50%"></span></div></div>
+      {%- else -%}
+      <div class="tm-meter"><span style="width:64%"></span></div>
+      {%- endif -%}
+      <div class="tm-doc__note">A planning indicator based on intake answers. Not a decision or prediction by any certification body, employer or IRCC.</div>
+    </div>
+  {%- when 'cover' -%}
+    <div class="tm-cover" role="img" aria-label="Sample Canada Pathway Report cover" style="height:100%">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><span style="display:flex;align-items:center;gap:8px;font-weight:600;font-size:.9rem">{% render 'tm-logo-mark', tone: 'light' %}Teacher Moves</span><span class="tm-sample">Sample</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span class="tm-cover__kicker">Canada Pathway Report</span>
+        <span class="tm-cover__title">Prepared for [Teacher name]</span>
+        <span class="tm-cover__meta">Profile · Readiness · Pathways · Documents · 90-day plan</span>
+      </div>
+    </div>
+  {%- when 'roadmap' -%}
+    <div class="tm-doc" role="img" aria-label="Sample 90-day roadmap split into days 1 to 30, 31 to 60 and 61 to 90">
+      <div class="tm-doc__head"><span class="tm-doc__title">90-Day Roadmap</span><span class="tm-sample">Sample</span></div>
+      <div class="tm-roadmap">
+        <div class="tm-roadmap__col"><span class="tm-roadmap__label">Days 1–30</span><span class="tm-roadmap__bar"></span><span class="tm-roadmap__item">Confirm province requirements · order transcripts</span></div>
+        <div class="tm-roadmap__col"><span class="tm-roadmap__label">Days 31–60</span><span class="tm-roadmap__bar"></span><span class="tm-roadmap__item">Gather supporting documents · draft Canadian CV</span></div>
+        <div class="tm-roadmap__col"><span class="tm-roadmap__label">Days 61–90</span><span class="tm-roadmap__bar"></span><span class="tm-roadmap__item">Submit application · shortlist districts</span></div>
+      </div>
+    </div>
+  {%- when 'checklist' -%}
+    <div class="tm-doc" role="img" aria-label="Sample document checklist with statuses ready, requested and to do">
+      <div class="tm-doc__head"><span class="tm-doc__title">Document Checklist</span><span class="tm-sample">Sample</span></div>
+      <div>
+        <div class="tm-checklist-row"><span>Degree certificate</span><span class="tm-status tm-status--ready">Ready</span></div>
+        <div class="tm-checklist-row"><span>Official transcripts</span><span class="tm-status tm-status--req">Requested</span></div>
+        <div class="tm-checklist-row"><span>Teaching licence or registration</span><span class="tm-status tm-status--ready">Ready</span></div>
+        <div class="tm-checklist-row"><span>Letter of professional standing</span><span class="tm-status tm-status--todo">To do</span></div>
+        <div class="tm-checklist-row"><span>Experience letters</span><span class="tm-status tm-status--req">Requested</span></div>
+      </div>
+    </div>
+  {%- when 'path' -%}
+    <div class="tm-hero-visual__path" role="img" aria-label="Teacher Moves pathway: Profile, Pathway, Documents, Preparation, Next Move">
+      <span class="tm-cover__kicker">Your Teacher Moves pathway</span>
+      <div class="tm-pathline">
+        <div class="tm-pathline__step is-done"><span class="tm-pathline__dot">1</span><span>Profile</span></div>
+        <span class="tm-pathline__line is-done"></span>
+        <div class="tm-pathline__step is-done"><span class="tm-pathline__dot">2</span><span>Pathway</span></div>
+        <span class="tm-pathline__line"></span>
+        <div class="tm-pathline__step"><span class="tm-pathline__dot">3</span><span>Documents</span></div>
+        <span class="tm-pathline__line"></span>
+        <div class="tm-pathline__step"><span class="tm-pathline__dot">4</span><span>Preparation</span></div>
+        <span class="tm-pathline__line"></span>
+        <div class="tm-pathline__step is-next"><span class="tm-pathline__dot">5</span><span>Next Move</span></div>
+      </div>
+    </div>
+{%- endcase -%}

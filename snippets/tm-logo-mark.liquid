@@ -1,0 +1,10 @@
+{%- comment -%} Teacher Moves mark. Param: tone ('dark' default = navy tile, 'light' = white tile) {%- endcomment -%}
+{%- liquid
+  assign tile = '#143D8A'
+  assign stroke = '#FFFFFF'
+  if tone == 'light'
+    assign tile = '#FFFFFF'
+    assign stroke = '#143D8A'
+  endif
+-%}
+<svg class="tm-logo__mark" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="9" fill="{{ tile }}"/><path d="M11 24 L23 12 M15 12 H23 V20" stroke="{{ stroke }}" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="24" r="2.6" fill="#FCCB52"/></svg>

@@ -1,0 +1,18 @@
+{%- comment -%}
+  Direct-to-checkout button for one product. Params: product, label, style ('primary'|'light'), block (bool), form_id
+  Falls back to a link to the product page if the product is unavailable.
+{%- endcomment -%}
+{%- assign v = product.selected_or_first_available_variant -%}
+{%- assign s_style = style | default: 'primary' -%}
+{%- assign cls = 'tm-btn tm-btn--' | append: s_style -%}
+{%- if block -%}{%- assign cls = cls | append: ' tm-btn--block' -%}{%- endif -%}
+{%- if product != blank and v.available -%}
+  {%- form 'product', product, id: form_id, class: 'tm-buy-form' -%}
+    <input type="hidden" name="id" value="{{ v.id }}">
+    <input type="hidden" name="quantity" value="1">
+    <input type="hidden" name="return_to" value="/checkout">
+    <button type="submit" name="add" class="{{ cls }}">{{ label | default: 'Continue to checkout' }}</button>
+  {%- endform -%}
+{%- elsif product != blank -%}
+  <a href="{{ product.url }}" class="{{ cls }}">{{ label }}</a>
+{%- endif -%}
