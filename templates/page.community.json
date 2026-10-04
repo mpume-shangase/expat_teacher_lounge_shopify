@@ -1,0 +1,130 @@
+{
+  "sections": {
+    "hero": {
+      "type": "tm-hero",
+      "settings": {
+        "eyebrow": "Teacher Moves community",
+        "heading": "Your next move is easier with the right people around you.",
+        "text": "The Teacher Moves community on Skool supports teachers navigating international careers, certification, relocation, professional growth and career transitions.",
+        "primary_label": "Join Free",
+        "primary_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
+        "secondary_label": "Become a Founding Member",
+        "secondary_url": "https://www.skool.com/expat-teachers-lounge-9615/plans?src=join",
+        "visual": "none",
+        "pad_top": 72
+      }
+    },
+    "plans": {
+      "type": "tm-community",
+      "settings": {
+        "anchor": "plans",
+        "style": "mist",
+        "eyebrow": "",
+        "heading": "Choose how you join",
+        "text": "Start free. Upgrade when you want weekly support.",
+        "free_list": "<ul><li>The full Teacher Moves community</li><li>3 hand-picked job postings a week</li><li>Every guide we publish</li><li>Monthly live Q&amp;A</li></ul>",
+        "free_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
+        "premium_list": "<ul><li>Weekly live Q&amp;A and a monthly workshop</li><li>Every session recorded</li><li>Canada Track</li><li>CV &amp; Interview Studio</li><li>The full Job Board</li></ul>",
+        "premium_note": "Founding price for the first 50 Premium members ($190/year option). Then $39/month or $390/year.",
+        "premium_url": "https://www.skool.com/expat-teachers-lounge-9615/plans?src=join"
+      }
+    },
+    "steps": {
+      "type": "tm-steps",
+      "settings": {
+        "heading": "What happens when you join",
+        "style": "white"
+      },
+      "blocks": {
+        "s_1": {
+          "type": "step",
+          "settings": {
+            "title": "Join free on Skool",
+            "text": "It takes a minute."
+          }
+        },
+        "s_2": {
+          "type": "step",
+          "settings": {
+            "title": "Introduce yourself",
+            "text": "Post in Start Here. Mpume replies to every introduction."
+          }
+        },
+        "s_3": {
+          "type": "step",
+          "settings": {
+            "title": "Come to the live Q&A",
+            "text": "Monthly for everyone, weekly for Premium members."
+          }
+        },
+        "s_4": {
+          "type": "step",
+          "settings": {
+            "title": "Upgrade when you're ready",
+            "text": "Founding pricing while the first 50 places last."
+          }
+        }
+      },
+      "block_order": [
+        "s_1",
+        "s_2",
+        "s_3",
+        "s_4"
+      ]
+    },
+    "faq": {
+      "type": "tm-faq",
+      "settings": {
+        "heading": "Community questions",
+        "style": "mist"
+      },
+      "blocks": {
+        "q_1": {
+          "type": "qa",
+          "settings": {
+            "question": "Is the free tier really free?",
+            "answer": "<p>Yes. The free tier stays free.</p>"
+          }
+        },
+        "q_2": {
+          "type": "qa",
+          "settings": {
+            "question": "What changes after the first 50 founding members?",
+            "answer": "<p>Premium moves to $39/month or $390/year. Founding members keep their founding price as described on Skool.</p>"
+          }
+        },
+        "q_3": {
+          "type": "qa",
+          "settings": {
+            "question": "Is the community a recruitment agency?",
+            "answer": "<p>No. We share hand-picked job postings and help you prepare, but we don't place teachers or guarantee jobs.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q_1",
+        "q_2",
+        "q_3"
+      ]
+    },
+    "final": {
+      "type": "tm-cta",
+      "settings": {
+        "heading": "Start with the community.",
+        "text": "Free to join. Real answers from teachers who have made the move.",
+        "primary_label": "Join Free",
+        "primary_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
+        "secondary_label": "Explore My Canada Pathway",
+        "secondary_url": "/pages/canada-teacher-pathway",
+        "style": "white"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "plans",
+    "steps",
+    "faq",
+    "final"
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "sections": {
+    "hero": {
+      "type": "tm-hero",
+      "settings": {
+        "eyebrow": "Teach in Canada",
+        "heading": "Teach in Canada with a clearer plan.",
+        "text": "Certification requirements differ across Canada. Teacher Moves helps internationally trained educators understand where to begin and what to investigate next.",
+        "primary_label": "Explore My Canada Pathway",
+        "primary_url": "/pages/canada-teacher-pathway",
+        "secondary_label": "",
+        "secondary_url": "",
+        "visual": "report",
+        "pad_top": 64
+      }
+    },
+    "paths": {
+      "type": "tm-pathways",
+      "settings": {
+        "anchor": "paths",
+        "eyebrow": "Choose your level of support",
+        "heading": "How much help do you need?",
+        "text": "",
+        "style": "mist"
+      },
+      "blocks": {
+        "c_1": {
+          "type": "card",
+          "settings": {
+            "kicker": "Path 1 · Do it yourself",
+            "title": "Research at your own pace",
+            "text": "Canada guides, province information, the Province Picker and certification tools.",
+            "button_label": "Explore Canada Resources",
+            "button_url": "/pages/resources#canada",
+            "visual": "checklist"
+          }
+        },
+        "c_2": {
+          "type": "card",
+          "settings": {
+            "kicker": "Path 2 · Personalised",
+            "title": "Canada Teacher Pathway Assessment",
+            "price": "$197",
+            "text": "Understand where you currently stand and what to prioritise over the next 90 days.",
+            "button_label": "Start My Canada Pathway",
+            "button_url": "/pages/canada-teacher-pathway",
+            "featured": true,
+            "visual": "readiness"
+          }
+        },
+        "c_3": {
+          "type": "card",
+          "settings": {
+            "kicker": "Path 3 · More support",
+            "title": "Need more support?",
+            "text": "More guided Teacher Moves Canada support is being developed. Join the community to hear first and get help now.",
+            "button_label": "Join the Community",
+            "button_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
+            "visual": "profile"
+          }
+        }
+      },
+      "block_order": [
+        "c_1",
+        "c_2",
+        "c_3"
+      ]
+    },
+    "how": {
+      "type": "tm-text-split",
+      "settings": {
+        "eyebrow": "The basics",
+        "heading": "How teacher certification works in Canada",
+        "text": "<p>Teaching is a regulated profession in Canada, and each province or territory certifies its own teachers. Requirements usually cover your teacher education, your degree and evidence of professional standing, and some provinces add language or credential-assessment steps.</p><p>Because details change, always confirm current requirements with the certification office of the province you're targeting. Our founder was recruited from Qatar to teach in New Brunswick, and shares that experience in the insights below.</p>",
+        "button_label": "Read: how to become a certified teacher in Canada",
+        "button_url": "/blogs/news/how-to-become-a-certified-teacher-in-canada",
+        "button_style": "link",
+        "style": "white"
+      }
+    },
+    "insights": {
+      "type": "tm-insights",
+      "settings": {
+        "heading": "Canada insights",
+        "blog": "news",
+        "count": 3,
+        "style": "mist",
+        "link_label": "Explore All Insights"
+      }
+    },
+    "final": {
+      "type": "tm-cta",
+      "settings": {
+        "heading": "Ready for a clear Canada plan?",
+        "text": "Get your personalised pathway, document checklist and 90-day plan.",
+        "primary_label": "Start My Canada Pathway",
+        "primary_url": "/pages/canada-teacher-pathway",
+        "secondary_label": "Join the Free Community",
+        "secondary_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
+        "style": "white"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "paths",
+    "how",
+    "insights",
+    "final"
+  ]
+}

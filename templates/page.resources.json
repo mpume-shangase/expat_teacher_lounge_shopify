@@ -1,0 +1,125 @@
+{
+  "sections": {
+    "hero": {
+      "type": "tm-hero",
+      "settings": {
+        "eyebrow": "Resources",
+        "heading": "Teacher Moves resources",
+        "text": "Practical tools, guides and free downloads for teachers researching their next move at their own pace.",
+        "primary_label": "Explore Free Resources",
+        "primary_url": "#free",
+        "secondary_label": "",
+        "visual": "none",
+        "pad_top": 64
+      }
+    },
+    "library": {
+      "type": "tm-resources",
+      "settings": {},
+      "blocks": {
+        "s_1": {
+          "type": "shelf",
+          "settings": {
+            "title": "Teach in Canada",
+            "anchor": "canada",
+            "text": "Province research, certification guides and application tools.",
+            "collection": "canada",
+            "link_label": "Want a personalised plan? Start My Canada Pathway",
+            "link_url": "/pages/canada-teacher-pathway"
+          }
+        },
+        "s_2": {
+          "type": "shelf",
+          "settings": {
+            "title": "International Teaching",
+            "anchor": "international",
+            "text": "Compare countries and decide where to go next.",
+            "collection": "international-teaching",
+            "empty_text": "",
+            "link_label": "",
+            "link_url": ""
+          }
+        },
+        "s_3": {
+          "type": "shelf",
+          "settings": {
+            "title": "Relocation",
+            "anchor": "relocation",
+            "text": "Checklists for documents, attestation and residence permits.",
+            "collection": "relocation",
+            "link_label": "Planning a move? Build My Relocation Strategy",
+            "link_url": "/products/relocation-strategy-session"
+          }
+        },
+        "s_4": {
+          "type": "shelf",
+          "settings": {
+            "title": "USA (J1)",
+            "anchor": "usa",
+            "text": "Guides for the J1 cultural exchange teaching route.",
+            "collection": "usa"
+          }
+        },
+        "s_5": {
+          "type": "shelf",
+          "settings": {
+            "title": "Contract Preparation",
+            "anchor": "contracts",
+            "text": "",
+            "collection": "",
+            "empty_text": "Self-paced contract tools are coming. If you're holding an offer now, Contract Review covers it line by line.",
+            "link_label": "Review My Contract",
+            "link_url": "/products/contract-review-session"
+          }
+        },
+        "s_6": {
+          "type": "shelf",
+          "settings": {
+            "title": "Career Development",
+            "anchor": "career",
+            "text": "",
+            "collection": "",
+            "empty_text": "CV and interview support lives in the CV & Interview Studio for Premium community members.",
+            "link_label": "Become a Founding Member",
+            "link_url": "https://www.skool.com/expat-teachers-lounge-9615/plans?src=join"
+          }
+        },
+        "s_7": {
+          "type": "shelf",
+          "settings": {
+            "title": "Free Resources",
+            "anchor": "free",
+            "text": "Start here if you're early in your research.",
+            "collection": "free-resources"
+          }
+        }
+      },
+      "block_order": [
+        "s_1",
+        "s_2",
+        "s_3",
+        "s_4",
+        "s_5",
+        "s_6",
+        "s_7"
+      ]
+    },
+    "final": {
+      "type": "tm-cta",
+      "settings": {
+        "heading": "Want a plan made for you?",
+        "text": "Resources help you research. The assessment turns that research into your next 90 days.",
+        "primary_label": "Start My Canada Pathway",
+        "primary_url": "/pages/canada-teacher-pathway",
+        "secondary_label": "See All Services",
+        "secondary_url": "/pages/services",
+        "style": "mist"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "library",
+    "final"
+  ]
+}

@@ -1,25 +1,126 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "main": {
-      "type": "main-about",
-      "settings": {}
+    "hero": {
+      "type": "tm-hero",
+      "settings": {
+        "eyebrow": "About Teacher Moves",
+        "heading": "We started by helping teachers make individual moves.",
+        "text": "We're building Teacher Moves to make the entire journey clearer.",
+        "primary_label": "Join Free",
+        "primary_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
+        "secondary_label": "Explore My Canada Pathway",
+        "secondary_url": "/pages/canada-teacher-pathway",
+        "visual": "image",
+        "fallback_asset": "Edwina_picture_on_the_coach.png",
+        "image_alt": "Mpume (Edwina) Shangase, founder of Teacher Moves",
+        "pad_top": 64
+      }
     },
-    "newsletter": {
-      "type": "email-capture",
-      "settings": {}
+    "start": {
+      "type": "tm-text-split",
+      "settings": {
+        "eyebrow": "Where it started",
+        "heading": "Expat Teacher's Lounge began with one teacher's moves.",
+        "text": "<p>South Africa to the UK. The UK to Qatar. Qatar to Canada. Each move meant joining Facebook groups, searching everything and piecing together information from ten different places, half of it outdated.</p><p>Expat Teacher's Lounge started as a way to share what that experience taught: the contracts, the documents, the planning and the moments nobody warns you about.</p>",
+        "style": "white"
+      }
+    },
+    "struggles": {
+      "type": "tm-pills",
+      "settings": {
+        "heading": "What teachers kept struggling with",
+        "text": "The same questions came up again and again.",
+        "style": "mist"
+      },
+      "blocks": {
+        "l_1": {
+          "type": "label",
+          "settings": {
+            "label": "Where do I start?"
+          }
+        },
+        "l_2": {
+          "type": "label",
+          "settings": {
+            "label": "Which documents matter?"
+          }
+        },
+        "l_3": {
+          "type": "label",
+          "settings": {
+            "label": "Which province or country fits me?"
+          }
+        },
+        "l_4": {
+          "type": "label",
+          "settings": {
+            "label": "Is this offer fair?"
+          }
+        },
+        "l_5": {
+          "type": "label",
+          "settings": {
+            "label": "How ready am I?"
+          }
+        },
+        "l_6": {
+          "type": "label",
+          "settings": {
+            "label": "What do I do next?"
+          }
+        }
+      },
+      "block_order": [
+        "l_1",
+        "l_2",
+        "l_3",
+        "l_4",
+        "l_5",
+        "l_6"
+      ]
+    },
+    "why": {
+      "type": "tm-text-split",
+      "settings": {
+        "eyebrow": "Why Teacher Moves",
+        "heading": "One place for the whole journey.",
+        "text": "<p>Teacher Moves brings community, resources and personalised services together, starting with Canada as our first flagship pathway.</p><p><strong>What we're building toward (in development):</strong> clearer readiness tools, document tracking and smarter guidance, so more teachers can plan their move with confidence. Today, every assessment and report is prepared personally.</p>",
+        "style": "white"
+      }
+    },
+    "founder": {
+      "type": "tm-founder",
+      "settings": {
+        "eyebrow": "Meet the founder",
+        "heading": "Mpume (Edwina) Shangase",
+        "text": "<p>18 years of teaching across South Africa, the United Kingdom, Qatar and Canada, where she now teaches in New Brunswick. A PMP-certified project manager who plans moves the way she plans projects: step by step, with nothing left to guesswork.</p><p>She moves with her family, so every recommendation considers the whole household, not just the contract.</p>",
+        "closing": "Teacher Moves exists to make the next move clearer for teachers coming behind us.",
+        "link_label": "Read her Canada story",
+        "link_url": "/blogs/news/how-i-got-a-teaching-job-in-canada-after-six-years-of-trying",
+        "fallback_asset": "Edwina_headshot.png",
+        "image_alt": "Mpume (Edwina) Shangase",
+        "style": "mist"
+      }
+    },
+    "final": {
+      "type": "tm-cta",
+      "settings": {
+        "heading": "Make your next move with us.",
+        "text": "",
+        "primary_label": "Join Teacher Moves Free",
+        "primary_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
+        "secondary_label": "Explore My Canada Pathway",
+        "secondary_url": "/pages/canada-teacher-pathway",
+        "style": "white"
+      }
     }
   },
   "order": [
-    "main",
-    "newsletter"
+    "hero",
+    "start",
+    "struggles",
+    "why",
+    "founder",
+    "final"
   ]
 }

@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "tm-main-product",
+      "type": "tm-intake",
       "settings": {}
     }
   },
