@@ -193,7 +193,7 @@ body .site-header .site-header__actions a.site-header__join.btn:hover { color: #
 }
 
 /* One button size everywhere (header Join and full-width product buy buttons excepted) */
-#MainContent .btn:not([name="add"]),
+#MainContent .btn:not([name="add"][style*="width"]),
 #MainContent .coaching-hero__btn, #MainContent .coaching-card-light__btn, #MainContent .coaching-card-dark__btn,
 #MainContent .about-story__btn, #MainContent .about-bio__btn, #MainContent .about-mission__btn,
 .etl-sticky .btn {
@@ -210,7 +210,7 @@ body .site-header .site-header__actions a.site-header__join.btn:hover { color: #
   text-align: center;
 }
 #MainContent .coaching-card-light__btn, #MainContent .coaching-card-dark__btn { width: 100%; }
-#MainContent button[name="add"].btn { font-size: 1rem !important; font-weight: 700 !important; min-height: 56px; }
+#MainContent button[name="add"][style*="width"].btn { font-size: 1rem !important; font-weight: 700 !important; min-height: 56px; }
 @media (min-width: 750px) {
   #MainContent .btn, #MainContent .coaching-hero__btn { white-space: nowrap; }
   #MainContent .etl-card .btn, #MainContent .etl-price-card .btn { white-space: normal; }
@@ -271,7 +271,7 @@ body .site-header .site-header__actions a.site-header__join.btn:hover { color: #
   @media (min-width: 990px) {
     .etl-pricing__grid { grid-template-rows: repeat(6, auto); row-gap: 0; }
     .etl-price-card { display: grid; grid-row: span 6; grid-template-rows: subgrid; row-gap: 0; }
-    .etl-price-card__cta { margin-top: 0; align-self: end; }
+    .etl-price-card__cta { margin-top: 0; align-self: start; }
   }
 }
 
@@ -285,3 +285,13 @@ body .site-header .site-header__actions a.site-header__join.btn:hover { color: #
 .etl-video__frame iframe, .etl-video__frame video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
 @media (max-width: 749px) { .etl-price-card { padding: 34px 26px 28px; } .etl-video__card { padding: 22px; } }
 .etl-price-card--dark .btn-gold { color: var(--color-brand-deep, #143D8A); font-weight: 800; }
+
+/* Mobile: buttons stay on one line and stack neatly */
+@media (max-width: 749px) {
+  #MainContent .btn:not([name="add"][style*="width"]),
+  #MainContent .coaching-hero__btn, #MainContent .about-story__btn, #MainContent .about-bio__btn, #MainContent .about-mission__btn,
+  .etl-sticky .btn { padding: 15px 20px !important; }
+  .hero-button-group { display: flex; flex-direction: column; align-items: stretch; gap: 12px; width: 100%; }
+  .hero-button-group .btn { width: 100%; }
+  .etl-card { padding: 26px 22px; }
+}
