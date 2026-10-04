@@ -24,21 +24,21 @@
       "header": {
         "type": "header",
         "settings": {
-          "logo": "shopify://shop_images/expat_teachers_lounge_logo.png",
+          "brand_name": "Teacher Moves",
+          "brand_sub": "by Expat Teacher's Lounge",
           "logo_max_width": 180,
-          "menu": "main-menu"
+          "join_label": "Join Free",
+          "join_url": "https://www.skool.com/expat-teachers-lounge-9615/about"
         }
       },
       "footer": {
         "type": "footer",
         "settings": {
-          "logo_max_width": 140,
-          "description": "Relocation strategy and contract review for teachers serious about moving internationally. Built by a teacher, for teachers.",
-          "menu_title_1": "Navigation",
-          "menu_1": "main-menu",
-          "menu_title_2": "Legal",
-          "menu_2": "footer",
-          "disclaimer": "Disclaimer: Some links on this website are affiliate links. This means I may earn a small commission at no additional cost to you if you purchase through these links. This helps support the free resources provided."
+          "statement": "Helping teachers make confident career moves across borders and beyond.",
+          "youtube_url": "https://www.youtube.com/@expatteacherslounge",
+          "instagram_url": "",
+          "tiktok_url": "",
+          "disclaimer": "Some links on this website are affiliate links. We may earn a small commission at no extra cost to you if you buy through them. This helps fund the free resources."
         }
       }
     },
