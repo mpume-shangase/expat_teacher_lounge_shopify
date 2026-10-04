@@ -11,18 +11,29 @@
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
 
+    {%- liquid
+      assign tm_title = page_title
+      assign tm_desc = page_description
+      if template.name == 'index'
+        assign tm_title = "Teacher Moves | International Teacher Careers, Canada Certification and Relocation"
+        if tm_desc == blank
+          assign tm_desc = "Teacher Moves by Expat Teacher's Lounge helps internationally trained teachers plan certification, relocation and contract decisions, starting with Canada."
+        endif
+      endif
+    -%}
     <title>
-      {{ page_title }}
+      {{ tm_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
       {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {%- unless tm_title contains 'Teacher Moves' or tm_title contains shop.name %} &ndash; Teacher Moves{% endunless -%}
     </title>
 
-    {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
+    {% if tm_desc != blank %}
+      <meta name="description" content="{{ tm_desc | escape }}">
     {% endif %}
 
-    {% render 'meta-tags' %}
+    {%- if template.suffix == 'canada-pathway-intake' -%}<meta name="robots" content="noindex, nofollow">{%- endif -%}
+    {% render 'meta-tags', tm_title: tm_title, tm_desc: tm_desc %}
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,6 +56,7 @@
     </style>
 
     {{ 'theme.css' | asset_url | stylesheet_tag }}
+    {{ 'tm.css' | asset_url | stylesheet_tag }}
 
     {{ content_for_header }}
   </head>
@@ -54,7 +66,7 @@
     {%- assign has_dark_hero = true -%}
   {%- endif -%}
 
-  <body class="font-body antialiased bg-light text-light transition-colors duration-300 template-{{ template.name | handle }}{% if template.suffix %} template-{{ template.name | handle }}-{{ template.suffix | handle }}{% endif %}{% if has_dark_hero %} has-dark-hero{% endif %}">
+  <body class="tm-shell font-body antialiased bg-light text-light transition-colors duration-300 template-{{ template.name | handle }}{% if template.suffix %} template-{{ template.name | handle }}-{{ template.suffix | handle }}{% endif %}{% if has_dark_hero %} has-dark-hero{% endif %}">
     <a class="skip-to-content-link button sr-only" href="#MainContent">
       Skip to content
     </a>
@@ -73,5 +85,6 @@
     </ul>
 
     <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'tm.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>
