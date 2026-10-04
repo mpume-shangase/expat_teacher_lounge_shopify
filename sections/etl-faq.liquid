@@ -1,0 +1,28 @@
+<section class="section-padding bg-light text-light"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor }}"{% endif %} style="background-color: {% if section.settings.tint %}#f9fafb{% else %}#ffffff{% endif %};">
+  <div class="container">
+    <h2 class="etl-heading" style="text-align: center; margin-bottom: 40px;">{{ section.settings.title_prefix }} <span class="etl-accent">{{ section.settings.title_italic }}</span></h2>
+    <div class="etl-faq">
+      {%- for block in section.blocks -%}
+        <details {{ block.shopify_attributes }}>
+          <summary>{{ block.settings.question }}</summary>
+          <div class="etl-faq__answer">{{ block.settings.answer }}</div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor ID", "default": "faq" },
+    { "type": "text", "id": "title_prefix", "label": "Heading", "default": "Frequently asked" },
+    { "type": "text", "id": "title_italic", "label": "Italic heading words", "default": "questions." },
+    { "type": "checkbox", "id": "tint", "label": "Light grey background", "default": false }
+  ],
+  "blocks": [{ "type": "qa", "name": "Question", "settings": [
+    { "type": "text", "id": "question", "label": "Question", "default": "Question" },
+    { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>Answer</p>" } ] }],
+  "presets": [{ "name": "FAQ", "blocks": [{ "type": "qa" }] }]
+}
+{% endschema %}

@@ -1,3 +1,19 @@
+{%- liquid
+  assign is_service = false
+  if product.tags contains 'coaching' or product.tags contains 'service' or product.handle == 'canada-teacher-pathway-assessment'
+    assign is_service = true
+  endif
+  case product.handle
+    when 'relocation-strategy-session'
+      assign buy_label = 'Build My Relocation Strategy'
+    when 'contract-review-session'
+      assign buy_label = 'Review My Contract'
+    when 'canada-teacher-pathway-assessment'
+      assign buy_label = 'Start My Canada Pathway'
+    else
+      assign buy_label = 'Purchase Now'
+  endcase
+-%}
 <section class="section-padding bg-light text-light" style="padding-top: 140px;">
   <div class="container">
     <div class="grid grid-cols-1 grid-cols-2" style="gap: 64px; align-items: start;">
@@ -68,7 +84,7 @@
                       {%- if product.price == 0 -%}
                         Download Free
                       {%- else -%}
-                        Purchase Now
+                        {{ buy_label }}
                       {%- endif -%}
                     {%- else -%}
                       Sold out
@@ -93,13 +109,13 @@
                     <svg style="width: 24px; height: 24px; color: var(--color-blue);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 19v-8.93a2 2 0 01.89-1.664l8-5.333a2 2 0 012.22 0l8 5.333A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-2.25-1.5a2 2 0 00-2.22 0l-2.25 1.5M12 14v6"></path>
                     </svg>
-                    <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.02em;">Instant Access</span>
+                    <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.02em;">{% if is_service %}Booking Link by Email{% else %}Instant Access{% endif %}</span>
                   </div>
                   <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
                     <svg style="width: 24px; height: 24px; color: var(--color-blue);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.213 6H16"></path>
                     </svg>
-                    <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.02em;">Lifetime Updates</span>
+                    <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.02em;">{% if is_service %}Written Next Steps{% else %}Lifetime Updates{% endif %}</span>
                   </div>
                 </div>
               
@@ -114,7 +130,11 @@
                       </button>
                       <div class="product-tab-content" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
                         <div style="padding: 0 0 24px 0; color: #475569; font-size: 0.95rem; line-height: 1.7;">
-                          {{ block.settings.tab_included_content }}
+                          {%- if is_service -%}
+                            <p>A personalised, one-to-one service prepared around your situation. See the full description above for what's covered.</p>
+                          {%- else -%}
+                            {{ block.settings.tab_included_content }}
+                          {%- endif -%}
                         </div>
                       </div>
                     </div>
@@ -123,12 +143,20 @@
                   {%- if block.settings.tab_delivery_content != blank -%}
                     <div class="product-tab-item" style="border-bottom: 1px solid #e2e8f0;">
                       <button type="button" class="product-tab-btn" onclick="toggleProductTab(this)" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px 0; font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--text-light); text-align: left; cursor: pointer;">
-                        <span>Instant Access & Delivery</span>
+                        <span>{% if is_service %}What Happens After You Buy{% else %}Instant Access & Delivery{% endif %}</span>
                         <span class="tab-icon" style="font-size: 0.75rem; color: var(--color-blue); transition: transform 0.2s;">▼</span>
                       </button>
                       <div class="product-tab-content" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
                         <div style="padding: 0 0 24px 0; color: #475569; font-size: 0.95rem; line-height: 1.7;">
-                          {{ block.settings.tab_delivery_content }}
+                          {%- if is_service -%}
+                            {%- if product.handle == 'canada-teacher-pathway-assessment' -%}
+                              <p>Your confirmation email includes the link to your structured intake. Once your intake and supporting documents are complete, your personalised report is normally ready within 5 business days. You then receive a private link to book your included 30-minute debrief.</p>
+                            {%- else -%}
+                              <p>Your confirmation email includes your scheduling link. Choose a time, answer a few short questions so the session is prepared around your situation, and meet online. You leave with clear next steps.</p>
+                            {%- endif -%}
+                          {%- else -%}
+                            {{ block.settings.tab_delivery_content }}
+                          {%- endif -%}
                         </div>
                       </div>
                     </div>
@@ -155,7 +183,7 @@
             <input type="hidden" name="quantity" value="1">
             <button type="submit" name="add" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 1.05rem;"
               {% unless product.selected_or_first_available_variant.available %}disabled="disabled"{% endunless %}>
-              Purchase Now
+              {{ buy_label }}
             </button>
           {%- endform -%}
 

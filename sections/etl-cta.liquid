@@ -1,0 +1,36 @@
+<section class="section-padding bg-light text-light" style="position: relative;">
+  <div class="container">
+    <div style="position: relative; max-width: 960px; margin: 0 auto; background: var(--color-brand-deep, #143D8A); padding: 64px 24px; border-radius: var(--border-radius-lg); overflow: hidden; text-align: center; color: #ffffff;">
+      <div class="absolute" style="top: 0; right: 0; width: 250px; height: 250px; background-color: var(--color-blue); filter: blur(80px); border-radius: 50%; opacity: 0.4; transform: translate(30%, -30%); pointer-events: none;"></div>
+      <div class="absolute" style="bottom: 0; left: 0; width: 250px; height: 250px; background-color: var(--color-brand-gold); filter: blur(80px); border-radius: 50%; opacity: 0.15; transform: translate(-30%, 30%); pointer-events: none;"></div>
+      <div class="relative z-10">
+        <h2 class="etl-heading" style="color: #ffffff !important;">{{ section.settings.title_prefix }} <span class="etl-accent--gold">{{ section.settings.title_italic }}</span></h2>
+        {%- if section.settings.description != blank -%}<p style="color: #bfdbfe; font-size: 1.1rem; max-width: 600px; margin: 0 auto 36px; line-height: 1.6;">{{ section.settings.description }}</p>{%- endif -%}
+        <div class="etl-btn-row">
+          {%- if section.settings.buy_product != blank -%}
+            {% render 'etl-buy-form', product: section.settings.buy_product, label: section.settings.cta_1_text, class: 'btn btn-gold', form_id: 'etl-cta-buy' %}
+          {%- else -%}
+            {% render 'etl-button', label: section.settings.cta_1_text, url: section.settings.cta_1_url, class: 'btn btn-gold' %}
+          {%- endif -%}
+          {% render 'etl-button', label: section.settings.cta_2_text, url: section.settings.cta_2_url, class: 'btn btn-secondary' %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Call to action box",
+  "settings": [
+    { "type": "text", "id": "title_prefix", "label": "Heading", "default": "Not sure where to" },
+    { "type": "text", "id": "title_italic", "label": "Gold italic words", "default": "start?" },
+    { "type": "textarea", "id": "description", "label": "Description" },
+    { "type": "text", "id": "cta_1_text", "label": "Primary button" },
+    { "type": "text", "id": "cta_1_url", "label": "Primary link" },
+    { "type": "product", "id": "buy_product", "label": "Buy product (primary goes straight to checkout)" },
+    { "type": "text", "id": "cta_2_text", "label": "Secondary button" },
+    { "type": "text", "id": "cta_2_url", "label": "Secondary link" }
+  ],
+  "presets": [{ "name": "Call to action box" }]
+}
+{% endschema %}

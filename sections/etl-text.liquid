@@ -1,0 +1,40 @@
+<section class="section-padding bg-light text-light"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor }}"{% endif %} style="background-color: {% if section.settings.tint %}#f9fafb{% else %}#ffffff{% endif %}; border-bottom: 1px solid #f0f0f5;">
+  <div class="container">
+    <div class="grid grid-cols-1 grid-cols-2" style="gap: 48px; align-items: start;">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}<span class="etl-eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+        <h2 class="etl-heading">{{ section.settings.title_prefix }} <span class="etl-accent">{{ section.settings.title_italic }}</span></h2>
+      </div>
+      <div>
+        <div style="color: #475569; font-size: 1.05rem; line-height: 1.75;" class="etl-rte">{{ section.settings.text }}</div>
+        {%- if section.settings.chips != blank -%}
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px;">
+            {%- assign chips = section.settings.chips | split: '|' -%}
+            {%- for c in chips -%}<span style="padding: 10px 20px; border-radius: var(--border-radius-full); background: #fafafc; border: 1px solid #e2e8f0; font-weight: 700; font-size: 0.9rem; color: #334155;">{{ c | strip }}</span>{%- endfor -%}
+          </div>
+        {%- endif -%}
+        {%- if section.settings.button_label != blank -%}
+          <div style="margin-top: 28px;">{% render 'etl-button', label: section.settings.button_label, url: section.settings.button_url, class: 'btn btn-outline' %}</div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+<style>#shopify-section-{{ section.id }} .etl-rte p { margin: 0 0 1em; } #shopify-section-{{ section.id }} .etl-rte a { color: var(--color-blue); text-decoration: underline; }</style>
+{% schema %}
+{
+  "name": "Heading and text",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor ID" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "title_prefix", "label": "Heading", "default": "Heading" },
+    { "type": "text", "id": "title_italic", "label": "Italic heading words" },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Text</p>" },
+    { "type": "text", "id": "chips", "label": "Labels (separate with |)" },
+    { "type": "text", "id": "button_label", "label": "Button (optional)" },
+    { "type": "text", "id": "button_url", "label": "Button link" },
+    { "type": "checkbox", "id": "tint", "label": "Light grey background", "default": false }
+  ],
+  "presets": [{ "name": "Heading and text" }]
+}
+{% endschema %}

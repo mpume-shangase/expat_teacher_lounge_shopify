@@ -1,82 +1,112 @@
 {%- liquid
   assign main_menu = linklists[section.settings.menu]
-  assign join_url = section.settings.join_url | default: 'https://www.skool.com/expat-teachers-lounge-9615/about'
-  assign join_label = section.settings.join_label | default: 'Join Free'
 -%}
 
-<header class="tm-header" role="banner">
-  <div class="tm-container tm-header__inner">
-    <a href="{{ routes.root_url }}" class="tm-logo" aria-label="Teacher Moves by Expat Teacher's Lounge, home">
+<header class="site-header" role="banner">
+  <div class="container flex items-center justify-between">
+    
+    <!-- Logo or Shop Title -->
+    <a href="{{ routes.root_url }}" class="site-header__logo-link flex items-center animate-fade-in">
       {%- if section.settings.logo != blank -%}
-        <img src="{{ section.settings.logo | image_url: width: 400 }}" alt="" width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}" style="max-width: {{ section.settings.logo_max_width }}px;">
+        <img src="{{ section.settings.logo | image_url: width: 360 }}"
+             alt="{{ shop.name | escape }}"
+             style="max-width: {{ section.settings.logo_max_width }}px; height: auto;"
+             class="object-contain"
+             loading="lazy">
       {%- else -%}
-        {% render 'tm-logo-mark' %}
-        <span class="tm-logo__text">
-          <span class="tm-logo__name">{{ section.settings.brand_name | default: 'Teacher Moves' }}</span>
-          <span class="tm-logo__sub">{{ section.settings.brand_sub | default: "by Expat Teacher's Lounge" }}</span>
-        </span>
+        <img src="{{ 'expat_teachers_lounge_logo.png' | asset_url }}"
+             alt="{{ shop.name | escape }}"
+             style="max-width: {{ section.settings.logo_max_width | default: 180 }}px; height: auto;"
+             class="object-contain"
+             loading="lazy">
       {%- endif -%}
     </a>
 
-    <nav class="tm-nav" aria-label="Main">
+    <!-- Desktop Navigation Menu -->
+    <nav class="site-header__nav" role="navigation">
       {%- if main_menu.links.size > 0 -%}
         {%- for link in main_menu.links -%}
-          <a href="{{ link.url }}" class="tm-nav__link"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a>
+          <a href="{{ link.url }}" class="site-header__link {% if link.active %}site-header__link--active{% endif %}">
+            {{ link.title }}
+          </a>
         {%- endfor -%}
       {%- else -%}
-        <a href="/" class="tm-nav__link"{% if request.path == '/' %} aria-current="page"{% endif %}>Home</a>
-        <a href="/pages/community" class="tm-nav__link"{% if request.path == '/pages/community' %} aria-current="page"{% endif %}>Community</a>
-        <a href="/pages/teach-in-canada" class="tm-nav__link"{% if request.path == '/pages/teach-in-canada' %} aria-current="page"{% endif %}>Teach in Canada</a>
-        <a href="/pages/resources" class="tm-nav__link"{% if request.path == '/pages/resources' %} aria-current="page"{% endif %}>Resources</a>
-        <a href="/pages/services" class="tm-nav__link"{% if request.path == '/pages/services' %} aria-current="page"{% endif %}>Services</a>
-        <a href="/pages/about" class="tm-nav__link"{% if request.path == '/pages/about' %} aria-current="page"{% endif %}>About</a>
+        {%- render 'etl-nav-links', link_class: 'site-header__link', active_class: 'site-header__link--active' -%}
       {%- endif -%}
     </nav>
 
-    <div class="tm-header__actions">
-      {% render 'tm-button', label: join_label, url: join_url, style: 'primary', size: 'sm', extra_class: 'tm-header__join' %}
-      {%- if cart.item_count > 0 -%}
-        <a href="{{ routes.cart_url }}" class="tm-icon-btn" aria-label="Cart, {{ cart.item_count }} item{% if cart.item_count != 1 %}s{% endif %}">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-          <span class="tm-cart-count">{{ cart.item_count }}</span>
-        </a>
+    <!-- Right Side Actions (Cart & Mobile Toggle) -->
+    <div class="site-header__actions">
+      {%- if section.settings.join_label != blank and section.settings.join_url != blank -%}
+        {% render 'etl-button', label: section.settings.join_label, url: section.settings.join_url, class: 'btn btn-primary site-header__join' %}
       {%- endif -%}
-      <button type="button" class="tm-icon-btn tm-menu-toggle" data-tm-menu-toggle aria-controls="tm-drawer" aria-expanded="false" aria-label="Open menu">
-        <svg viewBox="0 0 22 22" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>
+      <!-- Cart Icon Link -->
+      <a href="{{ routes.cart_url }}" class="site-header__cart" aria-label="Cart">
+        <svg class="site-header__cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px; display: block;">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        {%- if cart.item_count > 0 -%}
+          <span class="site-header__cart-count">{{ cart.item_count }}</span>
+        {%- endif -%}
+      </a>
+
+      <!-- Mobile Navigation Trigger -->
+      <button type="button" class="mobile-nav-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </div>
-  </div>
 
-  <div class="tm-drawer" id="tm-drawer">
-    <nav class="tm-drawer__nav" aria-label="Mobile">
-      {%- if main_menu.links.size > 0 -%}
-        {%- for link in main_menu.links -%}
-          <a href="{{ link.url }}" class="tm-drawer__link"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a>
-        {%- endfor -%}
-      {%- else -%}
-        <a href="/" class="tm-drawer__link">Home</a>
-        <a href="/pages/community" class="tm-drawer__link">Community</a>
-        <a href="/pages/teach-in-canada" class="tm-drawer__link">Teach in Canada</a>
-        <a href="/pages/resources" class="tm-drawer__link">Resources</a>
-        <a href="/pages/services" class="tm-drawer__link">Services</a>
-        <a href="/pages/about" class="tm-drawer__link">About</a>
-      {%- endif -%}
-      {% render 'tm-button', label: join_label, url: join_url, style: 'primary', block: true %}
-    </nav>
   </div>
 </header>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-menu-drawer">
+  <nav class="flex flex-col gap-4">
+    {%- if main_menu.links.size > 0 -%}
+      {%- for link in main_menu.links -%}
+        <a href="{{ link.url }}" class="mobile-menu-drawer__link">
+          {{ link.title }}
+        </a>
+      {%- endfor -%}
+    {%- else -%}
+      {%- render 'etl-nav-links', link_class: 'mobile-menu-drawer__link', active_class: '' -%}
+    {%- endif -%}
+    {%- if section.settings.join_label != blank and section.settings.join_url != blank -%}
+      {% render 'etl-button', label: section.settings.join_label, url: section.settings.join_url, class: 'btn btn-primary site-header__join' %}
+    {%- endif -%}
+  </nav>
+</div>
 
 {% schema %}
 {
   "name": "Header",
   "settings": [
-    { "type": "header", "content": "Brand" },
-    { "type": "image_picker", "id": "logo", "label": "Logo image (optional)", "info": "Leave empty to use the Teacher Moves lockup below." },
-    { "type": "range", "id": "logo_max_width", "min": 80, "max": 300, "step": 10, "unit": "px", "label": "Logo image width", "default": 180 },
-    { "type": "text", "id": "brand_name", "label": "Brand name", "default": "Teacher Moves" },
-    { "type": "text", "id": "brand_sub", "label": "Brand subline", "default": "by Expat Teacher's Lounge" },
-    { "type": "header", "content": "Navigation" },
-    { "type": "link_list", "id": "menu", "label": "Menu", "info": "Leave empty to use the default: Home, Community, Teach in Canada, Resources, Services, About." },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image"
+    },
+    {
+      "type": "range",
+      "id": "logo_max_width",
+      "min": 50,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Custom Logo Width",
+      "default": 180
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu",
+      "info": "Leave empty to use: Home, Community, Teach in Canada, Resources, Services, About."
+    },
     { "type": "header", "content": "Join button" },
     { "type": "text", "id": "join_label", "label": "Label", "default": "Join Free" },
     { "type": "text", "id": "join_url", "label": "Link", "default": "https://www.skool.com/expat-teachers-lounge-9615/about" }

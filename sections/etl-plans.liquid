@@ -1,0 +1,49 @@
+<section class="section-padding bg-dark text-dark etl-dark"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor }}"{% endif %} style="background-color: var(--color-bg-dark, #0a0b14); color: #ffffff; position: relative; overflow: hidden;">
+  <div class="glowing-orb glowing-orb-blue absolute" style="opacity: .5;"></div>
+  <div class="container relative z-10">
+    <div style="margin-bottom: 48px; max-width: 720px;">
+      {%- if section.settings.eyebrow != blank -%}<span class="etl-eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h2 class="etl-heading">{{ section.settings.title_prefix }} <span class="etl-accent--gold">{{ section.settings.title_italic }}</span></h2>
+      {%- if section.settings.subtitle != blank -%}<p class="etl-sub">{{ section.settings.subtitle }}</p>{%- endif -%}
+    </div>
+    <div class="grid grid-cols-1 grid-cols-2" style="gap: 24px; max-width: 960px;">
+      <div class="etl-glass" style="display: flex; flex-direction: column; gap: 16px;">
+        <h3 class="font-display" style="font-weight: 700; font-size: 1.5rem; margin: 0;">{{ section.settings.free_title }}</h3>
+        <span class="font-display" style="font-weight: 800; font-size: 2rem; color: #ffffff;">{{ section.settings.free_price }}</span>
+        <div style="flex-grow: 1;">{{ section.settings.free_list | replace: '<ul>', '<ul class="etl-list">' }}</div>
+        <div>{% render 'etl-button', label: section.settings.free_label, url: section.settings.free_url, class: 'btn btn-primary' %}</div>
+      </div>
+      <div class="etl-glass etl-glass--featured" style="display: flex; flex-direction: column; gap: 16px;">
+        <h3 class="font-display" style="font-weight: 700; font-size: 1.5rem; margin: 0;">{{ section.settings.premium_title }}</h3>
+        <span class="font-display" style="font-weight: 800; font-size: 2rem; color: var(--color-brand-gold, #FCCB52);">{{ section.settings.premium_price }}</span>
+        {%- if section.settings.premium_note != blank -%}<span style="color: #cbd5e1; font-size: 0.9rem;">{{ section.settings.premium_note }}</span>{%- endif -%}
+        <div style="flex-grow: 1;">{{ section.settings.premium_list | replace: '<ul>', '<ul class="etl-list">' }}</div>
+        <div>{% render 'etl-button', label: section.settings.premium_label, url: section.settings.premium_url, class: 'btn btn-gold' %}</div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Community plans",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor ID", "default": "community" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Teacher Moves community" },
+    { "type": "text", "id": "title_prefix", "label": "Heading", "default": "You don't have to figure out your next move" },
+    { "type": "text", "id": "title_italic", "label": "Italic heading words", "default": "alone." },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle" },
+    { "type": "text", "id": "free_title", "label": "Free title", "default": "Free" },
+    { "type": "text", "id": "free_price", "label": "Free price", "default": "Free" },
+    { "type": "richtext", "id": "free_list", "label": "Free includes", "default": "<ul><li>The full Teacher Moves community</li></ul>" },
+    { "type": "text", "id": "free_label", "label": "Free button", "default": "Join Free" },
+    { "type": "text", "id": "free_url", "label": "Free link", "default": "https://www.skool.com/expat-teachers-lounge-9615/about" },
+    { "type": "text", "id": "premium_title", "label": "Premium title", "default": "Premium · Founding member" },
+    { "type": "text", "id": "premium_price", "label": "Premium price", "default": "$19/month" },
+    { "type": "text", "id": "premium_note", "label": "Premium note" },
+    { "type": "richtext", "id": "premium_list", "label": "Premium includes", "default": "<ul><li>Weekly live Q&amp;A</li></ul>" },
+    { "type": "text", "id": "premium_label", "label": "Premium button", "default": "Become a Founding Member" },
+    { "type": "text", "id": "premium_url", "label": "Premium link", "default": "https://www.skool.com/expat-teachers-lounge-9615/plans?src=join" }
+  ],
+  "presets": [{ "name": "Community plans" }]
+}
+{% endschema %}

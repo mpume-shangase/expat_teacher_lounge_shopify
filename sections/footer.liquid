@@ -1,91 +1,89 @@
-<footer class="tm-footer" role="contentinfo">
-  <div class="tm-container">
-    <div class="tm-footer__grid">
-      <div class="tm-footer__brand">
-        <a href="{{ routes.root_url }}" class="tm-logo" aria-label="Teacher Moves home">
-          {% render 'tm-logo-mark', tone: 'light' %}
-          <span class="tm-logo__text"><span class="tm-logo__name" style="color:#fff">Teacher Moves</span><span class="tm-logo__sub" style="color:#8C98AE">by Expat Teacher's Lounge</span></span>
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="grid grid-cols-1 grid-cols-4">
+      
+      <!-- Left Column: Branding -->
+      <div style="grid-column: span 2;">
+        <a href="{{ routes.root_url }}" class="inline-block mb-6" style="display: inline-block; margin-bottom: 24px;">
+          {%- if section.settings.logo != blank -%}
+            <img src="{{ section.settings.logo | image_url: width: 280 }}"
+                 alt="{{ shop.name | escape }}"
+                 style="max-width: {{ section.settings.logo_max_width }}px; height: auto;"
+                 loading="lazy">
+          {%- else -%}
+            <span class="font-display font-bold text-lg text-light">{{ shop.name }}</span>
+          {%- endif -%}
         </a>
-        <p style="margin:0;line-height:1.6">{{ section.settings.statement }}</p>
-        {%- assign yt = section.settings.youtube_url -%}
-        {%- assign ig = section.settings.instagram_url -%}
-        {%- assign tt = section.settings.tiktok_url -%}
-        {%- if yt != blank or ig != blank or tt != blank -%}
-          <div class="tm-footer__social">
-            {%- if yt != blank -%}<a href="{{ yt }}" target="_blank" rel="noopener" aria-label="YouTube (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9l5.8 3.1-5.8 3.1z"/></svg></a>{%- endif -%}
-            {%- if ig != blank -%}<a href="{{ ig }}" target="_blank" rel="noopener" aria-label="Instagram (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zm0 4.7a5.1 5.1 0 1 0 0 10.2 5.1 5.1 0 0 0 0-10.2zm0 8.4a3.3 3.3 0 1 1 0-6.6 3.3 3.3 0 0 1 0 6.6zm5.3-9.8a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg></a>{%- endif -%}
-            {%- if tt != blank -%}<a href="{{ tt }}" target="_blank" rel="noopener" aria-label="TikTok (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 3c.4 2.1 1.7 3.6 3.9 3.9v3.2a7.4 7.4 0 0 1-3.9-1.2v6.3c0 3.3-2.4 5.8-5.7 5.8a5.7 5.7 0 0 1-1-11.3v3.3a2.5 2.5 0 1 0 1.8 2.4V3h4.9z"/></svg></a>{%- endif -%}
+        {%- if section.settings.description != blank -%}
+          <p style="color: #64748b; max-width: 380px; font-size: 0.95rem; line-height: 1.6;">
+            {{ section.settings.description }}
+          </p>
+        {%- endif -%}
+        {%- if section.settings.youtube_url != blank or section.settings.instagram_url != blank or section.settings.tiktok_url != blank -%}
+          <div class="site-footer__social">
+            {%- if section.settings.youtube_url != blank -%}<a href="{{ section.settings.youtube_url }}" target="_blank" rel="noopener" aria-label="YouTube (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9l5.8 3.1-5.8 3.1z"/></svg></a>{%- endif -%}
+            {%- if section.settings.instagram_url != blank -%}<a href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener" aria-label="Instagram (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zm0 4.7a5.1 5.1 0 1 0 0 10.2 5.1 5.1 0 0 0 0-10.2zm0 8.4a3.3 3.3 0 1 1 0-6.6 3.3 3.3 0 0 1 0 6.6zm5.3-9.8a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg></a>{%- endif -%}
+            {%- if section.settings.tiktok_url != blank -%}<a href="{{ section.settings.tiktok_url }}" target="_blank" rel="noopener" aria-label="TikTok (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 3c.4 2.1 1.7 3.6 3.9 3.9v3.2a7.4 7.4 0 0 1-3.9-1.2v6.3c0 3.3-2.4 5.8-5.7 5.8a5.7 5.7 0 0 1-1-11.3v3.3a2.5 2.5 0 1 0 1.8 2.4V3h4.9z"/></svg></a>{%- endif -%}
           </div>
         {%- endif -%}
       </div>
 
-      <details class="tm-footer__col" open data-tm-footer-col>
-        <summary class="tm-footer__title">Explore</summary>
-        <ul class="tm-footer__list">
-          <li><a href="/pages/community">Community</a></li>
-          <li><a href="/pages/teach-in-canada">Teach in Canada</a></li>
-          <li><a href="/pages/resources">Resources</a></li>
-          <li><a href="/pages/services">Services</a></li>
-          <li><a href="/pages/about">About</a></li>
+      <!-- Center Column: Navigation -->
+      <div>
+        <h4 class="site-footer__title">{{ section.settings.menu_title_1 | escape }}</h4>
+        <ul class="site-footer__links">
+          {%- if linklists[section.settings.menu_1].links.size > 0 -%}
+            {%- for link in linklists[section.settings.menu_1].links -%}
+              <li>
+                <a href="{{ link.url }}" class="site-footer__link">{{ link.title }}</a>
+              </li>
+            {%- endfor -%}
+          {%- else -%}
+            <li><a href="/pages/community" class="site-footer__link">Community</a></li>
+            <li><a href="/pages/teach-in-canada" class="site-footer__link">Teach in Canada</a></li>
+            <li><a href="/pages/resources" class="site-footer__link">Resources</a></li>
+            <li><a href="/pages/services" class="site-footer__link">Services</a></li>
+            <li><a href="/blogs/news" class="site-footer__link">Blog</a></li>
+            <li><a href="/pages/about" class="site-footer__link">About</a></li>
+            <li><a href="/pages/contact" class="site-footer__link">Contact</a></li>
+          {%- endif -%}
         </ul>
-      </details>
-
-      <details class="tm-footer__col" open data-tm-footer-col>
-        <summary class="tm-footer__title">Services</summary>
-        <ul class="tm-footer__list">
-          <li><a href="/pages/canada-teacher-pathway">Canada Teacher Pathway Assessment</a></li>
-          <li><a href="/products/relocation-strategy-session">Relocation Strategy</a></li>
-          <li><a href="/products/contract-review-session">Contract Review</a></li>
-        </ul>
-      </details>
-
-      <details class="tm-footer__col" open data-tm-footer-col>
-        <summary class="tm-footer__title">Resources</summary>
-        <ul class="tm-footer__list">
-          <li><a href="/pages/resources#international">International Teaching</a></li>
-          <li><a href="/pages/resources#canada">Canada</a></li>
-          <li><a href="/blogs/news">Insights</a></li>
-          <li><a href="/pages/resources#free">Free Resources</a></li>
-        </ul>
-      </details>
-
-      <details class="tm-footer__col" open data-tm-footer-col>
-        <summary class="tm-footer__title">Legal</summary>
-        <ul class="tm-footer__list">
-          <li><a href="/policies/privacy-policy">Privacy Policy</a></li>
-          <li><a href="/pages/terms-and-conditions">Terms</a></li>
-          <li><a href="/policies/refund-policy">Refund Policy</a></li>
-          <li><a href="/pages/disclaimer">Disclaimer</a></li>
-          <li><a href="/pages/contact">Contact</a></li>
-        </ul>
-      </details>
-    </div>
-
-    <div class="tm-footer__news">
-      <div style="display:flex;flex-direction:column;gap:6px;max-width:460px">
-        <h2 class="tm-footer__title" style="margin:0;font-size:1.1rem">Teacher Moves insights, by email</h2>
-        <p style="margin:0;color:#8C98AE;font-size:.92rem">Certification updates, contract tips and new resources. No spam; unsubscribe any time.</p>
       </div>
-      {%- form 'customer', id: 'tm-footer-newsletter', class: 'tm-footer__news-form' -%}
-        <input type="hidden" name="contact[tags]" value="newsletter">
-        {%- if form.posted_successfully? -%}
-          <p class="tm-form-msg tm-form-msg--ok" role="status" style="margin:0">Thanks, you're subscribed.</p>
-        {%- else -%}
-          <label for="tm-footer-email" class="tm-sr">Email address</label>
-          <input id="tm-footer-email" type="email" name="contact[email]" autocomplete="email" placeholder="Your email address" required>
-          <button type="submit" class="tm-btn tm-btn--light">Subscribe</button>
-          {%- if form.errors -%}<p class="tm-form-msg tm-form-msg--err" role="alert" style="margin:0;flex-basis:100%">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>{%- endif -%}
-        {%- endif -%}
-      {%- endform -%}
+
+      <!-- Right Column: Legal Links -->
+      <div>
+        <h4 class="site-footer__title">{{ section.settings.menu_title_2 | escape }}</h4>
+        <ul class="site-footer__links">
+          {%- if linklists[section.settings.menu_2].links.size > 0 -%}
+            {%- for link in linklists[section.settings.menu_2].links -%}
+              <li>
+                <a href="{{ link.url }}" class="site-footer__link">{{ link.title }}</a>
+              </li>
+            {%- endfor -%}
+          {%- else -%}
+            <li><a href="/pages/canada-teacher-pathway" class="site-footer__link">Canada Teacher Pathway Assessment</a></li>
+            <li><a href="/products/relocation-strategy-session" class="site-footer__link">Relocation Strategy</a></li>
+            <li><a href="/products/contract-review-session" class="site-footer__link">Contract Review</a></li>
+            <li><a href="/policies/privacy-policy" class="site-footer__link">Privacy Policy</a></li>
+            <li><a href="/pages/terms-and-conditions" class="site-footer__link">Terms &amp; Conditions</a></li>
+            <li><a href="/policies/refund-policy" class="site-footer__link">Refund Policy</a></li>
+            <li><a href="/pages/disclaimer" class="site-footer__link">Disclaimer</a></li>
+          {%- endif -%}
+        </ul>
+      </div>
+
     </div>
 
-    <div class="tm-footer__bottom">
-      <span>&copy; {{ 'now' | date: '%Y' }} Expat Teacher's Lounge · <a href="mailto:info@expatteacherslounge.com">info@expatteacherslounge.com</a></span>
-      <span><a href="/pages/data-sharing-opt-out">Your privacy choices</a></span>
+    <!-- Bottom Copyright and Affiliate Disclaimer -->
+    <div class="site-footer__bottom">
+      <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+      {%- if section.settings.disclaimer != blank -%}
+        <div class="site-footer__disclaimer text-xs">
+          {{ section.settings.disclaimer }}
+        </div>
+      {%- endif -%}
     </div>
-    {%- if section.settings.disclaimer != blank -%}
-      <p style="margin:16px 0 0;font-size:.8rem;color:#6F7C94;line-height:1.55">{{ section.settings.disclaimer }}</p>
-    {%- endif -%}
+
   </div>
 </footer>
 
@@ -93,12 +91,68 @@
 {
   "name": "Footer",
   "settings": [
-    { "type": "textarea", "id": "statement", "label": "Brand statement", "default": "Helping teachers make confident career moves across borders and beyond." },
-    { "type": "header", "content": "Social links (leave empty to hide)" },
-    { "type": "text", "id": "youtube_url", "label": "YouTube URL", "default": "https://www.youtube.com/@expatteacherslounge" },
+    { "type": "text", "id": "youtube_url", "label": "YouTube URL" },
     { "type": "text", "id": "instagram_url", "label": "Instagram URL" },
     { "type": "text", "id": "tiktok_url", "label": "TikTok URL" },
-    { "type": "textarea", "id": "disclaimer", "label": "Affiliate disclosure" }
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image"
+    },
+    {
+      "type": "range",
+      "id": "logo_max_width",
+      "min": 50,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Custom Logo Width",
+      "default": 140
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Branding Description",
+      "default": "Relocation strategy and contract review for teachers serious about moving internationally. Built by a teacher, for teachers."
+    },
+    {
+      "type": "header",
+      "content": "Navigation Columns"
+    },
+    {
+      "type": "text",
+      "id": "menu_title_1",
+      "label": "Column 1 Title",
+      "default": "Navigation"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_1",
+      "label": "Column 1 Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "text",
+      "id": "menu_title_2",
+      "label": "Column 2 Title",
+      "default": "Legal"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_2",
+      "label": "Column 2 Menu",
+      "default": "footer"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Bar"
+    },
+    {
+      "type": "textarea",
+      "id": "disclaimer",
+      "label": "Affiliate Disclaimer",
+      "default": "Disclaimer: Some links on this website are affiliate links. This means I may earn a small commission at no additional cost to you if you purchase through these links. This helps support the free resources provided."
+    }
   ]
 }
 {% endschema %}

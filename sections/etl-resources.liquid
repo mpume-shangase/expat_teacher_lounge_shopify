@@ -1,0 +1,43 @@
+<section class="section-padding bg-light text-light" style="padding-top: 48px;">
+  <div class="container">
+    <nav class="etl-tabs" aria-label="Resource categories" style="margin-bottom: 56px;">
+      {%- for block in section.blocks -%}<a href="#{{ block.settings.anchor }}">{{ block.settings.title }}</a>{%- endfor -%}
+    </nav>
+    {%- for block in section.blocks -%}
+      {%- assign c = collections[block.settings.collection] -%}
+      <div class="etl-shelf" id="{{ block.settings.anchor }}" {{ block.shopify_attributes }} style="margin-bottom: 80px;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 32px; border-bottom: 1px solid #f0f0f5; padding-bottom: 20px;">
+          <div style="max-width: 680px;">
+            <h2 class="etl-heading" style="font-size: clamp(1.75rem, 3vw, 2.4rem); margin-bottom: 8px;">{{ block.settings.title }}</h2>
+            {%- if block.settings.text != blank -%}<p class="etl-sub" style="font-size: 1rem;">{{ block.settings.text }}</p>{%- endif -%}
+          </div>
+          {% render 'etl-button', label: block.settings.link_label, url: block.settings.link_url, class: 'etl-link' %}
+        </div>
+        {%- if c != blank and c.products_count > 0 -%}
+          <div class="grid grid-cols-1 grid-cols-3" style="gap: 24px;">
+            {%- for p in c.products limit: 9 -%}
+              {%- assign coach = false -%}{%- if p.tags contains 'coaching' -%}{%- assign coach = true -%}{%- endif -%}
+              {% render 'product-card-item', product: p, is_coaching: coach %}
+            {%- endfor -%}
+          </div>
+        {%- elsif block.settings.empty_text != blank -%}
+          <div class="etl-note">{{ block.settings.empty_text }}</div>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Resource library",
+  "blocks": [{ "type": "shelf", "name": "Category", "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "Teach in Canada" },
+    { "type": "text", "id": "anchor", "label": "Anchor ID", "default": "canada" },
+    { "type": "textarea", "id": "text", "label": "Text" },
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "textarea", "id": "empty_text", "label": "Text when the collection is empty" },
+    { "type": "text", "id": "link_label", "label": "Link label" },
+    { "type": "text", "id": "link_url", "label": "Link" } ] }],
+  "presets": [{ "name": "Resource library", "blocks": [{ "type": "shelf" }] }]
+}
+{% endschema %}

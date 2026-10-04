@@ -40,19 +40,16 @@
 
         <div class="hero-button-group">
           {%- if section.settings.cta_1_text != blank -%}
-            <a href="{{ section.settings.cta_1_url | default: '#' }}" class="btn btn-primary">
-              {{ section.settings.cta_1_text }}
-            </a>
+            {% render 'etl-button', label: section.settings.cta_1_text, url: section.settings.cta_1_url, class: 'btn btn-primary' %}
           {%- endif -%}
           {%- if section.settings.cta_2_text != blank -%}
-            <a href="{{ section.settings.cta_2_url | default: '#' }}" class="btn btn-secondary">
-              {{ section.settings.cta_2_text }}
-            </a>
+            {% render 'etl-button', label: section.settings.cta_2_text, url: section.settings.cta_2_url, class: 'btn btn-secondary' %}
           {%- endif -%}
         </div>
 
         {%- if section.settings.trust_text != blank -%}
           <div class="hero-trust-box" style="display: inline-flex; align-items: center; gap: 16px; background-color: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); padding: 12px 20px; border-radius: var(--border-radius-md); backdrop-filter: blur(8px); margin-top: 24px;">
+            {%- if section.settings.show_avatars -%}
             <div class="flex" style="display: flex; margin-right: 4px;">
               <div style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #0a0b14; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: bold; background-color: #1C91D7; color: #ffffff; margin-right: -10px; flex-shrink: 0; z-index: 3; font-family: var(--font-body), sans-serif;">
                 S
@@ -64,10 +61,13 @@
                 M
               </div>
             </div>
+            {%- endif -%}
             <div>
+              {%- if section.settings.show_stars -%}
               <div class="hero-stars" style="color: var(--color-gold); font-size: 1rem; margin-bottom: 2px;">
                 ★★★★★
               </div>
+              {%- endif -%}
               <div style="font-size: 0.85rem; color: #d1d5db; font-weight: 500;">
                 {{ section.settings.trust_text }}
               </div>
@@ -179,7 +179,9 @@
       "type": "image_picker",
       "id": "hero_image",
       "label": "Hero Image"
-    }
+    },
+    { "type": "checkbox", "id": "show_avatars", "label": "Show avatar circles in trust box", "default": true },
+    { "type": "checkbox", "id": "show_stars", "label": "Show star rating in trust box", "info": "Only use with verified reviews.", "default": true }
   ],
   "presets": [
     {

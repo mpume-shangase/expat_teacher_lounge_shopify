@@ -1,0 +1,38 @@
+<section class="section-padding bg-light text-light"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor }}"{% endif %} style="position: relative; border-bottom: 1px solid #f0f0f5; background-color: {% if section.settings.tint %}#f9fafb{% else %}#ffffff{% endif %};">
+  <div class="container">
+    <div style="margin-bottom: 56px;">
+      <h2 class="etl-heading">{{ section.settings.title_prefix }}{% if section.settings.title_italic != blank %} <br><span class="etl-accent">{{ section.settings.title_italic }}</span>{% endif %}</h2>
+      {%- if section.settings.subtitle != blank -%}<p class="etl-sub">{{ section.settings.subtitle }}</p>{%- endif -%}
+    </div>
+    <ol class="grid grid-cols-1 grid-cols-{% if section.blocks.size == 4 %}4{% else %}3{% endif %}" style="gap: 40px; list-style: none; margin: 0; padding: 0;">
+      {%- for block in section.blocks -%}
+        <li class="etl-step" {{ block.shopify_attributes }}>
+          <div class="etl-step__num" aria-hidden="true">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</div>
+          <h3 class="etl-step__title">{{ block.settings.title }}</h3>
+          {%- if block.settings.description != blank -%}<p class="etl-step__text">{{ block.settings.description }}</p>{%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ol>
+    {%- if section.settings.button_label != blank -%}
+      <div style="margin-top: 48px;">{% render 'etl-button', label: section.settings.button_label, url: section.settings.button_url, class: 'btn btn-outline' %}</div>
+    {%- endif -%}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Steps",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor ID" },
+    { "type": "text", "id": "title_prefix", "label": "Heading", "default": "How it" },
+    { "type": "text", "id": "title_italic", "label": "Italic heading words", "default": "works." },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle" },
+    { "type": "checkbox", "id": "tint", "label": "Light grey background", "default": false },
+    { "type": "text", "id": "button_label", "label": "Button (optional)" },
+    { "type": "text", "id": "button_url", "label": "Button link" }
+  ],
+  "blocks": [{ "type": "step", "name": "Step", "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "Step" },
+    { "type": "textarea", "id": "description", "label": "Description" } ] }],
+  "presets": [{ "name": "Steps", "blocks": [{ "type": "step" }, { "type": "step" }, { "type": "step" }] }]
+}
+{% endschema %}

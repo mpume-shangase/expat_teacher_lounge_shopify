@@ -20,7 +20,7 @@
       </div>
       
       {%- if collection != blank -%}
-        <a href="{{ collection.url }}" class="font-bold text-sm tracking-wider" style="color: var(--color-blue); text-transform: uppercase; display: flex; align-items: center; gap: 8px;">
+        <a href="{{ section.settings.view_all_url | default: collection.url }}" class="font-bold text-sm tracking-wider" style="color: var(--color-blue); text-transform: uppercase; display: flex; align-items: center; gap: 8px;">
           {{ section.settings.view_all_text | escape }} &rarr;
         </a>
       {%- endif -%}
@@ -127,7 +127,8 @@
       "id": "view_all_text",
       "label": "View All Link Text",
       "default": "VIEW ALL PRODUCTS"
-    }
+    },
+    { "type": "text", "id": "view_all_url", "label": "View-all link (optional)" }
   ],
   "presets": [
     {

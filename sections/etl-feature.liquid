@@ -1,0 +1,67 @@
+<section class="section-padding bg-dark text-dark etl-dark"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor }}"{% endif %} style="background-color: var(--color-bg-dark, #0a0b14); color: #ffffff; position: relative; overflow: hidden;">
+  <div class="absolute" style="top: 0; left: 0; width: 50%; height: 100%; background: rgba(28, 145, 215, 0.08); filter: blur(100px); border-radius: 50%; transform: translate(-25%, -40%); pointer-events: none;"></div>
+  <div class="container relative z-10">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 48px;{% if section.settings.image_first %} flex-direction: row-reverse;{% endif %}">
+      <div style="flex: 1 1 480px;">
+        {%- if section.settings.eyebrow != blank -%}<span class="etl-eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+        <h2 class="etl-heading" style="color: #ffffff;">{{ section.settings.title_prefix }} <span class="etl-accent">{{ section.settings.title_italic }}</span></h2>
+        {%- if section.settings.description != blank -%}<p class="etl-sub" style="margin-bottom: 28px;">{{ section.settings.description }}</p>{%- endif -%}
+        {%- if section.settings.offer_name != blank -%}
+          <div class="etl-glass" style="margin-bottom: 28px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 14px;">
+              <h3 class="font-display" style="font-weight: 700; font-size: 1.3rem; margin: 0;">{{ section.settings.offer_name }}</h3>
+              {%- if section.settings.price != blank -%}<span class="font-display" style="font-weight: 800; font-size: 1.4rem; color: var(--color-brand-gold, #FCCB52); white-space: nowrap;">{{ section.settings.price }}</span>{%- endif -%}
+            </div>
+            <div class="etl-list-wrap">{{ section.settings.list | replace: '<ul>', '<ul class="etl-list">' }}</div>
+          </div>
+        {%- endif -%}
+        <div class="etl-btn-row etl-btn-row--left" style="gap: 24px;">
+          {%- if section.settings.buy_product != blank -%}
+            {% render 'etl-buy-form', product: section.settings.buy_product, label: section.settings.cta_text, class: 'btn btn-primary', form_id: 'etl-feature-buy' %}
+          {%- else -%}
+            {% render 'etl-button', label: section.settings.cta_text, url: section.settings.cta_url, class: 'btn btn-primary' %}
+          {%- endif -%}
+          {% render 'etl-button', label: section.settings.link_text, url: section.settings.link_url, class: 'etl-link' %}
+        </div>
+        {%- if section.settings.note != blank -%}<p style="color: #94a3b8; font-size: 0.85rem; margin-top: 20px; line-height: 1.5;">{{ section.settings.note }}</p>{%- endif -%}
+      </div>
+      <div class="etl-image coaching-image-wrapper" style="flex: 1 1 400px;">
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', alt: section.settings.image_alt, class: 'grayscale-hover-img' }}
+        {%- else -%}
+          <img src="{{ section.settings.image_asset | default: 'Edwina_Teaching.png' | asset_img_url: '1000x' }}" alt="{{ section.settings.image_alt | escape }}" loading="lazy" class="grayscale-hover-img">
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  #shopify-section-{{ section.id }} .grayscale-hover-img { filter: grayscale(100%); transition: all 1s ease-in-out; }
+  #shopify-section-{{ section.id }} .coaching-image-wrapper:hover .grayscale-hover-img { filter: grayscale(0%); }
+</style>
+{% schema %}
+{
+  "name": "Dark feature with image",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor ID" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "title_prefix", "label": "Heading", "default": "Thinking about teaching in" },
+    { "type": "text", "id": "title_italic", "label": "Italic heading words", "default": "Canada?" },
+    { "type": "textarea", "id": "description", "label": "Description" },
+    { "type": "text", "id": "offer_name", "label": "Offer name" },
+    { "type": "text", "id": "price", "label": "Price" },
+    { "type": "richtext", "id": "list", "label": "What's included (bullet list)" },
+    { "type": "text", "id": "cta_text", "label": "Button label" },
+    { "type": "text", "id": "cta_url", "label": "Button link" },
+    { "type": "product", "id": "buy_product", "label": "Buy product (button goes straight to checkout)" },
+    { "type": "text", "id": "link_text", "label": "Text link label" },
+    { "type": "text", "id": "link_url", "label": "Text link" },
+    { "type": "text", "id": "note", "label": "Small note" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_asset", "label": "Theme image used when no image is picked", "default": "Edwina_Teaching.png" },
+    { "type": "text", "id": "image_alt", "label": "Image description" },
+    { "type": "checkbox", "id": "image_first", "label": "Image on the left", "default": false }
+  ],
+  "presets": [{ "name": "Dark feature with image" }]
+}
+{% endschema %}

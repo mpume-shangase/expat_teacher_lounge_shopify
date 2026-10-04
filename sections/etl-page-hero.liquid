@@ -1,0 +1,48 @@
+<section class="etl-page-hero"{% if section.settings.sticky_trigger %} data-etl-sticky-trigger{% endif %}>
+  <div class="etl-page-hero__bg">
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 1600 | image_tag: loading: 'eager', alt: '' }}
+    {%- else -%}
+      <img src="{{ section.settings.image_asset | default: 'Edwina_delivering_a_presentation.png' | asset_img_url: '1600x' }}" alt="" loading="eager">
+    {%- endif -%}
+  </div>
+  <div class="etl-page-hero__dark"></div>
+  <div class="etl-page-hero__fade"></div>
+  <div class="etl-page-hero__content">
+    {%- if section.settings.badge != blank -%}<div class="hero-pill" style="margin: 0 auto 24px;">{{ section.settings.badge }}</div>{%- endif -%}
+    <h1 class="etl-page-hero__title">{{ section.settings.title_prefix }} <span>{{ section.settings.title_italic }}</span></h1>
+    {%- if section.settings.description != blank -%}<p class="etl-page-hero__desc">{{ section.settings.description }}</p>{%- endif -%}
+    {%- if section.settings.price != blank -%}<p class="etl-page-hero__price">{{ section.settings.price }}</p>{%- endif -%}
+    <div class="etl-btn-row">
+      {%- if section.settings.buy_product != blank -%}
+        {% render 'etl-buy-form', product: section.settings.buy_product, label: section.settings.cta_1_text, class: 'btn btn-primary', form_id: 'etl-hero-buy' %}
+      {%- else -%}
+        {% render 'etl-button', label: section.settings.cta_1_text, url: section.settings.cta_1_url, class: 'btn btn-primary' %}
+      {%- endif -%}
+      {% render 'etl-button', label: section.settings.cta_2_text, url: section.settings.cta_2_url, class: 'btn btn-secondary' %}
+    </div>
+    {%- if section.settings.note != blank -%}<p class="etl-page-hero__note">{{ section.settings.note }}</p>{%- endif -%}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Page hero (dark)",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Background image" },
+    { "type": "text", "id": "image_asset", "label": "Theme image used when no image is picked", "default": "Edwina_delivering_a_presentation.png" },
+    { "type": "text", "id": "badge", "label": "Badge pill" },
+    { "type": "text", "id": "title_prefix", "label": "Heading", "default": "Heading" },
+    { "type": "text", "id": "title_italic", "label": "Gold italic words" },
+    { "type": "textarea", "id": "description", "label": "Description" },
+    { "type": "text", "id": "price", "label": "Price line" },
+    { "type": "text", "id": "cta_1_text", "label": "Primary button" },
+    { "type": "text", "id": "cta_1_url", "label": "Primary link" },
+    { "type": "product", "id": "buy_product", "label": "Buy product (primary goes straight to checkout)" },
+    { "type": "text", "id": "cta_2_text", "label": "Secondary button" },
+    { "type": "text", "id": "cta_2_url", "label": "Secondary link" },
+    { "type": "text", "id": "note", "label": "Small note" },
+    { "type": "checkbox", "id": "sticky_trigger", "label": "Show the mobile sticky button after this hero", "default": false }
+  ],
+  "presets": [{ "name": "Page hero (dark)" }]
+}
+{% endschema %}

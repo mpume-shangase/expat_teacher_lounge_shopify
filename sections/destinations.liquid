@@ -23,6 +23,9 @@
             <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin: 0;">
               {{ block.settings.description | escape }}
             </p>
+            {%- if block.settings.link_label != blank and block.settings.link_url != blank -%}
+              <a href="{{ block.settings.link_url }}" class="etl-link" style="display: inline-block; margin-top: 14px;">{{ block.settings.link_label }} &rarr;</a>
+            {%- endif -%}
           </div>
 
         </div>
@@ -75,6 +78,16 @@
           "id": "title",
           "label": "Destination Title",
           "default": "Qatar"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label (optional)"
+        },
+        {
+          "type": "text",
+          "id": "link_url",
+          "label": "Link"
         },
         {
           "type": "textarea",
