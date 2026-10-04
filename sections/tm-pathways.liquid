@@ -13,6 +13,17 @@
         <div class="tm-card{% if block.settings.featured %} tm-card--featured{% endif %} tm-reveal" {{ block.shopify_attributes }}>
           {%- if block.settings.image != blank -%}
             <div class="tm-card__media">{{ block.settings.image | image_url: width: 700 | image_tag: loading: 'lazy', widths: '350, 700', sizes: '(min-width: 990px) 280px, 100vw', alt: block.settings.image.alt }}</div>
+          {%- elsif block.settings.icon != 'none' -%}
+            <span class="tm-icon-tile" aria-hidden="true">
+              {%- case block.settings.icon -%}
+                {%- when 'canada' -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.6 3.2 2.2-1-.6 4 2.6-1.4.6 1.8 2.6-.4-1 3 1 1.2-4.6 3.4.5 2.2-4.6-.6V22h-1.4v-3.6l-4.6.6.5-2.2L2.6 13.4l1-1.2-1-3 2.6.4.6-1.8 2.6 1.4-.6-4 2.2 1z"/></svg>
+                {%- when 'move' -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
+                {%- when 'contract' -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
+                {%- when 'community' -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M15.5 14.2c3 .2 5.5 2.6 5.5 5.8"/></svg>
+                {%- when 'books' -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M8 7h6"/></svg>
+                {%- when 'compass' -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>
+              {%- endcase -%}
+            </span>
           {%- elsif block.settings.visual != 'none' -%}
             <div style="min-height:150px">{% render 'tm-mockup', type: block.settings.visual, compact: true %}</div>
           {%- endif -%}
@@ -47,7 +58,10 @@
     { "type": "text", "id": "button_url", "label": "Button link" },
     { "type": "checkbox", "id": "featured", "label": "Featured (navy border, primary button)", "default": false },
     { "type": "image_picker", "id": "image", "label": "Image (optional)" },
-    { "type": "select", "id": "visual", "label": "Mockup (if no image)", "default": "none", "options": [
+    { "type": "select", "id": "icon", "label": "Icon", "default": "none", "options": [
+      { "value": "none", "label": "None" }, { "value": "canada", "label": "Canada" }, { "value": "move", "label": "Globe" }, { "value": "contract", "label": "Contract" },
+      { "value": "community", "label": "Community" }, { "value": "books", "label": "Resources" }, { "value": "compass", "label": "Compass" } ] },
+    { "type": "select", "id": "visual", "label": "Mockup (if no image or icon)", "default": "none", "options": [
       { "value": "none", "label": "None" }, { "value": "readiness", "label": "Readiness" }, { "value": "roadmap", "label": "90-day roadmap" },
       { "value": "checklist", "label": "Document checklist" }, { "value": "profile", "label": "Profile" } ] } ] }],
   "presets": [{ "name": "TM pathway cards", "blocks": [{ "type": "card" }, { "type": "card" }] }]
