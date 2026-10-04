@@ -11,29 +11,23 @@
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
 
-    {%- liquid
-      assign tm_title = page_title
-      assign tm_desc = page_description
-      if template.name == 'index'
-        assign tm_title = "Teacher Moves | International Teacher Careers, Canada Certification and Relocation"
-        if tm_desc == blank
-          assign tm_desc = "Teacher Moves by Expat Teacher's Lounge helps internationally trained teachers plan certification, relocation and contract decisions, starting with Canada."
-        endif
-      endif
-    -%}
     <title>
-      {{ tm_title }}
+      {{ page_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
       {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless tm_title contains 'Teacher Moves' or tm_title contains shop.name %} &ndash; Teacher Moves{% endunless -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
 
-    {% if tm_desc != blank %}
-      <meta name="description" content="{{ tm_desc | escape }}">
+    {%- assign etl_desc = page_description -%}
+    {%- if template.name == 'index' and etl_desc == blank -%}
+      {%- assign etl_desc = "Expat Teacher's Lounge and the Teacher Moves community help internationally trained teachers plan certification, relocation and contract decisions, starting with Canada." -%}
+    {%- endif -%}
+    {% if etl_desc != blank %}
+      <meta name="description" content="{{ etl_desc | escape }}">
     {% endif %}
-
     {%- if template.suffix == 'canada-pathway-intake' -%}<meta name="robots" content="noindex, nofollow">{%- endif -%}
-    {% render 'meta-tags', tm_title: tm_title, tm_desc: tm_desc %}
+
+    {% render 'meta-tags' %}
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,17 +50,17 @@
     </style>
 
     {{ 'theme.css' | asset_url | stylesheet_tag }}
-    {{ 'tm.css' | asset_url | stylesheet_tag }}
+    {{ 'etl-additions.css' | asset_url | stylesheet_tag }}
 
     {{ content_for_header }}
   </head>
 
   {%- assign has_dark_hero = false -%}
-  {%- if template.name == 'index' or template.name == 'collection' or template.name == 'blog' or template.suffix == 'about' or template.suffix == 'coaching' -%}
+  {%- if template.name == 'index' or template.name == 'collection' or template.name == 'blog' or template.suffix == 'about' or template.suffix == 'coaching' or template.suffix == 'canada-teacher-pathway' or template.suffix == 'teach-in-canada' or template.suffix == 'community' or template.suffix == 'services' or template.suffix == 'resources' -%}
     {%- assign has_dark_hero = true -%}
   {%- endif -%}
 
-  <body class="tm-shell font-body antialiased bg-light text-light transition-colors duration-300 template-{{ template.name | handle }}{% if template.suffix %} template-{{ template.name | handle }}-{{ template.suffix | handle }}{% endif %}{% if has_dark_hero %} has-dark-hero{% endif %}">
+  <body class="font-body antialiased bg-light text-light transition-colors duration-300 template-{{ template.name | handle }}{% if template.suffix %} template-{{ template.name | handle }}-{{ template.suffix | handle }}{% endif %}{% if has_dark_hero %} has-dark-hero{% endif %}">
     <a class="skip-to-content-link button sr-only" href="#MainContent">
       Skip to content
     </a>
@@ -85,6 +79,5 @@
     </ul>
 
     <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'tm.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>
