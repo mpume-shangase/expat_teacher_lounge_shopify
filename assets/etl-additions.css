@@ -1,0 +1,157 @@
+/* ==========================================================================
+   Teacher Moves additions, built on the original Expat Teacher's Lounge theme.
+   Only adds what the new sections need; the original look is unchanged.
+   ========================================================================== */
+
+/* Header: Join Free button (matches .btn-primary) */
+body .site-header .site-header__actions a.site-header__join.btn,
+body .mobile-menu-drawer a.site-header__join.btn {
+  padding: 10px 22px !important;
+  font-size: 0.9rem !important;
+  color: #ffffff !important;
+  white-space: nowrap;
+  margin-right: 8px;
+}
+body .site-header .site-header__actions a.site-header__join.btn:hover { color: #ffffff !important; transform: translateY(-1px); }
+.mobile-menu-drawer .site-header__join { margin-top: 16px; display: inline-flex; }
+@media (max-width: 991px) {
+  .site-header__actions .site-header__join { display: none; }
+}
+
+/* Outline button for light sections (dark-text version of .btn-secondary) */
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-deep, #143D8A);
+  border: 1.5px solid rgba(20, 61, 138, 0.35);
+}
+.btn-outline:hover { border-color: var(--color-blue, #1C91D7); color: var(--color-blue, #1C91D7); }
+.btn-sm { padding: 11px 22px; font-size: 0.9rem; }
+.btn:focus-visible, .etl-link:focus-visible { outline: 3px solid var(--color-gold, #FCCB52); outline-offset: 3px; }
+.btn-ext { width: 14px; height: 14px; margin-left: 8px; flex-shrink: 0; }
+
+.etl-link { color: var(--color-blue, #1C91D7); font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+.etl-link:hover { color: var(--color-deep, #143D8A); }
+.etl-dark .etl-link { color: var(--color-gold, #FCCB52); }
+
+/* Section heading pattern used across the original theme */
+.etl-heading {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  margin: 0 0 20px;
+}
+.etl-heading .etl-accent { color: var(--color-blue, #1C91D7); font-style: italic; }
+.etl-heading .etl-accent--gold { color: var(--color-brand-gold, #FCCB52); font-style: italic; }
+.etl-sub { color: #64748b; font-size: 1.125rem; max-width: 650px; line-height: 1.6; margin: 0; }
+.etl-dark .etl-sub { color: #94a3b8; }
+.etl-eyebrow { display: inline-block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-blue, #1C91D7); margin-bottom: 14px; }
+.etl-dark .etl-eyebrow { color: var(--color-brand-gold, #FCCB52); }
+
+/* Cards (destination-card language) */
+.etl-card {
+  position: relative; background: #ffffff; border: 1px solid #e5e7eb; padding: 32px;
+  border-radius: var(--border-radius-md, 12px); transition: var(--transition-smooth); overflow: hidden;
+  height: 100%; display: flex; flex-direction: column; gap: 14px; box-sizing: border-box;
+}
+.etl-card:hover { box-shadow: var(--shadow-lg); border-color: rgba(28, 145, 215, 0.2); transform: translateY(-4px); }
+.etl-card__accent { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background-color: var(--color-blue, #1C91D7); transition: var(--transition-smooth); }
+.etl-card:hover .etl-card__accent { width: 6px; }
+.etl-card--featured { border: 2px solid var(--color-blue, #1C91D7); box-shadow: 0 12px 30px rgba(28, 145, 215, 0.12); }
+.etl-card__kicker { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-blue, #1C91D7); }
+.etl-card__title { font-family: var(--font-display), Georgia, serif; font-weight: 700; font-size: 1.5rem; line-height: 1.25; margin: 0; color: var(--text-light, #0a0a14); }
+.etl-card__price { font-family: var(--font-display), Georgia, serif; font-weight: 800; font-size: 1.5rem; color: var(--color-deep, #143D8A); }
+.etl-card__text { color: #475569; font-size: 0.95rem; line-height: 1.6; margin: 0; flex-grow: 1; }
+.etl-card__text p { margin: 0 0 0.75em; }
+.etl-card .btn { align-self: flex-start; }
+.etl-card__icon { width: 52px; height: 52px; border-radius: 50%; background: rgba(28, 145, 215, 0.08); color: var(--color-blue, #1C91D7); display: flex; align-items: center; justify-content: center; }
+.etl-card__icon svg { width: 26px; height: 26px; }
+
+/* Dark glass cards (coaching-preview language) */
+.etl-glass { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--border-radius-md, 12px); padding: 28px; backdrop-filter: blur(10px); }
+.etl-glass--featured { border-color: rgba(252, 203, 82, 0.45); background: rgba(252, 203, 82, 0.06); }
+.etl-dark h2, .etl-dark h3 { color: #ffffff !important; }
+.etl-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.etl-list li { position: relative; padding-left: 28px; line-height: 1.55; }
+.etl-list li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 14px; height: 8px; border-left: 2px solid var(--color-blue, #1C91D7); border-bottom: 2px solid var(--color-blue, #1C91D7); transform: rotate(-45deg) translateY(-3px); }
+.etl-dark .etl-list li { color: #cbd5e1; }
+.etl-dark .etl-list li::before { border-color: var(--color-brand-gold, #FCCB52); }
+
+/* Steps with anchor support (how-it-works language) */
+.etl-step { border-top: 2px solid var(--color-blue, #1C91D7); padding-top: 28px; height: 100%; }
+.etl-step__num { font-family: var(--font-display), Georgia, serif; font-weight: 900; font-size: 4rem; color: rgba(252, 203, 82, 0.35); line-height: 1; margin-bottom: 12px; }
+.etl-step__title { font-family: var(--font-display), Georgia, serif; font-weight: 700; font-size: 1.35rem; margin: 0 0 10px; }
+.etl-step__text { color: #475569; font-size: 0.95rem; line-height: 1.6; margin: 0; }
+
+/* FAQ (coaching FAQ language) */
+.etl-faq { max-width: 820px; margin: 0 auto; }
+.etl-faq details { border-bottom: 1px solid #e5e7eb; }
+.etl-faq summary { list-style: none; cursor: pointer; padding: 24px 40px 24px 0; position: relative; font-family: var(--font-display), Georgia, serif; font-weight: 700; font-size: 1.2rem; color: var(--text-light, #0a0a14); }
+.etl-faq summary::-webkit-details-marker { display: none; }
+.etl-faq summary::after { content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%); font-family: var(--font-body), sans-serif; font-size: 1.6rem; color: var(--color-blue, #1C91D7); }
+.etl-faq details[open] summary::after { content: "\2013"; }
+.etl-faq summary:focus-visible { outline: 3px solid var(--color-gold, #FCCB52); outline-offset: 2px; }
+.etl-faq__answer { padding: 0 0 24px; color: #475569; line-height: 1.7; }
+.etl-faq__answer p { margin: 0 0 0.8em; }
+
+/* Inner-page dark hero (coaching hero language) */
+.etl-page-hero { position: relative; min-height: 560px; display: flex; align-items: center; justify-content: center; background-color: #0a0b14; text-align: center; overflow: hidden; padding: 140px 0 100px; }
+.etl-page-hero__bg { position: absolute; inset: 0; z-index: 1; }
+.etl-page-hero__bg img { width: 100%; height: 100%; object-fit: cover; object-position: top; opacity: 0.25; }
+.etl-page-hero__dark { position: absolute; inset: 0; background-color: rgba(10, 11, 20, 0.75); z-index: 2; }
+.etl-page-hero__fade { position: absolute; inset: 0; background: linear-gradient(to top, var(--bg-light, #ffffff) 0%, rgba(10, 11, 20, 0) 45%); z-index: 3; }
+.etl-page-hero__content { position: relative; z-index: 10; color: #ffffff; padding: 0 24px; max-width: 860px; }
+.etl-page-hero__title { font-family: var(--font-display), serif; font-weight: 900; font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.1; margin: 0 0 24px; color: #ffffff !important; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4); }
+.etl-page-hero__title span { color: var(--color-brand-gold, #FCCB52); font-style: italic; }
+.etl-page-hero__desc { font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: rgba(255, 255, 255, 0.85) !important; max-width: 650px; margin: 0 auto 36px; line-height: 1.55; }
+.etl-page-hero__price { font-family: var(--font-display), serif; font-weight: 800; font-size: 1.6rem; color: var(--color-brand-gold, #FCCB52); margin: -12px 0 28px; }
+.etl-page-hero__note { margin-top: 20px; font-size: 0.9rem; color: rgba(255, 255, 255, 0.7); }
+.etl-btn-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; align-items: center; }
+.etl-btn-row--left { justify-content: flex-start; }
+@media (max-width: 749px) {
+  .etl-page-hero { min-height: 480px; padding: 120px 0 80px; }
+  .etl-btn-row .btn { width: 100%; }
+}
+
+/* Image column (coaching-preview language) */
+.etl-image { position: relative; border-radius: var(--border-radius-lg, 24px); overflow: hidden; box-shadow: var(--shadow-xl); min-height: 460px; }
+.etl-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+@media (max-width: 749px) { .etl-image { min-height: 340px; } }
+
+/* Forms (email-capture language) */
+.etl-form { display: flex; flex-direction: column; gap: 18px; text-align: left; }
+.etl-form fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+.etl-form legend { font-family: var(--font-display), serif; font-weight: 800; font-size: 1.4rem; margin-bottom: 8px; }
+.etl-form__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 749px) { .etl-form__grid { grid-template-columns: minmax(0, 1fr); } }
+.etl-field { display: flex; flex-direction: column; gap: 6px; }
+.etl-field label { font-weight: 600; font-size: 0.95rem; }
+.etl-field input, .etl-field select, .etl-field textarea { font: inherit; font-size: 1rem; padding: 14px 20px; border: 1px solid #cbd5e1; border-radius: var(--border-radius-md, 12px); background: #ffffff; color: var(--text-light, #0a0a14); width: 100%; box-sizing: border-box; }
+.etl-field textarea { min-height: 120px; resize: vertical; }
+.etl-field input:focus, .etl-field select:focus, .etl-field textarea:focus { outline: 3px solid rgba(28, 145, 215, 0.35); border-color: var(--color-blue, #1C91D7); }
+.etl-note { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: var(--border-radius-md, 12px); padding: 20px 24px; color: #475569; line-height: 1.65; }
+.etl-note--gold { background: rgba(252, 203, 82, 0.12); border-color: rgba(252, 203, 82, 0.5); color: #3f3a2a; }
+.etl-msg-ok { background: #ecfdf5; color: #065f46; border-radius: 12px; padding: 16px 20px; font-weight: 600; }
+.etl-msg-err { background: #fef2f2; color: #991b1b; border-radius: 12px; padding: 16px 20px; font-weight: 600; }
+
+/* Resources: category tabs */
+.etl-tabs { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.etl-tabs a { padding: 10px 22px; border-radius: var(--border-radius-full, 9999px); font-weight: 700; font-size: 0.9rem; background-color: #fafafc; border: 1px solid #e2e8f0; color: #475569; transition: var(--transition-smooth); }
+.etl-tabs a:hover { border-color: var(--color-blue, #1C91D7); color: var(--color-blue, #1C91D7); }
+.etl-shelf { scroll-margin-top: 110px; }
+
+/* Footer social icons */
+.site-footer__social { display: flex; gap: 10px; margin-top: 20px; }
+.site-footer__social a { width: 40px; height: 40px; border-radius: 50%; border: 1px solid #e2e8f0; display: inline-flex; align-items: center; justify-content: center; color: #475569; transition: var(--transition-smooth); }
+.site-footer__social a:hover { color: var(--color-blue, #1C91D7); border-color: var(--color-blue, #1C91D7); }
+.site-footer__social svg { width: 18px; height: 18px; fill: currentColor; }
+
+/* Mobile sticky buy bar (Canada page only) */
+.etl-sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 90; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(10, 11, 20, 0.92); backdrop-filter: blur(12px); transform: translateY(110%); transition: transform .3s ease; }
+.etl-sticky.is-visible { transform: none; }
+.etl-sticky .btn { width: 100%; }
+@media (min-width: 750px) { .etl-sticky { display: none; } }
+
+[id] { scroll-margin-top: 100px; }
+.etl-sr { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.etl-buy-form { display: contents; }
