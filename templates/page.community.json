@@ -1,27 +1,27 @@
 {
   "sections": {
     "hero": {
-      "type": "tm-hero",
+      "type": "etl-page-hero",
       "settings": {
-        "eyebrow": "Teacher Moves community",
-        "heading": "Your next move is easier with the right people around you.",
-        "text": "The Teacher Moves community on Skool supports teachers navigating international careers, certification, relocation, professional growth and career transitions.",
-        "primary_label": "Join Free",
-        "primary_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
-        "secondary_label": "Become a Founding Member",
-        "secondary_url": "https://www.skool.com/expat-teachers-lounge-9615/plans?src=join",
-        "visual": "none",
-        "pad_top": 72
+        "image_asset": "Edwina_reading_a_book.png",
+        "badge": "Teacher Moves community",
+        "title_prefix": "Your next move is easier with the right people",
+        "title_italic": "around you.",
+        "description": "The Teacher Moves community on Skool supports teachers navigating international careers, certification, relocation, professional growth and career transitions.",
+        "cta_1_text": "Join Free",
+        "cta_1_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
+        "cta_2_text": "Become a Founding Member",
+        "cta_2_url": "https://www.skool.com/expat-teachers-lounge-9615/plans?src=join"
       }
     },
     "plans": {
-      "type": "tm-community",
+      "type": "etl-plans",
       "settings": {
         "anchor": "plans",
-        "style": "mist",
-        "eyebrow": "",
-        "heading": "Choose how you join",
-        "text": "Start free. Upgrade when you want weekly support.",
+        "eyebrow": "Membership",
+        "title_prefix": "Choose how you",
+        "title_italic": "join.",
+        "subtitle": "Start free. Upgrade when you want weekly support.",
         "free_list": "<ul><li>The full Teacher Moves community</li><li>3 hand-picked job postings a week</li><li>Every guide we publish</li><li>Monthly live Q&amp;A</li></ul>",
         "free_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
         "premium_list": "<ul><li>Weekly live Q&amp;A and a monthly workshop</li><li>Every session recorded</li><li>Canada Track</li><li>CV &amp; Interview Studio</li><li>The full Job Board</li></ul>",
@@ -30,70 +30,72 @@
       }
     },
     "steps": {
-      "type": "tm-steps",
+      "type": "etl-steps",
       "settings": {
-        "heading": "What happens when you join",
-        "style": "white"
+        "title_prefix": "What happens when",
+        "title_italic": "you join.",
+        "tint": false
       },
       "blocks": {
-        "s_1": {
+        "s1": {
           "type": "step",
           "settings": {
             "title": "Join free on Skool",
-            "text": "It takes a minute."
+            "description": "It takes a minute."
           }
         },
-        "s_2": {
+        "s2": {
           "type": "step",
           "settings": {
             "title": "Introduce yourself",
-            "text": "Post in Start Here. Mpume replies to every introduction."
+            "description": "Post in Start Here. Mpume replies to every introduction."
           }
         },
-        "s_3": {
+        "s3": {
           "type": "step",
           "settings": {
             "title": "Come to the live Q&A",
-            "text": "Monthly for everyone, weekly for Premium members."
+            "description": "Monthly for everyone, weekly for Premium members."
           }
         },
-        "s_4": {
+        "s4": {
           "type": "step",
           "settings": {
             "title": "Upgrade when you're ready",
-            "text": "Founding pricing while the first 50 places last."
+            "description": "Founding pricing while the first 50 places last."
           }
         }
       },
       "block_order": [
-        "s_1",
-        "s_2",
-        "s_3",
-        "s_4"
+        "s1",
+        "s2",
+        "s3",
+        "s4"
       ]
     },
     "faq": {
-      "type": "tm-faq",
+      "type": "etl-faq",
       "settings": {
-        "heading": "Community questions",
-        "style": "mist"
+        "title_prefix": "Community",
+        "title_italic": "questions.",
+        "tint": true
       },
       "blocks": {
-        "q_1": {
+        "q1": {
           "type": "qa",
           "settings": {
             "question": "Is the free tier really free?",
             "answer": "<p>Yes. The free tier stays free.</p>"
           }
         },
-        "q_2": {
+        "q2": {
           "type": "qa",
           "settings": {
             "question": "What changes after the first 50 founding members?",
             "answer": "<p>Premium moves to $39/month or $390/year. Founding members keep their founding price as described on Skool.</p>"
           }
         },
-        "q_3": {
+        "q3": {
           "type": "qa",
           "settings": {
             "question": "Is the community a recruitment agency?",
@@ -102,21 +104,21 @@
         }
       },
       "block_order": [
-        "q_1",
-        "q_2",
-        "q_3"
+        "q1",
+        "q2",
+        "q3"
       ]
     },
     "final": {
-      "type": "tm-cta",
+      "type": "etl-cta",
       "settings": {
-        "heading": "Start with the community.",
-        "text": "Free to join. Real answers from teachers who have made the move.",
-        "primary_label": "Join Free",
-        "primary_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
-        "secondary_label": "Explore My Canada Pathway",
-        "secondary_url": "/pages/canada-teacher-pathway",
-        "style": "white"
+        "title_prefix": "Start with the",
+        "title_italic": "community.",
+        "description": "Free to join. Real answers from teachers who have made the move.",
+        "cta_1_text": "Join Free",
+        "cta_1_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
+        "cta_2_text": "Explore My Canada Pathway",
+        "cta_2_url": "/pages/canada-teacher-pathway"
       }
     }
   },

@@ -1,317 +1,219 @@
 {
   "sections": {
     "hero": {
-      "type": "tm-hero",
+      "type": "etl-page-hero",
       "settings": {
-        "eyebrow": "Canada Teacher Pathway Assessment",
-        "heading": "Want to teach in Canada but don't know where to start?",
-        "text": "Get a personalised review of your teaching background, possible certification pathways, documentation priorities and your next 90 days.",
-        "price_text": "$197",
-        "primary_label": "Start My Canada Pathway — $197",
+        "image_asset": "Edwina_Teaching.png",
+        "badge": "Canada Teacher Pathway Assessment",
+        "title_prefix": "Want to teach in Canada but don't know",
+        "title_italic": "where to start?",
+        "description": "Get a personalised review of your teaching background, possible certification pathways, documentation priorities and your next 90 days.",
+        "price": "$197",
+        "cta_1_text": "Start My Canada Pathway — $197",
+        "cta_1_url": "/products/canada-teacher-pathway-assessment",
         "buy_product": "canada-teacher-pathway-assessment",
-        "primary_url": "/products/canada-teacher-pathway-assessment",
-        "secondary_label": "See How It Works",
-        "secondary_url": "#how-it-works",
-        "note": "One-time fee. Your report is normally ready within 5 business days of a complete intake.",
-        "visual": "report",
-        "pad_top": 64,
+        "cta_2_text": "See How It Works",
+        "cta_2_url": "#how-it-works",
+        "note": "Your report is normally ready within 5 business days of a complete intake.",
         "sticky_trigger": true
       }
     },
     "problem": {
-      "type": "tm-text-split",
+      "type": "etl-text",
       "settings": {
         "eyebrow": "Why this exists",
-        "heading": "Canada doesn't have one teacher certification system.",
-        "text": "<p>Teacher certification in Canada is handled by each province and territory. Each one sets its own requirements, documents, assessment steps and timelines, and internationally educated teachers are often asked for different evidence depending on where they apply.</p><p>That's why general advice rarely fits. This assessment looks at your background against the provinces you're considering, so you know what to investigate first and what to prepare.</p>",
-        "style": "mist"
+        "title_prefix": "Canada doesn't have one teacher",
+        "title_italic": "certification system.",
+        "text": "<p>Teacher certification in Canada is handled by each province and territory. Each one sets its own requirements, documents, assessment steps and timelines, and internationally educated teachers are often asked for different evidence depending on where they apply.</p><p>That's why general advice rarely fits. This assessment looks at your background against the provinces you're considering, so you know what to investigate first and what to prepare.</p>"
       }
     },
     "review": {
-      "type": "tm-pills",
+      "type": "etl-text",
       "settings": {
-        "heading": "What we review",
-        "text": "Your intake and documents are reviewed personally, not by an automated quiz."
-      },
-      "blocks": {
-        "l_1": {
-          "type": "label",
-          "settings": {
-            "label": "Qualifications"
-          }
-        },
-        "l_2": {
-          "type": "label",
-          "settings": {
-            "label": "Teacher training"
-          }
-        },
-        "l_3": {
-          "type": "label",
-          "settings": {
-            "label": "Experience"
-          }
-        },
-        "l_4": {
-          "type": "label",
-          "settings": {
-            "label": "Subjects"
-          }
-        },
-        "l_5": {
-          "type": "label",
-          "settings": {
-            "label": "Grades"
-          }
-        },
-        "l_6": {
-          "type": "label",
-          "settings": {
-            "label": "Licensing and registration"
-          }
-        },
-        "l_7": {
-          "type": "label",
-          "settings": {
-            "label": "Current documents"
-          }
-        },
-        "l_8": {
-          "type": "label",
-          "settings": {
-            "label": "Target provinces"
-          }
-        },
-        "l_9": {
-          "type": "label",
-          "settings": {
-            "label": "Career goals"
-          }
-        }
-      },
-      "block_order": [
-        "l_1",
-        "l_2",
-        "l_3",
-        "l_4",
-        "l_5",
-        "l_6",
-        "l_7",
-        "l_8",
-        "l_9"
-      ]
+        "title_prefix": "What we",
+        "title_italic": "review.",
+        "text": "<p>Your intake and documents are reviewed personally, not by an automated quiz.</p>",
+        "chips": "Qualifications|Teacher training|Experience|Subjects|Grades|Licensing and registration|Current documents|Target provinces|Career goals",
+        "tint": true
+      }
     },
     "receive": {
-      "type": "tm-deliverables",
+      "type": "etl-pathways",
       "settings": {
         "anchor": "whats-included",
-        "heading": "What you receive",
-        "style": "mist"
+        "title_prefix": "What you",
+        "title_italic": "receive.",
+        "subtitle": "Every report is prepared for one teacher, from your intake and documents."
       },
       "blocks": {
-        "i_1": {
-          "type": "item",
+        "c1": {
+          "type": "card",
           "settings": {
-            "title": "Teacher Moves Profile Summary",
-            "text": "Your background, summarised on one page."
+            "icon": "book",
+            "title": "Profile summary and Canada Pathway Report",
+            "text": "<p>Your background on one page, plus the certification pathways worth investigating and why.</p>"
           }
         },
-        "i_2": {
-          "type": "item",
+        "c2": {
+          "type": "card",
           "settings": {
-            "title": "Canada Pathway Report",
-            "text": "The pathways worth investigating, and why."
+            "icon": "compass",
+            "title": "Readiness score and document checklist",
+            "text": "<p>A planning indicator (not an official assessment) and a checklist of what to gather, in order.</p>"
           }
         },
-        "i_3": {
-          "type": "item",
+        "c3": {
+          "type": "card",
           "settings": {
-            "title": "Teacher Moves Readiness Score",
-            "text": "A planning indicator, not an official assessment."
+            "icon": "contract",
+            "title": "90-day action plan",
+            "text": "<p>Clear steps for days 1–30, 31–60 and 61–90.</p>"
           }
         },
-        "i_4": {
-          "type": "item",
+        "c4": {
+          "type": "card",
           "settings": {
-            "title": "Document Checklist",
-            "text": "What to gather, in a sensible order."
-          }
-        },
-        "i_5": {
-          "type": "item",
-          "settings": {
-            "title": "90-Day Action Plan",
-            "text": "Days 1–30, 31–60 and 61–90."
-          }
-        },
-        "i_6": {
-          "type": "item",
-          "settings": {
-            "title": "30-Minute Debrief",
-            "text": "Walk through your report and ask questions."
-          }
-        },
-        "i_7": {
-          "type": "item",
-          "settings": {
-            "title": "30 Days Limited Follow-Up",
-            "text": "Short questions about your report by email."
-          }
-        },
-        "i_8": {
-          "type": "item",
-          "settings": {
-            "title": "Within 5 business days",
-            "text": "After your complete intake and supporting information are received.",
-            "highlight": true
+            "icon": "community",
+            "title": "30-minute debrief and 30-day follow-up",
+            "text": "<p>Walk through your report together, then send short follow-up questions for 30 days.</p>",
+            "featured": true
           }
         }
       },
       "block_order": [
-        "i_1",
-        "i_2",
-        "i_3",
-        "i_4",
-        "i_5",
-        "i_6",
-        "i_7",
-        "i_8"
+        "c1",
+        "c2",
+        "c3",
+        "c4"
       ]
     },
     "how": {
-      "type": "tm-steps",
+      "type": "etl-steps",
       "settings": {
         "anchor": "how-it-works",
-        "heading": "How it works",
-        "style": "white"
+        "title_prefix": "How it",
+        "title_italic": "works.",
+        "subtitle": "From purchase to plan, normally within 5 business days of a complete intake.",
+        "tint": true
       },
       "blocks": {
-        "s_1": {
+        "s1": {
           "type": "step",
           "settings": {
             "title": "Purchase the assessment",
-            "text": ""
+            "description": "Secure checkout."
           }
         },
-        "s_2": {
+        "s2": {
           "type": "step",
           "settings": {
             "title": "Complete your structured intake",
-            "text": "The link arrives in your confirmation email."
+            "description": "The link arrives in your confirmation email."
           }
         },
-        "s_3": {
+        "s3": {
           "type": "step",
           "settings": {
             "title": "Send the requested documents",
-            "text": ""
+            "description": "The intake tells you exactly what to send."
           }
         },
-        "s_4": {
+        "s4": {
           "type": "step",
           "settings": {
             "title": "We review your profile",
-            "text": ""
+            "description": "Personally, against the provinces you're considering."
           }
         },
-        "s_5": {
+        "s5": {
           "type": "step",
           "settings": {
             "title": "Receive your personalised report",
-            "text": "Normally within 5 business days."
+            "description": "Normally within 5 business days."
           }
         },
-        "s_6": {
+        "s6": {
           "type": "step",
           "settings": {
             "title": "Book your 30-minute debrief",
-            "text": "Your private booking link comes with your report."
+            "description": "Your private booking link comes with your report."
           }
         },
-        "s_7": {
+        "s7": {
           "type": "step",
           "settings": {
             "title": "Start your 90-day plan",
-            "text": ""
+            "description": "With 30 days of follow-up questions."
           }
         }
       },
       "block_order": [
-        "s_1",
-        "s_2",
-        "s_3",
-        "s_4",
-        "s_5",
-        "s_6",
-        "s_7"
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7"
       ]
     },
-    "preview": {
-      "type": "tm-report-preview",
-      "settings": {
-        "heading": "See what your report looks like",
-        "text": "Every report is prepared for one teacher. These sample pages show the format.",
-        "style": "mist"
-      }
-    },
     "faq": {
-      "type": "tm-faq",
+      "type": "etl-faq",
       "settings": {
-        "anchor": "faq",
-        "heading": "Questions",
-        "style": "white"
+        "title_prefix": "Frequently asked",
+        "title_italic": "questions."
       },
       "blocks": {
-        "q_1": {
+        "q1": {
           "type": "qa",
           "settings": {
             "question": "Does this guarantee certification?",
             "answer": "<p>No. Certification decisions are made by the certification office in each province or territory. The assessment helps you understand where you stand and what to prepare.</p>"
           }
         },
-        "q_2": {
+        "q2": {
           "type": "qa",
           "settings": {
             "question": "Are you an immigration consultant?",
             "answer": "<p>No. Teacher Moves is not an immigration consultancy and doesn't give immigration advice. For immigration questions, use official IRCC information or a licensed Regulated Canadian Immigration Consultant (RCIC) or lawyer.</p>"
           }
         },
-        "q_3": {
+        "q3": {
           "type": "qa",
           "settings": {
             "question": "Do you submit the certification application for me?",
             "answer": "<p>No. You submit your own application. The assessment gives you a document checklist and a 90-day plan so you know what to prepare and in what order.</p>"
           }
         },
-        "q_4": {
+        "q4": {
           "type": "qa",
           "settings": {
             "question": "How long does the assessment take?",
             "answer": "<p>Your report is normally delivered within 5 business days after your complete intake and supporting information have been received.</p>"
           }
         },
-        "q_5": {
+        "q5": {
           "type": "qa",
           "settings": {
             "question": "What if I'm considering several provinces?",
             "answer": "<p>Tell us in your intake. The assessment can identify which pathways look worth investigating first and what each is likely to ask for.</p>"
           }
         },
-        "q_6": {
+        "q6": {
           "type": "qa",
           "settings": {
             "question": "What documents should I prepare?",
             "answer": "<p>You don't need everything before you buy. The intake guides you. Common examples are degree certificates, transcripts, a teaching licence or registration, and experience letters.</p>"
           }
         },
-        "q_7": {
+        "q7": {
           "type": "qa",
           "settings": {
             "question": "Is the Readiness Score official?",
             "answer": "<p>No. It's a planning indicator based on your intake answers. It isn't a decision or prediction by any certification body, employer or IRCC.</p>"
           }
         },
-        "q_8": {
+        "q8": {
           "type": "qa",
           "settings": {
             "question": "What is the refund policy?",
@@ -320,31 +222,31 @@
         }
       },
       "block_order": [
-        "q_1",
-        "q_2",
-        "q_3",
-        "q_4",
-        "q_5",
-        "q_6",
-        "q_7",
-        "q_8"
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8"
       ]
     },
     "final": {
-      "type": "tm-cta",
+      "type": "etl-cta",
       "settings": {
-        "heading": "Know where you stand. Know what's next.",
-        "text": "One personalised plan for your move to teaching in Canada.",
-        "primary_label": "Start My Canada Pathway — $197",
+        "title_prefix": "Know where you stand. Know what's",
+        "title_italic": "next.",
+        "description": "One personalised plan for your move to teaching in Canada.",
+        "cta_1_text": "Start My Canada Pathway — $197",
+        "cta_1_url": "/products/canada-teacher-pathway-assessment",
         "buy_product": "canada-teacher-pathway-assessment",
-        "primary_url": "/products/canada-teacher-pathway-assessment",
-        "secondary_label": "Ask a Question",
-        "secondary_url": "/pages/contact",
-        "style": "navy"
+        "cta_2_text": "Ask a Question",
+        "cta_2_url": "/pages/contact"
       }
     },
     "sticky": {
-      "type": "tm-sticky-cta",
+      "type": "etl-sticky-cta",
       "settings": {
         "label": "Start My Canada Pathway — $197",
         "buy_product": "canada-teacher-pathway-assessment",
@@ -358,7 +260,6 @@
     "review",
     "receive",
     "how",
-    "preview",
     "faq",
     "final",
     "sticky"

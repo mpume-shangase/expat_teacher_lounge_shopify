@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "tm-intake",
+      "type": "etl-intake",
       "settings": {}
     }
   },

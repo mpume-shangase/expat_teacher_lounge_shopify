@@ -1,8 +1,8 @@
 {
+  "name": "Blog",
   "sections": {
     "main": {
-      "type": "tm-main-blog",
-      "settings": {}
+      "type": "main-blog"
     }
   },
   "order": [

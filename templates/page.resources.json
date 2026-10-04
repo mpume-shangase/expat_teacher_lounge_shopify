@@ -1,23 +1,24 @@
 {
   "sections": {
     "hero": {
-      "type": "tm-hero",
+      "type": "etl-page-hero",
       "settings": {
-        "eyebrow": "Resources",
-        "heading": "Teacher Moves resources",
-        "text": "Practical tools, guides and free downloads for teachers researching their next move at their own pace.",
-        "primary_label": "Explore Free Resources",
-        "primary_url": "#free",
-        "secondary_label": "",
-        "visual": "none",
-        "pad_top": 64
+        "image_asset": "Edwina_reading_a_book.png",
+        "badge": "Resources",
+        "title_prefix": "Research your next move at your",
+        "title_italic": "own pace.",
+        "description": "Practical guides, tools and free downloads built from 18 years of international teaching.",
+        "cta_1_text": "Explore Free Resources",
+        "cta_1_url": "#free",
+        "cta_2_text": "Teach in Canada",
+        "cta_2_url": "/pages/teach-in-canada"
       }
     },
     "library": {
-      "type": "tm-resources",
+      "type": "etl-resources",
       "settings": {},
       "blocks": {
-        "s_1": {
+        "s1": {
           "type": "shelf",
           "settings": {
             "title": "Teach in Canada",
@@ -28,30 +29,16 @@
             "link_url": "/pages/canada-teacher-pathway"
           }
         },
-        "s_2": {
+        "s2": {
           "type": "shelf",
           "settings": {
             "title": "International Teaching",
             "anchor": "international",
             "text": "Compare countries and decide where to go next.",
-            "collection": "international-teaching",
-            "empty_text": "",
-            "link_label": "",
-            "link_url": ""
+            "collection": "guides"
           }
         },
-        "s_3": {
-          "type": "shelf",
-          "settings": {
-            "title": "Relocation",
-            "anchor": "relocation",
-            "text": "Checklists for documents, attestation and residence permits.",
-            "collection": "relocation",
-            "link_label": "Planning a move? Build My Relocation Strategy",
-            "link_url": "/products/relocation-strategy-session"
-          }
-        },
-        "s_4": {
+        "s4": {
           "type": "shelf",
           "settings": {
             "title": "USA (J1)",
@@ -60,60 +47,57 @@
             "collection": "usa"
           }
         },
-        "s_5": {
+        "s5": {
           "type": "shelf",
           "settings": {
             "title": "Contract Preparation",
             "anchor": "contracts",
-            "text": "",
-            "collection": "",
             "empty_text": "Self-paced contract tools are coming. If you're holding an offer now, Contract Review covers it line by line.",
             "link_label": "Review My Contract",
             "link_url": "/products/contract-review-session"
           }
         },
-        "s_6": {
+        "s6": {
           "type": "shelf",
           "settings": {
             "title": "Career Development",
             "anchor": "career",
-            "text": "",
-            "collection": "",
             "empty_text": "CV and interview support lives in the CV & Interview Studio for Premium community members.",
             "link_label": "Become a Founding Member",
             "link_url": "https://www.skool.com/expat-teachers-lounge-9615/plans?src=join"
           }
         },
-        "s_7": {
+        "s7": {
           "type": "shelf",
           "settings": {
-            "title": "Free Resources",
+            "title": "Free Resources and Checklists",
             "anchor": "free",
-            "text": "Start here if you're early in your research.",
-            "collection": "free-resources"
+            "text": "Free downloads, including the Qatar attestation and immigration checklists.",
+            "collection": "free-resources",
+            "link_label": "Planning a move? Build My Relocation Strategy",
+            "link_url": "/products/relocation-strategy-session"
           }
         }
       },
       "block_order": [
-        "s_1",
-        "s_2",
-        "s_3",
-        "s_4",
-        "s_5",
-        "s_6",
-        "s_7"
+        "s1",
+        "s2",
+        "s4",
+        "s5",
+        "s6",
+        "s7"
       ]
     },
     "final": {
-      "type": "tm-cta",
+      "type": "etl-cta",
       "settings": {
-        "heading": "Want a plan made for you?",
-        "text": "Resources help you research. The assessment turns that research into your next 90 days.",
-        "primary_label": "Start My Canada Pathway",
-        "primary_url": "/pages/canada-teacher-pathway",
-        "secondary_label": "See All Services",
-        "secondary_url": "/pages/services",
-        "style": "mist"
+        "title_prefix": "Want a plan made",
+        "title_italic": "for you?",
+        "description": "Resources help you research. The assessment turns that research into your next 90 days.",
+        "cta_1_text": "Start My Canada Pathway",
+        "cta_1_url": "/pages/canada-teacher-pathway",
+        "cta_2_text": "See All Services",
+        "cta_2_url": "/pages/services"
       }
     }
   },
