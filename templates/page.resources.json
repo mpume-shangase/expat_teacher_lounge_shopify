@@ -12,7 +12,7 @@
     "hero": {
       "type": "etl-page-hero",
       "settings": {
-        "image": "shopify://shop_images/desk_table_flatlay.png",
+        "image": "shopify:\/\/shop_images\/desk_table_flatlay.png",
         "image_asset": "Edwina_reading_a_book.png",
         "badge": "Resources",
         "title_prefix": "Research your next move at your",
@@ -21,7 +21,7 @@
         "cta_1_text": "Explore Free Resources",
         "cta_1_url": "#free",
         "cta_2_text": "Teach in Canada",
-        "cta_2_url": "/pages/teach-in-canada"
+        "cta_2_url": "\/pages\/teach-in-canada"
       }
     },
     "library": {
@@ -36,7 +36,7 @@
             "text": "Province research, certification guides and application tools.",
             "collection": "canada",
             "link_label": "Want a personalised plan? Start My Canada Pathway",
-            "link_url": "/pages/canada-teacher-pathway"
+            "link_url": "\/pages\/canada-teacher-pathway"
           }
         },
         "s2": {
@@ -54,7 +54,9 @@
             "title": "USA (J1)",
             "anchor": "usa",
             "text": "Guides for the J1 cultural exchange teaching route.",
-            "collection": "usa"
+            "collection": "usa",
+            "link_label": "New to the J-1? Read Teaching in the USA",
+            "link_url": "\/pages\/teach-in-the-usa"
           }
         },
         "s5": {
@@ -64,7 +66,7 @@
             "anchor": "contracts",
             "empty_text": "Self-paced contract tools are coming. If you're holding an offer now, Contract Review covers it line by line.",
             "link_label": "Review My Contract",
-            "link_url": "/products/contract-review-session"
+            "link_url": "\/products\/contract-review-session"
           }
         },
         "s6": {
@@ -74,7 +76,7 @@
             "anchor": "career",
             "empty_text": "CV and interview support lives in the CV & Interview Studio for Premium community members.",
             "link_label": "Become a Founding Member",
-            "link_url": "https://www.skool.com/expat-teachers-lounge-9615/plans?src=join"
+            "link_url": "https:\/\/www.skool.com\/expat-teachers-lounge-9615\/plans?src=join"
           }
         },
         "s7": {
@@ -85,7 +87,7 @@
             "text": "Free downloads, including the Qatar attestation and immigration checklists.",
             "collection": "free-resources",
             "link_label": "Planning a move? Build My Relocation Strategy",
-            "link_url": "/products/relocation-strategy-session"
+            "link_url": "\/products\/relocation-strategy-session"
           }
         }
       },
@@ -105,9 +107,9 @@
         "title_italic": "for you?",
         "description": "Resources help you research. The assessment turns that research into your next 90 days.",
         "cta_1_text": "Start My Canada Pathway",
-        "cta_1_url": "/pages/canada-teacher-pathway",
+        "cta_1_url": "\/pages\/canada-teacher-pathway",
         "cta_2_text": "See All Services",
-        "cta_2_url": "/pages/services"
+        "cta_2_url": "\/pages\/services"
       }
     }
   },
