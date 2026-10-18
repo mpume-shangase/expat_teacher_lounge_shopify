@@ -1,0 +1,66 @@
+{%- comment -%}
+  Teacher Moves Assessment page: classroom hero plus the assessment widget (from the page content) in a card.
+{%- endcomment -%}
+<section class="tm-lp etl-page-hero tm-lp-hero tm-lp-hero--assess" data-tm-hero>
+  <div class="etl-page-hero__bg">
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 1800 | image_tag: loading: 'eager', fetchpriority: 'high', alt: '' }}
+    {%- else -%}
+      <img src="{{ section.settings.image_asset | default: 'Edwina_Teaching.png' | asset_img_url: '1800x' }}" alt="" loading="eager" fetchpriority="high" width="1800" height="1200">
+    {%- endif -%}
+  </div>
+  <div class="etl-page-hero__dark"></div>
+  <div class="etl-page-hero__fade"></div>
+  <div class="etl-page-hero__content">
+    {%- if section.settings.brand_logo_asset != blank -%}
+      <div class="etl-brand-chip">
+        <span class="etl-brand-chip__mark"><img src="{{ section.settings.brand_logo_asset | asset_url }}" alt="" width="30" height="26" loading="eager"></span>
+        <span class="etl-brand-chip__text">
+          <span class="etl-brand-chip__name">{{ section.settings.brand_name | default: 'Teacher Moves' }}</span>
+          {%- if section.settings.brand_sub != blank -%}<span class="etl-brand-chip__sub">{{ section.settings.brand_sub }}</span>{%- endif -%}
+        </span>
+      </div>
+    {%- endif -%}
+    <h1 class="etl-page-hero__title">{{ section.settings.heading }}</h1>
+    {%- if section.settings.description != blank -%}
+      <p class="etl-page-hero__desc">{{ section.settings.description }}</p>
+    {%- endif -%}
+    {%- if section.settings.meta != blank -%}
+      <p class="tm-lp-hero__note">{{ section.settings.meta }}</p>
+    {%- endif -%}
+  </div>
+</section>
+<div class="tm-lp tm-lp-assess" id="tm-assess-wrap">
+  <div class="tm-lp-wrap">
+    <div class="tm-lp-assess__card">
+      {{ page.content }}
+    </div>
+    {%- if section.settings.footnote != blank -%}
+      <p class="tm-lp-assess__footnote">{{ section.settings.footnote }}</p>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Assessment hero and quiz",
+  "class": "tm-lp-assess-section",
+  "settings": [
+    { "type": "paragraph", "content": "The assessment itself comes from the page content. Edit the page in Online Store > Pages to change the questions." },
+    { "type": "header", "content": "Background" },
+    { "type": "image_picker", "id": "image", "label": "Background image" },
+    { "type": "text", "id": "image_asset", "label": "Theme image used when no image is picked", "default": "Edwina_Teaching.png" },
+    { "type": "header", "content": "Brand chip" },
+    { "type": "text", "id": "brand_logo_asset", "label": "Brand mark (theme asset file)", "default": "tm-mark.svg" },
+    { "type": "text", "id": "brand_name", "label": "Brand name", "default": "Teacher Moves" },
+    { "type": "text", "id": "brand_sub", "label": "Small line under the brand name", "default": "by Expat Teacher's Lounge" },
+    { "type": "header", "content": "Message" },
+    { "type": "inline_richtext", "id": "heading", "label": "Headline", "info": "Italic words show in gold.", "default": "Where are you on your <em>teaching move?</em>" },
+    { "type": "textarea", "id": "description", "label": "Supporting copy", "default": "Up to ten quick questions. You get your stage, a readiness score and one clear next step for this week, plus the free resource that fits where you are." },
+    { "type": "text", "id": "meta", "label": "Small line", "default": "Free · About 3 minutes · No account needed" },
+    { "type": "text", "id": "footnote", "label": "Note under the card", "default": "A planning tool, not an official certification or immigration decision." }
+  ],
+  "presets": [{ "name": "Assessment hero and quiz" }],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}
