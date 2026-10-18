@@ -1,0 +1,319 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "etl-page-hero",
+      "settings": {
+        "image_asset": "Edwina_Teaching.png",
+        "brand_logo_asset": "tm-mark.svg",
+        "brand_name": "Teacher Moves",
+        "brand_sub": "by Expat Teacher's Lounge",
+        "badge": "Guide · Checked October 2026",
+        "title_prefix": "International teaching jobs,",
+        "title_italic": "and how to apply safely.",
+        "description": "Most international school jobs are advertised on a handful of platforms, and the busiest hiring months are December to March for an August start. Know where to look, check the school is real, and be wary of anyone who asks you for money for a job.",
+        "price": "",
+        "cta_1_text": "Join Free for Weekly Job Picks",
+        "cta_1_url": "https://www.skool.com/expat-teachers-lounge-9615/about?utm_source=website&utm_medium=topic-page&utm_campaign=tm_teaching-jobs_202610",
+        "cta_2_text": "Take the Free Assessment",
+        "cta_2_url": "/pages/teacher-moves-assessment",
+        "note": "3 hand-picked job postings a week in the free Teacher Moves community · 500+ teachers already there",
+        "sticky_trigger": true
+      }
+    },
+    "steps": {
+      "type": "etl-steps",
+      "settings": {
+        "anchor": "steps",
+        "title_prefix": "Find and land a job in",
+        "title_italic": "five steps.",
+        "subtitle": "The teachers who get the best offers usually start earlier than everyone else.",
+        "tint": true,
+        "button_label": "Join Free for Weekly Job Picks",
+        "button_url": "https://www.skool.com/expat-teachers-lounge-9615/about?utm_source=website&utm_medium=topic-page&utm_campaign=tm_teaching-jobs_202610"
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Register early",
+            "description": "Search Associates advises being registered a full year before you want to start."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Use the main platforms",
+            "description": "Tes, Schrole, Teach Away, Search Associates, ISS, SeekTeachers and LinkedIn."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Check every school",
+            "description": "Look it up in an accreditation or membership directory before you apply."
+          }
+        },
+        "s4": {
+          "type": "step",
+          "settings": {
+            "title": "Apply properly",
+            "description": "The school's own application form, supervisory referees and a CV tailored to the post."
+          }
+        },
+        "s5": {
+          "type": "step",
+          "settings": {
+            "title": "Get it in writing",
+            "description": "A clear written offer and contract, checked before you sign."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5"
+      ]
+    },
+    "article": {
+      "type": "etl-article",
+      "settings": {
+        "anchor": "guide",
+        "title_prefix": "",
+        "title_italic": ""
+      }
+    },
+    "offer": {
+      "type": "etl-feature",
+      "settings": {
+        "anchor": "offer",
+        "image_first": false,
+        "eyebrow": "Teacher Moves community",
+        "title_prefix": "Hand-picked jobs,",
+        "title_italic": "every week.",
+        "description": "Join free and get three hand-picked international teaching jobs every week, alongside teachers who have already made the move.",
+        "offer_name": "Free membership",
+        "price": "Free",
+        "list": "<ul><li>3 hand-picked job postings a week</li><li>A monthly live Q&amp;A</li><li>Every guide we publish</li><li>Teachers already in the countries you are considering</li></ul>",
+        "cta_text": "Join the Free Community",
+        "cta_url": "https://www.skool.com/expat-teachers-lounge-9615/about?utm_source=website&utm_medium=topic-page&utm_campaign=tm_teaching-jobs_202610",
+        "link_text": "Want every listing? Premium is $39/month",
+        "link_url": "https://www.skool.com/expat-teachers-lounge-9615/plans?src=join",
+        "note": "Premium adds the full Job Board, the CV & Interview Studio and weekly live Q&A.",
+        "image_asset": "Edwina_working_with_a_student.png",
+        "image_alt": "Mpume (Edwina) Shangase with a student"
+      }
+    },
+    "paths": {
+      "type": "etl-pathways",
+      "settings": {
+        "anchor": "next-step",
+        "eyebrow": "",
+        "title_prefix": "Your next",
+        "title_italic": "step.",
+        "subtitle": "Start free. Upgrade when you are applying every week.",
+        "tint": false,
+        "button_label": "",
+        "button_url": ""
+      },
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "icon": "community",
+            "kicker": "Start here",
+            "title": "Teacher Moves community",
+            "price": "Free",
+            "text": "<p>3 hand-picked job postings a week, a monthly live Q&A and every guide we publish.</p>",
+            "button_label": "Join Free",
+            "button_url": "https://www.skool.com/expat-teachers-lounge-9615/about?utm_source=website&utm_medium=topic-page&utm_campaign=tm_teaching-jobs_202610",
+            "featured": true
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "icon": "contract",
+            "kicker": "Applying now",
+            "title": "Teacher Moves Premium",
+            "price": "$39/mo",
+            "text": "<p>The full Job Board, the CV & Interview Studio and weekly live Q&A.</p>",
+            "button_label": "Join Premium",
+            "button_url": "https://www.skool.com/expat-teachers-lounge-9615/plans?src=join",
+            "featured": false
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "icon": "book",
+            "kicker": "Free",
+            "title": "CV & Interview Studio",
+            "price": "",
+            "text": "<p>Build a CV for the market you are applying to, and prepare your interview answers.</p>",
+            "button_label": "Build My CV Free",
+            "button_url": "https://app.expatteacherslounge.com/?utm_source=website&utm_medium=topic-page&utm_campaign=tm_teaching-jobs_202610",
+            "featured": false
+          }
+        },
+        "c4": {
+          "type": "card",
+          "settings": {
+            "icon": "compass",
+            "kicker": "Free",
+            "title": "Teacher Moves Assessment",
+            "price": "",
+            "text": "<p>Not sure where to apply? Get your stage and one clear next step.</p>",
+            "button_label": "Take the Assessment",
+            "button_url": "/pages/teacher-moves-assessment",
+            "featured": false
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ]
+    },
+    "authority": {
+      "type": "authority",
+      "settings": {
+        "title": "I nearly ignored the link that changed my career.",
+        "description": "When the New Brunswick recruitment link reached me, I thought it was a scam. I checked the website, what the form asked for and who was behind it before I filled anything in. Verify first, apply second: it's the habit I'd give every teacher job hunting abroad.",
+        "quote": "Never pay an unknown person for a job offer."
+      }
+    },
+    "proof": {
+      "type": "etl-text",
+      "disabled": true,
+      "settings": {
+        "anchor": "proof",
+        "eyebrow": "From teachers who follow Edwina",
+        "title_prefix": "Teachers are getting clearer about",
+        "title_italic": "their next move.",
+        "text": "<p>Placeholder for approved YouTube and TikTok comments (Social Proof Bank). Hidden until approved.</p>",
+        "tint": false
+      }
+    },
+    "faq": {
+      "type": "etl-faq",
+      "settings": {
+        "anchor": "faq",
+        "title_prefix": "Frequently asked",
+        "title_italic": "questions.",
+        "tint": true
+      },
+      "blocks": {
+        "q1": {
+          "type": "qa",
+          "settings": {
+            "question": "Where are international teaching jobs advertised?",
+            "answer": "<p>On job boards such as Tes, Schrole, Teach Away, SeekTeachers and LinkedIn, and through recruitment organisations such as Search Associates and ISS, which also run job fairs. COBIS lists jobs at British international schools through Tes.</p>"
+          }
+        },
+        "q2": {
+          "type": "qa",
+          "settings": {
+            "question": "Do I have to pay to find an international teaching job?",
+            "answer": "<p>Mostly not. Teach Away and SeekTeachers are free for teachers. ISS and Schrole have free accounts with paid upgrades, and Search Associates charges a membership fee. Search Associates says any recruitment fee is paid by the school that hires you.</p>"
+          }
+        },
+        "q3": {
+          "type": "qa",
+          "settings": {
+            "question": "When should I apply for an August start?",
+            "answer": "<p>Early. Search Associates advises being registered a full year before you start, and openings peak from December to March. Jobs still come up all year.</p>"
+          }
+        },
+        "q4": {
+          "type": "qa",
+          "settings": {
+            "question": "Do I need to go to a job fair?",
+            "answer": "<p>No. Search Associates fairs are invitation-only for members, and ISS runs virtual and in-person events, but many teachers are hired through online interviews without attending one.</p>"
+          }
+        },
+        "q5": {
+          "type": "qa",
+          "settings": {
+            "question": "How do I check a school is real?",
+            "answer": "<p>Look it up in official directories: CIS, NEASC, MSA-CESS, Cognia, COBIS, the UK government's British Schools Overseas list, and the IB's Find an IB World School. Accreditation is voluntary, so not being listed doesn't prove a school is fake, but being listed is something you can check.</p>"
+          }
+        },
+        "q6": {
+          "type": "qa",
+          "settings": {
+            "question": "What are the warning signs of a teaching job scam?",
+            "answer": "<p>The UK's Disclosure and Barring Service lists unrealistic pay, a job offer without an interview, being asked for money, and suspicious emails or contact details. Never pay into a third party's account for a visa.</p>"
+          }
+        },
+        "q7": {
+          "type": "qa",
+          "settings": {
+            "question": "Is it normal to pay visa fees myself?",
+            "answer": "<p>The ILO's fair recruitment principles say workers shouldn't pay recruitment fees or related costs, including visas and background checks. In practice it varies, so get it in writing. U.S. J-1 sponsors do legally charge programme fees, so check the sponsor is on the State Department's list.</p>"
+          }
+        },
+        "q8": {
+          "type": "qa",
+          "settings": {
+            "question": "How do I get a public-school teaching job in Canada?",
+            "answer": "<p>Get certified by the province first, for example through the Ontario College of Teachers or New Brunswick's interim certificate. Then apply to school boards or districts, many of which post on Apply to Education.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8"
+      ]
+    },
+    "final": {
+      "type": "etl-cta",
+      "settings": {
+        "title_prefix": "Your next job could be",
+        "title_italic": "in this week's picks.",
+        "description": "Join the free Teacher Moves community for three hand-picked international teaching jobs every week.",
+        "cta_1_text": "Join Free for Weekly Job Picks",
+        "cta_1_url": "https://www.skool.com/expat-teachers-lounge-9615/about?utm_source=website&utm_medium=topic-page&utm_campaign=tm_teaching-jobs_202610",
+        "cta_2_text": "Take the Free Assessment",
+        "cta_2_url": "/pages/teacher-moves-assessment"
+      }
+    },
+    "sticky": {
+      "type": "etl-sticky-cta",
+      "settings": {
+        "label": "Join Free for Weekly Job Picks",
+        "url": "https://www.skool.com/expat-teachers-lounge-9615/about?utm_source=website&utm_medium=topic-page&utm_campaign=tm_teaching-jobs_202610"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "steps",
+    "article",
+    "offer",
+    "paths",
+    "authority",
+    "proof",
+    "faq",
+    "final",
+    "sticky"
+  ]
+}
