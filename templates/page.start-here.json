@@ -9,12 +9,109 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "settings": {}
+    "hero": {
+      "type": "etl-page-hero",
+      "settings": {
+        "image_asset": "Edwina_Teaching.png",
+        "brand_logo_asset": "tm-mark.svg",
+        "brand_name": "Teacher Moves",
+        "brand_sub": "by Expat Teacher's Lounge",
+        "badge": "",
+        "title_prefix": "Your next teaching move",
+        "title_italic": "starts here.",
+        "description": "I'm Mpume (Edwina) Shangase. I help internationally trained teachers plan their next move, from certification and contracts to relocation and the job search.",
+        "price": "",
+        "cta_1_text": "Take the Free Assessment",
+        "cta_1_url": "/pages/teacher-moves-assessment",
+        "cta_2_text": "Explore Free Guides",
+        "cta_2_url": "/pages/resources",
+        "note": "About three minutes. Your stage, a readiness score and one clear next step.",
+        "sticky_trigger": false
+      }
+    },
+    "paths": {
+      "type": "etl-pathways",
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "icon": "canada",
+            "kicker": "Canada",
+            "title": "Teach in Canada",
+            "text": "<p>Certification by province, where to begin, and the support that fits you.</p>",
+            "button_label": "Explore Canada",
+            "button_url": "/pages/teach-in-canada"
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "icon": "contract",
+            "kicker": "Contracts",
+            "title": "Review a teaching contract",
+            "text": "<p>What to check, and the red flags to question, before you sign.</p>",
+            "button_label": "Check My Contract",
+            "button_url": "/pages/international-teaching-contracts"
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "icon": "book",
+            "kicker": "Free",
+            "title": "Guides and checklists",
+            "text": "<p>The Province Shortlist, Qatar checklists and the USA J-1 guide.</p>",
+            "button_label": "Get Free Guides",
+            "button_url": "/pages/resources"
+          }
+        },
+        "c4": {
+          "type": "card",
+          "settings": {
+            "icon": "compass",
+            "kicker": "One-to-one",
+            "title": "Work with me",
+            "price": "From $77",
+            "text": "<p>Canada Pathway Assessment, Relocation Strategy and Contract Review sessions.</p>",
+            "button_label": "See Services",
+            "button_url": "/pages/services",
+            "featured": true
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "anchor": "paths",
+        "eyebrow": "",
+        "title_prefix": "Go straight to",
+        "title_italic": "what you need.",
+        "subtitle": "Pick the area that matches where you are right now.",
+        "tint": false,
+        "button_label": "Join the Free Teacher Moves Community",
+        "button_url": "https://www.skool.com/expat-teachers-lounge-9615"
+      }
+    },
+    "final": {
+      "type": "etl-cta",
+      "settings": {
+        "title_prefix": "Not sure where to",
+        "title_italic": "start?",
+        "description": "Answer up to ten quick questions and get your stage, a readiness score and one clear next step for this week.",
+        "cta_1_text": "Take the Free Assessment",
+        "cta_1_url": "/pages/teacher-moves-assessment",
+        "cta_2_text": "Watch on YouTube",
+        "cta_2_url": "https://www.youtube.com/channel/UCdPIai3BIORmG-VoFXXUXYw"
+      }
     }
   },
   "order": [
-    "main"
+    "hero",
+    "paths",
+    "final"
   ]
 }
