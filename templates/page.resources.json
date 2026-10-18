@@ -1,8 +1,18 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "etl-page-hero",
       "settings": {
+        "image": "shopify://shop_images/desk_table_flatlay.png",
         "image_asset": "Edwina_reading_a_book.png",
         "badge": "Resources",
         "title_prefix": "Research your next move at your",
