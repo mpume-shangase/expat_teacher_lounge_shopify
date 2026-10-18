@@ -65,13 +65,19 @@
       Skip to content
     </a>
 
-    {% section 'header' %}
+    {%- if template.suffix == 'start-here' -%}
+      {% section 'tm-lp-header' %}
+    {%- else -%}
+      {% section 'header' %}
+    {%- endif -%}
 
     <main id="MainContent" class="focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
-    {% section 'footer' %}
+    {%- unless template.suffix == 'start-here' -%}
+      {% section 'footer' %}
+    {%- endunless -%}
 
     <ul hidden>
       <li id="a11y-refresh-page-message">Choosing a selection results in a full page refresh.</li>
