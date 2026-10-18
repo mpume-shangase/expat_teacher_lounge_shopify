@@ -1,0 +1,86 @@
+{%- liquid
+  assign cta_url = section.settings.cta_url | default: '/pages/teacher-moves-assessment'
+  assign stages = section.settings.stages | split: ','
+  assign current_stage = section.settings.current_stage | strip
+-%}
+<section class="tm-lp tm-lp-section tm-lp-outcome" id="tm-outcome">
+  <div class="tm-lp-wrap">
+    <div class="tm-lp-head">
+      {%- if section.settings.eyebrow != blank -%}<span class="tm-lp-eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h2 class="tm-lp-h2">{{ section.settings.heading }}</h2>
+    </div>
+    <div class="tm-lp-outcome__grid">
+      <article class="tm-lp-card tm-lp-outcome__card">
+        <div class="tm-lp-outcome__visual" aria-hidden="true">
+          <ul class="tm-lp-stages">
+            {%- for stage in stages -%}
+              {%- assign stage_name = stage | strip -%}
+              <li{% if stage_name == current_stage %} class="is-current"{% endif %}>{{ stage_name }}</li>
+            {%- endfor -%}
+          </ul>
+        </div>
+        <h3>{{ section.settings.card_1_title }}</h3>
+        <p>{{ section.settings.card_1_text }}</p>
+      </article>
+      <article class="tm-lp-card tm-lp-outcome__card">
+        <div class="tm-lp-outcome__visual" aria-hidden="true">
+          <div class="tm-lp-meter__label"><span>Just starting</span><span>Ready to move</span></div>
+          <div class="tm-lp-meter__track">
+            {%- for i in (1..10) -%}<span{% if i <= 6 %} class="is-on"{% endif %}></span>{%- endfor -%}
+          </div>
+          <div class="tm-lp-meter__caption">Example</div>
+        </div>
+        <h3>{{ section.settings.card_2_title }}</h3>
+        <p>{{ section.settings.card_2_text }}</p>
+      </article>
+      <article class="tm-lp-card tm-lp-outcome__card">
+        <div class="tm-lp-outcome__visual" aria-hidden="true">
+          <div class="tm-lp-next">
+            <span class="tm-lp-next__icon">&rarr;</span>
+            <span class="tm-lp-next__body">
+              <span class="tm-lp-next__kicker">This week</span>
+              <span class="tm-lp-next__line"></span>
+              <span class="tm-lp-next__line tm-lp-next__line--short"></span>
+            </span>
+          </div>
+        </div>
+        <h3>{{ section.settings.card_3_title }}</h3>
+        <p>{{ section.settings.card_3_text }}</p>
+      </article>
+    </div>
+    {%- if section.settings.cta_text != blank -%}
+      <div class="tm-lp-cta">
+        <a class="btn btn-primary tm-lp-btn-lg" href="{{ cta_url }}" data-tm-cta="outcome">{{ section.settings.cta_text }}</a>
+        {%- if section.settings.cta_note != blank -%}<p class="tm-lp-cta__note">{{ section.settings.cta_note }}</p>{%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing outcome",
+  "class": "tm-lp-outcome-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Small label", "default": "Your free assessment gives you" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "info": "Italic words show in blue.", "default": "In 3 minutes, you'll know <em>where you stand.</em>" },
+    { "type": "header", "content": "Card 1" },
+    { "type": "text", "id": "card_1_title", "label": "Title", "default": "Your Stage" },
+    { "type": "textarea", "id": "card_1_text", "label": "Text", "default": "Explorer, Planner, Applicant, Offer Received or Relocator." },
+    { "type": "text", "id": "stages", "label": "Stages shown in the card", "info": "Separate with commas.", "default": "Explorer, Planner, Applicant, Offer Received, Relocator" },
+    { "type": "text", "id": "current_stage", "label": "Highlighted example stage", "default": "Planner" },
+    { "type": "header", "content": "Card 2" },
+    { "type": "text", "id": "card_2_title", "label": "Title", "default": "Your Readiness" },
+    { "type": "textarea", "id": "card_2_text", "label": "Text", "default": "A simple planning score showing how prepared you currently are." },
+    { "type": "header", "content": "Card 3" },
+    { "type": "text", "id": "card_3_title", "label": "Title", "default": "Your Next Move" },
+    { "type": "textarea", "id": "card_3_text", "label": "Text", "default": "One practical action based on your destination, timeline and situation." },
+    { "type": "header", "content": "Button" },
+    { "type": "text", "id": "cta_text", "label": "Button label", "default": "Find My Next Move — Free" },
+    { "type": "text", "id": "cta_url", "label": "Button link", "default": "/pages/teacher-moves-assessment" },
+    { "type": "text", "id": "cta_note", "label": "Line under the button", "default": "Takes about 3 minutes · Free" }
+  ],
+  "presets": [{ "name": "Landing outcome" }],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}
