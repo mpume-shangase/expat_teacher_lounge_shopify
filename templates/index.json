@@ -17,8 +17,8 @@
         "title_highlight": "done",
         "title_italic": "right.",
         "description": "Skip the Facebook group confusion and the sketchy recruiter agencies. Get the exact roadmap, contract intel, and market-ready strategy you need to secure a premium international teaching role.",
-        "cta_1_text": "Join the Free Community",
-        "cta_1_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
+        "cta_1_text": "Take the Free Assessment",
+        "cta_1_url": "/pages/teacher-moves-assessment",
         "cta_2_text": "Explore My Canada Pathway",
         "cta_2_url": "/pages/canada-teacher-pathway",
         "trust_text": "Join 300+ teachers in the Teacher Moves community",
@@ -435,9 +435,9 @@
       "settings": {
         "title_prefix": "Not sure where to",
         "title_italic": "start?",
-        "description": "Start with the community, explore your options, and take your next step when you're ready.",
-        "cta_1_text": "Join Teacher Moves Free",
-        "cta_1_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
+        "description": "Answer up to ten quick questions and get your stage, a readiness score and one clear next step for this week.",
+        "cta_1_text": "Take the Free Assessment",
+        "cta_1_url": "/pages/teacher-moves-assessment",
         "cta_2_text": "Explore My Canada Pathway",
         "cta_2_url": "/pages/canada-teacher-pathway"
       }
