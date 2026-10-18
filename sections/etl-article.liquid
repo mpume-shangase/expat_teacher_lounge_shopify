@@ -1,0 +1,20 @@
+<section class="section-padding bg-light text-light"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor }}"{% endif %}>
+  <div class="container" style="max-width: 860px;">
+    {%- if section.settings.title_prefix != blank -%}
+      <h2 class="etl-heading">{{ section.settings.title_prefix }} <span class="etl-accent">{{ section.settings.title_italic }}</span></h2>
+    {%- endif -%}
+    <div class="font-body">{{ page.content }}</div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Page content (article)",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor (for #links)" },
+    { "type": "text", "id": "title_prefix", "label": "Heading (optional)" },
+    { "type": "text", "id": "title_italic", "label": "Blue italic words" }
+  ],
+  "presets": [{ "name": "Page content (article)" }]
+}
+{% endschema %}
