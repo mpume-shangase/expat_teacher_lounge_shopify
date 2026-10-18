@@ -10,108 +10,221 @@
 {
   "sections": {
     "hero": {
-      "type": "etl-page-hero",
+      "type": "tm-lp-hero",
       "settings": {
         "image_asset": "Edwina_Teaching.png",
         "brand_logo_asset": "tm-mark.svg",
         "brand_name": "Teacher Moves",
         "brand_sub": "by Expat Teacher's Lounge",
-        "badge": "",
-        "title_prefix": "Your next teaching move",
-        "title_italic": "starts here.",
-        "description": "I'm Mpume (Edwina) Shangase. I help internationally trained teachers plan their next move, from certification and contracts to relocation and the job search.",
-        "price": "",
-        "cta_1_text": "Take the Free Assessment",
-        "cta_1_url": "/pages/teacher-moves-assessment",
-        "cta_2_text": "Explore Free Guides",
-        "cta_2_url": "/pages/resources",
-        "note": "About three minutes. Your stage, a readiness score and one clear next step.",
-        "sticky_trigger": false
+        "heading": "What should your <em>next teaching move</em> be?",
+        "description": "Whether you're considering Canada, applying internationally, reviewing a contract or preparing to relocate, get a clearer picture of where you are and what to do next.",
+        "cta_text": "Find My Next Move — Free",
+        "cta_url": "/pages/teacher-moves-assessment",
+        "note": "Takes about 3 minutes · Get your stage, readiness score and next step",
+        "skip_text": "I already know what I need",
+        "skip_target": "#tm-shortcuts",
+        "show_trust": true,
+        "trust_lead": "<strong>Join 500+ teachers</strong> already inside the Teacher Moves community",
+        "trust_1": "International teacher community",
+        "trust_2": "Practical career & relocation guidance",
+        "trust_3": "Free assessment & resources"
       }
     },
-    "paths": {
-      "type": "etl-pathways",
+    "outcome": {
+      "type": "tm-lp-outcome",
+      "settings": {
+        "eyebrow": "Your free assessment gives you",
+        "heading": "In 3 minutes, you'll know <em>where you stand.</em>",
+        "card_1_title": "Your Stage",
+        "card_1_text": "Explorer, Planner, Applicant, Offer Received or Relocator.",
+        "stages": "Explorer, Planner, Applicant, Offer Received, Relocator",
+        "current_stage": "Planner",
+        "card_2_title": "Your Readiness",
+        "card_2_text": "A simple planning score showing how prepared you currently are.",
+        "card_3_title": "Your Next Move",
+        "card_3_text": "One practical action based on your destination, timeline and situation.",
+        "cta_text": "Find My Next Move — Free",
+        "cta_url": "/pages/teacher-moves-assessment",
+        "cta_note": ""
+      }
+    },
+    "shortcuts": {
+      "type": "tm-lp-shortcuts",
+      "settings": {
+        "heading": "Already know what you need?",
+        "subheading": "Skip straight to your situation.",
+        "more_text": "Still not sure? Take the free assessment →",
+        "more_url": "/pages/teacher-moves-assessment"
+      },
       "blocks": {
-        "c1": {
-          "type": "card",
+        "canada": {
+          "type": "shortcut",
           "settings": {
-            "icon": "canada",
-            "kicker": "Canada",
-            "title": "Teach in Canada",
-            "text": "<p>Certification by province, where to begin, and the support that fits you.</p>",
-            "button_label": "Explore Canada",
-            "button_url": "/pages/teach-in-canada"
+            "icon": "&#127809;",
+            "title": "I want to teach in Canada",
+            "text": "Certification, provinces and your pathway.",
+            "url": "/pages/teach-in-canada",
+            "new_tab": false
           }
         },
-        "c2": {
-          "type": "card",
+        "contract": {
+          "type": "shortcut",
           "settings": {
-            "icon": "contract",
-            "kicker": "Contracts",
-            "title": "Review a teaching contract",
-            "text": "<p>What to check, and the red flags to question, before you sign.</p>",
-            "button_label": "Check My Contract",
-            "button_url": "/pages/international-teaching-contracts"
+            "icon": "&#128196;",
+            "title": "I have a teaching contract",
+            "text": "Know what to check before you sign.",
+            "url": "/pages/international-teaching-contracts",
+            "new_tab": false
           }
         },
-        "c3": {
-          "type": "card",
+        "relocate": {
+          "type": "shortcut",
           "settings": {
-            "icon": "book",
-            "kicker": "Free",
-            "title": "Guides and checklists",
-            "text": "<p>The Province Shortlist, Qatar checklists and the USA J-1 guide.</p>",
-            "button_label": "Get Free Guides",
-            "button_url": "/pages/resources"
+            "icon": "&#9992;&#65039;",
+            "title": "I'm preparing to relocate",
+            "text": "Plan your move properly.",
+            "url": "/products/relocation-strategy-session",
+            "new_tab": false
           }
         },
-        "c4": {
-          "type": "card",
+        "interview": {
+          "type": "shortcut",
           "settings": {
-            "icon": "compass",
-            "kicker": "One-to-one",
-            "title": "Work with me",
-            "price": "From $77",
-            "text": "<p>Canada Pathway Assessment, Relocation Strategy and Contract Review sessions.</p>",
-            "button_label": "See Services",
-            "button_url": "/pages/services",
-            "featured": true
+            "icon": "&#127908;",
+            "title": "I'm applying or interviewing",
+            "text": "CV and interview preparation.",
+            "url": "https://app.expatteacherslounge.com",
+            "new_tab": false
+          }
+        },
+        "international": {
+          "type": "shortcut",
+          "settings": {
+            "icon": "&#127757;",
+            "title": "I want to teach internationally",
+            "text": "Explore destinations and opportunities.",
+            "url": "https://app.expatteacherslounge.com/app/",
+            "new_tab": false
           }
         }
       },
       "block_order": [
-        "c1",
-        "c2",
-        "c3",
-        "c4"
-      ],
+        "canada",
+        "contract",
+        "relocate",
+        "interview",
+        "international"
+      ]
+    },
+    "founder": {
+      "type": "tm-lp-founder",
       "settings": {
-        "anchor": "paths",
-        "eyebrow": "",
-        "title_prefix": "Go straight to",
-        "title_italic": "what you need.",
-        "subtitle": "Pick the area that matches where you are right now.",
-        "tint": false,
-        "button_label": "Join the Free Teacher Moves Community",
-        "button_url": "https://www.skool.com/expat-teachers-lounge-9615"
+        "image": "shopify://shop_images/Edwina_headshot.png",
+        "image_alt": "Mpume (Edwina) Shangase",
+        "eyebrow": "Meet Mpume (Edwina)",
+        "heading": "Hi, I'm Mpume (Edwina) Shangase.",
+        "body": "<p>I know that an international teaching move isn't just about finding a vacancy. There are qualifications, contracts, family decisions, finances, relocation and the reality of starting again somewhere new.</p><p>Teacher Moves exists to make that process clearer.</p>",
+        "brand_logo_asset": "tm-mark.svg",
+        "cred_1": "Founder, Expat Teacher's Lounge",
+        "cred_2": "International educator",
+        "cred_3": "Teacher Moves",
+        "cred_4": ""
       }
     },
-    "final": {
-      "type": "etl-cta",
+    "proof": {
+      "type": "tm-lp-proof",
       "settings": {
-        "title_prefix": "Not sure where to",
-        "title_italic": "start?",
-        "description": "Answer up to ten quick questions and get your stage, a readiness score and one clear next step for this week.",
-        "cta_1_text": "Take the Free Assessment",
-        "cta_1_url": "/pages/teacher-moves-assessment",
-        "cta_2_text": "Watch on YouTube",
-        "cta_2_url": "https://www.youtube.com/channel/UCdPIai3BIORmG-VoFXXUXYw"
+        "heading": "Teachers are already making their moves.",
+        "subheading": ""
+      },
+      "blocks": {
+        "members": {
+          "type": "stat",
+          "settings": {
+            "value": "500+",
+            "label": "Teacher Moves members"
+          }
+        }
+      },
+      "block_order": [
+        "members"
+      ]
+    },
+    "community": {
+      "type": "tm-lp-community",
+      "settings": {
+        "eyebrow": "Teacher Moves community",
+        "heading": "You don't have to figure it out alone.",
+        "text": "Join 500+ teachers inside the free Teacher Moves community to ask questions, learn from other educators and keep working on your next move.",
+        "button_text": "Join the Free Community",
+        "button_url": "https://www.skool.com/expat-teachers-lounge-9615",
+        "brand_logo_asset": "tm-mark.svg"
+      }
+    },
+    "faq": {
+      "type": "tm-lp-faq",
+      "settings": {
+        "eyebrow": "Questions",
+        "heading": "Before you start"
+      },
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "Is the assessment really free?",
+            "answer": "<p>Yes.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "How long does it take?",
+            "answer": "<p>Approximately three minutes.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Do I need to know where I want to move?",
+            "answer": "<p>No. The assessment can help if you're still exploring.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "Will this tell me whether I'm officially eligible to teach in a country?",
+            "answer": "<p>No. It's a planning tool, not an official certification or immigration determination.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ]
+    },
+    "final": {
+      "type": "tm-lp-final",
+      "settings": {
+        "heading": "Your next move doesn't need to be <em>a guess.</em>",
+        "text": "Answer a few questions and leave with a clearer picture of where you are, how ready you are and what to do next.",
+        "cta_text": "Find My Next Move — Free",
+        "cta_url": "/pages/teacher-moves-assessment",
+        "note": "About 3 minutes · No obligation",
+        "show_footer": true,
+        "footer_name": "Expat Teacher's Lounge"
       }
     }
   },
   "order": [
     "hero",
-    "paths",
+    "outcome",
+    "shortcuts",
+    "founder",
+    "proof",
+    "community",
+    "faq",
     "final"
   ]
 }
