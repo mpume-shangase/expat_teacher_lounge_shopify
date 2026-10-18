@@ -56,7 +56,7 @@
   </head>
 
   {%- assign has_dark_hero = false -%}
-  {%- if template.name == 'index' or template.name == 'collection' or template.name == 'blog' or template.suffix == 'about' or template.suffix == 'start-here' or template.suffix == 'canada-teacher-certification' or template.suffix == 'international-teaching-contracts' or template.suffix == 'coaching' or template.suffix == 'canada-teacher-pathway' or template.suffix == 'teach-in-canada' or template.suffix == 'community' or template.suffix == 'services' or template.suffix == 'resources' -%}
+  {%- if template.name == 'index' or template.name == 'collection' or template.name == 'blog' or template.suffix == 'about' or template.suffix == 'start-here' or template.suffix == 'canada-teacher-certification' or template.suffix == 'international-teaching-contracts' or template.suffix == 'coaching' or template.suffix == 'canada-teacher-pathway' or template.suffix == 'teach-in-canada' or template.suffix == 'community' or template.suffix == 'services' or template.suffix == 'resources' or template.suffix == 'teacher-moves-assessment' -%}
     {%- assign has_dark_hero = true -%}
   {%- endif -%}
 
@@ -65,7 +65,7 @@
       Skip to content
     </a>
 
-    {%- if template.suffix == 'start-here' -%}
+    {%- if template.suffix == 'start-here' or template.suffix == 'teacher-moves-assessment' -%}
       {% section 'tm-lp-header' %}
     {%- else -%}
       {% section 'header' %}
@@ -75,7 +75,7 @@
       {{ content_for_layout }}
     </main>
 
-    {%- unless template.suffix == 'start-here' -%}
+    {%- unless template.suffix == 'start-here' or template.suffix == 'teacher-moves-assessment' -%}
       {% section 'footer' %}
     {%- endunless -%}
 
