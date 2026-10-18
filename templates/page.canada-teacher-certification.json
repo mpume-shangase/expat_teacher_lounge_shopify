@@ -1,0 +1,270 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "etl-page-hero",
+      "settings": {
+        "image_asset": "Edwina_delivering_a_presentation.png",
+        "brand_logo_asset": "tm-mark.svg",
+        "brand_name": "Teacher Moves",
+        "brand_sub": "by Expat Teacher's Lounge",
+        "badge": "Guide · Checked October 2026",
+        "title_prefix": "Canada teacher certification,",
+        "title_italic": "explained.",
+        "description": "There is no national teaching licence. Each province and territory certifies its own teachers, and most now start internationally trained teachers with Pathways to Teach Canada.",
+        "price": "",
+        "cta_1_text": "Take the Free Assessment",
+        "cta_1_url": "/pages/teacher-moves-assessment",
+        "cta_2_text": "Get the Free Province Shortlist",
+        "cta_2_url": "/products/teach-in-canada-the-province-shortlist",
+        "note": "By Mpume (Edwina) Shangase, who went through New Brunswick certification while living in Qatar.",
+        "sticky_trigger": false
+      }
+    },
+    "steps": {
+      "type": "etl-steps",
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Choose one province, or a short list",
+            "description": "Every application costs money and time. Weigh certification rules, demand for your subject, language, cost of living and your immigration route first."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Confirm your route",
+            "description": "Use the Pathways to Teach Canada tool to see which assessments you need. For Ontario, Alberta, Quebec and Yukon, follow the regulator's own instructions."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Complete your assessments",
+            "description": "In Pathways provinces, WES does the credential assessment and you book the language test (LCATP) through your Pathways account."
+          }
+        },
+        "s4": {
+          "type": "step",
+          "settings": {
+            "title": "Apply to the regulator",
+            "description": "Pathways does not issue certificates. You still apply to the province and send the documents it asks for."
+          }
+        },
+        "s5": {
+          "type": "step",
+          "settings": {
+            "title": "Get your decision",
+            "description": "Many internationally trained teachers first receive an interim or conditional certificate, with conditions to meet before full certification."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5"
+      ],
+      "settings": {
+        "anchor": "steps",
+        "title_prefix": "The process in",
+        "title_italic": "five steps.",
+        "subtitle": "What most internationally trained teachers go through, from choosing a province to getting a decision.",
+        "tint": true,
+        "button_label": "",
+        "button_url": ""
+      }
+    },
+    "article": {
+      "type": "etl-article",
+      "settings": {
+        "anchor": "guide",
+        "title_prefix": "",
+        "title_italic": ""
+      }
+    },
+    "paths": {
+      "type": "etl-pathways",
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "icon": "book",
+            "kicker": "Free",
+            "title": "The Province Shortlist",
+            "text": "<p>Compare seven Canadian destinations before you pay for applications.</p>",
+            "button_label": "Get the Free Shortlist",
+            "button_url": "/products/teach-in-canada-the-province-shortlist"
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "icon": "canada",
+            "kicker": "Personalised",
+            "title": "Canada Teacher Pathway Assessment",
+            "price": "$197",
+            "text": "<p>A Canada Pathway Report, document checklist, 90-day action plan and a 30-minute debrief.</p>",
+            "button_label": "Start My Canada Pathway",
+            "button_url": "/pages/canada-teacher-pathway",
+            "featured": true
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "icon": "compass",
+            "kicker": "Do it yourself",
+            "title": "Canada Teaching Certification Guide",
+            "price": "$7.99",
+            "text": "<p>The province-by-province process in one resource.</p>",
+            "button_label": "See the Guide",
+            "button_url": "/products/canada-teaching-certification-guide-province-by-province"
+          }
+        },
+        "c4": {
+          "type": "card",
+          "settings": {
+            "icon": "community",
+            "kicker": "Community",
+            "title": "Teacher Moves community",
+            "text": "<p>Ask questions and learn from teachers making the same move.</p>",
+            "button_label": "Join Free",
+            "button_url": "https://www.skool.com/expat-teachers-lounge-9615"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "anchor": "next-step",
+        "eyebrow": "",
+        "title_prefix": "Your next",
+        "title_italic": "step.",
+        "subtitle": "Pick the support that fits where you are.",
+        "tint": false,
+        "button_label": "",
+        "button_url": ""
+      }
+    },
+    "faq": {
+      "type": "etl-faq",
+      "blocks": {
+        "q1": {
+          "type": "qa",
+          "settings": {
+            "question": "Is there a national teaching licence in Canada?",
+            "answer": "<p>No. Teaching is regulated by each province and territory. You apply to the one where you want to teach.</p>"
+          }
+        },
+        "q2": {
+          "type": "qa",
+          "settings": {
+            "question": "Can I teach in Canada with a teaching qualification from another country?",
+            "answer": "<p>Often, yes, but your qualification has to be assessed first. Regulators look at your degree, the length and content of your teacher-education programme, your practicum and your professional standing. Some receive full certification; others receive an interim or conditional certificate with courses or conditions to complete.</p>"
+          }
+        },
+        "q3": {
+          "type": "qa",
+          "settings": {
+            "question": "Do I need Pathways to Teach Canada?",
+            "answer": "<p>Only if you plan to teach in a participating province or territory: British Columbia, Manitoba, New Brunswick, Newfoundland and Labrador, the Northwest Territories, Nova Scotia, Nunavut, Prince Edward Island or Saskatchewan. Ontario, Alberta, Quebec and Yukon have their own processes.</p>"
+          }
+        },
+        "q4": {
+          "type": "qa",
+          "settings": {
+            "question": "What is the LCATP?",
+            "answer": "<p>The Language Competency Assessment for the Teaching Profession is the language test run through Pathways to Teach Canada. It tests reading, writing, listening and speaking online. Ontario also accepts it.</p>"
+          }
+        },
+        "q5": {
+          "type": "qa",
+          "settings": {
+            "question": "Can I apply while I'm still outside Canada?",
+            "answer": "<p>Yes. Pathways is online, and regulators such as Alberta publish a fee for applicants outside Canada. Starting before you move is one of the best ways to save time. I requested my documents and followed up with organisations from Qatar.</p>"
+          }
+        },
+        "q6": {
+          "type": "qa",
+          "settings": {
+            "question": "Does a work permit or permanent residence give me a teaching certificate?",
+            "answer": "<p>No. Immigration status and teacher certification are separate. You need both to teach in a Canadian public school, and some provinces need your status before they'll issue a full certificate.</p>"
+          }
+        },
+        "q7": {
+          "type": "qa",
+          "settings": {
+            "question": "Can I apply for teaching jobs while my certification is in progress?",
+            "answer": "<p>Sometimes. Some employers ask for certification before you apply; others will consider you if your assessment is underway. Read each vacancy carefully and describe your certification status accurately.</p>"
+          }
+        },
+        "q8": {
+          "type": "qa",
+          "settings": {
+            "question": "If I'm certified in one province, can I move to another?",
+            "answer": "<p>Usually. Under the Canadian Free Trade Agreement, a certified teacher should be recognised by another province or territory without significant extra requirements, though you will still file a transfer application and may need to show language proficiency.</p>"
+          }
+        },
+        "q9": {
+          "type": "qa",
+          "settings": {
+            "question": "Is WES the same as teacher certification?",
+            "answer": "<p>No. In Pathways provinces, WES completes the credential assessment, but the provincial regulator makes the certification decision.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8",
+        "q9"
+      ],
+      "settings": {
+        "anchor": "faq",
+        "title_prefix": "Frequently asked",
+        "title_italic": "questions.",
+        "tint": true
+      }
+    },
+    "final": {
+      "type": "etl-cta",
+      "settings": {
+        "title_prefix": "Not sure where to",
+        "title_italic": "start?",
+        "description": "Answer up to ten quick questions and get your stage, a readiness score and one clear next step for this week.",
+        "cta_1_text": "Take the Free Assessment",
+        "cta_1_url": "/pages/teacher-moves-assessment",
+        "cta_2_text": "Explore Teaching in Canada",
+        "cta_2_url": "/pages/teach-in-canada"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "steps",
+    "article",
+    "paths",
+    "faq",
+    "final"
+  ]
+}
