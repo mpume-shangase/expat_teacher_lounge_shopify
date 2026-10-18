@@ -222,3 +222,6 @@ body.tm-lp-chat-delay shopify-chat, body.tm-lp-chat-delay #shopify-chat { transi
   .tm-lp *, .tm-lp-header { transition: none !important; }
   .tm-lp-shortcut:hover { transform: none; }
 }
+@media (max-width: 749px) {
+  .tm-lp .btn.tm-lp-btn-lg { padding: 17px 20px; white-space: nowrap; }
+}
