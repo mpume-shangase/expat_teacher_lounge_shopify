@@ -40,6 +40,18 @@
     {%- endif -%}
   </div>
 </div>
+<script>
+  document.addEventListener('click', function (event) {
+    if (!event.target.closest || !event.target.closest('#tm-assess-wrap .tma-start')) return;
+    var card = document.querySelector('.tm-lp-assess__card');
+    if (!card) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setTimeout(function () {
+      var top = card.getBoundingClientRect().top + window.pageYOffset - 88;
+      window.scrollTo({ top: top, behavior: reduce ? 'auto' : 'smooth' });
+    }, 60);
+  });
+</script>
 
 {% schema %}
 {
