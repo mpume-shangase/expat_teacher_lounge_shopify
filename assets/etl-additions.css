@@ -167,3 +167,18 @@ body .site-header .site-header__actions a.site-header__join.btn:hover { color: #
 .shopify-policy__body li { margin-bottom: 8px; }
 .shopify-policy__body a { color: var(--color-brand-deep, #143D8A); text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 749px) { .shopify-policy__container { padding: 120px 20px 72px !important; } }
+
+/* Product descriptions: readable spacing */
+.product-single__description { font-size: 1rem; line-height: 1.7; }
+.product-single__description p { margin: 0 0 14px; }
+.product-single__description ul, .product-single__description ol { margin: 0 0 18px; padding-left: 20px; }
+.product-single__description li { margin-bottom: 6px; }
+.product-single__description hr { margin: 22px 0; border: 0; border-top: 1px solid #e5e8f0; }
+.product-single__description p > strong:only-child { display: block; font-family: var(--font-display, "Fraunces", Georgia, serif); font-size: 1.1rem; color: #0a0a14; }
+
+/* About page: bio band uses brand deep blue with readable heading */
+.about-bio { background-color: var(--color-brand-deep, #143D8A) !important; }
+.about-bio .about-bio__title { color: #fff !important; }
+
+/* Blog listing hero: keep the title readable over the photo */
+body.template-blog main section.relative.flex.items-center > .absolute.inset-0 > .absolute.inset-0 { background: linear-gradient(to bottom, rgba(10, 11, 20, .88) 0%, rgba(10, 11, 20, .78) 72%, #fff 100%) !important; }
