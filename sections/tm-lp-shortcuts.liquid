@@ -1,0 +1,54 @@
+<section class="tm-lp tm-lp-section tm-lp-section--soft tm-lp-shortcuts" id="tm-shortcuts">
+  <div class="tm-lp-wrap">
+    <div class="tm-lp-head">
+      <h2 class="tm-lp-h2">{{ section.settings.heading }}</h2>
+      {%- if section.settings.subheading != blank -%}<p class="tm-lp-lede">{{ section.settings.subheading }}</p>{%- endif -%}
+    </div>
+    <ul class="tm-lp-shortcuts__grid">
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }}>
+          <a class="tm-lp-shortcut" href="{{ block.settings.url | default: '#' }}"{% if block.settings.new_tab %} target="_blank" rel="noopener"{% endif %} data-tm-cta="shortcut-{{ forloop.index }}">
+            {%- if block.settings.icon != blank -%}<span class="tm-lp-shortcut__icon" aria-hidden="true">{{ block.settings.icon }}</span>{%- endif -%}
+            <span class="tm-lp-shortcut__body">
+              <span class="tm-lp-shortcut__title">{{ block.settings.title }}</span>
+              {%- if block.settings.text != blank -%}<span class="tm-lp-shortcut__text">{{ block.settings.text }}</span>{%- endif -%}
+            </span>
+            <span class="tm-lp-shortcut__arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+    {%- if section.settings.more_text != blank -%}
+      <p class="tm-lp-shortcuts__more"><a class="tm-lp-text-link" href="{{ section.settings.more_url | default: '/pages/teacher-moves-assessment' }}" data-tm-cta="shortcuts-assessment">{{ section.settings.more_text }}</a></p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing shortcuts",
+  "class": "tm-lp-shortcuts-section",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Already know what you need?" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Skip straight to your situation." },
+    { "type": "text", "id": "more_text", "label": "Link under the options", "default": "Still not sure? Take the free assessment →" },
+    { "type": "text", "id": "more_url", "label": "Link target", "default": "/pages/teacher-moves-assessment" }
+  ],
+  "blocks": [
+    {
+      "type": "shortcut",
+      "name": "Situation",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Emoji or symbol" },
+        { "type": "text", "id": "title", "label": "Situation", "default": "I want to teach in Canada" },
+        { "type": "text", "id": "text", "label": "Short line", "default": "Certification, provinces and your pathway." },
+        { "type": "text", "id": "url", "label": "Link", "default": "/pages/teach-in-canada" },
+        { "type": "checkbox", "id": "new_tab", "label": "Open in a new tab", "default": false }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Landing shortcuts" }],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}
