@@ -7,7 +7,7 @@
     {%- if section.settings.image != blank -%}
       {{ section.settings.image | image_url: width: 1800 | image_tag: loading: 'eager', fetchpriority: 'high', alt: '' }}
     {%- else -%}
-      <img src="{{ section.settings.image_asset | default: 'Edwina_Teaching.png' | asset_img_url: '1800x' }}" alt="" loading="eager" fetchpriority="high">
+      <img src="{{ section.settings.image_asset | default: 'Edwina_Teaching.png' | asset_img_url: '1800x' }}" alt="" loading="eager" fetchpriority="high" width="1800" height="1200">
     {%- endif -%}
   </div>
   <div class="etl-page-hero__dark"></div>
