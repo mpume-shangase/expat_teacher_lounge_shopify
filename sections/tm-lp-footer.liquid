@@ -1,0 +1,23 @@
+<footer class="tm-lp tm-lp-footer">
+  <div class="tm-lp-wrap">
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ section.settings.footer_name }}. All rights reserved.</p>
+    <ul class="tm-lp-footer__links">
+      <li><a href="/policies/privacy-policy">Privacy Policy</a></li>
+      <li><a href="/pages/terms-and-conditions">Terms &amp; Conditions</a></li>
+      <li><a href="/policies/refund-policy">Refund Policy</a></li>
+      <li><a href="/pages/disclaimer">Disclaimer</a></li>
+    </ul>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Landing footer",
+  "class": "tm-lp-footer-section",
+  "settings": [
+    { "type": "text", "id": "footer_name", "label": "Business name", "default": "Expat Teacher's Lounge" }
+  ],
+  "presets": [{ "name": "Landing footer" }],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}
