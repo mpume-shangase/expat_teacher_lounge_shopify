@@ -18,7 +18,7 @@
         "brand_sub": "by Expat Teacher's Lounge",
         "heading": "What should your <em>next teaching move</em> be?",
         "description": "Whether you're considering Canada, applying internationally, reviewing a contract or preparing to relocate, get a clearer picture of where you are and what to do next.",
-        "cta_text": "Find My Next Move — Free",
+        "cta_text": "Take the Free Assessment",
         "cta_url": "/pages/teacher-moves-assessment",
         "note": "Takes about 3 minutes · Get your stage, readiness score and next step",
         "skip_text": "I already know what I need",
@@ -43,7 +43,7 @@
         "card_2_text": "A simple planning score showing how prepared you currently are.",
         "card_3_title": "Your Next Move",
         "card_3_text": "One practical action based on your destination, timeline and situation.",
-        "cta_text": "Find My Next Move — Free",
+        "cta_text": "Take the Free Assessment",
         "cta_url": "/pages/teacher-moves-assessment",
         "cta_note": ""
       }
@@ -209,7 +209,7 @@
       "settings": {
         "heading": "Your next move doesn't need to be <em>a guess.</em>",
         "text": "Answer a few questions and leave with a clearer picture of where you are, how ready you are and what to do next.",
-        "cta_text": "Find My Next Move — Free",
+        "cta_text": "Take the Free Assessment",
         "cta_url": "/pages/teacher-moves-assessment",
         "note": "About 3 minutes · No obligation",
         "show_footer": true,
