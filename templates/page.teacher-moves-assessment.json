@@ -9,12 +9,91 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "settings": {}
+    "assess": {
+      "type": "tm-lp-assess",
+      "settings": {
+        "image_asset": "Edwina_Teaching.png",
+        "brand_logo_asset": "tm-mark.svg",
+        "brand_name": "Teacher Moves",
+        "brand_sub": "by Expat Teacher's Lounge",
+        "heading": "Where are you on your <em>teaching move?</em>",
+        "description": "Up to ten quick questions. You get your stage, a readiness score and one clear next step for this week, plus the free resource that fits where you are.",
+        "meta": "Free · About 3 minutes · No account needed",
+        "footnote": "A planning tool, not an official certification or immigration decision."
+      }
+    },
+    "outcome": {
+      "type": "tm-lp-outcome",
+      "settings": {
+        "eyebrow": "What you'll get",
+        "heading": "Three things you'll <em>leave with.</em>",
+        "card_1_title": "Your Stage",
+        "card_1_text": "Explorer, Planner, Applicant, Offer Received or Relocator.",
+        "stages": "Explorer, Planner, Applicant, Offer Received, Relocator",
+        "current_stage": "Planner",
+        "card_2_title": "Your Readiness",
+        "card_2_text": "A simple planning score showing how prepared you currently are.",
+        "card_3_title": "Your Next Move",
+        "card_3_text": "One practical action based on your destination, timeline and situation.",
+        "cta_text": "",
+        "cta_url": "/pages/teacher-moves-assessment",
+        "cta_note": ""
+      }
+    },
+    "faq": {
+      "type": "tm-lp-faq",
+      "settings": {
+        "eyebrow": "Questions",
+        "heading": "Before you start"
+      },
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "Is the assessment really free?",
+            "answer": "<p>Yes.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "How long does it take?",
+            "answer": "<p>Approximately three minutes.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Do I need to know where I want to move?",
+            "answer": "<p>No. The assessment can help if you're still exploring.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "Will this tell me whether I'm officially eligible to teach in a country?",
+            "answer": "<p>No. It's a planning tool, not an official certification or immigration determination.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ]
+    },
+    "footer": {
+      "type": "tm-lp-footer",
+      "settings": {
+        "footer_name": "Expat Teacher's Lounge"
+      }
     }
   },
   "order": [
-    "main"
+    "assess",
+    "outcome",
+    "faq",
+    "footer"
   ]
 }
