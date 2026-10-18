@@ -12,6 +12,7 @@
     "assess": {
       "type": "tm-lp-assess",
       "settings": {
+        "image": "shopify://shop_images/Edwina_in_the_office.png",
         "image_asset": "Edwina_Teaching.png",
         "brand_logo_asset": "tm-mark.svg",
         "brand_name": "Teacher Moves",
