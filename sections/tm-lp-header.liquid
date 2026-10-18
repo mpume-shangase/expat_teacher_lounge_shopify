@@ -22,7 +22,7 @@
         </span>
       {%- endif -%}
     </div>
-    {%- if section.settings.cta_text != blank -%}
+    {%- if section.settings.cta_text != blank and template.suffix != 'teacher-moves-assessment' -%}
       <a class="btn btn-primary tm-lp-header__cta" href="{{ cta_url }}" data-tm-cta="header">{{ section.settings.cta_text }}</a>
     {%- endif -%}
   </div>
