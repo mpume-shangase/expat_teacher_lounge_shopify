@@ -226,3 +226,32 @@ body.tm-lp-chat-delay shopify-chat, body.tm-lp-chat-delay #shopify-chat { transi
 @media (max-width: 749px) {
   .tm-lp .btn.tm-lp-btn-lg { padding: 17px 20px; white-space: nowrap; }
 }
+
+/* Assessment page (templates/page.teacher-moves-assessment.json) */
+.tm-lp-hero--assess.etl-page-hero { padding: 120px 0 170px; }
+.tm-lp-hero--assess .etl-page-hero__desc { margin-bottom: 16px; }
+.tm-lp-assess { position: relative; z-index: 12; margin-top: -120px; padding-bottom: 8px; }
+.tm-lp-assess__card { max-width: 760px; margin: 0 auto; padding: 40px 44px; background: #fff; border: 1px solid var(--tm-line); border-radius: 24px; box-shadow: 0 30px 60px -30px rgba(20, 61, 138, .45); }
+.tm-lp-assess__footnote { max-width: 760px; margin: 16px auto 0; text-align: center; font-size: .85rem; color: var(--tm-muted); }
+.tm-lp-assess .tma { max-width: none; margin: 0; padding: 0; }
+.tm-lp-assess .tma, .tm-lp-assess .tma-head, .tm-lp-assess .tma-body, .tm-lp-assess .tma-q { scroll-margin-top: 96px; }
+.tm-lp-assess .tma-intro .tma-kicker, .tm-lp-assess .tma-intro .tma-title, .tm-lp-assess .tma-intro .tma-lead { display: none; }
+.tm-lp-assess .tma-intro { text-align: center; }
+.tm-lp-assess .tma-points { display: inline-grid; gap: 14px; margin: 0 0 30px; text-align: left; }
+.tm-lp-assess .tma-points li { margin: 0; padding-left: 34px; font-size: 1.05rem; line-height: 1.5; color: var(--tm-ink); }
+.tm-lp-assess .tma-points li:before { left: 0; top: 1px; width: 22px; height: 22px; border-radius: 50%; background: var(--tm-blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.4l2.6 2.6L14 7.6' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 22px no-repeat; }
+.tm-lp-assess .tma-btn { background: var(--tm-blue); padding: 16px 34px; font-size: 1.02rem; box-shadow: 0 4px 14px rgba(28, 145, 215, .3); transition: background-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+.tm-lp-assess .tma-btn:hover { background: var(--tm-deep); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(28, 145, 215, .4); }
+.tm-lp-assess .tma-btn-alt { background: #fff; color: var(--tm-deep) !important; border: 1.5px solid var(--tm-deep); box-shadow: none; }
+.tm-lp-assess .tma-btn-alt:hover { background: var(--tm-deep); color: #fff !important; }
+.tm-lp-assess .tma-start { min-width: 280px; padding: 18px 38px; font-size: 1.08rem; }
+.tm-lp-assess .tma-bar { height: 8px; }
+.tm-lp-assess .tma-bar span { background: linear-gradient(90deg, var(--tm-blue), var(--tm-deep)); }
+.tm-lp-assess .tma-opt { border-radius: 14px; transition: border-color .2s ease, box-shadow .2s ease; }
+.tm-lp-assess .tma-opt:hover { box-shadow: 0 10px 24px -16px rgba(20, 61, 138, .5); }
+@media (max-width: 749px) {
+  .tm-lp-hero--assess.etl-page-hero { padding: 100px 0 140px; }
+  .tm-lp-assess { margin-top: -96px; }
+  .tm-lp-assess__card { padding: 28px 20px; border-radius: 20px; }
+  .tm-lp-assess .tma-start { min-width: 0; width: 100%; }
+}
