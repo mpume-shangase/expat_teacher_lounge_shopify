@@ -13,7 +13,7 @@
       "type": "etl-page-hero",
       "settings": {
         "image_asset": "Edwina_reading_a_book.png",
-        "badge": "Teacher Moves community",
+        "brand_logo_asset": "tm-mark.svg", "brand_name": "Teacher Moves", "brand_sub": "Community by Expat Teacher's Lounge",
         "title_prefix": "Your next move is easier with the right people",
         "title_italic": "around you.",
         "description": "The Teacher Moves community on Skool supports teachers navigating international careers, certification, relocation, professional growth and career transitions.",
