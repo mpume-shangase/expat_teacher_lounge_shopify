@@ -155,3 +155,15 @@ body .site-header .site-header__actions a.site-header__join.btn:hover { color: #
 [id] { scroll-margin-top: 100px; }
 .etl-sr { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .etl-buy-form { display: contents; }
+
+/* Shopify policy pages (privacy, refund, terms of service) */
+.shopify-policy__container { max-width: 840px !important; margin: 0 auto !important; padding: 150px 24px 96px !important; }
+.shopify-policy__title { margin: 0 0 28px; text-align: left; }
+.shopify-policy__title h1 { margin: 0; font-family: var(--font-display, "Fraunces", Georgia, serif); font-weight: 900; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.1; color: #0a0a14; }
+.shopify-policy__body { font-size: 1.05rem; line-height: 1.75; color: #3f4654; }
+.shopify-policy__body p { margin: 0 0 16px; }
+.shopify-policy__body h2, .shopify-policy__body h3, .shopify-policy__body h4 { margin: 36px 0 12px; font-family: var(--font-display, "Fraunces", Georgia, serif); font-weight: 800; line-height: 1.25; color: #0a0a14; }
+.shopify-policy__body ul, .shopify-policy__body ol { margin: 0 0 18px; padding-left: 22px; }
+.shopify-policy__body li { margin-bottom: 8px; }
+.shopify-policy__body a { color: var(--color-brand-deep, #143D8A); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 749px) { .shopify-policy__container { padding: 120px 20px 72px !important; } }
