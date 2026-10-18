@@ -12,6 +12,7 @@
     "hero": {
       "type": "etl-page-hero",
       "settings": {
+        "image": "shopify://shop_images/Edwina_at_the_airport.png",
         "image_asset": "Edwina_working_with_a_student.png",
         "badge": "Teach in Canada",
         "title_prefix": "Teach in Canada with a",
