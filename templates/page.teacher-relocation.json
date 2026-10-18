@@ -1,0 +1,319 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "etl-page-hero",
+      "settings": {
+        "image_asset": "Edwina_reading_a_book.png",
+        "brand_logo_asset": "tm-mark.svg",
+        "brand_name": "Teacher Moves",
+        "brand_sub": "by Expat Teacher's Lounge",
+        "badge": "Guide · Checked October 2026",
+        "title_prefix": "Teacher relocation,",
+        "title_italic": "planned week by week.",
+        "description": "Moving countries for a teaching job means documents, money, housing, schools and sometimes pets, all on someone else's timeline. Work back from your move date and start the slowest steps first.",
+        "price": "",
+        "cta_1_text": "Take the Free Assessment",
+        "cta_1_url": "/pages/teacher-moves-assessment?goal=reloc",
+        "cta_2_text": "See the Relocation Checklist",
+        "cta_2_url": "#checklist",
+        "note": "By Mpume (Edwina) Shangase, who has moved countries with her family more than once · 500+ teachers in the free Teacher Moves community",
+        "sticky_trigger": true
+      }
+    },
+    "steps": {
+      "type": "etl-steps",
+      "settings": {
+        "anchor": "steps",
+        "title_prefix": "Your move in",
+        "title_italic": "five stages.",
+        "subtitle": "Count back from your move date. The first stage takes longest, so it starts first.",
+        "tint": true,
+        "button_label": "See the Full Checklist",
+        "button_url": "#checklist"
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "12 weeks or more before",
+            "description": "Police clearances, degree verification and legalisation. These are the slowest steps."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "8 to 12 weeks before",
+            "description": "Signed contract, visa steps with your school, and medicals if your destination needs them."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "4 to 8 weeks before",
+            "description": "Budget for the gap before your first salary, tax advice, housing confirmed."
+          }
+        },
+        "s4": {
+          "type": "step",
+          "settings": {
+            "title": "2 to 4 weeks before",
+            "description": "Children's school records, pet permits, and the documents you carry by hand."
+          }
+        },
+        "s5": {
+          "type": "step",
+          "settings": {
+            "title": "Your first 30 days",
+            "description": "Residence ID, bank account, phone, health insurance and school places."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5"
+      ]
+    },
+    "article": {
+      "type": "etl-article",
+      "settings": {
+        "anchor": "guide",
+        "title_prefix": "",
+        "title_italic": ""
+      }
+    },
+    "offer": {
+      "type": "etl-feature",
+      "settings": {
+        "anchor": "offer",
+        "image_first": false,
+        "eyebrow": "Want a plan made for you?",
+        "title_prefix": "Plan your move in",
+        "title_italic": "one focused hour.",
+        "description": "Bring your contract, your dates and your family situation. We build your plan together, and you leave with your next steps in writing.",
+        "offer_name": "Relocation Strategy Session",
+        "price": "$97",
+        "list": "<ul><li>60 minutes on Google Meet</li><li>Your visa and document pathway, for you specifically</li><li>How to judge your offer and package</li><li>Your priorities for the next 30, 60 and 90 days</li><li>Written next steps after the call</li></ul>",
+        "cta_text": "Build My Relocation Strategy",
+        "cta_url": "/products/relocation-strategy-session",
+        "link_text": "Holding an offer? Contract Review ($77)",
+        "link_url": "/products/contract-review-session",
+        "note": "You complete a short questionnaire first, so the call starts with your situation.",
+        "image_asset": "Edwina_working_with_a_student.png",
+        "image_alt": "Mpume (Edwina) Shangase with a student"
+      }
+    },
+    "paths": {
+      "type": "etl-pathways",
+      "settings": {
+        "anchor": "next-step",
+        "eyebrow": "",
+        "title_prefix": "Your next",
+        "title_italic": "step.",
+        "subtitle": "Start free. Get personal help when your move date is set.",
+        "tint": false,
+        "button_label": "",
+        "button_url": ""
+      },
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "icon": "compass",
+            "kicker": "Start here",
+            "title": "Teacher Moves Assessment",
+            "price": "Free",
+            "text": "<p>Choose \"Prepare for relocation\", add your move date, and get your next step for this week.</p>",
+            "button_label": "Take the Assessment",
+            "button_url": "/pages/teacher-moves-assessment?goal=reloc",
+            "featured": true
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "icon": "globe",
+            "kicker": "Personal plan",
+            "title": "Relocation Strategy Session",
+            "price": "$97",
+            "text": "<p>One hour to plan your move around your contract, family and dates, with written next steps.</p>",
+            "button_label": "Plan My Move",
+            "button_url": "/products/relocation-strategy-session",
+            "featured": false
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "icon": "contract",
+            "kicker": "Moving to Qatar",
+            "title": "Free Qatar Checklists",
+            "price": "Free",
+            "text": "<p>Document attestation and immigration, step by step, for UK and South African teachers.</p>",
+            "button_label": "Get the Free Checklists",
+            "button_url": "/products/qatar-immigration-checklist",
+            "featured": false
+          }
+        },
+        "c4": {
+          "type": "card",
+          "settings": {
+            "icon": "community",
+            "kicker": "Community",
+            "title": "Teacher Moves community",
+            "price": "",
+            "text": "<p>Ask teachers who already live where you are going.</p>",
+            "button_label": "Join Free",
+            "button_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
+            "featured": false
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ]
+    },
+    "authority": {
+      "type": "authority",
+      "settings": {
+        "title": "I've moved countries with a family, more than once.",
+        "description": "South Africa to the UK and back, then Qatar, then Canada, where our family is making the move in stages. Every move taught me the same thing: the slowest documents decide your timeline, not your flight date.",
+        "quote": "Plan backwards from your move date, and start the slowest step first."
+      }
+    },
+    "proof": {
+      "type": "etl-text",
+      "disabled": true,
+      "settings": {
+        "anchor": "proof",
+        "eyebrow": "From teachers who follow Edwina",
+        "title_prefix": "Moving abroad feels different when you",
+        "title_italic": "know what to prepare for.",
+        "text": "<p>Placeholder for approved YouTube and TikTok comments (Social Proof Bank). Hidden until approved.</p>",
+        "tint": false
+      }
+    },
+    "faq": {
+      "type": "etl-faq",
+      "settings": {
+        "anchor": "faq",
+        "title_prefix": "Frequently asked",
+        "title_italic": "questions.",
+        "tint": true
+      },
+      "blocks": {
+        "q1": {
+          "type": "qa",
+          "settings": {
+            "question": "Which UK criminal record check do I need to teach abroad?",
+            "answer": "<p>Visas usually need an ACRO police certificate. GOV.UK says an employer abroad can't request a DBS check, and teachers working with children overseas can apply for an International Child Protection Certificate (ICPC).</p>"
+          }
+        },
+        "q2": {
+          "type": "qa",
+          "settings": {
+            "question": "How long does a South African police clearance take?",
+            "answer": "<p>SAPS says about 15 working days from when its Criminal Record Centre in Pretoria receives your application, and the fee is R114. You apply at a police station, or at a South African embassy if you're abroad. DIRCO treats the certificate as valid for six months, so time it.</p>"
+          }
+        },
+        "q3": {
+          "type": "qa",
+          "settings": {
+            "question": "Do I need an apostille or legalisation?",
+            "answer": "<p>It depends on whether your destination is part of the Hague Apostille Convention. Canada and Saudi Arabia accept apostilles; Qatar, the UAE and Kuwait don't, so documents go through their embassy and foreign ministry.</p>"
+          }
+        },
+        "q4": {
+          "type": "qa",
+          "settings": {
+            "question": "Who apostilles South African documents?",
+            "answer": "<p>DIRCO, free of charge, for original public documents. High Courts handle notarised documents. Degrees need a SAQA verification letter first and matric an Umalusi one, and DIRCO doesn't accept certified copies.</p>"
+          }
+        },
+        "q5": {
+          "type": "qa",
+          "settings": {
+            "question": "Can I open a bank account before I arrive in the Gulf?",
+            "answer": "<p>Usually not. Banks ask for your residence ID: HSBC Qatar asks for a Qatar ID and opens accounts in a branch, and UAE banks list an Emirates ID and residence visa. Bring enough money to cover the weeks until then.</p>"
+          }
+        },
+        "q6": {
+          "type": "qa",
+          "settings": {
+            "question": "Will my employer give me health insurance?",
+            "answer": "<p>In the UAE, yes: employers must provide it in Dubai, Abu Dhabi and, since January 2025, the other emirates. In Qatar, the law puts the duty on employers, so ask your school how it applies to you and your family.</p>"
+          }
+        },
+        "q7": {
+          "type": "qa",
+          "settings": {
+            "question": "Can I bring my dog?",
+            "answer": "<p>Usually, but the rules differ by country and take months to meet. Qatar requires an import permit from the Ministry of Municipality, and Canada requires a valid rabies vaccination certificate for dogs aged 8 months or older from countries that aren't rabies-free, such as South Africa.</p>"
+          }
+        },
+        "q8": {
+          "type": "qa",
+          "settings": {
+            "question": "Do I still pay South African tax while teaching abroad?",
+            "answer": "<p>If you remain an SA tax resident, the first R1.25 million of foreign employment income can be exempt when you meet SARS's 183-day and 60-day tests. Financial emigration on its own doesn't end tax residency, so get advice from a registered tax practitioner.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8"
+      ]
+    },
+    "final": {
+      "type": "etl-cta",
+      "settings": {
+        "title_prefix": "Got a move date?",
+        "title_italic": "Start the clock.",
+        "description": "Take the free assessment and add your move date. You get your next step for this week, and reminders timed to your move.",
+        "cta_1_text": "Take the Free Assessment",
+        "cta_1_url": "/pages/teacher-moves-assessment?goal=reloc",
+        "cta_2_text": "Build My Relocation Strategy",
+        "cta_2_url": "/products/relocation-strategy-session"
+      }
+    },
+    "sticky": {
+      "type": "etl-sticky-cta",
+      "settings": {
+        "label": "Take the Free Assessment",
+        "url": "/pages/teacher-moves-assessment?goal=reloc"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "steps",
+    "article",
+    "offer",
+    "paths",
+    "authority",
+    "proof",
+    "faq",
+    "final",
+    "sticky"
+  ]
+}
