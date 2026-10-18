@@ -1,0 +1,47 @@
+{%- assign cta_url = section.settings.cta_url | default: '/pages/teacher-moves-assessment' -%}
+<section class="tm-lp tm-lp-final" id="tm-final">
+  <div class="tm-lp-wrap">
+    <div class="tm-lp-final__box">
+      <div class="tm-lp-final__orb tm-lp-final__orb--blue"></div>
+      <div class="tm-lp-final__orb tm-lp-final__orb--gold"></div>
+      <div class="tm-lp-final__inner">
+        <h2 class="tm-lp-final__title">{{ section.settings.heading }}</h2>
+        {%- if section.settings.text != blank -%}<p class="tm-lp-final__desc">{{ section.settings.text }}</p>{%- endif -%}
+        <a class="btn btn-gold tm-lp-btn-lg" href="{{ cta_url }}" data-tm-cta="final">{{ section.settings.cta_text }}</a>
+        {%- if section.settings.note != blank -%}<p class="tm-lp-final__note">{{ section.settings.note }}</p>{%- endif -%}
+      </div>
+    </div>
+  </div>
+  {%- if section.settings.show_footer -%}
+    <footer class="tm-lp-footer">
+      <div class="tm-lp-wrap">
+        <p>&copy; {{ 'now' | date: '%Y' }} {{ section.settings.footer_name }}. All rights reserved.</p>
+        <ul class="tm-lp-footer__links">
+          <li><a href="/policies/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/pages/terms-and-conditions">Terms &amp; Conditions</a></li>
+          <li><a href="/policies/refund-policy">Refund Policy</a></li>
+          <li><a href="/pages/disclaimer">Disclaimer</a></li>
+        </ul>
+      </div>
+    </footer>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Landing final CTA",
+  "class": "tm-lp-final-section",
+  "settings": [
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "info": "Italic words show in gold.", "default": "Your next move doesn't need to be <em>a guess.</em>" },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Answer a few questions and leave with a clearer picture of where you are, how ready you are and what to do next." },
+    { "type": "text", "id": "cta_text", "label": "Button label", "default": "Find My Next Move — Free" },
+    { "type": "text", "id": "cta_url", "label": "Button link", "default": "/pages/teacher-moves-assessment" },
+    { "type": "text", "id": "note", "label": "Line under the button", "default": "About 3 minutes · No obligation" },
+    { "type": "header", "content": "Footer" },
+    { "type": "checkbox", "id": "show_footer", "label": "Show minimal legal footer", "info": "The full site footer is hidden on this page.", "default": true },
+    { "type": "text", "id": "footer_name", "label": "Business name", "default": "Expat Teacher's Lounge" }
+  ],
+  "presets": [{ "name": "Landing final CTA" }],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}
