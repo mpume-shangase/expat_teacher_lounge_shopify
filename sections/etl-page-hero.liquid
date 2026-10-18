@@ -9,7 +9,7 @@
   <div class="etl-page-hero__dark"></div>
   <div class="etl-page-hero__fade"></div>
   <div class="etl-page-hero__content">
-    {%- if section.settings.badge != blank -%}<div class="hero-pill" style="margin: 0 auto 24px;">{{ section.settings.badge }}</div>{%- endif -%}
+    {%- if section.settings.brand_logo_asset != blank -%}<div class="etl-brand-chip"><span class="etl-brand-chip__mark"><img src="{{ section.settings.brand_logo_asset | asset_url }}" alt="" width="30" height="26" loading="eager"></span><span class="etl-brand-chip__text"><span class="etl-brand-chip__name">{{ section.settings.brand_name | default: 'Teacher Moves' }}</span>{%- if section.settings.brand_sub != blank -%}<span class="etl-brand-chip__sub">{{ section.settings.brand_sub }}</span>{%- endif -%}</span></div>{%- endif -%}{%- if section.settings.badge != blank -%}<div class="hero-pill" style="margin: 0 auto 24px;">{{ section.settings.badge }}</div>{%- endif -%}
     <h1 class="etl-page-hero__title">{{ section.settings.title_prefix }} <span>{{ section.settings.title_italic }}</span></h1>
     {%- if section.settings.description != blank -%}<p class="etl-page-hero__desc">{{ section.settings.description }}</p>{%- endif -%}
     {%- if section.settings.price != blank -%}<p class="etl-page-hero__price">{{ section.settings.price }}</p>{%- endif -%}
@@ -24,13 +24,13 @@
     {%- if section.settings.note != blank -%}<p class="etl-page-hero__note">{{ section.settings.note }}</p>{%- endif -%}
   </div>
 </section>
-{% schema %}
+{% stylesheet %}.etl-brand-chip{display:flex;align-items:center;gap:12px;width:fit-content;max-width:100%;margin:0 auto 22px;padding:6px 20px 6px 6px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);text-align:left}.etl-brand-chip__mark{flex:0 0 44px;width:44px;height:44px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.28)}.etl-brand-chip__mark img{width:30px;height:auto;display:block}.etl-brand-chip__text{display:flex;flex-direction:column;line-height:1.15}.etl-brand-chip__name{font-family:var(--font-body);font-weight:800;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:#fff}.etl-brand-chip__sub{font-family:var(--font-body);font-size:11px;letter-spacing:.04em;color:rgba(255,255,255,.72);margin-top:3px}{% endstylesheet %}{% schema %}
 {
   "name": "Page hero (dark)",
   "settings": [
     { "type": "image_picker", "id": "image", "label": "Background image" },
     { "type": "text", "id": "image_asset", "label": "Theme image used when no image is picked", "default": "Edwina_delivering_a_presentation.png" },
-    { "type": "text", "id": "badge", "label": "Badge pill" },
+    { "type": "text", "id": "brand_logo_asset", "label": "Brand logo (theme asset file)", "info": "For example tm-mark.svg. Leave blank to hide the brand chip." }, { "type": "text", "id": "brand_name", "label": "Brand name in the chip", "default": "Teacher Moves" }, { "type": "text", "id": "brand_sub", "label": "Small line under the brand name" }, { "type": "text", "id": "badge", "label": "Badge pill" },
     { "type": "text", "id": "title_prefix", "label": "Heading", "default": "Heading" },
     { "type": "text", "id": "title_italic", "label": "Gold italic words" },
     { "type": "textarea", "id": "description", "label": "Description" },
