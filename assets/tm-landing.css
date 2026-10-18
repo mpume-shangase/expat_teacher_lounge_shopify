@@ -50,6 +50,9 @@
 body.tm-lp-chat-hide shopify-chat, body.tm-lp-chat-hide #shopify-chat,
 body.tm-lp-chat-delay:not(.tm-lp-chat-ready) shopify-chat, body.tm-lp-chat-delay:not(.tm-lp-chat-ready) #shopify-chat { visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }
 body.tm-lp-chat-delay shopify-chat, body.tm-lp-chat-delay #shopify-chat { transition: opacity .4s ease; }
+@media (max-width: 749px) {
+  body.tm-lp-chat-delay shopify-chat, body.tm-lp-chat-delay #shopify-chat { visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }
+}
 
 /* Hero (reuses the site's etl-page-hero treatment) */
 .tm-lp-hero.etl-page-hero { min-height: 0; padding: 128px 0 132px; }
