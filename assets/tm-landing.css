@@ -71,45 +71,6 @@ body.tm-lp-chat-delay shopify-chat, body.tm-lp-chat-delay #shopify-chat { transi
   .tm-lp-hero.etl-page-hero { padding: 100px 0 116px; }
   .tm-lp-hero__actions .btn { width: 100%; max-width: 380px; }
 }
-ter; gap: 14px; min-width: 0; }
-.tm-lp-header__logo { display: block; width: auto; height: 34px; }
-.tm-lp-header__divider { flex: 0 0 1px; width: 1px; height: 30px; background: rgba(255, 255, 255, .3); }
-.tm-lp-header__tm { display: flex; flex-direction: column; line-height: 1.15; color: #fff; }
-.tm-lp-header__tm strong { font-size: .8rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
-.tm-lp-header__tm span { margin-top: 3px; font-size: .72rem; color: rgba(255, 255, 255, .72); }
-.tm-lp-header .btn.tm-lp-header__cta { padding: 11px 22px; font-size: .9rem; white-space: nowrap; }
-@media (max-width: 719px) {
-  .tm-lp-header { padding: 12px 0; }
-  .tm-lp-header__divider, .tm-lp-header__tm { display: none; }
-  .tm-lp-header__logo { height: 28px; }
-  .tm-lp-header .btn.tm-lp-header__cta { padding: 9px 16px; font-size: .82rem; }
-}
-
-/* Chat bubble: hidden or delayed so it never competes with the first CTA */
-body.tm-lp-chat-hide shopify-chat, body.tm-lp-chat-hide #shopify-chat,
-body.tm-lp-chat-delay:not(.tm-lp-chat-ready) shopify-chat, body.tm-lp-chat-delay:not(.tm-lp-chat-ready) #shopify-chat { visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }
-body.tm-lp-chat-delay shopify-chat, body.tm-lp-chat-delay #shopify-chat { transition: opacity .4s ease; }
-
-/* Hero (reuses the site's etl-page-hero treatment) */
-.tm-lp-hero.etl-page-hero { min-height: 0; padding: 128px 0 132px; }
-.tm-lp-hero .etl-page-hero__fade { background: linear-gradient(to top, #fff 0%, rgba(10, 11, 20, 0) 22%); }
-.tm-lp-hero .etl-page-hero__title { font-size: clamp(2.2rem, 5.2vw, 3.75rem); margin-bottom: 20px; }
-.tm-lp-hero .etl-page-hero__title em { font-style: italic; color: var(--tm-gold); }
-.tm-lp-hero .etl-page-hero__desc { margin-bottom: 32px; }
-.tm-lp-hero__actions { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-.tm-lp-hero__note { margin: 2px 0 0; font-size: .92rem; color: rgba(255, 255, 255, .8); }
-.tm-lp-hero__skip { font-size: .88rem; color: rgba(255, 255, 255, .72); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(255, 255, 255, .35); }
-.tm-lp-hero__skip:hover { color: #fff; text-decoration-color: var(--tm-gold); }
-.etl-brand-chip { display: flex; align-items: center; gap: 12px; width: fit-content; max-width: 100%; margin: 0 auto 22px; padding: 6px 20px 6px 6px; border-radius: 999px; background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .16); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); text-align: left; }
-.etl-brand-chip__mark { flex: 0 0 44px; width: 44px; height: 44px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 18px rgba(0, 0, 0, .28); }
-.etl-brand-chip__mark img { width: 30px; height: auto; display: block; }
-.etl-brand-chip__text { display: flex; flex-direction: column; line-height: 1.15; }
-.etl-brand-chip__name { font-family: var(--font-body); font-weight: 800; font-size: 14px; letter-spacing: .16em; text-transform: uppercase; color: #fff; }
-.etl-brand-chip__sub { font-family: var(--font-body); font-size: 11px; letter-spacing: .04em; color: rgba(255, 255, 255, .72); margin-top: 3px; }
-@media (max-width: 749px) {
-  .tm-lp-hero.etl-page-hero { padding: 100px 0 116px; }
-  .tm-lp-hero__actions .btn { width: 100%; max-width: 380px; }
-}
 
 /* Trust bar */
 .tm-lp-trust { position: relative; z-index: 12; margin-top: -64px; }
