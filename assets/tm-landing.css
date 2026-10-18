@@ -77,18 +77,19 @@ body.tm-lp-chat-delay shopify-chat, body.tm-lp-chat-delay #shopify-chat { transi
 
 /* Trust bar */
 .tm-lp-trust { position: relative; z-index: 12; margin-top: -64px; }
-.tm-lp-trust__card { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 40px; padding: 22px 28px; background: #fff; border: 1px solid var(--tm-line); border-radius: var(--tm-radius); box-shadow: 0 22px 44px -24px rgba(20, 61, 138, .35); }
-.tm-lp-trust__lead { display: flex; align-items: center; gap: 14px; margin: 0; font-size: 1.02rem; line-height: 1.4; color: var(--tm-ink); }
+.tm-lp-trust__card { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 24px 28px; background: #fff; border: 1px solid var(--tm-line); border-radius: var(--tm-radius); box-shadow: 0 22px 44px -24px rgba(20, 61, 138, .35); text-align: center; }
+.tm-lp-trust__lead { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 0; font-size: 1.02rem; line-height: 1.4; color: var(--tm-ink); }
 .tm-lp-trust__lead strong, .tm-lp-trust__lead b { font-weight: 800; }
 .tm-lp-trust__mark { flex: 0 0 44px; width: 44px; height: 44px; border-radius: 50%; background: var(--tm-soft); display: flex; align-items: center; justify-content: center; }
 .tm-lp-trust__mark img { width: 28px; height: auto; display: block; }
-.tm-lp-trust__list { display: flex; flex-wrap: wrap; gap: 10px 22px; margin: 0; padding: 0; list-style: none; }
+.tm-lp-trust__list { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin: 0; padding: 0; list-style: none; }
 .tm-lp-trust__list li { display: flex; align-items: center; gap: 8px; font-size: .92rem; color: var(--tm-body); }
 .tm-lp-check { flex: 0 0 18px; width: 18px; height: 18px; color: var(--tm-blue); }
 @media (max-width: 749px) {
   .tm-lp-trust { margin-top: -60px; }
-  .tm-lp-trust__card { padding: 20px; }
-  .tm-lp-trust__list { flex-direction: column; }
+  .tm-lp-trust__card { padding: 22px 20px; }
+  .tm-lp-trust__lead { flex-direction: column; gap: 10px; }
+  .tm-lp-trust__list { flex-direction: column; align-items: flex-start; }
 }
 
 /* Outcome cards */
