@@ -1,0 +1,93 @@
+{%- liquid
+  assign cta_url = section.settings.cta_url | default: '/pages/teacher-moves-assessment'
+  assign skip_target = section.settings.skip_target | default: '#tm-shortcuts'
+-%}
+<section class="tm-lp etl-page-hero tm-lp-hero" id="tm-hero" data-tm-hero>
+  <div class="etl-page-hero__bg">
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 1800 | image_tag: loading: 'eager', fetchpriority: 'high', alt: '' }}
+    {%- else -%}
+      <img src="{{ section.settings.image_asset | default: 'Edwina_Teaching.png' | asset_img_url: '1800x' }}" alt="" loading="eager" fetchpriority="high">
+    {%- endif -%}
+  </div>
+  <div class="etl-page-hero__dark"></div>
+  <div class="etl-page-hero__fade"></div>
+  <div class="etl-page-hero__content">
+    {%- if section.settings.brand_logo_asset != blank -%}
+      <div class="etl-brand-chip">
+        <span class="etl-brand-chip__mark"><img src="{{ section.settings.brand_logo_asset | asset_url }}" alt="" width="30" height="26" loading="eager"></span>
+        <span class="etl-brand-chip__text">
+          <span class="etl-brand-chip__name">{{ section.settings.brand_name | default: 'Teacher Moves' }}</span>
+          {%- if section.settings.brand_sub != blank -%}<span class="etl-brand-chip__sub">{{ section.settings.brand_sub }}</span>{%- endif -%}
+        </span>
+      </div>
+    {%- endif -%}
+    <h1 class="etl-page-hero__title">{{ section.settings.heading }}</h1>
+    {%- if section.settings.description != blank -%}
+      <p class="etl-page-hero__desc">{{ section.settings.description }}</p>
+    {%- endif -%}
+    <div class="tm-lp-hero__actions">
+      <a class="btn btn-primary tm-lp-btn-lg" href="{{ cta_url }}" data-tm-cta="hero">{{ section.settings.cta_text }}</a>
+      {%- if section.settings.note != blank -%}
+        <p class="tm-lp-hero__note">{{ section.settings.note }}</p>
+      {%- endif -%}
+      {%- if section.settings.skip_text != blank -%}
+        <a class="tm-lp-hero__skip" href="{{ skip_target }}">{{ section.settings.skip_text }} <span aria-hidden="true">&darr;</span></a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+{%- if section.settings.show_trust -%}
+  <div class="tm-lp tm-lp-trust">
+    <div class="tm-lp-wrap">
+      <div class="tm-lp-trust__card">
+        <p class="tm-lp-trust__lead">
+          {%- if section.settings.brand_logo_asset != blank -%}
+            <span class="tm-lp-trust__mark" aria-hidden="true"><img src="{{ section.settings.brand_logo_asset | asset_url }}" alt="" width="28" height="24" loading="lazy"></span>
+          {%- endif -%}
+          <span>{{ section.settings.trust_lead }}</span>
+        </p>
+        <ul class="tm-lp-trust__list">
+          {%- assign trust_points = section.settings.trust_1 | append: '|' | append: section.settings.trust_2 | append: '|' | append: section.settings.trust_3 | split: '|' -%}
+          {%- for point in trust_points -%}
+            {%- if point != blank -%}
+              <li><svg class="tm-lp-check" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10.4l2.6 2.6L14 7.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>{{ point | escape }}</li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Landing hero",
+  "class": "tm-lp-hero-section",
+  "settings": [
+    { "type": "header", "content": "Background" },
+    { "type": "image_picker", "id": "image", "label": "Background image" },
+    { "type": "text", "id": "image_asset", "label": "Theme image used when no image is picked", "default": "Edwina_Teaching.png" },
+    { "type": "header", "content": "Brand chip" },
+    { "type": "text", "id": "brand_logo_asset", "label": "Brand mark (theme asset file)", "default": "tm-mark.svg", "info": "Leave blank to hide the brand chip." },
+    { "type": "text", "id": "brand_name", "label": "Brand name", "default": "Teacher Moves" },
+    { "type": "text", "id": "brand_sub", "label": "Small line under the brand name", "default": "by Expat Teacher's Lounge" },
+    { "type": "header", "content": "Message" },
+    { "type": "inline_richtext", "id": "heading", "label": "Headline", "info": "Italic words show in gold.", "default": "What should your <em>next teaching move</em> be?" },
+    { "type": "textarea", "id": "description", "label": "Supporting copy", "default": "Whether you're considering Canada, applying internationally, reviewing a contract or preparing to relocate, get a clearer picture of where you are and what to do next." },
+    { "type": "text", "id": "cta_text", "label": "Main button", "default": "Find My Next Move — Free" },
+    { "type": "text", "id": "cta_url", "label": "Main button link", "default": "/pages/teacher-moves-assessment" },
+    { "type": "text", "id": "note", "label": "Line under the button", "default": "Takes about 3 minutes · Get your stage, readiness score and next step" },
+    { "type": "text", "id": "skip_text", "label": "Small text link", "default": "I already know what I need" },
+    { "type": "text", "id": "skip_target", "label": "Small text link target", "default": "#tm-shortcuts" },
+    { "type": "header", "content": "Trust bar" },
+    { "type": "checkbox", "id": "show_trust", "label": "Show trust bar under the hero", "default": true },
+    { "type": "inline_richtext", "id": "trust_lead", "label": "Trust line", "default": "<strong>Join 500+ teachers</strong> already inside the Teacher Moves community" },
+    { "type": "text", "id": "trust_1", "label": "Trust signal 1", "default": "International teacher community" },
+    { "type": "text", "id": "trust_2", "label": "Trust signal 2", "default": "Practical career & relocation guidance" },
+    { "type": "text", "id": "trust_3", "label": "Trust signal 3", "default": "Free assessment & resources" }
+  ],
+  "presets": [{ "name": "Landing hero" }],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}
