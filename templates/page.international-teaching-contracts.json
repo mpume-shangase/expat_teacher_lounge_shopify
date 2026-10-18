@@ -1,0 +1,245 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "etl-page-hero",
+      "settings": {
+        "image_asset": "Edwina_picture_on_the_coach.png",
+        "brand_logo_asset": "tm-mark.svg",
+        "brand_name": "Teacher Moves",
+        "brand_sub": "by Expat Teacher's Lounge",
+        "badge": "Guide · Checked October 2026",
+        "title_prefix": "Read your teaching contract",
+        "title_italic": "before you sign.",
+        "description": "Check that seven things are in writing: salary, housing, flights, medical cover, end-of-service pay, notice terms and visa costs. If it isn't in the contract, it isn't guaranteed.",
+        "price": "",
+        "cta_1_text": "Take the Free Assessment",
+        "cta_1_url": "/pages/teacher-moves-assessment",
+        "cta_2_text": "See the Red-Flags Checklist",
+        "cta_2_url": "#red-flags",
+        "note": "By Mpume (Edwina) Shangase, 18 years in classrooms across four countries.",
+        "sticky_trigger": false
+      }
+    },
+    "article": {
+      "type": "etl-article",
+      "settings": {
+        "anchor": "guide",
+        "title_prefix": "",
+        "title_italic": ""
+      }
+    },
+    "steps": {
+      "type": "etl-steps",
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Ask once, in writing",
+            "description": "One polite email with everything, not a string of messages."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Pick your top two or three",
+            "description": "The changes that matter most to you or your family."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Explain why",
+            "description": "\"My partner and two children will be relocating with me\" is a good reason to ask about family flights."
+          }
+        },
+        "s4": {
+          "type": "step",
+          "settings": {
+            "title": "Know what is often flexible",
+            "description": "Start date, family flights, housing size and where you sit on the salary scale for your experience."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "settings": {
+        "anchor": "negotiate",
+        "title_prefix": "Ask for changes",
+        "title_italic": "without losing the offer.",
+        "subtitle": "Salary bands at many schools are fixed, but your placement on the scale often is not. If your experience is not reflected, say so.",
+        "tint": true,
+        "button_label": "",
+        "button_url": ""
+      }
+    },
+    "paths": {
+      "type": "etl-pathways",
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "icon": "contract",
+            "kicker": "One-to-one",
+            "title": "Contract Review Session",
+            "price": "$77",
+            "text": "<p>A 45-minute Google Meet call. Your contract is reviewed before the call, then we go through it line by line.</p>",
+            "button_label": "Get My Contract Reviewed",
+            "button_url": "/products/contract-review-session",
+            "featured": true
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "icon": "compass",
+            "kicker": "Free",
+            "title": "Teacher Moves Assessment",
+            "text": "<p>Choose \"Get a teaching contract reviewed\" and get three short emails on checking and negotiating your offer.</p>",
+            "button_label": "Take the Assessment",
+            "button_url": "/pages/teacher-moves-assessment"
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "icon": "globe",
+            "kicker": "From the Lounge",
+            "title": "My first year in Qatar",
+            "text": "<p>Including why housing and salary looked different from the contract.</p>",
+            "button_label": "Read the Story",
+            "button_url": "/blogs/news/my-first-year-in-qatar-what-i-wish-i-knew-before-moving-expat-teachers-lounge"
+          }
+        },
+        "c4": {
+          "type": "card",
+          "settings": {
+            "icon": "community",
+            "kicker": "Community",
+            "title": "Teacher Moves community",
+            "text": "<p>Ask teachers who have signed with schools in your region what to expect.</p>",
+            "button_label": "Join Free",
+            "button_url": "https://www.skool.com/expat-teachers-lounge-9615"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "anchor": "next-step",
+        "eyebrow": "",
+        "title_prefix": "Get a second pair of",
+        "title_italic": "eyes.",
+        "subtitle": "Support for the offer in front of you.",
+        "tint": false,
+        "button_label": "",
+        "button_url": ""
+      }
+    },
+    "faq": {
+      "type": "etl-faq",
+      "blocks": {
+        "q1": {
+          "type": "qa",
+          "settings": {
+            "question": "Can I negotiate an international teaching contract?",
+            "answer": "<p>Often, yes. Schools expect a few questions. Start date, family flights, housing size and your placement on the salary scale are the terms most often adjusted. Ask once, in writing, and explain why.</p>"
+          }
+        },
+        "q2": {
+          "type": "qa",
+          "settings": {
+            "question": "How long is a typical international teaching contract?",
+            "answer": "<p>Many international schools offer an initial contract of two years, sometimes renewable year by year after that. Check the length, the notice period and the renewal terms in your own contract.</p>"
+          }
+        },
+        "q3": {
+          "type": "qa",
+          "settings": {
+            "question": "What is end-of-service gratuity?",
+            "answer": "<p>A payment many Gulf employers must make when your contract ends, usually based on your basic salary and years of service. In the UAE it is 21 days' basic salary per year for the first five years; in Qatar the legal minimum is three weeks' basic salary per year.</p>"
+          }
+        },
+        "q4": {
+          "type": "qa",
+          "settings": {
+            "question": "Is it normal for a school to keep my passport?",
+            "answer": "<p>No. A school may hold it briefly to process your visa, but it should be returned straight away. UAE law says employers must not withhold workers' official documents, and Qatar fines employers who confiscate passports.</p>"
+          }
+        },
+        "q5": {
+          "type": "qa",
+          "settings": {
+            "question": "Should I pay a fee to get a teaching job abroad?",
+            "answer": "<p>Be careful. International fair-recruitment principles say workers should not pay recruitment fees. A registration fee for a recruitment service or job fair is different from paying for a specific offer, so check what the fee covers.</p>"
+          }
+        },
+        "q6": {
+          "type": "qa",
+          "settings": {
+            "question": "What if the school promised something that isn't in the contract?",
+            "answer": "<p>Ask for it to be added before you sign. The signed contract is what counts if there is a disagreement later.</p>"
+          }
+        },
+        "q7": {
+          "type": "qa",
+          "settings": {
+            "question": "What happens if I need to leave the contract early?",
+            "answer": "<p>It depends on your contract and the country's labour law. Check the notice period and any repayment clause for flights, recruitment or visa costs before you sign, so you know the cost in advance.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7"
+      ],
+      "settings": {
+        "anchor": "faq",
+        "title_prefix": "Frequently asked",
+        "title_italic": "questions.",
+        "tint": true
+      }
+    },
+    "final": {
+      "type": "etl-cta",
+      "settings": {
+        "title_prefix": "Have an offer",
+        "title_italic": "on the table?",
+        "description": "Send your contract and questions ahead, and go through it line by line on a 45-minute call before you sign.",
+        "cta_1_text": "Get My Contract Reviewed",
+        "cta_1_url": "/products/contract-review-session",
+        "cta_2_text": "Take the Free Assessment",
+        "cta_2_url": "/pages/teacher-moves-assessment"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "article",
+    "steps",
+    "paths",
+    "faq",
+    "final"
+  ]
+}
