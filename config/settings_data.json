@@ -27,23 +27,23 @@
           "logo": "shopify://shop_images/expat_teachers_lounge_logo.png",
           "logo_max_width": 180,
           "menu": "",
-          "join_label": "Join Free",
-          "join_url": "https://www.skool.com/expat-teachers-lounge-9615/about"
+          "join_label": "Free Assessment",
+          "join_url": "/pages/teacher-moves-assessment"
         }
       },
       "footer": {
         "type": "footer",
         "settings": {
+          "youtube_url": "https://www.youtube.com/@expatteacherslounge",
+          "instagram_url": "https://www.instagram.com/expat_teachers_lounge/",
+          "tiktok_url": "https://www.tiktok.com/@mpumehh_s",
           "logo_max_width": 140,
           "description": "Relocation strategy and contract review for teachers serious about moving internationally. Built by a teacher, for teachers.",
           "menu_title_1": "Explore",
           "menu_1": "",
           "menu_title_2": "Services & Legal",
           "menu_2": "",
-          "disclaimer": "Disclaimer: Some links on this website are affiliate links. This means I may earn a small commission at no additional cost to you if you purchase through these links. This helps support the free resources provided.",
-          "youtube_url": "https://www.youtube.com/@expatteacherslounge",
-          "instagram_url": "https://www.instagram.com/expat_teachers_lounge/",
-          "tiktok_url": "https://www.tiktok.com/@mpumehh_s"
+          "disclaimer": "Disclaimer: Some links on this website are affiliate links. This means I may earn a small commission at no additional cost to you if you purchase through these links. This helps support the free resources provided."
         }
       }
     },
@@ -69,8 +69,6 @@
           "background_color": "#FFFFFF",
           "font_color": "#000000",
           "button_color": "#000000",
-          "secondary_color": "#FFFFFF",
-          "ternary_color": "#6A6A6A",
           "button_icon": "chat_bubble",
           "button_text": "chat_with_us",
           "button_horizontal_position": "bottom_right",
