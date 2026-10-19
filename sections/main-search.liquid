@@ -40,7 +40,7 @@
                   <span class="product-card__vendor">{{ item.vendor }}</span>
                   <h3 class="product-card__title">{{ item.title }}</h3>
                   <div class="product-card__price flex items-center justify-between" style="border-top: 1px solid #f1f5f9; padding-top: 16px; margin-top: auto;">
-                    <span>{{ item.price | money }}</span>
+                    <span>{{ item.price | money_with_currency }}</span>
                     <span style="font-size: 0.9rem; color: var(--color-blue); font-weight: 600;">Buy now &rarr;</span>
                   </div>
                 </div>

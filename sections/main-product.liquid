@@ -52,7 +52,7 @@
               
               {%- when 'price' -%}
                 <div class="product-single__price" style="margin-bottom: 24px; font-size: 1.75rem; font-weight: 800; color: var(--color-blue);" {{ block.shopify_attributes }}>
-                  {{ product.selected_or_first_available_variant.price | money }}
+                  {{ product.selected_or_first_available_variant.price | money_with_currency }}
                 </div>
               
               {%- when 'buy_buttons' -%}
@@ -183,7 +183,7 @@
             {{ product.title }}
           </h1>
           <div class="product-single__price" style="margin-bottom: 24px; font-size: 1.75rem; font-weight: 800; color: var(--color-blue);">
-            {{ product.selected_or_first_available_variant.price | money }}
+            {{ product.selected_or_first_available_variant.price | money_with_currency }}
           </div>
 
           {%- form 'product', product, class: 'shopify-product-form', id: 'product-form-fallback' -%}
@@ -263,7 +263,7 @@
                 <div style="margin-bottom: 20px;">
                   <span style="font-size: 1rem; color: #64748b; margin-right: 8px;">Bundle Price:</span>
                   <span style="font-size: 1.75rem; font-weight: 900; color: var(--color-blue);">
-                    {{ total_price | money }}
+                    {{ total_price | money_with_currency }}
                   </span>
                 </div>
                 <a href="/cart/{{ p_variant.id }}:1,{{ b_variant.id }}:1" class="btn btn-gold" style="padding: 16px 40px; font-weight: 800; box-shadow: 0 10px 24px rgba(252, 203, 82, 0.35);">

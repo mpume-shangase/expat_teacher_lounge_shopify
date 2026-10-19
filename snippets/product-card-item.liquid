@@ -41,7 +41,7 @@
   <!-- Card Bottom (Border top, price, buy button) -->
   <div class="flex items-center justify-between" style="border-top: 1px solid #e5e7eb; padding-top: 32px; margin-top: auto; width: 100%;">
     <span style="font-size: 1.5rem; font-weight: 700; color: var(--text-light);">
-      {% if product.price == 0 %}Free{% else %}{{ product.price | money }}{% endif %}
+      {% if product.price == 0 %}Free{% else %}{{ product.price | money_with_currency }}{% endif %}
     </span>
     {%- liquid
       case product.handle
