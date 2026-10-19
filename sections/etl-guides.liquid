@@ -1,0 +1,45 @@
+<section class="etl-guides section-padding"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor }}"{% endif %} style="background-color: {% if section.settings.tint %}#f9fafb{% else %}#ffffff{% endif %}; border-bottom: 1px solid #f0f0f5;">
+<div class="container">
+<div class="etl-guides__head">
+{%- if section.settings.eyebrow != blank -%}<span class="etl-eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+<h2 class="etl-heading">{{ section.settings.title_prefix }} <span class="etl-accent">{{ section.settings.title_italic }}</span></h2>
+{%- if section.settings.subtitle != blank -%}<p class="etl-guides__sub">{{ section.settings.subtitle }}</p>{%- endif -%}
+</div>
+<div class="etl-guides__grid">
+{%- render 'etl-guide-list', style: 'cards', only: section.settings.only, exclude: request.path -%}
+</div>
+{%- if section.settings.button_label != blank -%}
+<div class="etl-guides__foot">{% render 'etl-button', label: section.settings.button_label, url: section.settings.button_url, class: 'btn btn-outline' %}</div>
+{%- endif -%}
+</div>
+</section>
+{% stylesheet %}
+.etl-guides__head{max-width:760px;margin:0 auto 32px;text-align:center}
+.etl-guides__sub{color:#475569;font-size:1.05rem;line-height:1.7;margin:14px auto 0;max-width:640px}
+.etl-guides__grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media (min-width:750px){.etl-guides__grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1100px){.etl-guides__grid{grid-template-columns:repeat(3,1fr)}}
+.etl-guides__card{display:flex;flex-direction:column;gap:6px;padding:20px 22px;background:#fff;border:1px solid #e2e8f0;border-radius:var(--border-radius-md,16px);text-decoration:none;color:inherit;transition:border-color .2s,box-shadow .2s,transform .2s}
+.etl-guides__card:hover,.etl-guides__card:focus-visible{border-color:var(--color-blue);box-shadow:0 8px 24px rgba(15,23,42,.08);transform:translateY(-2px)}
+.etl-guides__title{font-family:var(--font-display);font-weight:800;font-size:1.1rem;color:var(--text-light)}
+.etl-guides__text{color:#475569;font-size:.95rem;line-height:1.55}
+.etl-guides__more{margin-top:auto;padding-top:8px;color:var(--color-blue);font-weight:700;font-size:.9rem}
+.etl-guides__foot{margin-top:28px;text-align:center}
+{% endstylesheet %}
+{% schema %}
+{
+"name": "Guide links",
+"settings": [
+{ "type": "text", "id": "anchor", "label": "Anchor ID" },
+{ "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+{ "type": "text", "id": "title_prefix", "label": "Heading", "default": "More free" },
+{ "type": "text", "id": "title_italic", "label": "Italic heading words", "default": "guides." },
+{ "type": "textarea", "id": "subtitle", "label": "Subheading" },
+{ "type": "text", "id": "only", "label": "Guides to show", "info": "Page handles separated by commas, in order. Leave blank to show all." },
+{ "type": "text", "id": "button_label", "label": "Button (optional)" },
+{ "type": "text", "id": "button_url", "label": "Button link" },
+{ "type": "checkbox", "id": "tint", "label": "Light grey background", "default": false }
+],
+"presets": [{ "name": "Guide links" }]
+}
+{% endschema %}
