@@ -108,13 +108,13 @@
         "title_italic": "feels natural.",
         "description": "Teacher Moves Premium includes the full CV & Interview Studio, plus weekly live Q&A and the full Job Board.",
         "offer_name": "Teacher Moves Premium",
-        "price": "$39/month",
+        "price": "US$39/month",
         "list": "<ul><li>Timed mock interviews and an AI interviewer that asks follow-up questions</li><li>Feedback on structure, relevance, specificity and clarity</li><li>Your CV compared with a job ad, with a version saved for every role</li><li>Weekly live Q&amp;A and a monthly workshop</li><li>The full Teacher Moves Job Board</li></ul>",
         "cta_text": "Join Teacher Moves Premium",
         "cta_url": "https://www.skool.com/expat-teachers-lounge-9615/plans?src=join",
         "link_text": "Start with the free Studio",
         "link_url": "https://app.expatteacherslounge.com/?utm_source=website&utm_medium=topic-page&utm_campaign=tm_cv-interview_202610",
-        "note": "Or $390/year. Premium runs in the Teacher Moves community on Skool.",
+        "note": "Or US$390/year. Premium runs in the Teacher Moves community on Skool.",
         "image_asset": "Edwina_Teaching.png",
         "image_alt": "Mpume (Edwina) Shangase teaching"
       }
@@ -164,7 +164,7 @@
             "icon": "contract",
             "kicker": "Interviews booked",
             "title": "Teacher Moves Premium",
-            "price": "$39/mo",
+            "price": "US$39/mo",
             "text": "<p>Mock interviews, an AI interviewer and CV tailoring for each job ad.</p>",
             "button_label": "Join Premium",
             "button_url": "https://www.skool.com/expat-teachers-lounge-9615/plans?src=join",
@@ -337,6 +337,19 @@
         "label": "Build My CV Free",
         "url": "https://app.expatteacherslounge.com/?utm_source=website&utm_medium=topic-page&utm_campaign=tm_cv-interview_202610"
       }
+    },
+    "more": {
+      "type": "etl-guides",
+      "settings": {
+        "anchor": "more-guides",
+        "title_prefix": "More free",
+        "title_italic": "guides.",
+        "subtitle": "",
+        "only": "international-teaching-jobs,international-teaching-contracts,teacher-relocation",
+        "button_label": "See all guides",
+        "button_url": "/pages/resources#guides",
+        "tint": true
+      }
     }
   },
   "order": [
@@ -348,6 +361,7 @@
     "authority",
     "proof",
     "faq",
+    "more",
     "final",
     "sticky"
   ]

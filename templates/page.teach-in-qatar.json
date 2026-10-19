@@ -108,11 +108,11 @@
         "title_italic": "before you sign.",
         "description": "Housing, end-of-service pay and notice terms decide how your first year goes. Contract Review goes through your offer with you, line by line, before you commit.",
         "offer_name": "Contract Review Session",
-        "price": "$77",
+        "price": "US$77",
         "list": "<ul><li>45 minutes on Google Meet</li><li>Your offer, line by line</li><li>Red flags and missing clauses</li><li>Housing, medical cover and flights checked</li><li>What to ask for, and how to word it</li></ul>",
         "cta_text": "Review My Contract",
         "cta_url": "/products/contract-review-session",
-        "link_text": "Planning the whole move? Relocation Strategy ($97)",
+        "link_text": "Planning the whole move? Relocation Strategy (US$97)",
         "link_url": "/products/relocation-strategy-session",
         "note": "Practical guidance from an experienced international teacher, not legal advice.",
         "image_asset": "Edwina_delivering_a_presentation.png",
@@ -164,7 +164,7 @@
             "icon": "compass",
             "kicker": "Personal plan",
             "title": "Relocation Strategy Session",
-            "price": "$97",
+            "price": "US$97",
             "text": "<p>One hour to plan your move around your contract, family and dates, with written next steps.</p>",
             "button_label": "Plan My Move",
             "button_url": "/products/relocation-strategy-session",
@@ -349,6 +349,19 @@
         "label": "Get the Free Qatar Checklist",
         "url": "/products/qatar-document-checklist"
       }
+    },
+    "more": {
+      "type": "etl-guides",
+      "settings": {
+        "anchor": "more-guides",
+        "title_prefix": "More free",
+        "title_italic": "guides.",
+        "subtitle": "",
+        "only": "teach-in-the-middle-east,international-teaching-contracts,teacher-relocation",
+        "button_label": "See all guides",
+        "button_url": "/pages/resources#guides",
+        "tint": true
+      }
     }
   },
   "order": [
@@ -360,6 +373,7 @@
     "authority",
     "proof",
     "faq",
+    "more",
     "final",
     "sticky"
   ]

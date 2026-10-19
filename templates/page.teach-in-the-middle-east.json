@@ -103,11 +103,11 @@
         "title_italic": "before you sign.",
         "description": "Two offers with the same salary can be worlds apart once you add housing, flights, medical cover and end-of-service pay. Contract Review goes through yours with you, line by line.",
         "offer_name": "Contract Review Session",
-        "price": "$77",
+        "price": "US$77",
         "list": "<ul><li>45 minutes on Google Meet</li><li>Your offer, line by line</li><li>Red flags and missing clauses</li><li>Housing, medical cover and flights checked</li><li>What to ask for, and how to word it</li></ul>",
         "cta_text": "Review My Contract",
         "cta_url": "/products/contract-review-session",
-        "link_text": "Still choosing a country? Compare 16 destinations ($7.99)",
+        "link_text": "Still choosing a country? Compare 16 destinations (US$7.99)",
         "link_url": "/products/country-comparison-tool-16-countries",
         "note": "Practical guidance from an experienced international teacher, not legal advice.",
         "image_asset": "Edwina_delivering_a_presentation.png",
@@ -159,7 +159,7 @@
             "icon": "globe",
             "kicker": "Compare",
             "title": "Country Comparison Tool",
-            "price": "$7.99",
+            "price": "US$7.99",
             "text": "<p>Compare up to 5 of 16 teaching destinations side by side on pay, visas, lifestyle and more.</p>",
             "button_label": "See the Tool",
             "button_url": "/products/country-comparison-tool-16-countries",
@@ -172,7 +172,7 @@
             "icon": "book",
             "kicker": "Offer in hand",
             "title": "Contract Review Session",
-            "price": "$77",
+            "price": "US$77",
             "text": "<p>Go through your offer line by line before you sign.</p>",
             "button_label": "Review My Contract",
             "button_url": "/products/contract-review-session",
@@ -332,6 +332,19 @@
         "label": "Take the Free Assessment",
         "url": "/pages/teacher-moves-assessment?goal=me"
       }
+    },
+    "more": {
+      "type": "etl-guides",
+      "settings": {
+        "anchor": "more-guides",
+        "title_prefix": "More free",
+        "title_italic": "guides.",
+        "subtitle": "",
+        "only": "teach-in-qatar,international-teaching-contracts,international-teaching-jobs",
+        "button_label": "See all guides",
+        "button_url": "/pages/resources#guides",
+        "tint": true
+      }
     }
   },
   "order": [
@@ -343,6 +356,7 @@
     "authority",
     "proof",
     "faq",
+    "more",
     "final",
     "sticky"
   ]
