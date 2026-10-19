@@ -1,0 +1,15 @@
+{%- comment -%}One public comment, shown word for word. s = block settings.{%- endcomment -%}
+<figure class="etl-proof-card" {{ attrs }}>
+<span class="etl-proof-card__platform etl-proof-card__platform--{{ s.platform | handleize }}">{{ s.platform }}</span>
+{%- if s.question != blank -%}
+<p class="etl-proof-card__lead">{{ s.question_label | default: 'First comment' }}</p>
+<blockquote class="etl-proof-card__quote etl-proof-card__quote--first">{{ s.question | escape }}</blockquote>
+<p class="etl-proof-card__lead">{{ s.quote_label | default: 'Follow-up after our reply' }}</p>
+{%- endif -%}
+<blockquote class="etl-proof-card__quote">{{ s.quote | escape }}</blockquote>
+<figcaption class="etl-proof-card__cap">
+<span class="etl-proof-card__name">{{ s.name | escape }}</span>
+{%- if s.source != blank -%}<span class="etl-proof-card__src">on &ldquo;{{ s.source | escape }}&rdquo;</span>{%- endif -%}
+{%- if s.url != blank -%}<a class="etl-proof-card__link" href="{{ s.url | escape }}" target="_blank" rel="noopener nofollow">{% if s.url contains 'lc=' %}View the comment on {{ s.platform }}{% else %}View the video on {{ s.platform }}{% endif %} <span aria-hidden="true">&#8599;</span></a>{%- endif -%}
+</figcaption>
+</figure>

@@ -1,0 +1,98 @@
+{%- liquid
+assign say_count = 0
+assign ask_count = 0
+for block in section.blocks
+if block.settings.group == 'ask'
+assign ask_count = ask_count | plus: 1
+else
+assign say_count = say_count | plus: 1
+endif
+endfor
+-%}
+<section class="etl-proof section-padding"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor }}"{% endif %} style="background-color: {% if section.settings.tint %}#f9fafb{% else %}#ffffff{% endif %}; border-bottom: 1px solid #f0f0f5;">
+<div class="container">
+<div class="etl-proof__head">
+{%- if section.settings.eyebrow != blank -%}<span class="etl-eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+<h2 class="etl-heading">{{ section.settings.title_prefix }} <span class="etl-accent">{{ section.settings.title_italic }}</span></h2>
+{%- if section.settings.subtitle != blank -%}<p class="etl-proof__sub">{{ section.settings.subtitle }}</p>{%- endif -%}
+</div>
+{%- if say_count > 0 -%}
+<div class="etl-proof__group">
+<h3 class="etl-proof__label">{{ section.settings.say_label }}</h3>
+{%- if section.settings.say_note != blank -%}<p class="etl-proof__note">{{ section.settings.say_note }}</p>{%- endif -%}
+<div class="etl-proof__grid">
+{%- for block in section.blocks -%}{%- unless block.settings.group == 'ask' -%}{% render 'etl-proof-card', s: block.settings, attrs: block.shopify_attributes %}{%- endunless -%}{%- endfor -%}
+</div>
+</div>
+{%- endif -%}
+{%- if ask_count > 0 -%}
+<div class="etl-proof__group">
+<h3 class="etl-proof__label">{{ section.settings.ask_label }}</h3>
+{%- if section.settings.ask_note != blank -%}<p class="etl-proof__note">{{ section.settings.ask_note }}</p>{%- endif -%}
+<div class="etl-proof__grid">
+{%- for block in section.blocks -%}{%- if block.settings.group == 'ask' -%}{% render 'etl-proof-card', s: block.settings, attrs: block.shopify_attributes %}{%- endif -%}{%- endfor -%}
+</div>
+</div>
+{%- endif -%}
+{%- if section.settings.disclosure != blank -%}<p class="etl-proof__disclosure">{{ section.settings.disclosure }}</p>{%- endif -%}
+</div>
+</section>
+{% stylesheet %}
+.etl-proof__head{max-width:760px;margin:0 auto 8px;text-align:center}
+.etl-proof__sub{color:#475569;font-size:1.05rem;line-height:1.7;margin:14px auto 0;max-width:640px}
+.etl-proof__group{margin-top:40px}
+.etl-proof__label{font-family:var(--font-display);font-weight:800;font-size:1.3rem;color:var(--text-light);margin:0 0 6px}
+.etl-proof__note{color:#64748b;font-size:.95rem;line-height:1.6;margin:0 0 18px}
+.etl-proof__grid{column-count:1;column-gap:20px}
+@media (min-width:750px){.etl-proof__grid{column-count:2}}
+@media (min-width:1100px){.etl-proof__grid{column-count:3}}
+.etl-proof-card{display:block;break-inside:avoid;-webkit-column-break-inside:avoid;margin:0 0 20px;padding:22px 22px 18px;background:#fff;border:1px solid #e2e8f0;border-radius:var(--border-radius-md,16px);box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.etl-proof-card__platform{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:#f1f5f9;color:#334155}
+.etl-proof-card__platform--youtube{background:#fdecec;color:#b42318}
+.etl-proof-card__platform--tiktok{background:#eef2f7;color:#111827}
+.etl-proof-card__lead{margin:14px 0 4px;font-size:.75rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#64748b}
+.etl-proof-card__quote{margin:12px 0 0;padding:0;border:0;font-size:1rem;line-height:1.65;color:#1e293b;white-space:pre-line;overflow-wrap:anywhere}
+.etl-proof-card__lead + .etl-proof-card__quote{margin-top:0}
+.etl-proof-card__quote--first{color:#475569;font-size:.95rem}
+.etl-proof-card__cap{display:flex;flex-direction:column;gap:2px;margin-top:16px;padding-top:14px;border-top:1px solid #f1f5f9;font-size:.85rem;line-height:1.5}
+.etl-proof-card__name{font-weight:800;color:var(--text-light);overflow-wrap:anywhere}
+.etl-proof-card__src{color:#64748b}
+.etl-proof-card__link{margin-top:6px;color:var(--color-blue);font-weight:700;text-decoration:underline;text-underline-offset:3px;width:fit-content}
+.etl-proof__disclosure{margin:12px auto 0;max-width:720px;text-align:center;color:#64748b;font-size:.85rem;line-height:1.6}
+{% endstylesheet %}
+{% schema %}
+{
+"name": "Comments wall",
+"settings": [
+{ "type": "text", "id": "anchor", "label": "Anchor ID" },
+{ "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+{ "type": "text", "id": "title_prefix", "label": "Heading", "default": "Teachers, in their" },
+{ "type": "text", "id": "title_italic", "label": "Italic heading words", "default": "own words." },
+{ "type": "textarea", "id": "subtitle", "label": "Subheading" },
+{ "type": "text", "id": "say_label", "label": "Label for comments", "default": "What teachers say" },
+{ "type": "text", "id": "say_note", "label": "Note under that label" },
+{ "type": "text", "id": "ask_label", "label": "Label for questions", "default": "What teachers ask us" },
+{ "type": "text", "id": "ask_note", "label": "Note under that label" },
+{ "type": "textarea", "id": "disclosure", "label": "Small print", "default": "Public comments on our YouTube and TikTok videos, copied word for word, spelling included. They are about our free videos, not reviews of paid services. Each card links to the original." },
+{ "type": "checkbox", "id": "tint", "label": "Light grey background", "default": false }
+],
+"blocks": [
+{
+"type": "comment",
+"name": "Comment",
+"settings": [
+{ "type": "select", "id": "group", "label": "Group", "options": [ { "value": "say", "label": "What teachers say" }, { "value": "ask", "label": "What teachers ask us" } ], "default": "say" },
+{ "type": "textarea", "id": "quote", "label": "Comment, word for word" },
+{ "type": "text", "id": "name", "label": "Name as shown publicly" },
+{ "type": "select", "id": "platform", "label": "Platform", "options": [ { "value": "YouTube", "label": "YouTube" }, { "value": "TikTok", "label": "TikTok" } ], "default": "YouTube" },
+{ "type": "text", "id": "source", "label": "Video it was posted on" },
+{ "type": "text", "id": "url", "label": "Link to the comment or video" },
+{ "type": "textarea", "id": "question", "label": "Earlier comment by the same person (optional)" },
+{ "type": "text", "id": "question_label", "label": "Label for the earlier comment", "default": "First comment" },
+{ "type": "text", "id": "quote_label", "label": "Label for the comment when an earlier one is shown", "default": "Follow-up after our reply" }
+]
+}
+],
+"presets": [{ "name": "Comments wall" }]
+}
+{% endschema %}
