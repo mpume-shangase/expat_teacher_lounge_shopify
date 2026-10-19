@@ -1,0 +1,218 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "etl-page-hero",
+      "settings": {
+        "image_asset": "Edwina_working_with_a_student.png",
+        "brand_logo_asset": "tm-mark.svg",
+        "brand_name": "Teacher Moves",
+        "brand_sub": "by Expat Teacher's Lounge",
+        "badge": "Coming soon to iPhone",
+        "title_prefix": "Your CV and interview practice,",
+        "title_italic": "on your phone.",
+        "description": "The Teacher Moves CV & Interview app brings the CV Builder and Interview Studio to iPhone. Join the waitlist to hear the day it's out, or start free on the web today.",
+        "price": "",
+        "cta_1_text": "Join the Waitlist",
+        "cta_1_url": "#waitlist",
+        "cta_2_text": "Use the Web Studio Free",
+        "cta_2_url": "https://app.expatteacherslounge.com/?utm_source=website&utm_medium=page&utm_campaign=tm_cv-interview-app_202610&utm_content=hero",
+        "note": "By Mpume (Edwina) Shangase, who prepared for her New Brunswick interview from Qatar and got the job · 500+ teachers in the free Teacher Moves community",
+        "sticky_trigger": true,
+        "proof_kind": "ask",
+        "proof_quote": "Hook me up with a job 😪 Qatar or Canada, I’m tired of interviews and no response.",
+        "proof_name": "@bill…",
+        "proof_platform": "TikTok",
+        "proof_url": "https://www.tiktok.com/@mpumehh_s/video/7690900755531762951"
+      }
+    },
+    "waitlist": {
+      "type": "etl-waitlist",
+      "settings": {
+        "anchor": "waitlist",
+        "eyebrow": "Coming soon to iPhone",
+        "title_prefix": "Be first to get",
+        "title_italic": "the app.",
+        "description": "Add your name and I'll email you the day the Teacher Moves CV & Interview app is in the App Store.",
+        "points": "<ul><li>The launch email, from me, the day it's out</li><li>Start free, the same way the web Studio works</li><li>Already in Teacher Moves Premium? Sign in with your Skool email. No second subscription.</li></ul>",
+        "form_title": "Join the waitlist",
+        "consent": "Yes, email me when the app is out and send me Teacher Moves updates from Edwina. I can unsubscribe at any time.",
+        "button_label": "Join the Waitlist",
+        "fine_print": "One launch email, then Teacher Moves updates. Unsubscribe in one click.",
+        "success_text": "I'll email you the day the app is out. Until then, the CV & Interview Studio already works in your browser, free to start.",
+        "success_label": "Open the Web Studio",
+        "success_url": "https://app.expatteacherslounge.com/?utm_source=website&utm_medium=page&utm_campaign=tm_cv-interview-app_202610&utm_content=waitlist-success",
+        "list_id": "RyKPEU",
+        "source": "CV & Interview app waitlist page",
+        "app_name": "CV & Interview app"
+      }
+    },
+    "steps": {
+      "type": "etl-steps",
+      "settings": {
+        "anchor": "inside",
+        "title_prefix": "What's in the",
+        "title_italic": "first version.",
+        "subtitle": "The CV & Interview Studio, built for your phone.",
+        "tint": true,
+        "button_label": "Try it free on the web",
+        "button_url": "https://app.expatteacherslounge.com/?utm_source=website&utm_medium=page&utm_campaign=tm_cv-interview-app_202610&utm_content=steps"
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Set your target",
+            "description": "Tell it where you're applying, so the CV coaching fits that market."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Build your CV",
+            "description": "Write it with coaching for that market, check the live preview and save a PDF to send."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Practise your answers",
+            "description": "Turn real classroom moments into STAR answers, then practise them out loud."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ]
+    },
+    "offer": {
+      "type": "etl-feature",
+      "settings": {
+        "anchor": "premium",
+        "image_first": false,
+        "eyebrow": "Already in Teacher Moves Premium?",
+        "title_prefix": "One membership,",
+        "title_italic": "web and app.",
+        "description": "The full CV & Interview Studio is included in Teacher Moves Premium. When the app launches, Premium members sign in with their Skool email to unlock it. Premium includes today:",
+        "offer_name": "Teacher Moves Premium",
+        "price": "US$39/month",
+        "list": "<ul><li>Timed mock interviews and an AI interviewer that asks follow-up questions</li><li>Feedback on structure, relevance, specificity and clarity</li><li>Your CV compared with a job ad, with a version saved for every role</li><li>Weekly live Q&amp;A and a monthly workshop</li><li>The full Teacher Moves Job Board</li></ul>",
+        "cta_text": "Join Teacher Moves Premium",
+        "cta_url": "https://www.skool.com/expat-teachers-lounge-9615/plans?src=join",
+        "link_text": "Start with the free Studio",
+        "link_url": "https://app.expatteacherslounge.com/?utm_source=website&utm_medium=page&utm_campaign=tm_cv-interview-app_202610&utm_content=premium",
+        "note": "Or US$390/year. Premium runs in the Teacher Moves community on Skool.",
+        "image_asset": "Edwina_Teaching.png",
+        "image_alt": "Mpume (Edwina) Shangase teaching"
+      }
+    },
+    "authority": {
+      "type": "authority",
+      "settings": {
+        "title": "I prepared for my Canadian interview from Qatar.",
+        "description": "Before New Brunswick, I had already interviewed for a U.S. teaching programme, and those interviews taught me to answer with real classroom examples instead of buzzwords. About two weeks after my New Brunswick interview, I had the offer.",
+        "quote": "Understand who you are as a teacher before you walk into the interview."
+      }
+    },
+    "faq": {
+      "type": "etl-faq",
+      "settings": {
+        "anchor": "faq",
+        "title_prefix": "Frequently asked",
+        "title_italic": "questions.",
+        "tint": true
+      },
+      "blocks": {
+        "q1": {
+          "type": "qa",
+          "settings": {
+            "question": "When does the app come out?",
+            "answer": "<p>Soon. There's no public date yet. Everyone on the waitlist gets an email from me the day it's in the App Store.</p>"
+          }
+        },
+        "q2": {
+          "type": "qa",
+          "settings": {
+            "question": "Is it on Android?",
+            "answer": "<p>iPhone comes first. If you use Android, choose Android when you join the waitlist so I know how many of you are waiting.</p>"
+          }
+        },
+        "q3": {
+          "type": "qa",
+          "settings": {
+            "question": "Will it be free?",
+            "answer": "<p>You'll be able to start free, the same way the web Studio works today. Teacher Moves Premium unlocks the full Studio.</p>"
+          }
+        },
+        "q4": {
+          "type": "qa",
+          "settings": {
+            "question": "I already pay for Teacher Moves Premium. Do I pay again?",
+            "answer": "<p>No. Sign in with the email you use on Skool and your Premium access comes with you.</p>"
+          }
+        },
+        "q5": {
+          "type": "qa",
+          "settings": {
+            "question": "Can I use it before the app launches?",
+            "answer": "<p>Yes. The CV &amp; Interview Studio already runs in your browser at <a href=\"https://app.expatteacherslounge.com/?utm_source=website&utm_medium=page&utm_campaign=tm_cv-interview-app_202610&utm_content=faq\">app.expatteacherslounge.com</a>, free to start.</p>"
+          }
+        },
+        "q6": {
+          "type": "qa",
+          "settings": {
+            "question": "What will you email me?",
+            "answer": "<p>The launch email, then Teacher Moves updates from me, Edwina. You can unsubscribe from any email in one click.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ]
+    },
+    "final": {
+      "type": "etl-cta",
+      "settings": {
+        "title_prefix": "Be first to get",
+        "title_italic": "the app.",
+        "description": "Join the waitlist for the launch email, or start building your CV free on the web today.",
+        "cta_1_text": "Join the Waitlist",
+        "cta_1_url": "#waitlist",
+        "cta_2_text": "Use the Web Studio Free",
+        "cta_2_url": "https://app.expatteacherslounge.com/?utm_source=website&utm_medium=page&utm_campaign=tm_cv-interview-app_202610&utm_content=closing"
+      }
+    },
+    "sticky": {
+      "type": "etl-sticky-cta",
+      "settings": {
+        "label": "Join the Waitlist",
+        "url": "#waitlist"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "waitlist",
+    "steps",
+    "offer",
+    "authority",
+    "faq",
+    "final",
+    "sticky"
+  ]
+}
