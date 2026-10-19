@@ -119,11 +119,14 @@
       "settings": {
         "anchor": "guides",
         "eyebrow": "Free guides",
-        "title_prefix": "Start with the guide for your",
-        "title_italic": "next step.",
-        "subtitle": "Pick the country you're considering or the step you're on. Every guide is free to read.",
+        "title_prefix": "Where are you",
+        "title_italic": "headed?",
+        "subtitle": "Pick one to start reading.",
+        "layout": "chooser",
+        "dest_label": "Where are you going?",
+        "step_label": "What are you working on?",
         "only": "",
-        "tint": false
+        "tint": true
       }
     }
   },
