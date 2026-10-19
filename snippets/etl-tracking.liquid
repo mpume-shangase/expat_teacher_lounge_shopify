@@ -1,0 +1,148 @@
+{%- comment -%}
+  ETL site events for Klaviyo (blueprint section 9, Phase 1).
+  1. "Viewed Offer Page" on paid-offer pages, with offer, brand and price properties.
+  2. "Clicked Join Skool" on any link to skool.com.
+  3. UTM tags added to Skool links that have none (utm_source=website).
+  Klaviyo records these only for visitors it can already identify (an email click or a form submit).
+  Edit the offer list below when an offer page is added or renamed.
+{%- endcomment -%}
+{%- liquid
+  assign tm_offer = ''
+  assign tm_price = 'null'
+  assign tm_page_type = ''
+  if template.name == 'product' and product
+    case product.handle
+      when 'canada-teacher-pathway-assessment'
+        assign tm_offer = 'Canada Pathway Assessment'
+        assign tm_price = '197'
+      when 'contract-review-session'
+        assign tm_offer = 'Contract Review'
+        assign tm_price = '77'
+      when 'relocation-strategy-session'
+        assign tm_offer = 'Relocation Strategy'
+        assign tm_price = '97'
+    endcase
+    if tm_offer != ''
+      assign tm_page_type = 'Product page'
+    endif
+  elsif template.name == 'page' and page
+    case page.handle
+      when 'canada-teacher-pathway'
+        assign tm_offer = 'Canada Pathway Assessment'
+        assign tm_price = '197'
+        assign tm_page_type = 'Landing page'
+      when 'coaching'
+        assign tm_offer = 'Sessions'
+        assign tm_page_type = 'Sessions page'
+      when 'teacher-cv-and-interview'
+        assign tm_offer = 'CV & Interview Studio'
+        assign tm_page_type = 'Guide page'
+      when 'community'
+        assign tm_offer = 'Teacher Moves Community'
+        assign tm_page_type = 'Community page'
+    endcase
+  endif
+
+  assign tm_handle = template.name
+  if template.name == 'index'
+    assign tm_handle = 'homepage'
+    assign tm_medium = 'homepage'
+  elsif template.name == 'page' and page
+    assign tm_handle = page.handle
+    assign tm_medium = 'page'
+  elsif template.name == 'product' and product
+    assign tm_handle = product.handle
+    assign tm_medium = 'product-page'
+  elsif template.name == 'article' and article
+    assign tm_handle = article.handle
+    assign tm_medium = 'blog'
+  else
+    assign tm_medium = 'site'
+  endif
+-%}
+<script>
+(function () {
+  /* Klaviyo's standard init snippet: lets klaviyo.push() queue before klaviyo.js has loaded. */
+  !function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return"push"===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t="function"==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}();
+
+  var BRAND = 'Teacher Moves';
+  var PAGE_PATH = {{ request.path | json }};
+  var UTM_MEDIUM = {{ tm_medium | json }};
+  var UTM_CAMPAIGN = {{ 'tm_' | append: tm_handle | append: '_202610' | json }};
+
+  {%- if tm_offer != '' %}
+  try {
+    window.klaviyo.push(['track', 'Viewed Offer Page', {
+      offer: {{ tm_offer | json }},
+      brand: BRAND,
+      price: {{ tm_price }},
+      currency: 'USD',
+      page_type: {{ tm_page_type | json }},
+      page_path: PAGE_PATH,
+      page_title: {{ page_title | json }}
+    }]);
+  } catch (e) {}
+  {%- endif %}
+
+  function placement(a) {
+    if (a.closest('header, .header, #shopify-section-header, [id$="__header"]')) return 'header';
+    if (a.closest('footer, .footer, #shopify-section-footer, [id$="__footer"]')) return 'footer';
+    var s = a.closest('[id^="shopify-section-"]');
+    if (!s) return 'page';
+    var id = s.id.replace('shopify-section-', '');
+    var cut = id.lastIndexOf('__');
+    return (cut > -1 ? id.slice(cut + 2) : id).replace(/_[A-Za-z0-9]{6}$/, '').slice(0, 40);
+  }
+
+  function skoolPage(href) {
+    if (/\/plans/.test(href)) return 'Plans';
+    if (/\/about/.test(href)) return 'About';
+    return 'Community';
+  }
+
+  function tagSkoolLinks() {
+    var links = document.querySelectorAll('a[href*="skool.com"]');
+    for (var i = 0; i < links.length; i++) {
+      try {
+        var u = new URL(links[i].href);
+        if (!/(^|\.)skool\.com$/.test(u.hostname) || u.searchParams.has('utm_source')) continue;
+        u.searchParams.set('utm_source', 'website');
+        u.searchParams.set('utm_medium', UTM_MEDIUM);
+        u.searchParams.set('utm_campaign', UTM_CAMPAIGN);
+        u.searchParams.set('utm_content', placement(links[i]));
+        links[i].href = u.toString();
+      } catch (e) {}
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', tagSkoolLinks);
+  else tagSkoolLinks();
+
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href*="skool.com"]') : null;
+    if (!a) return;
+    var href = a.href;
+    var props = {
+      brand: BRAND,
+      skool_page: skoolPage(href),
+      link_text: (a.innerText || a.textContent || '').trim().slice(0, 80),
+      placement: placement(a),
+      page_path: PAGE_PATH,
+      link_url: href.split('?')[0]
+    };
+    var newTab = a.target === '_blank' || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0;
+    if (newTab || typeof window.klaviyo.track !== 'function') {
+      try { window.klaviyo.push(['track', 'Clicked Join Skool', props]); } catch (err) {}
+      return;
+    }
+    /* Same-tab link: give the event up to 600 ms to send before leaving the page. */
+    e.preventDefault();
+    var left = false;
+    function go() { if (left) return; left = true; window.location.href = href; }
+    try {
+      var p = window.klaviyo.track('Clicked Join Skool', props);
+      if (p && typeof p.then === 'function') p.then(go, go);
+    } catch (err) { go(); }
+    setTimeout(go, 600);
+  }, true);
+})();
+</script>
