@@ -1,0 +1,115 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {}
+        },
+        "trust_badges": {
+          "type": "trust_badges",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "collapsible_tabs": {
+          "type": "collapsible_tabs",
+          "settings": {
+            "tab_included_content": "<p>Detailed checklists, step-by-step instructions, and resource sheets to guide your international teaching transition.</p>",
+            "tab_delivery_content": "<p>Your files will be available for download instantly once payment is completed. An email containing your persistent access dashboard links will also be sent immediately.</p>"
+          }
+        },
+        "proof": {
+          "type": "proof",
+          "settings": {
+            "kind": "say",
+            "quote": "Thank you for the video!! It is such important to know this kins of things before moving. And do you know something about universities?",
+            "name": "@aliy…",
+            "platform": "YouTube",
+            "source": "Where to Live in Qatar? EP 1",
+            "url": "https://www.youtube.com/watch?v=unz1Bkdb_Pk"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "buy_buttons",
+        "proof",
+        "trust_badges",
+        "description",
+        "collapsible_tabs"
+      ],
+      "settings": {
+        "bundle_title": "Frequently Bought Together",
+        "bundle_subtitle": "Complete your toolkit and save on relocation essentials."
+      }
+    },
+    "proof": {
+      "type": "etl-proof",
+      "settings": {
+        "anchor": "comments",
+        "title_prefix": "Moving abroad feels different when you know",
+        "title_italic": "what to prepare for.",
+        "subtitle": "From the comments on our free videos.",
+        "say_label": "What teachers say",
+        "ask_label": "What teachers ask us",
+        "ask_note": "Real questions from the comments. If one sounds like yours, you're not the only one.",
+        "disclosure": "Public comments on our YouTube and TikTok videos, copied word for word, spelling included. Names are shortened for privacy. They are about our free videos, not reviews of paid services. Each card links to the video it was posted on.",
+        "tint": false
+      },
+      "blocks": {
+        "r2": {
+          "type": "comment",
+          "settings": {
+            "group": "say",
+            "quote": "Thank you for your video so informative. Please share the teaching licence and degree verification process.",
+            "name": "@Meet…",
+            "platform": "YouTube",
+            "source": "How to Find a Teaching Job in Qatar",
+            "url": "https://www.youtube.com/watch?v=X0LeyjjUv_8"
+          }
+        },
+        "r3": {
+          "type": "comment",
+          "settings": {
+            "group": "ask",
+            "quote": "Hi Sis. I have all the information in terms of teaching in these different regions except for moving with a child. please advise lapho.",
+            "name": "Nompumelelo N.",
+            "platform": "TikTok",
+            "source": "",
+            "url": "https://www.tiktok.com/@mpumehh_s/video/7516786265656691986"
+          }
+        }
+      },
+      "block_order": [
+        "r2",
+        "r3"
+      ]
+    }
+  },
+  "order": [
+    "main",
+    "proof"
+  ]
+}
