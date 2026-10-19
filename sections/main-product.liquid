@@ -92,7 +92,16 @@
                   </button>
                 {%- endform -%}
               
-              {%- when 'description' -%}
+              {%- when 'proof' -%}
+{%- if block.settings.quote != blank -%}
+<figure class="etl-product-proof" style="margin: 20px 0 0; padding: 16px 18px; background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid var(--color-blue); border-radius: var(--border-radius-md);" {{ block.shopify_attributes }}>
+<p style="margin: 0 0 6px; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #64748b;">{% if block.settings.kind == 'ask' %}A question teachers ask us{% else %}What a teacher said{% endif %} &middot; {{ block.settings.platform }}</p>
+<blockquote style="margin: 0; padding: 0; border: 0; font-size: 0.95rem; line-height: 1.6; color: #1e293b; white-space: pre-line; overflow-wrap: anywhere;">{{ block.settings.quote | escape }}</blockquote>
+<figcaption style="margin-top: 8px; font-size: 0.8rem; line-height: 1.5; color: #64748b;"><strong style="color: var(--text-light);">{{ block.settings.name | escape }}</strong>{% if block.settings.source != blank %} on &ldquo;{{ block.settings.source | escape }}&rdquo;{% endif %}{% if block.settings.url != blank %} &middot; <a href="{{ block.settings.url | escape }}" target="_blank" rel="noopener nofollow" style="color: var(--color-blue); text-decoration: underline;">{% if block.settings.url contains 'lc=' %}View the comment{% else %}View the video{% endif %}</a>{% endif %}</figcaption>
+</figure>
+{%- endif -%}
+
+{%- when 'description' -%}
                 <div class="product-single__description rte" style="margin-top: 24px; color: #475569; font-size: 0.95rem; line-height: 1.7;" {{ block.shopify_attributes }}>
                   {{ product.description }}
                 </div>
@@ -357,6 +366,19 @@
       "limit": 1,
       "settings": []
     },
+{
+"type": "proof",
+"name": "Comment under the button",
+"limit": 1,
+"settings": [
+{ "type": "select", "id": "kind", "label": "Type", "options": [ { "value": "say", "label": "What a teacher said" }, { "value": "ask", "label": "A question teachers ask us" } ], "default": "say" },
+{ "type": "textarea", "id": "quote", "label": "Comment, word for word" },
+{ "type": "text", "id": "name", "label": "Name as shown publicly" },
+{ "type": "select", "id": "platform", "label": "Platform", "options": [ { "value": "YouTube", "label": "YouTube" }, { "value": "TikTok", "label": "TikTok" } ], "default": "YouTube" },
+{ "type": "text", "id": "source", "label": "Video it was posted on" },
+{ "type": "text", "id": "url", "label": "Link to the comment or video" }
+]
+},
     {
       "type": "description",
       "name": "Description",
