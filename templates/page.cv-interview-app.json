@@ -52,7 +52,8 @@
         "success_url": "https://app.expatteacherslounge.com/?utm_source=website&utm_medium=page&utm_campaign=tm_cv-interview-app_202610&utm_content=waitlist-success",
         "list_id": "RyKPEU",
         "source": "CV & Interview app waitlist page",
-        "app_name": "CV & Interview app"
+        "app_name": "CV & Interview app",
+        "dark_header": true
       }
     },
     "steps": {

@@ -1,4 +1,4 @@
-<section id="{{ section.settings.anchor | default: 'waitlist' }}" class="section-padding bg-light text-light etl-wl" data-list="{{ section.settings.list_id | escape }}" data-source="{{ section.settings.source | escape }}" data-app="{{ section.settings.app_name | escape }}">
+<section id="{{ section.settings.anchor | default: 'waitlist' }}" class="section-padding bg-light text-light etl-wl" data-list="{{ section.settings.list_id | escape }}" data-source="{{ section.settings.source | escape }}" data-app="{{ section.settings.app_name | escape }}"{% if section.settings.dark_header %} data-dark-header{% endif %}>
   <div class="container">
     <div class="etl-wl__panel">
       <div class="etl-wl__glow etl-wl__glow--a" aria-hidden="true"></div>
@@ -103,6 +103,7 @@
 })();
 </script>
 {% stylesheet %}
+body:has(.etl-wl[data-dark-header]) .site-header:not(.site-header--scrolled) a,body:has(.etl-wl[data-dark-header]) .site-header:not(.site-header--scrolled) .mobile-nav-toggle{color:#fff!important}
 .etl-wl__panel{position:relative;max-width:1080px;margin:0 auto;background:var(--color-brand-deep,#143D8A);border-radius:var(--border-radius-lg,24px);overflow:hidden;color:#fff;padding:56px 48px}
 .etl-wl__glow{position:absolute;width:260px;height:260px;border-radius:50%;filter:blur(80px);pointer-events:none}
 .etl-wl__glow--a{top:0;right:0;background:var(--color-brand-blue,#1C91D7);opacity:.45;transform:translate(30%,-30%)}
@@ -146,6 +147,7 @@
   "name": "Waitlist form",
   "settings": [
     { "type": "text", "id": "anchor", "label": "Anchor (no #)", "default": "waitlist" },
+    { "type": "checkbox", "id": "dark_header", "label": "White header links (page starts with a dark hero)", "default": false },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
     { "type": "text", "id": "title_prefix", "label": "Heading", "default": "Be first to get the" },
     { "type": "text", "id": "title_italic", "label": "Gold italic words", "default": "app." },
