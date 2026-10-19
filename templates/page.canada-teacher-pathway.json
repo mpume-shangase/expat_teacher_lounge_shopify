@@ -25,7 +25,12 @@
         "cta_2_text": "See How It Works",
         "cta_2_url": "#how-it-works",
         "note": "Your report is normally ready within 5 business days of a complete intake.",
-        "sticky_trigger": true
+        "sticky_trigger": true,
+        "proof_kind": "say",
+        "proof_quote": "Thank you for sharing all of this information. This will help me a lot doing research and to start the application process. Can’t wait for more videos💝🙏🏽",
+        "proof_name": "Febihola J.",
+        "proof_platform": "YouTube",
+        "proof_url": "https://www.youtube.com/watch?v=cRa6ohT0amQ"
       }
     },
     "problem": {
@@ -262,6 +267,72 @@
         "buy_product": "canada-teacher-pathway-assessment",
         "url": "/products/canada-teacher-pathway-assessment"
       }
+    },
+    "proof": {
+      "type": "etl-proof",
+      "settings": {
+        "anchor": "comments",
+        "title_prefix": "Where teachers get stuck on the way to",
+        "title_italic": "Canada.",
+        "subtitle": "Comments from teachers on our free Canada videos. The questions are the kind this assessment is built to work through with you.",
+        "say_label": "What teachers say",
+        "ask_label": "What teachers ask us",
+        "ask_note": "Real questions from the comments. If one sounds like yours, you're not the only one.",
+        "disclosure": "Public comments on our YouTube and TikTok videos, copied word for word, spelling included. Names are shortened for privacy. They are about our free videos, not reviews of paid services. Each card links to the video it was posted on.",
+        "tint": false
+      },
+      "blocks": {
+        "c2": {
+          "type": "comment",
+          "settings": {
+            "group": "say",
+            "quote": "Great explanation and well researched.Kudos and keep it up.From your point of view which provinces are in dire need of teachers",
+            "name": "Stephen N.",
+            "platform": "YouTube",
+            "source": "How to Get Hired Abroad to Teach in Canada as an Internationally Trained Teacher",
+            "url": "https://www.youtube.com/watch?v=cRa6ohT0amQ"
+          }
+        },
+        "c3": {
+          "type": "comment",
+          "settings": {
+            "group": "ask",
+            "quote": "I completed my WES application and now I'm stuck. my pgce and bsc got approved but now I'm stuck. please help.",
+            "name": "@mds_…",
+            "platform": "TikTok",
+            "source": "Is the salary better in Canada?",
+            "url": "https://www.tiktok.com/@mpumehh_s/video/7690900755531762951"
+          }
+        },
+        "c4": {
+          "type": "comment",
+          "settings": {
+            "group": "ask",
+            "quote": "Hi Mpume, do you have any idea why they said you only qualify for 11years of teaching instead of the 23 years?",
+            "name": "@prec…",
+            "platform": "TikTok",
+            "source": "Is the salary better in Canada?",
+            "url": "https://www.tiktok.com/@mpumehh_s/video/7690900755531762951"
+          }
+        },
+        "c5": {
+          "type": "comment",
+          "settings": {
+            "group": "ask",
+            "quote": "I have Bachelor of Education, TELF and SACE will I qualify help a sis out",
+            "name": "@kgao…",
+            "platform": "TikTok",
+            "source": "Is the salary better in Canada?",
+            "url": "https://www.tiktok.com/@mpumehh_s/video/7690900755531762951"
+          }
+        }
+      },
+      "block_order": [
+        "c2",
+        "c3",
+        "c4",
+        "c5"
+      ]
     }
   },
   "order": [
@@ -270,6 +341,7 @@
     "review",
     "receive",
     "how",
+    "proof",
     "faq",
     "final",
     "sticky"

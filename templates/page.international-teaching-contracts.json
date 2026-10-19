@@ -26,7 +26,12 @@
         "cta_2_text": "See the Red-Flags Checklist",
         "cta_2_url": "#red-flags",
         "note": "By Mpume (Edwina) Shangase, 18 years in classrooms across four countries.",
-        "sticky_trigger": false
+        "sticky_trigger": false,
+        "proof_kind": "ask",
+        "proof_quote": "I received an offer and the contract was 4 years long😳 nooo, I can’t be stuck with the same salary for 4 years. Is this normal in Qatar?",
+        "proof_name": "@kedi…",
+        "proof_platform": "TikTok",
+        "proof_url": "https://www.tiktok.com/@mpumehh_s/video/7516786265656691986"
       }
     },
     "article": {
@@ -232,6 +237,60 @@
         "cta_2_text": "Take the Free Assessment",
         "cta_2_url": "/pages/teacher-moves-assessment"
       }
+    },
+    "proof": {
+      "type": "etl-proof",
+      "settings": {
+        "anchor": "comments",
+        "title_prefix": "These are the questions teachers ask",
+        "title_italic": "before they sign.",
+        "subtitle": "From the comments on our free Qatar package and contract videos.",
+        "say_label": "What teachers say",
+        "ask_label": "What teachers ask us",
+        "ask_note": "Real questions from the comments. If one sounds like yours, you're not the only one.",
+        "disclosure": "Public comments on our YouTube and TikTok videos, copied word for word, spelling included. Names are shortened for privacy. They are about our free videos, not reviews of paid services. Each card links to the video it was posted on.",
+        "tint": false
+      },
+      "blocks": {
+        "o9": {
+          "type": "comment",
+          "settings": {
+            "group": "say",
+            "quote": "these videos are valuable. Thanks for sharing.",
+            "name": "@Livi…",
+            "platform": "YouTube",
+            "source": "What Are the Different Teaching Packages in Qatar?",
+            "url": "https://www.youtube.com/watch?v=hXuHObSyVq8"
+          }
+        },
+        "o10": {
+          "type": "comment",
+          "settings": {
+            "group": "say",
+            "quote": "I here in Qatar & its really useful for me..\nHope to see you here",
+            "name": "@hama…",
+            "platform": "YouTube",
+            "source": "What Are the Different Teaching Packages in Qatar?",
+            "url": "https://www.youtube.com/watch?v=hXuHObSyVq8"
+          }
+        },
+        "k2": {
+          "type": "comment",
+          "settings": {
+            "group": "ask",
+            "quote": "As a South African does it include family packages?",
+            "name": "@zizo…",
+            "platform": "TikTok",
+            "source": "",
+            "url": "https://www.tiktok.com/@mpumehh_s/video/7516786265656691986"
+          }
+        }
+      },
+      "block_order": [
+        "o9",
+        "o10",
+        "k2"
+      ]
     }
   },
   "order": [
@@ -239,6 +298,7 @@
     "article",
     "steps",
     "paths",
+    "proof",
     "faq",
     "final"
   ]

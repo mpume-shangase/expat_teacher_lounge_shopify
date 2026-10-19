@@ -26,7 +26,12 @@
         "cta_2_text": "Take the Free Assessment",
         "cta_2_url": "/pages/teacher-moves-assessment",
         "note": "3 hand-picked job postings a week in the free Teacher Moves community · 500+ teachers already there",
-        "sticky_trigger": true
+        "sticky_trigger": true,
+        "proof_kind": "ask",
+        "proof_quote": "Hook me up with a job 😪 Qatar or Canada, I’m tired of interviews and no response.",
+        "proof_name": "@bill…",
+        "proof_platform": "TikTok",
+        "proof_url": "https://www.tiktok.com/@mpumehh_s/video/7690900755531762951"
       }
     },
     "steps": {
@@ -196,16 +201,46 @@
       }
     },
     "proof": {
-      "type": "etl-text",
-      "disabled": true,
+      "type": "etl-proof",
       "settings": {
-        "anchor": "proof",
-        "eyebrow": "From teachers who follow Edwina",
-        "title_prefix": "Teachers are getting clearer about",
-        "title_italic": "their next move.",
-        "text": "<p>Placeholder for approved YouTube and TikTok comments (Social Proof Bank). Hidden until approved.</p>",
+        "anchor": "comments",
+        "title_prefix": "What job-hunting teachers",
+        "title_italic": "tell us.",
+        "subtitle": "From the comments on our free videos.",
+        "say_label": "What teachers say",
+        "ask_label": "What teachers ask us",
+        "ask_note": "Real questions from the comments. If one sounds like yours, you're not the only one.",
+        "disclosure": "Public comments on our YouTube and TikTok videos, copied word for word, spelling included. Names are shortened for privacy. They are about our free videos, not reviews of paid services. Each card links to the video it was posted on.",
         "tint": false
-      }
+      },
+      "blocks": {
+        "o5": {
+          "type": "comment",
+          "settings": {
+            "group": "say",
+            "quote": "Great video by the way!! Very informative and precise! 👌🏾",
+            "name": "@Anna…",
+            "platform": "YouTube",
+            "source": "How to Find Teaching Jobs in Qatar",
+            "url": "https://www.youtube.com/watch?v=eA7NfGilM9I"
+          }
+        },
+        "p2": {
+          "type": "comment",
+          "settings": {
+            "group": "ask",
+            "quote": "I joined mama, I want to relocate .. have sent several emails to schools in the UAE only got one interview & ddnt make it to the shortlisting. Have 6 years of experience.",
+            "name": "@patt…",
+            "platform": "TikTok",
+            "source": "Joining the community is FREE!",
+            "url": "https://www.tiktok.com/@mpumehh_s/video/7691652881191046452"
+          }
+        }
+      },
+      "block_order": [
+        "o5",
+        "p2"
+      ]
     },
     "faq": {
       "type": "etl-faq",

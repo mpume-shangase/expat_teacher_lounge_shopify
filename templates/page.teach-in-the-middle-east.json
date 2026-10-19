@@ -196,16 +196,46 @@
       }
     },
     "proof": {
-      "type": "etl-text",
-      "disabled": true,
+      "type": "etl-proof",
       "settings": {
-        "anchor": "proof",
-        "eyebrow": "From teachers who follow Edwina",
-        "title_prefix": "Teachers are asking better questions",
-        "title_italic": "before they sign.",
-        "text": "<p>Placeholder for approved YouTube and TikTok comments (Social Proof Bank). Hidden until approved.</p>",
+        "anchor": "comments",
+        "title_prefix": "Teachers weighing the Gulf,",
+        "title_italic": "in their own words.",
+        "subtitle": "From the comments on our free videos.",
+        "say_label": "What teachers say",
+        "ask_label": "What teachers ask us",
+        "ask_note": "Real questions from the comments. If one sounds like yours, you're not the only one.",
+        "disclosure": "Public comments on our YouTube and TikTok videos, copied word for word, spelling included. Names are shortened for privacy. They are about our free videos, not reviews of paid services. Each card links to the video it was posted on.",
         "tint": false
-      }
+      },
+      "blocks": {
+        "o7": {
+          "type": "comment",
+          "settings": {
+            "group": "say",
+            "quote": "I love how you accept the culture there and also your respect for muslim country. Very appreciatable",
+            "name": "@crus…",
+            "platform": "YouTube",
+            "source": "Teaching in Qatar Crash Course 101",
+            "url": "https://www.youtube.com/watch?v=MGi8RInOEOI"
+          }
+        },
+        "o8": {
+          "type": "comment",
+          "settings": {
+            "group": "say",
+            "quote": "Thank you for this ladies ! It was wonderful to watch and as a South African teaching in Saudi , Im excited for more videos to come. Really thinking of making the move from here to there",
+            "name": "@phum…",
+            "platform": "YouTube",
+            "source": "What documents do I need to become a teacher in Qatar? (Expat Teacher's Lounge)",
+            "url": "https://www.youtube.com/watch?v=dXew1_YZHQA"
+          }
+        }
+      },
+      "block_order": [
+        "o7",
+        "o8"
+      ]
     },
     "faq": {
       "type": "etl-faq",

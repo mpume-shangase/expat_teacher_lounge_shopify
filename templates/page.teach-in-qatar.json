@@ -26,7 +26,12 @@
         "cta_2_text": "Take the Free Assessment",
         "cta_2_url": "/pages/teacher-moves-assessment?goal=me",
         "note": "By Mpume (Edwina) Shangase, who moved her family to Qatar and taught there · 500+ teachers in the free Teacher Moves community",
-        "sticky_trigger": true
+        "sticky_trigger": true,
+        "proof_kind": "say",
+        "proof_quote": "Thanks for this video, it really helps to get into the process.",
+        "proof_name": "Diana S.",
+        "proof_platform": "YouTube",
+        "proof_url": "https://www.youtube.com/watch?v=3i-y2IDNgBc"
       }
     },
     "steps": {
@@ -196,16 +201,58 @@
       }
     },
     "proof": {
-      "type": "etl-text",
-      "disabled": true,
+      "type": "etl-proof",
       "settings": {
-        "anchor": "proof",
-        "eyebrow": "From teachers who follow Edwina",
-        "title_prefix": "Moving abroad feels different when you",
-        "title_italic": "know what to prepare for.",
-        "text": "<p>Placeholder for approved YouTube and TikTok comments (Social Proof Bank). Hidden until approved.</p>",
+        "anchor": "comments",
+        "title_prefix": "Teachers planning a Qatar move,",
+        "title_italic": "in their own words.",
+        "subtitle": "From the comments on our free videos.",
+        "say_label": "What teachers say",
+        "ask_label": "What teachers ask us",
+        "ask_note": "Real questions from the comments. If one sounds like yours, you're not the only one.",
+        "disclosure": "Public comments on our YouTube and TikTok videos, copied word for word, spelling included. Names are shortened for privacy. They are about our free videos, not reviews of paid services. Each card links to the video it was posted on.",
         "tint": false
-      }
+      },
+      "blocks": {
+        "o3": {
+          "type": "comment",
+          "settings": {
+            "group": "say",
+            "quote": "My girls we want more of these videos, this is really helpful , thank you for sharing and guiding ❤ , keep making videos please",
+            "name": "@iamw…",
+            "platform": "YouTube",
+            "source": "How do I apply for a teaching job in Qatar? (Expat Teacher's Lounge EP 2)",
+            "url": "https://www.youtube.com/watch?v=Wx9KBeBc_uk"
+          }
+        },
+        "r2": {
+          "type": "comment",
+          "settings": {
+            "group": "say",
+            "quote": "Thank you for your video so informative. Please share the teaching licence and degree verification process.",
+            "name": "@Meet…",
+            "platform": "YouTube",
+            "source": "How to Find a Teaching Job in Qatar",
+            "url": "https://www.youtube.com/watch?v=X0LeyjjUv_8"
+          }
+        },
+        "k1": {
+          "type": "comment",
+          "settings": {
+            "group": "ask",
+            "quote": "I received an offer and the contract was 4 years long😳 nooo, I can’t be stuck with the same salary for 4 years. Is this normal in Qatar?",
+            "name": "@kedi…",
+            "platform": "TikTok",
+            "source": "",
+            "url": "https://www.tiktok.com/@mpumehh_s/video/7516786265656691986"
+          }
+        }
+      },
+      "block_order": [
+        "o3",
+        "r2",
+        "k1"
+      ]
     },
     "faq": {
       "type": "etl-faq",

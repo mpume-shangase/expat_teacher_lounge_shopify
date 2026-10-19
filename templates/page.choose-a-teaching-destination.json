@@ -196,16 +196,34 @@
       }
     },
     "proof": {
-      "type": "etl-text",
-      "disabled": true,
+      "type": "etl-proof",
       "settings": {
-        "anchor": "proof",
-        "eyebrow": "From teachers who follow Edwina",
-        "title_prefix": "Teachers are getting clearer about",
+        "anchor": "comments",
+        "title_prefix": "Experienced teachers deciding",
         "title_italic": "where to go next.",
-        "text": "<p>Placeholder for approved YouTube and TikTok comments (Social Proof Bank). Hidden until approved.</p>",
+        "subtitle": "From the comments on our free videos.",
+        "say_label": "What teachers say",
+        "ask_label": "What teachers ask us",
+        "ask_note": "Real questions from the comments. If one sounds like yours, you're not the only one.",
+        "disclosure": "Public comments on our YouTube and TikTok videos, copied word for word, spelling included. Names are shortened for privacy. They are about our free videos, not reviews of paid services. Each card links to the video it was posted on.",
         "tint": false
-      }
+      },
+      "blocks": {
+        "o6": {
+          "type": "comment",
+          "settings": {
+            "group": "say",
+            "quote": "I love your content and have watched many of your videos.\nI’m currently contemplating leaving SA after 11 years of teaching and explore and grow as a teacher in another county. ❤",
+            "name": "@hlay…",
+            "platform": "YouTube",
+            "source": "Teaching in Qatar: How to Survive and Thrive",
+            "url": "https://www.youtube.com/watch?v=w-CvUhhVm2A"
+          }
+        }
+      },
+      "block_order": [
+        "o6"
+      ]
     },
     "faq": {
       "type": "etl-faq",
