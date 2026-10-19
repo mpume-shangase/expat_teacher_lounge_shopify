@@ -124,7 +124,7 @@
     var props = {
       brand: BRAND,
       skool_page: skoolPage(href),
-      link_text: (a.innerText || a.textContent || '').trim().slice(0, 80),
+      link_text: (a.innerText || a.textContent || '').trim().split('\n')[0].trim().slice(0, 80),
       placement: placement(a),
       page_path: PAGE_PATH,
       link_url: href.split('?')[0]
