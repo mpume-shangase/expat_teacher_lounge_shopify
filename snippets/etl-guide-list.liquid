@@ -1,10 +1,11 @@
 {%- comment -%}
 Free Teacher Moves guides, one list for the whole site.
-style: 'cards' or 'links'. only: comma-separated page handles to show, in order (blank = all). exclude: a path to skip. link_class: class for links.
+style: 'cards', 'links' or 'pill'. group: 'destination' or 'step' (blank = both). only: comma-separated page handles to show, in order (blank = all). exclude: a path to skip. link_class: class for links.
 {%- endcomment -%}
 {%- liquid
 assign g_keys = 'teach-in-canada|canada-teacher-certification|teach-in-the-usa|teach-in-qatar|teach-in-the-middle-east|choose-a-teaching-destination|international-teaching-jobs|teacher-cv-and-interview|international-teaching-contracts|teacher-relocation' | split: '|'
 assign g_titles = 'Teach in Canada|Canada teacher certification|Teaching in the USA (J-1)|Teaching in Qatar|Teaching in the Middle East|Choosing where to teach|International teaching jobs|Teacher CV and interviews|Teaching contracts|Teacher relocation checklist' | split: '|'
+assign g_short = 'Canada|Canada certification|USA (J-1)|Qatar|Middle East|Not sure yet|Finding jobs|CV and interviews|Contracts|Relocating' | split: '|'
 assign g_text = 'Routes into teaching in Canada and where to start.|Who certifies teachers in each province and how it works.|Who qualifies for the J-1 Teacher program, sponsors and costs.|Qualifications, document attestation and moving to Qatar.|The UAE, Qatar, Saudi Arabia and the Gulf compared.|Compare countries on residence, tax and licensing.|Where jobs are advertised and how to apply safely.|CVs for international schools and interview preparation.|What to check in a contract before you sign.|A week-by-week checklist for your move.' | split: '|'
 if only != blank
 assign picks = only | remove: ' ' | split: ','
@@ -18,7 +19,11 @@ endif
 {%- if idx < 0 -%}{%- continue -%}{%- endif -%}
 {%- assign g_url = '/pages/' | append: pick -%}
 {%- if g_url == exclude -%}{%- continue -%}{%- endif -%}
-{%- if style == 'links' -%}
+{%- if group == 'destination' and idx > 5 -%}{%- continue -%}{%- endif -%}
+{%- if group == 'step' and idx < 6 -%}{%- continue -%}{%- endif -%}
+{%- if style == 'pill' -%}
+<a class="etl-pill" href="{{ g_url }}">{{ g_short[idx] }}<span class="etl-pill__arrow" aria-hidden="true">&rarr;</span></a>
+{%- elsif style == 'links' -%}
 <li><a href="{{ g_url }}" class="{{ link_class }}">{{ g_titles[idx] }}</a></li>
 {%- else -%}
 <a class="etl-guides__card" href="{{ g_url }}"><span class="etl-guides__title">{{ g_titles[idx] }}</span><span class="etl-guides__text">{{ g_text[idx] }}</span><span class="etl-guides__more">Read the guide <span aria-hidden="true">&rarr;</span></span></a>
