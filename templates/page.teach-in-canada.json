@@ -12,16 +12,16 @@
     "hero": {
       "type": "etl-page-hero",
       "settings": {
-        "image": "shopify://shop_images/Edwina_at_the_airport.png",
+        "image": "shopify:\/\/shop_images\/Edwina_at_the_airport.png",
         "image_asset": "Edwina_working_with_a_student.png",
         "badge": "Teach in Canada",
         "title_prefix": "Teach in Canada with a",
         "title_italic": "clearer plan.",
         "description": "Certification requirements differ across Canada. Teacher Moves helps internationally trained educators understand where to begin and what to investigate next.",
         "cta_1_text": "Explore My Canada Pathway",
-        "cta_1_url": "/pages/canada-teacher-pathway",
+        "cta_1_url": "\/pages\/canada-teacher-pathway",
         "cta_2_text": "Explore Canada Resources",
-        "cta_2_url": "/pages/resources#canada"
+        "cta_2_url": "\/pages\/resources#canada"
       }
     },
     "paths": {
@@ -40,9 +40,9 @@
             "icon": "book",
             "kicker": "Path 1 · Do it yourself",
             "title": "Research at your own pace",
-            "text": "<p>Canada guides, province information, the Province Picker and certification tools.</p>",
+            "text": "<p>Canada guides, province information, the Province Picker and certification tools.<\/p>",
             "button_label": "Explore Canada Resources",
-            "button_url": "/pages/resources#canada"
+            "button_url": "\/pages\/resources#canada"
           }
         },
         "c2": {
@@ -51,10 +51,10 @@
             "icon": "canada",
             "kicker": "Path 2 · Personalised",
             "title": "Canada Teacher Pathway Assessment",
-            "price": "$197",
-            "text": "<p>Understand where you currently stand and what to prioritise over the next 90 days.</p>",
+            "price": "US$197",
+            "text": "<p>Understand where you currently stand and what to prioritise over the next 90 days.<\/p>",
             "button_label": "Start My Canada Pathway",
-            "button_url": "/pages/canada-teacher-pathway",
+            "button_url": "\/pages\/canada-teacher-pathway",
             "featured": true
           }
         },
@@ -64,9 +64,9 @@
             "icon": "community",
             "kicker": "Path 3 · More support",
             "title": "Need more support?",
-            "text": "<p>More guided Teacher Moves Canada support is being developed. Join the community to hear first and get help now.</p>",
+            "text": "<p>More guided Teacher Moves Canada support is being developed. Join the community to hear first and get help now.<\/p>",
             "button_label": "Join the Community",
-            "button_url": "https://www.skool.com/expat-teachers-lounge-9615/about"
+            "button_url": "https:\/\/www.skool.com\/expat-teachers-lounge-9615\/about"
           }
         }
       },
@@ -82,9 +82,9 @@
         "eyebrow": "The basics",
         "title_prefix": "How teacher certification works in",
         "title_italic": "Canada.",
-        "text": "<p>Teaching is a regulated profession in Canada, and each province or territory certifies its own teachers. Requirements usually cover your teacher education, your degree and evidence of professional standing, and some provinces add language or credential-assessment steps.</p><p>Because details change, always confirm current requirements with the certification office of the province you're targeting.</p>",
+        "text": "<p>Teaching is a regulated profession in Canada, and each province or territory certifies its own teachers. Requirements usually cover your teacher education, your degree and evidence of professional standing, and some provinces add language or credential-assessment steps.<\/p><p>Because details change, always confirm current requirements with the certification office of the province you're targeting.<\/p>",
         "button_label": "Read: Canada Teacher Certification, Province by Province",
-        "button_url": "/pages/canada-teacher-certification"
+        "button_url": "\/pages\/canada-teacher-certification"
       }
     },
     "flagship": {
@@ -95,12 +95,12 @@
         "title_italic": "in one place.",
         "description": "Stop piecing it together from forums. Get a review of your background against the provinces you're considering.",
         "offer_name": "Canada Teacher Pathway Assessment",
-        "price": "$197",
-        "list": "<ul><li>Profile summary and Canada Pathway Report</li><li>Readiness score (a planning indicator)</li><li>Document checklist</li><li>90-day action plan</li><li>30-minute debrief and 30-day follow-up</li></ul>",
+        "price": "US$197",
+        "list": "<ul><li>Profile summary and Canada Pathway Report<\/li><li>Readiness score (a planning indicator)<\/li><li>Document checklist<\/li><li>90-day action plan<\/li><li>30-minute debrief and 30-day follow-up<\/li><\/ul>",
         "cta_text": "Start My Canada Pathway",
-        "cta_url": "/pages/canada-teacher-pathway",
+        "cta_url": "\/pages\/canada-teacher-pathway",
         "link_text": "See how it works",
-        "link_url": "/pages/canada-teacher-pathway#how-it-works",
+        "link_url": "\/pages\/canada-teacher-pathway#how-it-works",
         "image_asset": "Edwina_delivering_a_presentation.png",
         "image_alt": "Mpume (Edwina) Shangase presenting"
       }
@@ -112,9 +112,9 @@
         "title_italic": "plan?",
         "description": "Start free in the community, or get your personalised pathway today.",
         "cta_1_text": "Start My Canada Pathway",
-        "cta_1_url": "/pages/canada-teacher-pathway",
+        "cta_1_url": "\/pages\/canada-teacher-pathway",
         "cta_2_text": "Join the Free Community",
-        "cta_2_url": "https://www.skool.com/expat-teachers-lounge-9615/about"
+        "cta_2_url": "https:\/\/www.skool.com\/expat-teachers-lounge-9615\/about"
       }
     }
   },

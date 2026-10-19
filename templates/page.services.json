@@ -12,14 +12,14 @@
     "hero": {
       "type": "etl-page-hero",
       "settings": {
-        "image": "shopify://shop_images/Edwina_giving_a_coaching_call.png",
+        "image": "shopify:\/\/shop_images\/Edwina_giving_a_coaching_call.png",
         "image_asset": "Edwina_delivering_a_presentation.png",
         "badge": "Services",
         "title_prefix": "Personalised support for your next",
         "title_italic": "teacher move.",
         "description": "Three focused services. Each one ends with clear next steps, not generic advice.",
         "cta_1_text": "Start My Canada Pathway",
-        "cta_1_url": "/pages/canada-teacher-pathway",
+        "cta_1_url": "\/pages\/canada-teacher-pathway",
         "cta_2_text": "Compare Services",
         "cta_2_url": "#services"
       }
@@ -40,10 +40,10 @@
             "icon": "canada",
             "kicker": "Featured",
             "title": "Canada Teacher Pathway Assessment",
-            "price": "$197",
-            "text": "<p><strong>For:</strong> teachers trained outside Canada who want to teach there.</p><p><strong>Solves:</strong> not knowing which province, documents or steps come first.</p><p><strong>You receive:</strong> profile summary, Canada Pathway Report, readiness score, document checklist, 90-day plan, 30-minute debrief and 30 days of limited follow-up.</p><p><strong>Next:</strong> complete your intake after purchase. Your report is normally ready within 5 business days of a complete intake.</p>",
+            "price": "US$197",
+            "text": "<p><strong>For:<\/strong> teachers trained outside Canada who want to teach there.<\/p><p><strong>Solves:<\/strong> not knowing which province, documents or steps come first.<\/p><p><strong>You receive:<\/strong> profile summary, Canada Pathway Report, readiness score, document checklist, 90-day plan, 30-minute debrief and 30 days of limited follow-up.<\/p><p><strong>Next:<\/strong> complete your intake after purchase. Your report is normally ready within 5 business days of a complete intake.<\/p>",
             "button_label": "Start My Canada Pathway",
-            "button_url": "/pages/canada-teacher-pathway",
+            "button_url": "\/pages\/canada-teacher-pathway",
             "featured": true
           }
         },
@@ -52,10 +52,10 @@
           "settings": {
             "icon": "globe",
             "title": "Relocation Strategy",
-            "price": "$97",
-            "text": "<p><strong>For:</strong> teachers choosing a country or preparing an international move.</p><p><strong>Solves:</strong> conflicting advice and too many unknowns.</p><p><strong>You receive:</strong> a focused strategy session on country fit, packages, documentation and timing, with written next steps.</p><p><strong>Next:</strong> your scheduling link arrives by email after purchase.</p>",
+            "price": "US$97",
+            "text": "<p><strong>For:<\/strong> teachers choosing a country or preparing an international move.<\/p><p><strong>Solves:<\/strong> conflicting advice and too many unknowns.<\/p><p><strong>You receive:<\/strong> a focused strategy session on country fit, packages, documentation and timing, with written next steps.<\/p><p><strong>Next:<\/strong> your scheduling link arrives by email after purchase.<\/p>",
             "button_label": "Build My Relocation Strategy",
-            "button_url": "/products/relocation-strategy-session"
+            "button_url": "\/products\/relocation-strategy-session"
           }
         },
         "c3": {
@@ -63,10 +63,10 @@
           "settings": {
             "icon": "contract",
             "title": "Contract Review",
-            "price": "$77",
-            "text": "<p><strong>For:</strong> teachers holding an international teaching offer.</p><p><strong>Solves:</strong> signing without knowing what's normal or missing.</p><p><strong>You receive:</strong> a line-by-line review, red flags and missing clauses, salary and benefits benchmarking, and wording for your questions.</p><p><strong>Next:</strong> your scheduling link arrives by email. Have your offer ready to share.</p>",
+            "price": "US$77",
+            "text": "<p><strong>For:<\/strong> teachers holding an international teaching offer.<\/p><p><strong>Solves:<\/strong> signing without knowing what's normal or missing.<\/p><p><strong>You receive:<\/strong> a line-by-line review, red flags and missing clauses, salary and benefits benchmarking, and wording for your questions.<\/p><p><strong>Next:<\/strong> your scheduling link arrives by email. Have your offer ready to share.<\/p>",
             "button_label": "Review My Contract",
-            "button_url": "/products/contract-review-session"
+            "button_url": "\/products\/contract-review-session"
           }
         }
       },
@@ -87,21 +87,21 @@
           "type": "qa",
           "settings": {
             "question": "Which service should I choose?",
-            "answer": "<p>Aiming for Canada? Start with the Canada Teacher Pathway Assessment. Moving somewhere else, or still choosing? Choose Relocation Strategy. Holding an offer? Choose Contract Review.</p>"
+            "answer": "<p>Aiming for Canada? Start with the Canada Teacher Pathway Assessment. Moving somewhere else, or still choosing? Choose Relocation Strategy. Holding an offer? Choose Contract Review.<\/p>"
           }
         },
         "q2": {
           "type": "qa",
           "settings": {
             "question": "Do you guarantee a job or certification?",
-            "answer": "<p>No. We're not a recruiter or a certification body. We help you make informed decisions and prepare well.</p>"
+            "answer": "<p>No. We're not a recruiter or a certification body. We help you make informed decisions and prepare well.<\/p>"
           }
         },
         "q3": {
           "type": "qa",
           "settings": {
             "question": "Is this immigration advice?",
-            "answer": "<p>No. Teacher Moves doesn't give immigration advice. For immigration questions, use official IRCC information or a licensed RCIC or lawyer.</p>"
+            "answer": "<p>No. Teacher Moves doesn't give immigration advice. For immigration questions, use official IRCC information or a licensed RCIC or lawyer.<\/p>"
           }
         }
       },
@@ -118,9 +118,9 @@
         "title_italic": "yet?",
         "description": "Join the free community and ask your question there first.",
         "cta_1_text": "Join Free",
-        "cta_1_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
+        "cta_1_url": "https:\/\/www.skool.com\/expat-teachers-lounge-9615\/about",
         "cta_2_text": "Explore Resources",
-        "cta_2_url": "/pages/resources"
+        "cta_2_url": "\/pages\/resources"
       }
     }
   },

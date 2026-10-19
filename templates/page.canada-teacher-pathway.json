@@ -12,15 +12,15 @@
     "hero": {
       "type": "etl-page-hero",
       "settings": {
-        "image": "shopify://shop_images/Edwina_in_the_classroom.png",
+        "image": "shopify:\/\/shop_images\/Edwina_in_the_classroom.png",
         "image_asset": "Edwina_Teaching.png",
         "badge": "Canada Teacher Pathway Assessment",
         "title_prefix": "Want to teach in Canada but don't know",
         "title_italic": "where to start?",
         "description": "Get a personalised review of your teaching background, possible certification pathways, documentation priorities and your next 90 days.",
-        "price": "$197",
-        "cta_1_text": "Start My Canada Pathway — $197",
-        "cta_1_url": "/products/canada-teacher-pathway-assessment",
+        "price": "US$197",
+        "cta_1_text": "Start My Canada Pathway — US$197",
+        "cta_1_url": "\/products\/canada-teacher-pathway-assessment",
         "buy_product": "canada-teacher-pathway-assessment",
         "cta_2_text": "See How It Works",
         "cta_2_url": "#how-it-works",
@@ -30,7 +30,7 @@
         "proof_quote": "Thank you for sharing all of this information. This will help me a lot doing research and to start the application process. Can’t wait for more videos💝🙏🏽",
         "proof_name": "Febihola J.",
         "proof_platform": "YouTube",
-        "proof_url": "https://www.youtube.com/watch?v=cRa6ohT0amQ"
+        "proof_url": "https:\/\/www.youtube.com\/watch?v=cRa6ohT0amQ"
       }
     },
     "problem": {
@@ -39,7 +39,7 @@
         "eyebrow": "Why this exists",
         "title_prefix": "Canada doesn't have one teacher",
         "title_italic": "certification system.",
-        "text": "<p>Teacher certification in Canada is handled by each province and territory. Each one sets its own requirements, documents, assessment steps and timelines, and internationally educated teachers are often asked for different evidence depending on where they apply.</p><p>That's why general advice rarely fits. This assessment looks at your background against the provinces you're considering, so you know what to investigate first and what to prepare.</p>"
+        "text": "<p>Teacher certification in Canada is handled by each province and territory. Each one sets its own requirements, documents, assessment steps and timelines, and internationally educated teachers are often asked for different evidence depending on where they apply.<\/p><p>That's why general advice rarely fits. This assessment looks at your background against the provinces you're considering, so you know what to investigate first and what to prepare.<\/p>"
       }
     },
     "review": {
@@ -47,7 +47,7 @@
       "settings": {
         "title_prefix": "What we",
         "title_italic": "review.",
-        "text": "<p>Your intake and documents are reviewed personally, not by an automated quiz.</p>",
+        "text": "<p>Your intake and documents are reviewed personally, not by an automated quiz.<\/p>",
         "chips": "Qualifications|Teacher training|Experience|Subjects|Grades|Licensing and registration|Current documents|Target provinces|Career goals",
         "tint": true
       }
@@ -66,7 +66,7 @@
           "settings": {
             "icon": "book",
             "title": "Profile summary and Canada Pathway Report",
-            "text": "<p>Your background on one page, plus the certification pathways worth investigating and why.</p>"
+            "text": "<p>Your background on one page, plus the certification pathways worth investigating and why.<\/p>"
           }
         },
         "c2": {
@@ -74,7 +74,7 @@
           "settings": {
             "icon": "compass",
             "title": "Readiness score and document checklist",
-            "text": "<p>A planning indicator (not an official assessment) and a checklist of what to gather, in order.</p>"
+            "text": "<p>A planning indicator (not an official assessment) and a checklist of what to gather, in order.<\/p>"
           }
         },
         "c3": {
@@ -82,7 +82,7 @@
           "settings": {
             "icon": "contract",
             "title": "90-day action plan",
-            "text": "<p>Clear steps for days 1–30, 31–60 and 61–90.</p>"
+            "text": "<p>Clear steps for days 1–30, 31–60 and 61–90.<\/p>"
           }
         },
         "c4": {
@@ -90,7 +90,7 @@
           "settings": {
             "icon": "community",
             "title": "30-minute debrief and 30-day follow-up",
-            "text": "<p>Walk through your report together, then send short follow-up questions for 30 days.</p>",
+            "text": "<p>Walk through your report together, then send short follow-up questions for 30 days.<\/p>",
             "featured": true
           }
         }
@@ -183,56 +183,56 @@
           "type": "qa",
           "settings": {
             "question": "Does this guarantee certification?",
-            "answer": "<p>No. Certification decisions are made by the certification office in each province or territory. The assessment helps you understand where you stand and what to prepare.</p>"
+            "answer": "<p>No. Certification decisions are made by the certification office in each province or territory. The assessment helps you understand where you stand and what to prepare.<\/p>"
           }
         },
         "q2": {
           "type": "qa",
           "settings": {
             "question": "Are you an immigration consultant?",
-            "answer": "<p>No. Teacher Moves is not an immigration consultancy and doesn't give immigration advice. For immigration questions, use official IRCC information or a licensed Regulated Canadian Immigration Consultant (RCIC) or lawyer.</p>"
+            "answer": "<p>No. Teacher Moves is not an immigration consultancy and doesn't give immigration advice. For immigration questions, use official IRCC information or a licensed Regulated Canadian Immigration Consultant (RCIC) or lawyer.<\/p>"
           }
         },
         "q3": {
           "type": "qa",
           "settings": {
             "question": "Do you submit the certification application for me?",
-            "answer": "<p>No. You submit your own application. The assessment gives you a document checklist and a 90-day plan so you know what to prepare and in what order.</p>"
+            "answer": "<p>No. You submit your own application. The assessment gives you a document checklist and a 90-day plan so you know what to prepare and in what order.<\/p>"
           }
         },
         "q4": {
           "type": "qa",
           "settings": {
             "question": "How long does the assessment take?",
-            "answer": "<p>Your report is normally delivered within 5 business days after your complete intake and supporting information have been received.</p>"
+            "answer": "<p>Your report is normally delivered within 5 business days after your complete intake and supporting information have been received.<\/p>"
           }
         },
         "q5": {
           "type": "qa",
           "settings": {
             "question": "What if I'm considering several provinces?",
-            "answer": "<p>Tell us in your intake. The assessment can identify which pathways look worth investigating first and what each is likely to ask for.</p>"
+            "answer": "<p>Tell us in your intake. The assessment can identify which pathways look worth investigating first and what each is likely to ask for.<\/p>"
           }
         },
         "q6": {
           "type": "qa",
           "settings": {
             "question": "What documents should I prepare?",
-            "answer": "<p>You don't need everything before you buy. The intake guides you. Common examples are degree certificates, transcripts, a teaching licence or registration, and experience letters.</p>"
+            "answer": "<p>You don't need everything before you buy. The intake guides you. Common examples are degree certificates, transcripts, a teaching licence or registration, and experience letters.<\/p>"
           }
         },
         "q7": {
           "type": "qa",
           "settings": {
             "question": "Is the Readiness Score official?",
-            "answer": "<p>No. It's a planning indicator based on your intake answers. It isn't a decision or prediction by any certification body, employer or IRCC.</p>"
+            "answer": "<p>No. It's a planning indicator based on your intake answers. It isn't a decision or prediction by any certification body, employer or IRCC.<\/p>"
           }
         },
         "q8": {
           "type": "qa",
           "settings": {
             "question": "What is the refund policy?",
-            "answer": "<p>A full refund may be requested before personalised review work begins. Once review or personalised assessment preparation has started, the service is non-refundable. If Teacher Moves can't provide the service, you receive a full refund.</p>"
+            "answer": "<p>A full refund may be requested before personalised review work begins. Once review or personalised assessment preparation has started, the service is non-refundable. If Teacher Moves can't provide the service, you receive a full refund.<\/p>"
           }
         }
       },
@@ -253,19 +253,19 @@
         "title_prefix": "Know where you stand. Know what's",
         "title_italic": "next.",
         "description": "One personalised plan for your move to teaching in Canada.",
-        "cta_1_text": "Start My Canada Pathway — $197",
-        "cta_1_url": "/products/canada-teacher-pathway-assessment",
+        "cta_1_text": "Start My Canada Pathway — US$197",
+        "cta_1_url": "\/products\/canada-teacher-pathway-assessment",
         "buy_product": "canada-teacher-pathway-assessment",
         "cta_2_text": "Ask a Question",
-        "cta_2_url": "/pages/contact"
+        "cta_2_url": "\/pages\/contact"
       }
     },
     "sticky": {
       "type": "etl-sticky-cta",
       "settings": {
-        "label": "Start My Canada Pathway — $197",
+        "label": "Start My Canada Pathway — US$197",
         "buy_product": "canada-teacher-pathway-assessment",
-        "url": "/products/canada-teacher-pathway-assessment"
+        "url": "\/products\/canada-teacher-pathway-assessment"
       }
     },
     "proof": {
@@ -290,7 +290,7 @@
             "name": "Stephen N.",
             "platform": "YouTube",
             "source": "How to Get Hired Abroad to Teach in Canada as an Internationally Trained Teacher",
-            "url": "https://www.youtube.com/watch?v=cRa6ohT0amQ"
+            "url": "https:\/\/www.youtube.com\/watch?v=cRa6ohT0amQ"
           }
         },
         "c3": {
@@ -301,7 +301,7 @@
             "name": "@mds_…",
             "platform": "TikTok",
             "source": "Is the salary better in Canada?",
-            "url": "https://www.tiktok.com/@mpumehh_s/video/7690900755531762951"
+            "url": "https:\/\/www.tiktok.com\/@mpumehh_s\/video\/7690900755531762951"
           }
         },
         "c4": {
@@ -312,7 +312,7 @@
             "name": "@prec…",
             "platform": "TikTok",
             "source": "Is the salary better in Canada?",
-            "url": "https://www.tiktok.com/@mpumehh_s/video/7690900755531762951"
+            "url": "https:\/\/www.tiktok.com\/@mpumehh_s\/video\/7690900755531762951"
           }
         },
         "c5": {
@@ -323,7 +323,7 @@
             "name": "@kgao…",
             "platform": "TikTok",
             "source": "Is the salary better in Canada?",
-            "url": "https://www.tiktok.com/@mpumehh_s/video/7690900755531762951"
+            "url": "https:\/\/www.tiktok.com\/@mpumehh_s\/video\/7690900755531762951"
           }
         }
       },

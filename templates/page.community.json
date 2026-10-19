@@ -13,14 +13,16 @@
       "type": "etl-page-hero",
       "settings": {
         "image_asset": "Edwina_reading_a_book.png",
-        "brand_logo_asset": "tm-mark.svg", "brand_name": "Teacher Moves", "brand_sub": "Community by Expat Teacher's Lounge",
+        "brand_logo_asset": "tm-mark.svg",
+        "brand_name": "Teacher Moves",
+        "brand_sub": "Community by Expat Teacher's Lounge",
         "title_prefix": "Your next move is easier with the right people",
         "title_italic": "around you.",
         "description": "The Teacher Moves community on Skool supports teachers navigating international careers, certification, relocation, professional growth and career transitions.",
         "cta_1_text": "Join Free",
-        "cta_1_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
+        "cta_1_url": "https:\/\/www.skool.com\/expat-teachers-lounge-9615\/about",
         "cta_2_text": "Go Premium",
-        "cta_2_url": "https://www.skool.com/expat-teachers-lounge-9615/plans?src=join"
+        "cta_2_url": "https:\/\/www.skool.com\/expat-teachers-lounge-9615\/plans?src=join"
       }
     },
     "plans": {
@@ -31,11 +33,11 @@
         "title_prefix": "Choose how you",
         "title_italic": "join.",
         "subtitle": "Start free. Upgrade when you want weekly support.",
-        "free_list": "<ul><li>The full Teacher Moves community</li><li>3 hand-picked job postings a week</li><li>Every guide we publish</li><li>Monthly live Q&amp;A</li></ul>",
-        "free_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
-        "premium_list": "<ul><li>Weekly live Q&amp;A and a monthly workshop</li><li>Every session recorded</li><li>Canada Track</li><li>CV &amp; Interview Studio</li><li>The full Job Board</li></ul>",
-        "premium_note": "Or $390/year (two months free).",
-        "premium_url": "https://www.skool.com/expat-teachers-lounge-9615/plans?src=join"
+        "free_list": "<ul><li>The full Teacher Moves community<\/li><li>3 hand-picked job postings a week<\/li><li>Every guide we publish<\/li><li>Monthly live Q&amp;A<\/li><\/ul>",
+        "free_url": "https:\/\/www.skool.com\/expat-teachers-lounge-9615\/about",
+        "premium_list": "<ul><li>Weekly live Q&amp;A and a monthly workshop<\/li><li>Every session recorded<\/li><li>Canada Track<\/li><li>CV &amp; Interview Studio<\/li><li>The full Job Board<\/li><\/ul>",
+        "premium_note": "Or US$390\/year (two months free).",
+        "premium_url": "https:\/\/www.skool.com\/expat-teachers-lounge-9615\/plans?src=join"
       }
     },
     "steps": {
@@ -94,21 +96,21 @@
           "type": "qa",
           "settings": {
             "question": "Is the free tier really free?",
-            "answer": "<p>Yes. The free tier stays free.</p>"
+            "answer": "<p>Yes. The free tier stays free.<\/p>"
           }
         },
         "q2": {
           "type": "qa",
           "settings": {
             "question": "How much is Premium?",
-            "answer": "<p>Premium is $39/month or $390/year. Members who joined at the founding price keep it as described on Skool.</p>"
+            "answer": "<p>Premium is US$39\/month or US$390\/year. Members who joined at the founding price keep it as described on Skool.<\/p>"
           }
         },
         "q3": {
           "type": "qa",
           "settings": {
             "question": "Is the community a recruitment agency?",
-            "answer": "<p>No. We share hand-picked job postings and help you prepare, but we don't place teachers or guarantee jobs.</p>"
+            "answer": "<p>No. We share hand-picked job postings and help you prepare, but we don't place teachers or guarantee jobs.<\/p>"
           }
         }
       },
@@ -125,9 +127,9 @@
         "title_italic": "community.",
         "description": "Free to join. Real answers from teachers who have made the move.",
         "cta_1_text": "Join Free",
-        "cta_1_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
+        "cta_1_url": "https:\/\/www.skool.com\/expat-teachers-lounge-9615\/about",
         "cta_2_text": "Explore My Canada Pathway",
-        "cta_2_url": "/pages/canada-teacher-pathway"
+        "cta_2_url": "\/pages\/canada-teacher-pathway"
       }
     }
   },
