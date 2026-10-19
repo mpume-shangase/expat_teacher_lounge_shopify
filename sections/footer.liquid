@@ -3,7 +3,7 @@
     <div class="grid grid-cols-1 grid-cols-4">
       
       <!-- Left Column: Branding -->
-      <div style="grid-column: span 2;">
+      <div style="grid-column: span 1;">
         <a href="{{ routes.root_url }}" class="inline-block mb-6" style="display: inline-block; margin-bottom: 24px;">
           {%- if section.settings.logo != blank -%}
             <img src="{{ section.settings.logo | image_url: width: 280 }}"
@@ -50,7 +50,15 @@
         </ul>
       </div>
 
-      <!-- Right Column: Legal Links -->
+      <!-- Guides Column -->
+<div>
+<h4 class="site-footer__title">{{ section.settings.guides_title | default: 'Free Guides' | escape }}</h4>
+<ul class="site-footer__links">
+{%- render 'etl-guide-list', style: 'links', link_class: 'site-footer__link' -%}
+</ul>
+</div>
+
+<!-- Right Column: Legal Links -->
       <div>
         <h4 class="site-footer__title">{{ section.settings.menu_title_2 | escape }}</h4>
         <ul class="site-footer__links">
@@ -143,6 +151,12 @@
       "label": "Column 2 Menu",
       "default": "footer"
     },
+{
+"type": "text",
+"id": "guides_title",
+"label": "Guides column title",
+"default": "Free Guides"
+},
     {
       "type": "header",
       "content": "Bottom Bar"
