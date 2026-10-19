@@ -1,0 +1,168 @@
+<section id="{{ section.settings.anchor | default: 'waitlist' }}" class="section-padding bg-light text-light etl-wl" data-list="{{ section.settings.list_id | escape }}" data-source="{{ section.settings.source | escape }}" data-app="{{ section.settings.app_name | escape }}">
+  <div class="container">
+    <div class="etl-wl__panel">
+      <div class="etl-wl__glow etl-wl__glow--a" aria-hidden="true"></div>
+      <div class="etl-wl__glow etl-wl__glow--b" aria-hidden="true"></div>
+      <div class="etl-wl__grid">
+        <div class="etl-wl__copy">
+          {%- if section.settings.eyebrow != blank -%}<p class="etl-wl__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+          <h2 class="etl-heading etl-wl__title">{{ section.settings.title_prefix }} <span class="etl-accent--gold">{{ section.settings.title_italic }}</span></h2>
+          {%- if section.settings.description != blank -%}<p class="etl-wl__desc">{{ section.settings.description }}</p>{%- endif -%}
+          {%- if section.settings.points != blank -%}<div class="etl-wl__points">{{ section.settings.points }}</div>{%- endif -%}
+        </div>
+        <div class="etl-wl__card">
+          <form class="etl-wl__form" novalidate>
+            <p class="etl-wl__form-title">{{ section.settings.form_title }}</p>
+            <label class="etl-wl__label" for="etl-wl-fn-{{ section.id }}">First name</label>
+            <input class="etl-wl__input" id="etl-wl-fn-{{ section.id }}" name="first_name" type="text" autocomplete="given-name" required>
+            <label class="etl-wl__label" for="etl-wl-em-{{ section.id }}">Email</label>
+            <input class="etl-wl__input" id="etl-wl-em-{{ section.id }}" name="email" type="email" autocomplete="email" inputmode="email" required>
+            <fieldset class="etl-wl__fieldset">
+              <legend class="etl-wl__label">Which phone do you use?</legend>
+              <div class="etl-wl__pills">
+                <label class="etl-wl__pill"><input type="radio" name="platform" value="iPhone"><span>iPhone</span></label>
+                <label class="etl-wl__pill"><input type="radio" name="platform" value="Android"><span>Android</span></label>
+                <label class="etl-wl__pill"><input type="radio" name="platform" value="Both"><span>Both</span></label>
+              </div>
+            </fieldset>
+            <label class="etl-wl__consent"><input type="checkbox" name="consent"><span>{{ section.settings.consent }}</span></label>
+            <p class="etl-wl__err" role="alert" aria-live="polite"></p>
+            <button type="submit" class="btn btn-gold etl-wl__submit">{{ section.settings.button_label | default: 'Join the Waitlist' }}</button>
+            <p class="etl-wl__fine">{{ section.settings.fine_print }} <a href="/pages/privacy-policy">Privacy policy</a></p>
+          </form>
+          <div class="etl-wl__done" hidden tabindex="-1">
+            <p class="etl-wl__done-kicker">You're on the list</p>
+            <p class="etl-wl__done-title"></p>
+            <p class="etl-wl__done-text">{{ section.settings.success_text }}</p>
+            {%- if section.settings.success_url != blank -%}<a class="btn btn-primary etl-wl__done-btn" href="{{ section.settings.success_url }}">{{ section.settings.success_label }}</a>{%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+(function () {
+  var root = document.getElementById({{ section.settings.anchor | default: 'waitlist' | json }});
+  if (!root || root.getAttribute('data-ready')) return;
+  root.setAttribute('data-ready', '1');
+  var KL_COMPANY = 'RjUCtZ';
+  var KL_REV = '2024-10-15';
+  var LIST = root.getAttribute('data-list');
+  var SOURCE = root.getAttribute('data-source') || 'App waitlist page';
+  var APP = root.getAttribute('data-app') || 'CV & Interview app';
+  var form = root.querySelector('.etl-wl__form');
+  var done = root.querySelector('.etl-wl__done');
+  var err = root.querySelector('.etl-wl__err');
+  var btn = root.querySelector('.etl-wl__submit');
+  var label = btn.textContent;
+
+  function post(path, body) {
+    return fetch('https://a.klaviyo.com/client/' + path + '/?company_id=' + KL_COMPANY, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/vnd.api+json', 'Accept': 'application/vnd.api+json', 'revision': KL_REV },
+      body: JSON.stringify(body)
+    }).then(function (r) { if (!r.ok) throw new Error(path + ' ' + r.status); return r; });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    err.textContent = '';
+    var fn = form.first_name.value.trim();
+    var email = form.email.value.trim();
+    var pick = form.querySelector('input[name="platform"]:checked');
+    var platform = pick ? pick.value : '';
+    if (!fn) { err.textContent = 'Please add your first name.'; form.first_name.focus(); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = 'Please check your email address.'; form.email.focus(); return; }
+    if (!platform) { err.textContent = 'Please choose the phone you use.'; return; }
+    if (!form.consent.checked) { err.textContent = 'Please tick the box so I can email you when the app is out.'; return; }
+    btn.disabled = true; btn.textContent = 'Adding you…';
+    var today = new Date().toISOString().slice(0, 10);
+    var props = { TM_App_Waitlist: APP, TM_App_Waitlist_Date: today, TM_App_Platform: platform };
+    var sub = post('subscriptions', { data: { type: 'subscription', attributes: {
+      custom_source: SOURCE,
+      profile: { data: { type: 'profile', attributes: { email: email, first_name: fn, properties: props } } } },
+      relationships: { list: { data: { type: 'list', id: LIST } } } } });
+    var ev = post('events', { data: { type: 'event', attributes: {
+      properties: { brand: 'Teacher Moves', app: APP, platform: platform, page_path: window.location.pathname },
+      unique_id: 'wl-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8),
+      metric: { data: { type: 'metric', attributes: { name: 'Joined App Waitlist' } } },
+      profile: { data: { type: 'profile', attributes: { email: email, first_name: fn } } } } } });
+    sub.then(function () {
+      ev.catch(function () {});
+      try { if (window.klaviyo && window.klaviyo.identify) window.klaviyo.identify({ email: email, first_name: fn }); } catch (x) {}
+      form.hidden = true;
+      done.querySelector('.etl-wl__done-title').textContent = 'Thanks, ' + fn + '.';
+      done.hidden = false;
+      done.focus();
+    }, function () {
+      btn.disabled = false; btn.textContent = label;
+      err.textContent = 'That didn’t go through. Please try again in a moment, or email info@expatteacherslounge.com.';
+    });
+  });
+})();
+</script>
+{% stylesheet %}
+.etl-wl__panel{position:relative;max-width:1080px;margin:0 auto;background:var(--color-brand-deep,#143D8A);border-radius:var(--border-radius-lg,24px);overflow:hidden;color:#fff;padding:56px 48px}
+.etl-wl__glow{position:absolute;width:260px;height:260px;border-radius:50%;filter:blur(80px);pointer-events:none}
+.etl-wl__glow--a{top:0;right:0;background:var(--color-brand-blue,#1C91D7);opacity:.45;transform:translate(30%,-30%)}
+.etl-wl__glow--b{bottom:0;left:0;background:var(--color-brand-gold,#FCCB52);opacity:.16;transform:translate(-30%,30%)}
+.etl-wl__grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+.etl-wl__eyebrow{margin:0 0 12px;font-family:var(--font-body);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--color-brand-gold,#FCCB52)}
+.etl-wl__title{color:#fff!important;text-align:left;margin:0 0 16px}
+.etl-wl__desc{margin:0 0 22px;font-size:1.08rem;line-height:1.6;color:#dbe7ff}
+.etl-wl__points ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.etl-wl__points li{position:relative;padding-left:30px;line-height:1.5;color:#fff}
+.etl-wl__points li:before{content:"";position:absolute;left:2px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--color-brand-gold,#FCCB52);box-shadow:inset 0 0 0 4px var(--color-brand-deep,#143D8A)}
+.etl-wl__card{background:#fff;color:#0a0a14;border-radius:20px;padding:28px 26px;box-shadow:0 24px 60px rgba(4,12,40,.35)}
+.etl-wl__form-title{margin:0 0 16px;font-family:var(--font-display);font-size:1.45rem;line-height:1.25;color:#0a0a14}
+.etl-wl__label{display:block;margin:0 0 6px;font-size:14px;font-weight:700;color:#0a0a14;padding:0}
+.etl-wl__input{display:block;width:100%;box-sizing:border-box;min-height:48px;margin:0 0 14px;padding:12px 14px;font:inherit;font-size:16px;color:#0a0a14;background:#fff;border:1.5px solid #dfe3ee;border-radius:12px}
+.etl-wl__input:focus{outline:none;border-color:var(--color-brand-blue,#1C91D7);box-shadow:0 0 0 3px rgba(28,145,215,.18)}
+.etl-wl__fieldset{border:0;margin:0 0 12px;padding:0;min-width:0}
+.etl-wl__pills{display:flex;gap:8px;flex-wrap:wrap}
+.etl-wl__pill{position:relative;flex:1 1 0;min-width:84px;cursor:pointer}
+.etl-wl__pill input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.etl-wl__pill span{display:flex;align-items:center;justify-content:center;min-height:44px;padding:8px 12px;border:1.5px solid #dfe3ee;border-radius:999px;font-weight:700;font-size:15px;color:#0a0a14;transition:border-color .15s,background .15s}
+.etl-wl__pill input:checked+span{border-color:var(--color-brand-deep,#143D8A);background:#eef3fd;color:var(--color-brand-deep,#143D8A)}
+.etl-wl__pill input:focus-visible+span{box-shadow:0 0 0 3px rgba(28,145,215,.3)}
+.etl-wl__consent{display:flex;gap:10px;align-items:flex-start;margin:4px 0 6px;font-size:14px;line-height:1.45;color:#4a5164;cursor:pointer}
+.etl-wl__consent input{flex:0 0 18px;width:18px;height:18px;margin:2px 0 0;accent-color:var(--color-brand-deep,#143D8A)}
+.etl-wl__err{min-height:1.2em;margin:4px 0 8px;font-size:14px;color:#b3261e}
+.etl-wl__submit{width:100%;justify-content:center}
+.etl-wl__submit:disabled{opacity:.65;cursor:wait}
+.etl-wl__fine{margin:12px 0 0;font-size:12.5px;line-height:1.5;color:#6b7385}
+.etl-wl__fine a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.etl-wl__done{outline:none}
+.etl-wl__done-kicker{margin:0 0 6px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--color-brand-blue,#1C91D7)}
+.etl-wl__done-title{margin:0 0 10px;font-family:var(--font-display);font-size:1.6rem;line-height:1.2;color:#0a0a14}
+.etl-wl__done-text{margin:0 0 20px;line-height:1.6;color:#2b3140}
+.etl-wl__done-btn{width:100%;justify-content:center}
+@media (max-width:860px){.etl-wl__panel{padding:40px 22px}.etl-wl__grid{grid-template-columns:1fr;gap:28px}.etl-wl__title{text-align:left}}
+@media (max-width:420px){.etl-wl__panel{padding:32px 16px;border-radius:20px}.etl-wl__card{padding:22px 16px}.etl-wl__pill{min-width:0}}
+{% endstylesheet %}
+{% schema %}
+{
+  "name": "Waitlist form",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor (no #)", "default": "waitlist" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "title_prefix", "label": "Heading", "default": "Be first to get the" },
+    { "type": "text", "id": "title_italic", "label": "Gold italic words", "default": "app." },
+    { "type": "textarea", "id": "description", "label": "Description" },
+    { "type": "richtext", "id": "points", "label": "Bullet points" },
+    { "type": "text", "id": "form_title", "label": "Form heading", "default": "Join the waitlist" },
+    { "type": "textarea", "id": "consent", "label": "Consent tick-box text" },
+    { "type": "text", "id": "button_label", "label": "Button", "default": "Join the Waitlist" },
+    { "type": "text", "id": "fine_print", "label": "Small print under the button" },
+    { "type": "textarea", "id": "success_text", "label": "Message after joining" },
+    { "type": "text", "id": "success_label", "label": "Button after joining" },
+    { "type": "text", "id": "success_url", "label": "Link after joining" },
+    { "type": "header", "content": "Klaviyo" },
+    { "type": "text", "id": "list_id", "label": "Klaviyo list ID", "default": "RyKPEU" },
+    { "type": "text", "id": "source", "label": "Sign-up source", "default": "CV & Interview app waitlist page" },
+    { "type": "text", "id": "app_name", "label": "App name saved on the profile", "default": "CV & Interview app" }
+  ],
+  "presets": [{ "name": "Waitlist form" }]
+}
+{% endschema %}
