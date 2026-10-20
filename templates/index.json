@@ -18,11 +18,11 @@
         "title_italic": "right.",
         "description": "Skip the Facebook group confusion and the sketchy recruiter agencies. Get the exact roadmap, contract intel, and market-ready strategy you need to secure a premium international teaching role.",
         "cta_1_text": "Take the Free Assessment",
-        "cta_1_url": "\/pages\/teacher-moves-assessment",
+        "cta_1_url": "/pages/teacher-moves-assessment",
         "cta_2_text": "Explore My Canada Pathway",
-        "cta_2_url": "\/pages\/canada-teacher-pathway",
+        "cta_2_url": "/pages/canada-teacher-pathway",
         "trust_text": "Join 500+ teachers in the Teacher Moves community",
-        "hero_image": "shopify:\/\/shop_images\/Edwina_working_with_a_student.png",
+        "hero_image": "shopify://shop_images/Edwina_working_with_a_student.png",
         "show_avatars": false,
         "show_stars": false
       }
@@ -66,6 +66,101 @@
         "stat_item_db6tVX"
       ],
       "settings": {}
+    },
+    "next_move": {
+      "type": "etl-pathways",
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "icon": "canada",
+            "kicker": "",
+            "title": "Teach in Canada",
+            "price": "",
+            "text": "<p>Understand your teacher certification pathway, documentation priorities and what to do next.</p>",
+            "button_label": "Explore My Canada Pathway",
+            "button_url": "/pages/canada-teacher-pathway",
+            "featured": true
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "icon": "globe",
+            "kicker": "",
+            "title": "Plan an International Move",
+            "price": "",
+            "text": "<p>Already know where you're going? Build a clearer relocation strategy before you move.</p>",
+            "button_label": "Build My Relocation Strategy",
+            "button_url": "/products/relocation-strategy-session",
+            "featured": false
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "icon": "contract",
+            "kicker": "",
+            "title": "Review My Contract",
+            "price": "",
+            "text": "<p>Received an international teaching offer? Understand the contract before you decide.</p>",
+            "button_label": "Review My Contract",
+            "button_url": "/products/contract-review-session",
+            "featured": false
+          }
+        },
+        "c4": {
+          "type": "card",
+          "settings": {
+            "icon": "community",
+            "kicker": "",
+            "title": "Get Ongoing Support",
+            "price": "",
+            "text": "<p>Join teachers navigating international careers, certification, relocation and professional growth.</p>",
+            "button_label": "Join the Community",
+            "button_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
+            "featured": false
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "anchor": "whats-your-next-move",
+        "eyebrow": "",
+        "title_prefix": "What's your",
+        "title_italic": "next move?",
+        "subtitle": "Choose where you are in your journey and we'll point you toward the right next step.",
+        "tint": true,
+        "button_label": "",
+        "button_url": ""
+      }
+    },
+    "canada_flagship": {
+      "type": "etl-feature",
+      "settings": {
+        "anchor": "canada",
+        "eyebrow": "Our flagship pathway",
+        "title_prefix": "Thinking about teaching in",
+        "title_italic": "Canada?",
+        "description": "You shouldn't have to piece together your pathway from dozens of websites. Get one clear, personalised plan.",
+        "offer_name": "Canada Teacher Pathway Assessment",
+        "price": "US$197",
+        "list": "<ul><li>Teacher profile summary</li><li>Readiness score (a planning indicator)</li><li>Document checklist</li><li>90-day roadmap</li><li>Recommended next steps and a 30-minute debrief</li></ul>",
+        "cta_text": "Start My Canada Pathway",
+        "cta_url": "/pages/canada-teacher-pathway",
+        "buy_product": "",
+        "link_text": "See how it works",
+        "link_url": "/pages/canada-teacher-pathway#how-it-works",
+        "note": "",
+        "image_asset": "Edwina_Teaching.png",
+        "image_alt": "Mpume (Edwina) Shangase teaching",
+        "image_first": false
+      }
     },
     "how_it_works": {
       "type": "how-it-works",
@@ -113,45 +208,45 @@
           "type": "destination",
           "settings": {
             "title": "Canada",
-            "description": "Premium public school boards, beautiful natural landscapes, and direct immigration pathways to permanent residency.",
             "link_label": "Explore Teaching in Canada",
-            "link_url": "\/pages\/teach-in-canada"
+            "link_url": "/pages/teach-in-canada",
+            "description": "Premium public school boards, beautiful natural landscapes, and direct immigration pathways to permanent residency."
           }
         },
         "destination_gftYWz": {
           "type": "destination",
           "settings": {
             "title": "Qatar",
-            "description": "High savings potential, modern infrastructure, and excellent flight connections to explore the globe.",
             "link_label": "Free Qatar checklists",
-            "link_url": "\/pages\/resources#free"
+            "link_url": "/pages/resources#free",
+            "description": "High savings potential, modern infrastructure, and excellent flight connections to explore the globe."
           }
         },
         "destination_zpi9kW": {
           "type": "destination",
           "settings": {
             "title": "UAE",
-            "description": "Tax-free salaries, vibrant expat communities, and world-class premium amenities.",
             "link_label": "Plan your move",
-            "link_url": "\/products\/relocation-strategy-session"
+            "link_url": "/products/relocation-strategy-session",
+            "description": "Tax-free salaries, vibrant expat communities, and world-class premium amenities."
           }
         },
         "destination_nwnkLL": {
           "type": "destination",
           "settings": {
             "title": "China",
-            "description": "Unmatched saving potential and rapid professional development.",
             "link_label": "Plan your move",
-            "link_url": "\/products\/relocation-strategy-session"
+            "link_url": "/products/relocation-strategy-session",
+            "description": "Unmatched saving potential and rapid professional development."
           }
         },
         "destination_wpMBqa": {
           "type": "destination",
           "settings": {
             "title": "Saudi Arabia",
-            "description": "The fastest growing education market globally with premium salary packages.",
             "link_label": "Plan your move",
-            "link_url": "\/products\/relocation-strategy-session"
+            "link_url": "/products/relocation-strategy-session",
+            "description": "The fastest growing education market globally with premium salary packages."
           }
         }
       },
@@ -176,7 +271,7 @@
         "collection": "guides",
         "product_limit": 4,
         "view_all_text": "VIEW ALL RESOURCES",
-        "view_all_url": "\/pages\/resources"
+        "view_all_url": "/pages/resources"
       }
     },
     "free_resources": {
@@ -186,36 +281,36 @@
           "type": "resource",
           "settings": {
             "title": "Canada Teaching Province Shortli",
-            "cover_image": "shopify:\/\/shop_images\/province_shortlist.png",
+            "cover_image": "shopify://shop_images/province_shortlist.png",
             "lead_magnet_tag": "lead magnet: Canada Teaching Province Shortlist",
-            "download_url": "shopify:\/\/products\/teach-in-canada-the-province-shortlist"
+            "download_url": "shopify://products/teach-in-canada-the-province-shortlist"
           }
         },
         "resource_UrBPfb": {
           "type": "resource",
           "settings": {
             "title": "USA J1 Cultural Exchange Teaching Program",
-            "cover_image": "shopify:\/\/shop_images\/J1Visa.png",
+            "cover_image": "shopify://shop_images/J1Visa.png",
             "lead_magnet_tag": "lead magnet: USA J1 Cultural Exchange Teaching Program",
-            "download_url": "shopify:\/\/products\/usa-j1-cultural-exchange-teaching-program"
+            "download_url": "shopify://products/usa-j1-cultural-exchange-teaching-program"
           }
         },
         "resource_UwwGP9": {
           "type": "resource",
           "settings": {
             "title": "Qatar Document Attestation Checklist",
-            "cover_image": "shopify:\/\/shop_images\/Documentation_Checklist_for_UK_and_Qatar_1.png",
+            "cover_image": "shopify://shop_images/Documentation_Checklist_for_UK_and_Qatar_1.png",
             "lead_magnet_tag": "lead Magnet: Qatar Document checklist",
-            "download_url": "shopify:\/\/products\/qatar-document-checklist"
+            "download_url": "shopify://products/qatar-document-checklist"
           }
         },
         "resource_ghU69j": {
           "type": "resource",
           "settings": {
             "title": "Qatar Immigration Checklist",
-            "cover_image": "shopify:\/\/shop_images\/Thumbnail_-_Qatar_Teacher_Immigration_Residence_Permit_Checklist.png",
+            "cover_image": "shopify://shop_images/Thumbnail_-_Qatar_Teacher_Immigration_Residence_Permit_Checklist.png",
             "lead_magnet_tag": "Lead magnet: Qatar Immigration Checklist",
-            "download_url": "shopify:\/\/products\/qatar-immigration-checklist"
+            "download_url": "shopify://products/qatar-immigration-checklist"
           }
         }
       },
@@ -231,6 +326,27 @@
         "description": "Kickstart your relocation journey with checklists and guides we use every day."
       }
     },
+    "community": {
+      "type": "etl-plans",
+      "settings": {
+        "anchor": "community",
+        "eyebrow": "Teacher Moves community",
+        "title_prefix": "You don't have to figure out your next move",
+        "title_italic": "alone.",
+        "subtitle": "Start free in our Skool community and upgrade when you want deeper support.",
+        "free_title": "Free",
+        "free_price": "Free",
+        "free_list": "<ul><li>The full Teacher Moves community</li><li>3 hand-picked job postings a week</li><li>Every guide we publish</li><li>Monthly live Q&amp;A</li></ul>",
+        "free_label": "Join Free",
+        "free_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
+        "premium_title": "Premium",
+        "premium_price": "US$39/month",
+        "premium_note": "Or US$390/year (two months free).",
+        "premium_list": "<ul><li>Weekly live Q&amp;A and a monthly workshop</li><li>Every session recorded</li><li>Canada Track</li><li>CV &amp; Interview Studio</li><li>The full Job Board</li></ul>",
+        "premium_label": "Go Premium",
+        "premium_url": "https://www.skool.com/expat-teachers-lounge-9615/plans?src=join"
+      }
+    },
     "coaching_preview": {
       "type": "coaching-preview",
       "blocks": {
@@ -241,7 +357,7 @@
             "price": "US$197",
             "description": "Personalised report, readiness score, document checklist, 90-day plan and a 30-minute debrief.",
             "button_label": "Start My Canada Pathway",
-            "button_url": "\/pages\/canada-teacher-pathway",
+            "button_url": "/pages/canada-teacher-pathway",
             "featured": true
           }
         },
@@ -252,7 +368,8 @@
             "price": "US$97",
             "description": "A clear plan for your country choice, package and move, with written next steps.",
             "button_label": "Build My Relocation Strategy",
-            "button_url": "\/products\/relocation-strategy-session"
+            "button_url": "/products/relocation-strategy-session",
+            "featured": false
           }
         },
         "package_AJ3BAm": {
@@ -262,7 +379,8 @@
             "price": "US$77",
             "description": "Understand your offer, spot red flags and know what to ask before you sign.",
             "button_label": "Review My Contract",
-            "button_url": "\/products\/contract-review-session"
+            "button_url": "/products/contract-review-session",
+            "featured": false
           }
         }
       },
@@ -275,9 +393,9 @@
         "title_prefix": "Need more",
         "title_italic": "personalised support?",
         "description": "Three focused services, each ending with clear next steps. Canada is our flagship pathway.",
-        "coaching_image": "shopify:\/\/shop_images\/Edwina_delivering_a_presentation.png",
+        "coaching_image": "shopify://shop_images/Edwina_delivering_a_presentation.png",
         "cta_text": "Compare All Services",
-        "cta_url": "\/pages\/services"
+        "cta_url": "/pages/services"
       }
     },
     "authority": {
@@ -297,105 +415,100 @@
         "view_all_text": "VIEW ALL POSTS"
       }
     },
-    "email_capture": {
-      "type": "email-capture",
-      "settings": {
-        "title": "Relocation intel, straight to your inbox.",
-        "description": "Visa updates, salary benchmarks, and destination guides for teachers serious about their next move.",
-        "tags": "newsletter"
-      }
-    },
-    "next_move": {
-      "type": "etl-pathways",
-      "settings": {
-        "anchor": "whats-your-next-move",
-        "title_prefix": "What's your",
-        "title_italic": "next move?",
-        "subtitle": "Choose where you are in your journey and we'll point you toward the right next step.",
-        "tint": true
-      },
+    "teaching_videos_xJPqkg": {
+      "type": "teaching-videos",
       "blocks": {
-        "c1": {
-          "type": "card",
+        "video_paPVcn": {
+          "type": "video",
           "settings": {
-            "icon": "canada",
-            "title": "Teach in Canada",
-            "text": "<p>Understand your teacher certification pathway, documentation priorities and what to do next.<\/p>",
-            "button_label": "Explore My Canada Pathway",
-            "button_url": "\/pages\/canada-teacher-pathway",
-            "featured": true
+            "video_id": "cRa6ohT0amQ",
+            "title": "How to Get Hired Abroad to Teach in Canada: Step by Step"
           }
         },
-        "c2": {
-          "type": "card",
+        "video_gFRgFN": {
+          "type": "video",
           "settings": {
-            "icon": "globe",
-            "title": "Plan an International Move",
-            "text": "<p>Already know where you're going? Build a clearer relocation strategy before you move.<\/p>",
-            "button_label": "Build My Relocation Strategy",
-            "button_url": "\/products\/relocation-strategy-session"
+            "video_id": "0svznTTLrp0",
+            "title": "I Finally Got My New Brunswick Teaching Certificate"
           }
         },
-        "c3": {
-          "type": "card",
+        "video_hDrAVR": {
+          "type": "video",
           "settings": {
-            "icon": "contract",
-            "title": "Review My Contract",
-            "text": "<p>Received an international teaching offer? Understand the contract before you decide.<\/p>",
-            "button_label": "Review My Contract",
-            "button_url": "\/products\/contract-review-session"
+            "video_id": "TDyOjTVYiMw",
+            "title": "Teaching Offer in the USA or Canada? How I Compared Both and Chose"
           }
         },
-        "c4": {
-          "type": "card",
+        "video_bkR8ac": {
+          "type": "video",
           "settings": {
-            "icon": "community",
-            "title": "Get Ongoing Support",
-            "text": "<p>Join teachers navigating international careers, certification, relocation and professional growth.<\/p>",
-            "button_label": "Join the Community",
-            "button_url": "https:\/\/www.skool.com\/expat-teachers-lounge-9615\/about"
+            "video_id": "23syV7h-vtA",
+            "title": "Teaching in Qatar: What I Wish I Knew Before Signing the Contract"
+          }
+        },
+        "video_anJrhR": {
+          "type": "video",
+          "settings": {
+            "video_id": "McbTv3B0cas",
+            "title": "Teaching Packages in Qatar Explained: Spot a Bad Contract Before You Sign"
+          }
+        },
+        "video_CQWeNb": {
+          "type": "video",
+          "settings": {
+            "video_id": "X0LeyjjUv_8",
+            "title": "How to Find a Teaching Job in Qatar: Where to Apply and When to Start"
+          }
+        },
+        "video_U994E9": {
+          "type": "video",
+          "settings": {
+            "video_id": "gJCRF2Iuasc",
+            "title": "Documents You Need to Teach in Qatar: The Full Attestation Checklist"
+          }
+        },
+        "video_hYMwUW": {
+          "type": "video",
+          "settings": {
+            "video_id": "4G8EmkrpDSc",
+            "title": "Your First Year Teaching in Qatar: What Nobody Tells New Expat Teachers"
+          }
+        },
+        "video_tFQwtU": {
+          "type": "video",
+          "settings": {
+            "video_id": "wkLDb9XeAJo",
+            "title": "Qatar Work Visa for Teachers: From Offer Letter to Residence Permit (QID)"
+          }
+        },
+        "video_c7pVHX": {
+          "type": "video",
+          "settings": {
+            "video_id": "LcjIebMNM0I",
+            "title": "Where Expat Teachers Live in Doha: Rent Prices, Studio to 6-Bedroom"
           }
         }
       },
       "block_order": [
-        "c1",
-        "c2",
-        "c3",
-        "c4"
-      ]
-    },
-    "canada_flagship": {
-      "type": "etl-feature",
+        "video_paPVcn",
+        "video_gFRgFN",
+        "video_hDrAVR",
+        "video_bkR8ac",
+        "video_anJrhR",
+        "video_CQWeNb",
+        "video_U994E9",
+        "video_hYMwUW",
+        "video_tFQwtU",
+        "video_c7pVHX"
+      ],
+      "name": "Teaching videos",
       "settings": {
-        "anchor": "canada",
-        "eyebrow": "Our flagship pathway",
-        "title_prefix": "Thinking about teaching in",
-        "title_italic": "Canada?",
-        "description": "You shouldn't have to piece together your pathway from dozens of websites. Get one clear, personalised plan.",
-        "offer_name": "Canada Teacher Pathway Assessment",
-        "price": "US$197",
-        "list": "<ul><li>Teacher profile summary<\/li><li>Readiness score (a planning indicator)<\/li><li>Document checklist<\/li><li>90-day roadmap<\/li><li>Recommended next steps and a 30-minute debrief<\/li><\/ul>",
-        "cta_text": "Start My Canada Pathway",
-        "cta_url": "\/pages\/canada-teacher-pathway",
-        "link_text": "See how it works",
-        "link_url": "\/pages\/canada-teacher-pathway#how-it-works",
-        "image_asset": "Edwina_Teaching.png",
-        "image_alt": "Mpume (Edwina) Shangase teaching"
-      }
-    },
-    "community": {
-      "type": "etl-plans",
-      "settings": {
-        "anchor": "community",
-        "eyebrow": "Teacher Moves community",
-        "title_prefix": "You don't have to figure out your next move",
-        "title_italic": "alone.",
-        "subtitle": "Start free in our Skool community and upgrade when you want deeper support.",
-        "free_list": "<ul><li>The full Teacher Moves community<\/li><li>3 hand-picked job postings a week<\/li><li>Every guide we publish<\/li><li>Monthly live Q&amp;A<\/li><\/ul>",
-        "free_url": "https:\/\/www.skool.com\/expat-teachers-lounge-9615\/about",
-        "premium_list": "<ul><li>Weekly live Q&amp;A and a monthly workshop<\/li><li>Every session recorded<\/li><li>Canada Track<\/li><li>CV &amp; Interview Studio<\/li><li>The full Job Board<\/li><\/ul>",
-        "premium_note": "Or US$390\/year (two months free).",
-        "premium_url": "https:\/\/www.skool.com\/expat-teachers-lounge-9615\/plans?src=join"
+        "eyebrow": "Free on YouTube",
+        "heading": "Teaching abroad,",
+        "heading_accent": "explained.",
+        "text": "Real answers on teaching in Qatar and getting certified and hired in Canada.",
+        "button_label": "Watch more on YouTube →",
+        "button_link": "https://www.youtube.com/@EDWINASHANGASE"
       }
     },
     "final_cta": {
@@ -405,9 +518,18 @@
         "title_italic": "start?",
         "description": "Answer up to ten quick questions and get your stage, a readiness score and one clear next step for this week.",
         "cta_1_text": "Take the Free Assessment",
-        "cta_1_url": "\/pages\/teacher-moves-assessment",
+        "cta_1_url": "/pages/teacher-moves-assessment",
+        "buy_product": "",
         "cta_2_text": "Explore My Canada Pathway",
-        "cta_2_url": "\/pages\/canada-teacher-pathway"
+        "cta_2_url": "/pages/canada-teacher-pathway"
+      }
+    },
+    "email_capture": {
+      "type": "email-capture",
+      "settings": {
+        "title": "Relocation intel, straight to your inbox.",
+        "description": "Visa updates, salary benchmarks, and destination guides for teachers serious about their next move.",
+        "tags": "newsletter"
       }
     }
   },
@@ -424,6 +546,7 @@
     "coaching_preview",
     "authority",
     "blog_preview",
+    "teaching_videos_xJPqkg",
     "final_cta",
     "email_capture"
   ]
