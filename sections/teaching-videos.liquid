@@ -1,0 +1,139 @@
+<section class="section-padding bg-light text-light etl-yt" id="etl-yt-{{ section.id }}">
+  <div class="container">
+    <div class="etl-yt__head">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="etl-yt__eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        <h2 class="font-display font-black etl-yt__title">
+          {{- section.settings.heading }}
+          {% if section.settings.heading_accent != blank %}<span class="italic etl-yt__accent">{{ section.settings.heading_accent }}</span>{% endif -%}
+        </h2>
+        {%- if section.settings.text != blank -%}
+          <p class="etl-yt__text">{{ section.settings.text }}</p>
+        {%- endif -%}
+      </div>
+      <div class="etl-yt__nav">
+        <button type="button" class="etl-yt__arrow" data-dir="-1" aria-label="Previous videos">&larr;</button>
+        <button type="button" class="etl-yt__arrow" data-dir="1" aria-label="Next videos">&rarr;</button>
+      </div>
+    </div>
+
+    <ul class="etl-yt__track" role="list">
+      {%- for block in section.blocks -%}
+        {%- if block.settings.video_id != blank -%}
+          {%- assign vid = block.settings.video_id | strip | escape -%}
+          <li class="etl-yt__card" {{ block.shopify_attributes }}>
+            <button type="button" class="etl-yt__thumb" data-id="{{ vid }}" aria-label="Play video: {{ block.settings.title | escape }}">
+              <img src="https://i.ytimg.com/vi/{{ vid }}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+              <span class="etl-yt__play" aria-hidden="true"></span>
+            </button>
+            <p class="etl-yt__card-title">{{ block.settings.title }}</p>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+
+    {%- if section.settings.button_link != blank -%}
+      <div class="etl-yt__cta">
+        <a class="etl-yt__btn" href="{{ section.settings.button_link | escape }}" target="_blank" rel="noopener">{{ section.settings.button_label }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .etl-yt__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 32px; }
+  .etl-yt__eyebrow { font-family: var(--font-body); font-weight: 700; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--color-brand-blue); margin: 0 0 12px; }
+  .etl-yt__title { margin: 0; }
+  .etl-yt__accent { color: var(--color-brand-gold); }
+  .etl-yt__text { max-width: 560px; margin: 16px 0 0; font-size: 18px; line-height: 1.5; opacity: .8; }
+  .etl-yt__nav { display: flex; gap: 8px; flex-shrink: 0; }
+  .etl-yt__arrow { width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(10, 10, 20, .15); background: #fff; color: var(--color-text-light); font-size: 18px; line-height: 1; cursor: pointer; transition: border-color .2s, color .2s; }
+  .etl-yt__arrow:hover, .etl-yt__arrow:focus-visible { border-color: var(--color-brand-blue); color: var(--color-brand-blue); }
+  .etl-yt__track { list-style: none; margin: 0; padding: 0 0 8px; display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 48px) / 3); gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .etl-yt__track::-webkit-scrollbar { display: none; }
+  .etl-yt__card { scroll-snap-align: start; min-width: 0; }
+  .etl-yt__thumb { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; padding: 0; border: 0; border-radius: 16px; overflow: hidden; background: var(--color-bg-dark); cursor: pointer; }
+  .etl-yt__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s; }
+  .etl-yt__thumb:hover img { transform: scale(1.04); }
+  .etl-yt__play { position: absolute; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; background: rgba(10, 11, 20, .75); transition: background .2s; }
+  .etl-yt__play::after { content: ""; position: absolute; left: 25px; top: 20px; border-style: solid; border-width: 12px 0 12px 20px; border-color: transparent transparent transparent #fff; }
+  .etl-yt__thumb:hover .etl-yt__play, .etl-yt__thumb:focus-visible .etl-yt__play { background: var(--color-brand-blue); }
+  .etl-yt__thumb iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .etl-yt__card-title { margin: 12px 0 0; font-weight: 700; font-size: 16px; line-height: 1.4; }
+  .etl-yt__cta { margin-top: 32px; text-align: center; }
+  .etl-yt__btn { display: inline-block; padding: 14px 28px; border-radius: 999px; background: var(--color-brand-blue); color: #fff; font-weight: 700; text-decoration: none; transition: background .2s; }
+  .etl-yt__btn:hover, .etl-yt__btn:focus-visible { background: var(--color-brand-deep); color: #fff; }
+  @media (max-width: 989px) { .etl-yt__track { grid-auto-columns: calc((100% - 24px) / 2); } }
+  @media (max-width: 599px) { .etl-yt__track { grid-auto-columns: 85%; gap: 16px; } .etl-yt__nav { display: none; } }
+</style>
+
+<script>
+  (function () {
+    var root = document.getElementById('etl-yt-{{ section.id }}');
+    if (!root) return;
+    var track = root.querySelector('.etl-yt__track');
+    root.querySelectorAll('.etl-yt__arrow').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        track.scrollBy({ left: track.clientWidth * parseInt(btn.getAttribute('data-dir'), 10), behavior: 'smooth' });
+      });
+    });
+    root.querySelectorAll('.etl-yt__thumb').forEach(function (thumb) {
+      thumb.addEventListener('click', function () {
+        var frame = document.createElement('iframe');
+        frame.src = 'https://www.youtube-nocookie.com/embed/' + thumb.getAttribute('data-id') + '?autoplay=1&rel=0';
+        frame.title = thumb.getAttribute('aria-label');
+        frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        frame.allowFullscreen = true;
+        var holder = document.createElement('div');
+        holder.className = 'etl-yt__thumb';
+        holder.appendChild(frame);
+        thumb.replaceWith(holder);
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Teaching videos",
+  "class": "etl-yt-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Free on YouTube" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Teaching abroad," },
+    { "type": "text", "id": "heading_accent", "label": "Heading accent (italic, gold)", "default": "explained." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Real answers on teaching in Qatar and getting certified and hired in Canada." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Watch more on YouTube →" },
+    { "type": "text", "id": "button_link", "label": "Button link", "default": "https://www.youtube.com/@EDWINASHANGASE" }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        { "type": "text", "id": "video_id", "label": "YouTube video ID", "info": "The code after watch?v= in the video link, e.g. cRa6ohT0amQ" },
+        { "type": "text", "id": "title", "label": "Title" }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "Teaching videos",
+      "blocks": [
+        { "type": "video", "settings": { "video_id": "cRa6ohT0amQ", "title": "How to Get Hired Abroad to Teach in Canada: Step by Step" } },
+        { "type": "video", "settings": { "video_id": "0svznTTLrp0", "title": "I Finally Got My New Brunswick Teaching Certificate" } },
+        { "type": "video", "settings": { "video_id": "TDyOjTVYiMw", "title": "Teaching Offer in the USA or Canada? How I Compared Both and Chose" } },
+        { "type": "video", "settings": { "video_id": "23syV7h-vtA", "title": "Teaching in Qatar: What I Wish I Knew Before Signing the Contract" } },
+        { "type": "video", "settings": { "video_id": "McbTv3B0cas", "title": "Teaching Packages in Qatar Explained: Spot a Bad Contract Before You Sign" } },
+        { "type": "video", "settings": { "video_id": "X0LeyjjUv_8", "title": "How to Find a Teaching Job in Qatar: Where to Apply and When to Start" } },
+        { "type": "video", "settings": { "video_id": "gJCRF2Iuasc", "title": "Documents You Need to Teach in Qatar: The Full Attestation Checklist" } },
+        { "type": "video", "settings": { "video_id": "4G8EmkrpDSc", "title": "Your First Year Teaching in Qatar: What Nobody Tells New Expat Teachers" } },
+        { "type": "video", "settings": { "video_id": "wkLDb9XeAJo", "title": "Qatar Work Visa for Teachers: From Offer Letter to Residence Permit (QID)" } },
+        { "type": "video", "settings": { "video_id": "LcjIebMNM0I", "title": "Where Expat Teachers Live in Doha: Rent Prices, Studio to 6-Bedroom" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
