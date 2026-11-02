@@ -1,10 +1,22 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
-      "type": "etl-intake",
+      "type": "tm-intake",
       "settings": {
+        "success": "Thank you. Your intake has been received. Please email your supporting documents with your order number in the subject line. Check your inbox for your confirmation and next steps."
       }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }
