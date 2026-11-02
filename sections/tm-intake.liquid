@@ -51,6 +51,46 @@
     {%- endform -%}
   </div>
 </section>
+<script>
+  /* Teacher Moves: after a successful intake submission, record it in Klaviyo so the receipt email sends automatically. */
+  (function () {
+    var KEY = 'tmPathwayIntake';
+    var form = document.getElementById('tm-intake-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function () {
+      try {
+        var email = document.getElementById('ti-email');
+        var order = document.getElementById('ti-order');
+        if (email && email.value.trim()) {
+          window.sessionStorage.setItem(KEY, JSON.stringify({
+            email: email.value.trim(),
+            order: order ? order.value.trim() : '',
+            t: Date.now()
+          }));
+        }
+      } catch (e) {}
+    });
+
+    if (!form.querySelector('.etl-msg-ok')) return;
+
+    var data = null;
+    try {
+      data = JSON.parse(window.sessionStorage.getItem(KEY) || 'null');
+      window.sessionStorage.removeItem(KEY);
+    } catch (e) {}
+    if (!data || !data.email || Date.now() - data.t > 30 * 60 * 1000) return;
+
+    var digits = String(data.order || '').replace(/[^0-9]/g, '');
+    window.klaviyo = window.klaviyo || [];
+    window.klaviyo.push(['identify', { email: data.email }]);
+    window.klaviyo.push(['track', 'Canada Pathway Intake Submitted', {
+      order_number: digits ? '#' + digits : '',
+      form: 'Canada Pathway intake',
+      page: window.location.pathname
+    }]);
+  })();
+</script>
 {% schema %}
 {
   "name": "Intake form (legacy)",
