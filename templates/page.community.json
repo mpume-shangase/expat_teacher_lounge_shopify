@@ -19,7 +19,7 @@
         "title_prefix": "Your next move is easier with the right people",
         "title_italic": "around you.",
         "description": "The Teacher Moves community on Skool supports teachers navigating international careers, certification, relocation, professional growth and career transitions.",
-        "cta_1_text": "Join Free",
+        "cta_1_text": "Join Teacher Moves",
         "cta_1_url": "https:\/\/www.skool.com\/expat-teachers-lounge-9615\/about",
         "cta_2_text": "Go Premium",
         "cta_2_url": "https:\/\/www.skool.com\/expat-teachers-lounge-9615\/plans?src=join"
@@ -32,10 +32,13 @@
         "eyebrow": "Membership",
         "title_prefix": "Choose how you",
         "title_italic": "join.",
-        "subtitle": "Start free. Upgrade when you want weekly support.",
-        "free_list": "<ul><li>The full Teacher Moves community<\/li><li>3 hand-picked job postings a week<\/li><li>Every guide we publish<\/li><li>Monthly live Q&amp;A<\/li><\/ul>",
+        "subtitle": "Start at US$9\/month. Upgrade when you want weekly support.",
+        "free_title": "Standard",
+        "free_price": "US$9\/month",
+        "free_label": "Join Teacher Moves",
+        "free_list": "<ul><li>The full Teacher Moves community<\/li><li>3 hand-picked job postings a week<\/li><li>Every guide we publish<\/li><li>CV &amp; Interview Studio (free version)<\/li><\/ul>",
         "free_url": "https:\/\/www.skool.com\/expat-teachers-lounge-9615\/about",
-        "premium_list": "<ul><li>Weekly live Q&amp;A and a monthly workshop<\/li><li>Every session recorded<\/li><li>Canada Track<\/li><li>CV &amp; Interview Studio<\/li><li>The full Job Board<\/li><\/ul>",
+        "premium_list": "<ul><li>Weekly live Q&amp;A and a monthly workshop<\/li><li>Every session recorded<\/li><li>Canada Track<\/li><li>Decide Where To Go<\/li><li>The full Job Board<\/li><\/ul>",
         "premium_note": "Or US$390\/year (two months free).",
         "premium_url": "https:\/\/www.skool.com\/expat-teachers-lounge-9615\/plans?src=join"
       }
@@ -51,7 +54,7 @@
         "s1": {
           "type": "step",
           "settings": {
-            "title": "Join free on Skool",
+            "title": "Join on Skool",
             "description": "It takes a minute."
           }
         },
@@ -66,14 +69,14 @@
           "type": "step",
           "settings": {
             "title": "Come to the live Q&A",
-            "description": "Monthly for everyone, weekly for Premium members."
+            "description": "Every Saturday for Premium and VIP members."
           }
         },
         "s4": {
           "type": "step",
           "settings": {
             "title": "Upgrade when you're ready",
-            "description": "Go Premium for weekly live Q&A, the full Job Board and the CV & Interview Studio."
+            "description": "Go Premium for weekly live Q&A, the full Job Board and the Canada Track."
           }
         }
       },
@@ -95,15 +98,15 @@
         "q1": {
           "type": "qa",
           "settings": {
-            "question": "Is the free tier really free?",
-            "answer": "<p>Yes. The free tier stays free.<\/p>"
+            "question": "How much is Standard?",
+            "answer": "<p>Standard is US$9\/month or US$90\/year. Members who joined while the community was free keep free access.<\/p>"
           }
         },
         "q2": {
           "type": "qa",
           "settings": {
             "question": "How much is Premium?",
-            "answer": "<p>Premium is US$39\/month or US$390\/year. Members who joined at the founding price keep it as described on Skool.<\/p>"
+            "answer": "<p>Premium is US$39\/month or US$390\/year, and VIP is US$99\/month or US$850\/year. Members who joined at the founding price keep it as described on Skool.<\/p>"
           }
         },
         "q3": {
@@ -125,8 +128,8 @@
       "settings": {
         "title_prefix": "Start with the",
         "title_italic": "community.",
-        "description": "Free to join. Real answers from teachers who have made the move.",
-        "cta_1_text": "Join Free",
+        "description": "From US$9\/month. Real answers from teachers who have made the move.",
+        "cta_1_text": "Join Teacher Moves",
         "cta_1_url": "https:\/\/www.skool.com\/expat-teachers-lounge-9615\/about",
         "cta_2_text": "Explore My Canada Pathway",
         "cta_2_url": "\/pages\/canada-teacher-pathway"

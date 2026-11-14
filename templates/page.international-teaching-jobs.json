@@ -21,11 +21,11 @@
         "title_italic": "and how to apply safely.",
         "description": "Most international school jobs are advertised on a handful of platforms, and the busiest hiring months are December to March for an August start. Know where to look, check the school is real, and be wary of anyone who asks you for money for a job.",
         "price": "",
-        "cta_1_text": "Join Free for Weekly Job Picks",
+        "cta_1_text": "Join for Weekly Job Picks",
         "cta_1_url": "https://www.skool.com/expat-teachers-lounge-9615/about?utm_source=website&utm_medium=topic-page&utm_campaign=tm_teaching-jobs_202610",
         "cta_2_text": "Take the Free Assessment",
         "cta_2_url": "/pages/teacher-moves-assessment",
-        "note": "3 hand-picked job postings a week in the free Teacher Moves community · 500+ teachers already there",
+        "note": "3 hand-picked job postings a week in the Teacher Moves community · 500+ teachers already there",
         "sticky_trigger": true,
         "proof_kind": "ask",
         "proof_quote": "Hook me up with a job 😪 Qatar or Canada, I’m tired of interviews and no response.",
@@ -42,7 +42,7 @@
         "title_italic": "five steps.",
         "subtitle": "The teachers who get the best offers usually start earlier than everyone else.",
         "tint": true,
-        "button_label": "Join Free for Weekly Job Picks",
+        "button_label": "Join for Weekly Job Picks",
         "button_url": "https://www.skool.com/expat-teachers-lounge-9615/about?utm_source=website&utm_medium=topic-page&utm_campaign=tm_teaching-jobs_202610"
       },
       "blocks": {
@@ -106,11 +106,11 @@
         "eyebrow": "Teacher Moves community",
         "title_prefix": "Hand-picked jobs,",
         "title_italic": "every week.",
-        "description": "Join free and get three hand-picked international teaching jobs every week, alongside teachers who have already made the move.",
+        "description": "Join and get three hand-picked international teaching jobs every week, alongside teachers who have already made the move.",
         "offer_name": "Free membership",
         "price": "Free",
-        "list": "<ul><li>3 hand-picked job postings a week</li><li>A monthly live Q&amp;A</li><li>Every guide we publish</li><li>Teachers already in the countries you are considering</li></ul>",
-        "cta_text": "Join the Free Community",
+        "list": "<ul><li>3 hand-picked job postings a week</li><li>Every guide we publish</li><li>Teachers already in the countries you are considering</li></ul>",
+        "cta_text": "Join the Community",
         "cta_url": "https://www.skool.com/expat-teachers-lounge-9615/about?utm_source=website&utm_medium=topic-page&utm_campaign=tm_teaching-jobs_202610",
         "link_text": "Want every listing? Premium is US$39/month",
         "link_url": "https://www.skool.com/expat-teachers-lounge-9615/plans?src=join",
@@ -139,8 +139,8 @@
             "kicker": "Start here",
             "title": "Teacher Moves community",
             "price": "Free",
-            "text": "<p>3 hand-picked job postings a week, a monthly live Q&A and every guide we publish.</p>",
-            "button_label": "Join Free",
+            "text": "<p>3 hand-picked job postings a week and every guide we publish, from US$9/month.</p>",
+            "button_label": "Join Teacher Moves",
             "button_url": "https://www.skool.com/expat-teachers-lounge-9615/about?utm_source=website&utm_medium=topic-page&utm_campaign=tm_teaching-jobs_202610",
             "featured": true
           }
@@ -324,8 +324,8 @@
       "settings": {
         "title_prefix": "Your next job could be",
         "title_italic": "in this week's picks.",
-        "description": "Join the free Teacher Moves community for three hand-picked international teaching jobs every week.",
-        "cta_1_text": "Join Free for Weekly Job Picks",
+        "description": "Join the Teacher Moves community for three hand-picked international teaching jobs every week.",
+        "cta_1_text": "Join for Weekly Job Picks",
         "cta_1_url": "https://www.skool.com/expat-teachers-lounge-9615/about?utm_source=website&utm_medium=topic-page&utm_campaign=tm_teaching-jobs_202610",
         "cta_2_text": "Take the Free Assessment",
         "cta_2_url": "/pages/teacher-moves-assessment"
@@ -334,7 +334,7 @@
     "sticky": {
       "type": "etl-sticky-cta",
       "settings": {
-        "label": "Join Free for Weekly Job Picks",
+        "label": "Join for Weekly Job Picks",
         "url": "https://www.skool.com/expat-teachers-lounge-9615/about?utm_source=website&utm_medium=topic-page&utm_campaign=tm_teaching-jobs_202610"
       }
     },

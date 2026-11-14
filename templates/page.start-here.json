@@ -16,11 +16,11 @@
         "brand_logo_asset": "tm-mark.svg",
         "brand_name": "Teacher Moves",
         "brand_sub": "by Expat Teacher's Lounge",
-        "heading": "Join the free <em>Teacher Moves</em> community.",
-        "description": "Ask questions, get 3 hand-picked teaching jobs a week and join the monthly live Q&A with 500+ teachers planning their next move.",
-        "cta_text": "Join the Free Community",
+        "heading": "Join the <em>Teacher Moves</em> community.",
+        "description": "Ask questions and get 3 hand-picked teaching jobs a week, alongside 500+ teachers planning their next move.",
+        "cta_text": "Join the Community",
         "cta_url": "https://www.skool.com/expat-teachers-lounge-9615",
-        "note": "It's free · The community runs on Skool",
+        "note": "From US$9/month · The community runs on Skool",
         "skip_text": "I already know what I need",
         "skip_target": "#tm-shortcuts",
         "show_trust": true,
@@ -155,8 +155,8 @@
       "settings": {
         "eyebrow": "Teacher Moves community",
         "heading": "You don't have to figure it out alone.",
-        "text": "Join 500+ teachers inside the free Teacher Moves community to ask questions, learn from other educators and keep working on your next move.",
-        "button_text": "Join the Free Community",
+        "text": "Join 500+ teachers inside the Teacher Moves community to ask questions, learn from other educators and keep working on your next move.",
+        "button_text": "Join the Community",
         "button_url": "https://www.skool.com/expat-teachers-lounge-9615",
         "brand_logo_asset": "tm-mark.svg"
       }

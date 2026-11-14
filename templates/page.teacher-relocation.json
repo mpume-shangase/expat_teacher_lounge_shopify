@@ -25,7 +25,7 @@
         "cta_1_url": "/pages/teacher-moves-assessment?goal=reloc",
         "cta_2_text": "See the Relocation Checklist",
         "cta_2_url": "#checklist",
-        "note": "By Mpume (Edwina) Shangase, who has moved countries with her family more than once · 500+ teachers in the free Teacher Moves community",
+        "note": "By Mpume (Edwina) Shangase, who has moved countries with her family more than once · 500+ teachers in the Teacher Moves community",
         "sticky_trigger": true,
         "proof_kind": "say",
         "proof_quote": "Thank you for the video!! It is such important to know this kins of things before moving. And do you know something about universities?",
@@ -179,7 +179,7 @@
             "title": "Teacher Moves community",
             "price": "",
             "text": "<p>Ask teachers who already live where you are going.</p>",
-            "button_label": "Join Free",
+            "button_label": "Join Teacher Moves",
             "button_url": "https://www.skool.com/expat-teachers-lounge-9615/about",
             "featured": false
           }
